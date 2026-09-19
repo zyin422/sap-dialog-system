@@ -5,6 +5,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from dataclasses import dataclass, asdict
 import abc, pathlib, json, typing
 
+def get_default_device() -> str:
+  if torch.cuda.is_available():
+    return "cuda"
+  if torch.backends.mps.is_available():
+    return "mps"
+  return "cpu"
+
 @dataclass
 class PipelineResult:
     audio_file: str | pathlib.Path
@@ -34,10 +41,11 @@ class SpeechToTextPipeline:
 
         print(f"[2/2 Running LLM...")
         inference_result = self.llm.inference(transcript)
-        return PipelineResult(audio_file=audio_path, asr_transcript=transcript, llm_output=inference_result, ground_truth=ground_truth)
+        return PipelineResult(audio_file=str(audio_path), asr_transcript=transcript, llm_output=inference_result, ground_truth=ground_truth)
     
     def process_directory(self, dir_path: str) -> list[PipelineResult]:
-        files = pathlib.Path(dir_path).glob("*.mp3")
+        path = pathlib.Path(dir_path)
+        files = [f for f in path.iterdir() if f.suffix in [".mp3", ".wav"]]
         results = []
         for f in files:
             results.append(self.process_file(f))
@@ -53,17 +61,17 @@ class SpeechToTextPipeline:
 class VoxtralRealtimeASR(BaseASR):
     def __init__(self, model_id: str = "mistralai/Voxtral-Mini-4B-Realtime-2602", device: str = "mps"):
         self.model_id = model_id
-        self.device = device
-        self.processor = AutoProcessor.from_pretrained(model_id)
-        self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id)
-        self.model.to(device)
+        self.device = device or get_default_device()
+        self.processor = AutoProcessor.from_pretrained(model_id, local_files_only=True)
+        self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id, dtype = torch.float16, local_files_only=True)
+        self.model.to(self.device)
 
     @torch.no_grad()
     def transcribe(self, audio_path):
         audio_array, sr = librosa.load(audio_path, sr=16000)
         inputs = self.processor(audio_array, sampling_rate=sr, return_tensors="pt")
         inputs = inputs.to(self.device, dtype=self.model.dtype)
-        outputs = self.model.generate(**inputs, max_new_tokens=64) # type: ignore[bad-argument-type]
+        outputs = self.model.generate(**inputs, max_new_tokens=20) # type: ignore[bad-argument-type]
         decoded_outputs = self.processor.batch_decode(outputs, skip_special_tokens=True)[0]
         
         return decoded_outputs
@@ -75,10 +83,10 @@ class QwenLLM(BaseLLM):
         device: str = "mps",
     ):
         self.model_id = model_id
-        self.device = device
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.model = AutoModelForCausalLM.from_pretrained(model_id)
-        self.model.to(device)
+        self.device = device or get_default_device()
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=True)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.float16, local_files_only=True)
+        self.model.to(self.device)
 
     @torch.no_grad()
     def inference(self, transcript: str):
@@ -86,12 +94,12 @@ class QwenLLM(BaseLLM):
             {
                 "role": "system",
                 "content": (
-                    "You are an AI task assistant in a spoekn dialog system helping users with speech dysarthria perform tasks "
+                    "You are an AI task assistant in a spoken dialog system helping users with speech dysarthria perform tasks "
                     "(e.g. setting alarms, checking weather, calendar scheduling).\n"
                     "Analyze the user's spoken transcript, which may contain dysfluent or imperfect speech recognition errors.\n"
                     "Respond ONLY with a valid JSON object containing:\n"
                     "1. 'intent': the identified task or action (string)\n"
-                    "2. 'slots': key-value pairs of extracted enetitites (e.g. time, date, location, item)\n"
+                    "2. 'slots': key-value pairs of extracted entities (e.g. time, date, location, item)\n"
                     "3. 'response': a natural, helpful conversational response to the user\n"
                     "Do not include Markdown formatting or any extra text outside the JSON file."
                 )
@@ -117,7 +125,12 @@ class QwenLLM(BaseLLM):
         if start != -1 and end != -1:
             clean_text = clean_text[start : end + 1]
 
-        return json.loads(clean_text)
+        try:
+            out = json.loads(clean_text)
+            return out
+        except:
+            print("json.loads failed:")
+            return {"raw_output": clean_text}
 
 
 if __name__ == "__main__":
@@ -133,7 +146,11 @@ if __name__ == "__main__":
     output_path = current_dir / "results.json"
 
     print(f"Processing audio files from: {audio_dir}")
-    results = pipeline.process_directory(str(audio_dir))
+    #results = pipeline.process_directory(str(audio_dir))
+    results = [
+        pipeline.process_file(current_dir / "audio" / "fox-dog-16khz.mp3")
+    ]
+
 
     pipeline.save_results(results, output_path)
     print(f"Results saved to {output_path}")

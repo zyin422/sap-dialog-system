@@ -59,11 +59,11 @@ class SpeechToTextPipeline:
             output_path.write_text(data)
 
 class VoxtralRealtimeASR(BaseASR):
-    def __init__(self, model_id: str = "mistralai/Voxtral-Mini-4B-Realtime-2602", device: str = "mps"):
+    def __init__(self, model_id: str = "mistralai/Voxtral-Mini-4B-Realtime-2602", device: str = None):
         self.model_id = model_id
         self.device = device or get_default_device()
-        self.processor = AutoProcessor.from_pretrained(model_id, local_files_only=True)
-        self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id, dtype = torch.float16, local_files_only=True)
+        self.processor = AutoProcessor.from_pretrained(model_id)
+        self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id, dtype = torch.bfloat16)
         self.model.to(self.device)
 
     @torch.no_grad()
@@ -79,13 +79,13 @@ class VoxtralRealtimeASR(BaseASR):
 class QwenLLM(BaseLLM):
     def __init__(
         self,
-        model_id: str = "Qwen/Qwen2.5-1.5B-Instruct",
-        device: str = "mps",
+        model_id: str = "Qwen/Qwen2.5-7B-Instruct",
+        device: str = None,
     ):
         self.model_id = model_id
         self.device = device or get_default_device()
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id, local_files_only=True)
-        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.float16, local_files_only=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.bfloat16)
         self.model.to(self.device)
 
     @torch.no_grad()

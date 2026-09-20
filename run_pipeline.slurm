@@ -22,8 +22,11 @@
 export WORK_DIR="/work/hdd/bedl/zyin2"
 export HF_HOME="$WORK_DIR/hf_cache"
 
-module reset
-module load python/3.11
-source "$WORK_DIR/venvs/sap_env/bin/activate"
+export TRANSFORMERS_OFFLINE=1
+export HF_HUB_OFFLINE=1
 
-srun python3 s2t_pipeline.py
+module reset
+module miniforge3-python
+source "$WORK_DIR/conda_envs/sap_env"
+
+srun python3 -u s2t_pipeline.py

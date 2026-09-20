@@ -63,15 +63,14 @@ class VoxtralRealtimeASR(BaseASR):
         self.model_id = model_id
         self.device = device or get_default_device()
         self.processor = AutoProcessor.from_pretrained(model_id)
-        self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id, dtype = torch.bfloat16)
-        self.model.to(self.device)
+        self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id, dtype = torch.bfloat16, device_map="auto")
 
     @torch.no_grad()
     def transcribe(self, audio_path):
         audio_array, sr = librosa.load(audio_path, sr=16000)
         inputs = self.processor(audio_array, sampling_rate=sr, return_tensors="pt")
         inputs = inputs.to(self.device, dtype=self.model.dtype)
-        outputs = self.model.generate(**inputs, max_new_tokens=20) # type: ignore[bad-argument-type]
+        outputs = self.model.generate(**inputs, max_new_tokens=64) # type: ignore[bad-argument-type]
         decoded_outputs = self.processor.batch_decode(outputs, skip_special_tokens=True)[0]
         
         return decoded_outputs
@@ -85,8 +84,7 @@ class QwenLLM(BaseLLM):
         self.model_id = model_id
         self.device = device or get_default_device()
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.bfloat16)
-        self.model.to(self.device)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.bfloat16, device_map="auto")
 
     @torch.no_grad()
     def inference(self, transcript: str):

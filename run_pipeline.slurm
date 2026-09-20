@@ -28,5 +28,4 @@ export HF_HUB_OFFLINE=1
 module reset
 module load miniforge3-python
 source activate "$WORK_DIR/conda_envs/sap_env"
-
 srun "$WORK_DIR/conda_envs/sap_env/bin/python" -u s2t_pipeline.py

@@ -29,4 +29,4 @@ module reset
 module load miniforge3-python
 source activate "$WORK_DIR/conda_envs/sap_env"
 
-srun python3 -u s2t_pipeline.py
+srun "$WORK_DIR/conda_envs/sap_env/bin/python" -u s2t_pipeline.py

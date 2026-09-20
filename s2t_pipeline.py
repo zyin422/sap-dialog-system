@@ -146,10 +146,7 @@ if __name__ == "__main__":
     output_path = current_dir / "results.json"
 
     print(f"Processing audio files from: {audio_dir}")
-    #results = pipeline.process_directory(str(audio_dir))
-    results = [
-        pipeline.process_file(current_dir / "audio" / "fox-dog-16khz.mp3")
-    ]
+    results = pipeline.process_directory(str(audio_dir))
 
 
     pipeline.save_results(results, output_path)

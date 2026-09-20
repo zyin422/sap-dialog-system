@@ -1,5 +1,4 @@
-import librosa
-import torch
+import librosa, torch, time
 from transformers import AutoProcessor, VoxtralRealtimeForConditionalGeneration
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from dataclasses import dataclass, asdict
@@ -36,11 +35,18 @@ class SpeechToTextPipeline:
 
     def process_file(self, audio_path: str | pathlib.Path, ground_truth: typing.Optional[str] = None) -> PipelineResult:
         print(f"\n[1/2] Running ASR...")
+        t_asr = time.perf_counter()
         transcript = self.asr.transcribe(audio_path)
+        asr_duration = time.perf_counter() - t_asr
         print(f"      Transcript: {transcript}")
 
+
         print(f"[2/2 Running LLM...")
+        t_llm = time.perf_counter()
         inference_result = self.llm.inference(transcript)
+        llm_duration = time.perf_counter() - t_llm
+
+        print(f"ASR time: {asr_duration:.2f}s | LLM time: {llm_duration:.2f}s")
         return PipelineResult(audio_file=str(audio_path), asr_transcript=transcript, llm_output=inference_result, ground_truth=ground_truth)
     
     def process_directory(self, dir_path: str) -> list[PipelineResult]:
@@ -64,12 +70,18 @@ class VoxtralRealtimeASR(BaseASR):
         self.device = device or get_default_device()
         self.processor = AutoProcessor.from_pretrained(model_id)
         self.model = VoxtralRealtimeForConditionalGeneration.from_pretrained(model_id, dtype = torch.bfloat16, device_map="auto")
+        print(f"Voxtral Model Device:       {self.model.device}")
+        print(f"Voxtral Device Map:          {getattr(self.model, 'hf_device_map', 'No device_map')}")
 
     @torch.no_grad()
     def transcribe(self, audio_path):
         audio_array, sr = librosa.load(audio_path, sr=16000)
         inputs = self.processor(audio_array, sampling_rate=sr, return_tensors="pt")
         inputs = inputs.to(self.device, dtype=self.model.dtype)
+        for key, val in inputs.items():
+            if hasattr(val, "device"):
+                print(f"Input tensor '{key}' is on device: {val.device}")
+
         outputs = self.model.generate(**inputs, max_new_tokens=64) # type: ignore[bad-argument-type]
         decoded_outputs = self.processor.batch_decode(outputs, skip_special_tokens=True)[0]
         
@@ -85,6 +97,8 @@ class QwenLLM(BaseLLM):
         self.device = device or get_default_device()
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.bfloat16, device_map="auto")
+        print(f"Qwen Model Device:          {self.model.device}")
+        print(f"Qwen Device Map:             {getattr(self.model, 'hf_device_map', 'No device_map')}")
 
     @torch.no_grad()
     def inference(self, transcript: str):
@@ -111,6 +125,8 @@ class QwenLLM(BaseLLM):
         text = self.tokenizer.apply_chat_template( #type: ignore
             messages, tokenize=False, add_generation_prompt=True)
         inputs = self.tokenizer([text], return_tensors="pt").to(self.device) #type: ignore
+        print(f"LLM input_ids device: {inputs['input_ids'].device}")
+
         outputs = self.model.generate(**inputs, max_new_tokens=256)
 
         prompt_length = inputs["input_ids"].shape[1]
@@ -133,7 +149,9 @@ class QwenLLM(BaseLLM):
 
 if __name__ == "__main__":
     print("Loading ASR and LLM models...")
+    t0 = time.perf_counter()
     asr = VoxtralRealtimeASR()
+    print(f"Voxtral loaded in {time.perf_counter() - t0:.2f}s")
     llm = QwenLLM()
 
     print("Creating pipeline:")

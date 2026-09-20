@@ -1,0 +1,19 @@
+Lmod Warning:
+'cray-mpich' requires a network targeting module to be loaded.
+Try 'module avail craype-network' to list the available network
+ targeting modules. 
+While processing the following module(s):
+    Module fullname   Module Filename
+    ---------------   ---------------
+    PrgEnv-gnu/8.7.0  /opt/cray/pe/lmod/modulefiles/core/PrgEnv-gnu/8.7.0.lua
+    default-rh96      /sw/rh9.4/user/modules/default-rh96.lua
+
+Running "module reset". Resetting modules to system default. The following $MODULEPATH directories have been removed: /sw/rh9.4/spack/default/modules/lmod/linux-rhel9-x86_64/Core /opt/cray/pe/lmod/modulefiles/mpi/gnu/10.0/ofi/1.0/cray-mpich/8.0
+A conda environment has been detected CONDA_PREFIX=
+/work/hdd/bedl/zyin2/conda_envs/sap_env 
+miniconda3 is loaded. Consider running conda deactivate and reloading it.
+Traceback (most recent call last):
+  File "/u/zyin2/sap-dialog-system/s2t_pipeline.py", line 1, in <module>
+    import librosa
+ModuleNotFoundError: No module named 'librosa'
+srun: error: gpub098: task 0: Exited with exit code 1

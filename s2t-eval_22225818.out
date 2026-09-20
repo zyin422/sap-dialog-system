@@ -1,0 +1,59 @@
+Loading ASR and LLM models...
+Creating pipeline:
+Processing audio files from: /u/zyin2/sap-dialog-system/audio
+
+[1/2] Running ASR...
+      Transcript:  Define, conclude.
+[2/2 Running LLM...
+
+[1/2] Running ASR...
+      Transcript:  Show me an image of business meetings.
+[2/2 Running LLM...
+
+[1/2] Running ASR...
+      Transcript:  What is the Microsoft stock price?
+[2/2 Running LLM...
+
+[1/2] Running ASR...
+      Transcript:  What is the weather on New Year's Eve?
+[2/2 Running LLM...
+
+[1/2] Running ASR...
+      Transcript:  Wake me up at 6.45 every day.
+[2/2 Running LLM...
+Results saved to /u/zyin2/sap-dialog-system/results.json
+
+
+
+---------------
+File:       /u/zyin2/sap-dialog-system/audio/define-conclude.mp3
+Transcript:  Define, conclude.
+LLM Output: {'intent': 'definition', 'slots': {}, 'response': 'Could you please provide more details on what you would like to define? '}
+
+
+
+---------------
+File:       /u/zyin2/sap-dialog-system/audio/image-business-meetings.mp3
+Transcript:  Show me an image of business meetings.
+LLM Output: {'intent': 'show_image', 'slots': {'category': 'business meetings'}, 'response': "Sure, I can show you an image of business meetings. Is there a specific type of meeting you're interested in, or should I just find a general one?"}
+
+
+
+---------------
+File:       /u/zyin2/sap-dialog-system/audio/microsoft-stock-price.mp3
+Transcript:  What is the Microsoft stock price?
+LLM Output: {'intent': 'get_stock_price', 'slots': {'stock': 'Microsoft'}, 'response': 'I can help with that. The current stock price for Microsoft is not available right now, but I can get it for you shortly. Would you like to set up a reminder for when to check this information?'}
+
+
+
+---------------
+File:       /u/zyin2/sap-dialog-system/audio/nyeve-weather.mp3
+Transcript:  What is the weather on New Year's Eve?
+LLM Output: {'intent': 'check_weather', 'slots': {'date': "New Year's Eve"}, 'response': "I can help with that. When is New Year's Eve for you?"}
+
+
+
+---------------
+File:       /u/zyin2/sap-dialog-system/audio/wake-me-0645.mp3
+Transcript:  Wake me up at 6.45 every day.
+LLM Output: {'intent': 'set_alarm', 'slots': {'time': '6:45', 'frequency': 'every day'}, 'response': "Sure, I'll set your alarm for 6:45 every day. Is there a specific day you want to start this from?"}

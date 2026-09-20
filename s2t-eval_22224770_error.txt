@@ -1,0 +1,27 @@
+Lmod Warning:
+'cray-mpich' requires a network targeting module to be loaded.
+Try 'module avail craype-network' to list the available network
+ targeting modules. 
+While processing the following module(s):
+    Module fullname   Module Filename
+    ---------------   ---------------
+    PrgEnv-gnu/8.7.0  /opt/cray/pe/lmod/modulefiles/core/PrgEnv-gnu/8.7.0.lua
+    default-rh96      /sw/rh9.4/user/modules/default-rh96.lua
+
+Running "module reset". Resetting modules to system default. The following $MODULEPATH directories have been removed: /sw/rh9.4/spack/default/modules/lmod/linux-rhel9-x86_64/Core /opt/cray/pe/lmod/modulefiles/mpi/gnu/10.0/ofi/1.0/cray-mpich/8.0
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.11"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.11"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+/var/spool/slurmd/job22224770/slurm_script: line 27: /work/hdd/bedl/zyin2/venvs/sap_env/bin/activate: No such file or directory
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-09-19T20:45:46.105] error: *** STEP 22224770.0 ON gpub001 CANCELLED AT 2026-09-19T20:45:46 DUE to SIGNAL Terminated ***
+[2026-09-19T20:45:46.106] error: *** JOB 22224770 ON gpub001 CANCELLED AT 2026-09-19T20:45:46 DUE to SIGNAL Terminated ***

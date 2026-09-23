@@ -12,17 +12,17 @@ Audio Files (.mp3 / .wav)
           ▼
 ┌─────────────────────────────────┐
 │       VoxtralRealtimeASR        │  (Speech-to-Text)
-│ mistralai/Voxtral-Mini-4B-RT   │
+│ mistralai/Voxtral-Mini-4B-RT    │
 └─────────────────────────────────┘
           │
           ▼  Transcripts
 ┌─────────────────────────────────┐
-│            QwenLLM              │  (Intent & Slot Extraction)
-│    Qwen/Qwen2.5-1.5B-Instruct   │
+│            QwenLLM              │  (Intent & Slot Extraction, Conversational Reply)
+│    Qwen/Qwen2.5-7B-Instruct     │
 └─────────────────────────────────┘
           │
           ▼
-     results.json (Structured Logs)
+     results.json
 ```
 
 ## Features

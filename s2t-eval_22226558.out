@@ -59,36 +59,41 @@ ASR time: 3.88s | LLM time: 2.03s
 Results saved to /u/zyin2/sap-dialog-system/results.json
 
 
+ASR time: 300.09s | LLM time: 12.45s
+ASR time: 5.87s | LLM time: 2.47s
+ASR time: 4.22s | LLM time: 2.07s
+ASR time: 4.28s | LLM time: 2.01s
+ASR time: 3.88s | LLM time: 2.03s
 
 ---------------
 File:       /u/zyin2/sap-dialog-system/audio/define-conclude.mp3
 Transcript:  Define, conclude.
-LLM Output: {'intent': 'definition_request', 'slots': {}, 'response': 'Could you please specify the word or term you would like to define?'}
-
-
+LLM Output: {'intent': 'definition_request', 'slots': {}, 'response': 
+'Could you please specify the word or term you would like to define?'}
 
 ---------------
 File:       /u/zyin2/sap-dialog-system/audio/image-business-meetings.mp3
 Transcript:  Show me an image of business meetings.
-LLM Output: {'intent': 'show_image', 'slots': {'topic': 'business meetings'}, 'response': "Sure, I can show you an image related to business meetings. Is there a specific type of image you're looking for, like a meeting room or a group discussion?"}
-
-
+LLM Output: {'intent': 'show_image', 'slots': {'topic': 'business meetings'}, 
+'response': "Sure, I can show you an image related to business meetings. 
+Is there a specific type of image you're looking for, like a meeting room or a group discussion?"}
 
 ---------------
 File:       /u/zyin2/sap-dialog-system/audio/microsoft-stock-price.mp3
 Transcript:  What is the Microsoft stock price?
-LLM Output: {'intent': 'get_stock_price', 'slots': {'stock_ticker': 'Microsoft'}, 'response': "The current stock price for Microsoft is $250.75. Would you like more information on Microsoft's performance today?"}
-
-
+LLM Output: {'intent': 'get_stock_price', 'slots': {'stock_ticker': 'Microsoft'}, 
+'response': "The current stock price for Microsoft is $250.75. Would you like more 
+information on Microsoft's performance today?"}
 
 ---------------
 File:       /u/zyin2/sap-dialog-system/audio/nyeve-weather.mp3
 Transcript:  What is the weather on New Year's Eve?
-LLM Output: {'intent': 'check_weather', 'slots': {'date': "New Year's Eve"}, 'response': "I can help with that. When is New Year's Eve exactly? Do you want to know the weather for December 31st?"}
-
-
+LLM Output: {'intent': 'check_weather', 'slots': {'date': "New Year's Eve"}, 
+'response': "I can help with that. When is New Year's Eve exactly? 
+Do you want to know the weather for December 31st?"}
 
 ---------------
 File:       /u/zyin2/sap-dialog-system/audio/wake-me-0645.mp3
 Transcript:  Wake me up at 6.45 every day.
-LLM Output: {'intent': 'set_alarm', 'slots': {'time': '6:45', 'frequency': 'every day'}, 'response': "Sure, I'll set an alarm for you at 6:45 every day."}
+LLM Output: {'intent': 'set_alarm', 'slots': {'time': '6:45', 'frequency': 'every day'}, 
+'response': "Sure, I'll set an alarm for you at 6:45 every day."}

@@ -41,7 +41,7 @@ class SpeechToTextPipeline:
         print(f"      Transcript: {transcript}")
 
 
-        print(f"[2/2 Running LLM...")
+        print(f"[2/2] Running LLM...")
         t_llm = time.perf_counter()
         inference_result = self.llm.inference(transcript)
         llm_duration = time.perf_counter() - t_llm
@@ -87,7 +87,7 @@ class VoxtralRealtimeASR(BaseASR):
         
         return decoded_outputs
 
-class QwenLLM(BaseLLM):
+class LLMInstruct(BaseLLM):
     def __init__(
         self,
         model_id: str = "Qwen/Qwen2.5-7B-Instruct",
@@ -152,7 +152,7 @@ if __name__ == "__main__":
     t0 = time.perf_counter()
     asr = VoxtralRealtimeASR()
     print(f"Voxtral loaded in {time.perf_counter() - t0:.2f}s")
-    llm = QwenLLM()
+    llm = LLMInstruct()
 
     print("Creating pipeline:")
     pipeline = SpeechToTextPipeline(asr=asr, llm=llm)

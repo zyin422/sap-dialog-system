@@ -8,3 +8,4 @@ __pycache__/
 venv/
 *.log
 context.txt
+manifest/

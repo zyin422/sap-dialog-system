@@ -9,8 +9,8 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 #SBATCH --account=bedl-delta-gpu
-#SBATCH --partition=gpuA40x4-interactive
-#SBATCH --time=00:30:00
+#SBATCH --partition=gpuA40x4
+#SBATCH --time=00:58:00
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1

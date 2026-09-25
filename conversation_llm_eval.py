@@ -116,10 +116,10 @@ transcripts = [
 
 
 candidate_models = [
-    "Qwen/Qwen2.5-7B-Instruct",
-    "Qwen/Qwen2.5-14B-Instruct",
-    "meta-llama/Llama-3.1-8B-Instruct",
-    "NousResearch/Hermes-3-Llama-3.1-8B",
+    # "Qwen/Qwen2.5-7B-Instruct",
+    # "Qwen/Qwen2.5-14B-Instruct",
+    # "meta-llama/Llama-3.1-8B-Instruct",
+    # "NousResearch/Hermes-3-Llama-3.1-8B",
     "meta-llama/Llama-3.2-3B-Instruct",
 ]
 

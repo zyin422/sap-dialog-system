@@ -1,9 +1,11 @@
 #!/bin/bash
 
+#SBATCH --array=0-4
 #SBATCH --job-name s2t-eval
-#SBATCH --output %x_%j.out
 #SBATCH --mail-user zyin16@illinois.edu
-#SBATCH --error %x_%j_error.txt
+#SBATCH --output=%x_%A_%a.out
+#SBATCH --error=%x_%A_%a_error.txt
+
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 #SBATCH --account=bedl-delta-gpu

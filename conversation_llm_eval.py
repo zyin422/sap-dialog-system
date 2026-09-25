@@ -1,3 +1,4 @@
+import os
 from operator import mod
 import librosa, torch, time
 from transformers import AutoProcessor
@@ -116,12 +117,15 @@ transcripts = [
 
 
 candidate_models = [
-    # "Qwen/Qwen2.5-7B-Instruct",
-    # "Qwen/Qwen2.5-14B-Instruct",
-    # "meta-llama/Llama-3.1-8B-Instruct",
-    # "NousResearch/Hermes-3-Llama-3.1-8B",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-14B-Instruct",
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "NousResearch/Hermes-3-Llama-3.1-8B",
     "meta-llama/Llama-3.2-3B-Instruct",
 ]
+
+task_id = int(os.environ.get("SLURM_ARRAY_TASK_ID", 0))
+target_model = candidate_models[task_id]
 
 @dataclass
 class LLMResult:
@@ -168,30 +172,29 @@ class LLMEvalution:
 
 
 if __name__ == "__main__":
-    for m in candidate_models:
-        print("Loading LLM model...")
-        t0 = time.perf_counter()
-        llm = LLMInstruct(model_id=m)
-        print(f"Evaluating {m}")
-        eval = LLMEvalution(transcripts = transcripts, llm=llm)
-        results = eval.process_transcripts()
+    print("Loading LLM model...")
+    t0 = time.perf_counter()
+    llm = LLMInstruct(model_id=target_model)
+    print(f"Evaluating {target_model}")
+    eval = LLMEvalution(transcripts = transcripts, llm=llm)
+    results = eval.process_transcripts()
 
-        safe_model_id = m.replace("/", "_")
-        output_path = pathlib.Path("eval_results") / f"{safe_model_id}_results.json"
-
-
-        eval.save_results(results, output_path)
-        print(f"Results saved to {output_path}")
+    safe_model_id = target_model.replace("/", "_")
+    output_path = pathlib.Path("eval_results") / f"{safe_model_id}_results.json"
 
 
-        for r in results.llm_outputs: # loop through transcripts
-            print("\n\n\n---------------")  
-            print(f"Transcript: {r['transcript']}")
-            print(f"LLM Output: {r['llm_output']}")
-            
-        del llm
-        del eval
-        import gc
-        gc.collect()
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+    eval.save_results(results, output_path)
+    print(f"Results saved to {output_path}")
+
+
+    for r in results.llm_outputs: # loop through transcripts
+        print("\n\n\n---------------")  
+        print(f"Transcript: {r['transcript']}")
+        print(f"LLM Output: {r['llm_output']}")
+        
+    del llm
+    del eval
+    import gc
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()

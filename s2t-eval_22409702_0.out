@@ -1,0 +1,96 @@
+Loading LLM model...
+Qwen Model Device:          cuda:0
+Qwen Device Map:             No device_map
+Evaluating Qwen/Qwen2.5-7B-Instruct
+Processing Qwen/Qwen2.5-7B-Instruct
+
+LLM input_ids device: cuda:0
+Inference time: 149.02s
+
+LLM input_ids device: cuda:0
+Inference time: 2.10s
+
+LLM input_ids device: cuda:0
+Inference time: 2.25s
+
+LLM input_ids device: cuda:0
+Inference time: 1.76s
+
+LLM input_ids device: cuda:0
+Inference time: 1.91s
+
+LLM input_ids device: cuda:0
+Inference time: 1.49s
+
+LLM input_ids device: cuda:0
+Inference time: 2.01s
+
+LLM input_ids device: cuda:0
+Inference time: 1.61s
+
+LLM input_ids device: cuda:0
+Inference time: 1.94s
+
+LLM input_ids device: cuda:0
+Inference time: 2.50s
+Results saved to eval_results/Qwen_Qwen2.5-7B-Instruct_results.json
+
+
+
+---------------
+Transcript: Define conclude.
+LLM Output: {'intent': 'define', 'slots': {'word': 'conclude'}, 'response': "The word 'conclude' means to end or finish something. Is there anything else you need help with?"}
+
+
+
+---------------
+Transcript: Show me an image of business meetings.
+LLM Output: {'intent': 'show_image', 'slots': {'category': 'business meetings'}, 'response': "Sure, I can show you an image of business meetings. Is there a specific type of meeting you're interested in, or should I just find a general one?"}
+
+
+
+---------------
+Transcript: What is the Microsoft stock price?
+LLM Output: {'intent': 'get_stock_price', 'slots': {'stock_ticker': 'Microsoft'}, 'response': 'I can help with that. The current stock price for Microsoft is not available right now, but I can provide it as soon as I get it. Would you like me to check it for you?'}
+
+
+
+---------------
+Transcript: What is the weather on New Year's Eve?
+LLM Output: {'intent': 'check_weather', 'slots': {'date': "New Year's Eve"}, 'response': "I can help with that. When is New Year's Eve exactly? I need the date to look up the weather."}
+
+
+
+---------------
+Transcript: Wake me up at 6:45 every day.
+LLM Output: {'intent': 'set_alarm', 'slots': {'time': '6:45'}, 'response': "Sure, I'll set an alarm for 6:45 AM every day. Is there a specific day you want to start this from?"}
+
+
+
+---------------
+Transcript: Turn the TV to CBS.
+LLM Output: {'intent': 'turn on TV and switch channel', 'slots': {'channel': 'CBS'}, 'response': "Sure, I'll turn on the TV and switch to channel CBS."}
+
+
+
+---------------
+Transcript: What film won the Oscar 1949?
+LLM Output: {'intent': 'movie_winner', 'slots': {'year': '1949'}, 'response': "The film that won the Academy Award for Best Picture in 1949 was 'All the King's Men'. Would you like more information about it?"}
+
+
+
+---------------
+Transcript: Show me nearby shopping malls.
+LLM Output: {'intent': 'show_nearby_shopping_malls', 'slots': {}, 'response': 'Sure, I can help with that. Do you want me to search for shopping malls within a specific distance from your current location?'}
+
+
+
+---------------
+Transcript: Recipe with cilantro, and garlic, and chicken.
+LLM Output: {'intent': 'search_recipe', 'slots': {'ingredients': 'cilantro, garlic, chicken'}, 'response': 'Sure, I can help with that. Would you like to search for a specific type of dish using cilantro, garlic, and chicken?'}
+
+
+
+---------------
+Transcript: Read 'For Whom the Bell Tolls' on Audiobook.
+LLM Output: {'intent': 'read_book', 'slots': {'book_title': 'For Whom the Bell Tolls', 'format': 'audiobook'}, 'response': "Sure, let's find you an audiobook version of 'For Whom the Bell Tolls'. Is there a specific platform you prefer, or should I just search for it?"}

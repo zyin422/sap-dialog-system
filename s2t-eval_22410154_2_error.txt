@@ -1,0 +1,54 @@
+Lmod Warning:
+'cray-mpich' requires a network targeting module to be loaded.
+Try 'module avail craype-network' to list the available network
+ targeting modules. 
+While processing the following module(s):
+    Module fullname   Module Filename
+    ---------------   ---------------
+    PrgEnv-gnu/8.7.0  /opt/cray/pe/lmod/modulefiles/core/PrgEnv-gnu/8.7.0.lua
+    default-rh96      /sw/rh9.4/user/modules/default-rh96.lua
+
+Running "module reset". Resetting modules to system default. The following $MODULEPATH directories have been removed: /sw/rh9.4/spack/default/modules/lmod/linux-rhel9-x86_64/Core /opt/cray/pe/lmod/modulefiles/mpi/gnu/10.0/ofi/1.0/cray-mpich/8.0
+A conda environment has been detected CONDA_PREFIX= /sw/rh9.4/python/miniforge3 
+miniconda3 is loaded. Consider running conda deactivate and reloading it.
+Traceback (most recent call last):
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/transformers/utils/hub.py", line 453, in cached_files
+    snapshot_download(
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 91, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 330, in snapshot_download
+    _raise_if_incomplete_snapshot(
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 586, in _raise_if_incomplete_snapshot
+    raise IncompleteSnapshotError(
+huggingface_hub.errors.IncompleteSnapshotError: The cached snapshot for 'meta-llama/Llama-3.1-8B-Instruct' (revision 'main', commit 0e9e39f249a16976918f6564b8830bc894c89659) is incomplete: 4 file(s) are missing (model-00001-of-00004.safetensors, model-00002-of-00004.safetensors, model-00003-of-00004.safetensors, ... (1 more)). Outgoing traffic is disabled ('local_files_only=True'). Re-run the download with network access to complete the snapshot.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/zyin2/sap-dialog-system/conversation_llm_eval.py", line 177, in <module>
+    llm = LLMInstruct(model_id=target_model)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/u/zyin2/sap-dialog-system/s2t_pipeline.py", line 99, in __init__
+    self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype = torch.bfloat16, device_map="auto")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4218, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 796, in _get_resolved_checkpoint_files
+    checkpoint_files, sharded_metadata = get_checkpoint_shard_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/transformers/utils/hub.py", line 902, in get_checkpoint_shard_files
+    cached_filenames = cached_files(
+                       ^^^^^^^^^^^^^
+  File "/work/hdd/bedl/zyin2/conda_envs/sap_env/lib/python3.11/site-packages/transformers/utils/hub.py", line 521, in cached_files
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+srun: error: gpub029: task 0: Exited with exit code 1

@@ -9,3 +9,4 @@ venv/
 *.log
 context.txt
 manifest/
+!benchmark_curation/*.json

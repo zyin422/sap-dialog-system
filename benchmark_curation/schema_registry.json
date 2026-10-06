@@ -1,0 +1,333 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SAP Spoken Dialog Benchmark Schema Registry",
+  "description": "Standardized canonical taxonomy for evaluating Tool Selection (TS) and Parameter Filling (PF) on dysarthric speech. Sourced from Amazon MASSIVE/SLURP with clinical and accessibility extensions.",
+  "ontology_sources": {
+    "base": "Amazon MASSIVE / SLURP (18 domains, 60 intents, 55 slot types)",
+    "extensions": [
+      {
+        "domain": "health",
+        "rationale": "Captures dysarthria-specific clinical prescriptions and dosage management present in the SAP recording protocol.",
+        "intents": {
+          "health_refill_query": {
+            "description": "Inquire about remaining prescription refills or pharmacy status.",
+            "allowed_slots": ["medication"]
+          },
+          "health_medication_reminder": {
+            "description": "Schedule medication intake or dosage reminders.",
+            "allowed_slots": ["medication", "time"]
+          }
+        }
+      },
+      {
+        "domain": "accessibility",
+        "rationale": "Captures assistive UI voice controls essential for speakers with motor-speech and physical impairments.",
+        "intents": {
+          "accessibility_ui_scale": {
+            "description": "Modify UI scale or text size.",
+            "allowed_slots": ["ui_element", "direction"]
+          },
+          "accessibility_dictation_toggle": {
+            "description": "Enable or disable hands-free voice dictation listening.",
+            "allowed_slots": ["state"]
+          }
+        }
+      }
+    ]
+  },
+  "benchmark_pilot_30": [
+    {
+      "command_id": "cmd_01",
+      "canonical_text": "turn off the t v",
+      "domain": "iot",
+      "intent": "iot_wemo_off",
+      "target_slots": {},
+      "dev_count": 91
+    },
+    {
+      "command_id": "cmd_02",
+      "canonical_text": "turn off heat",
+      "domain": "iot",
+      "intent": "iot_wemo_off",
+      "target_slots": {},
+      "dev_count": 83
+    },
+    {
+      "command_id": "cmd_03",
+      "canonical_text": "turn on all switches",
+      "domain": "iot",
+      "intent": "iot_wemo_on",
+      "target_slots": {
+        "device_type": "all switches"
+      },
+      "dev_count": 92
+    },
+    {
+      "command_id": "cmd_04",
+      "canonical_text": "turn on cooling",
+      "domain": "iot",
+      "intent": "iot_wemo_on",
+      "target_slots": {
+        "device_type": "cooling"
+      },
+      "dev_count": 87
+    },
+    {
+      "command_id": "cmd_05",
+      "canonical_text": "make the text larger",
+      "domain": "accessibility",
+      "intent": "accessibility_ui_scale",
+      "target_slots": {
+        "ui_element": "text",
+        "direction": "larger"
+      },
+      "dev_count": 89
+    },
+    {
+      "command_id": "cmd_06",
+      "canonical_text": "find my phone",
+      "domain": "general",
+      "intent": "general_quirky",
+      "target_slots": {
+        "device_type": "phone"
+      },
+      "dev_count": 93
+    },
+    {
+      "command_id": "cmd_07",
+      "canonical_text": "start listening",
+      "domain": "accessibility",
+      "intent": "accessibility_dictation_toggle",
+      "target_slots": {
+        "state": "start"
+      },
+      "dev_count": 148
+    },
+    {
+      "command_id": "cmd_08",
+      "canonical_text": "stop listening",
+      "domain": "accessibility",
+      "intent": "accessibility_dictation_toggle",
+      "target_slots": {
+        "state": "stop"
+      },
+      "dev_count": 89
+    },
+    {
+      "command_id": "cmd_09",
+      "canonical_text": "answer the call",
+      "domain": "social",
+      "intent": "social_post",
+      "target_slots": {},
+      "dev_count": 90
+    },
+    {
+      "command_id": "cmd_10",
+      "canonical_text": "hang up",
+      "domain": "social",
+      "intent": "social_post",
+      "target_slots": {},
+      "dev_count": 90
+    },
+    {
+      "command_id": "cmd_11",
+      "canonical_text": "please call kathy bianco",
+      "domain": "social",
+      "intent": "social_post",
+      "target_slots": {
+        "person": "kathy bianco"
+      },
+      "dev_count": 39
+    },
+    {
+      "command_id": "cmd_12",
+      "canonical_text": "video call lennart vass",
+      "domain": "social",
+      "intent": "social_post",
+      "target_slots": {
+        "person": "lennart vass"
+      },
+      "dev_count": 40
+    },
+    {
+      "command_id": "cmd_13",
+      "canonical_text": "call the nearest coffee shop",
+      "domain": "recommendation",
+      "intent": "recommendation_locations",
+      "target_slots": {
+        "business_type": "coffee shop",
+        "place_name": "nearest"
+      },
+      "dev_count": 44
+    },
+    {
+      "command_id": "cmd_14",
+      "canonical_text": "did i miss any emails from yesterday",
+      "domain": "email",
+      "intent": "email_query",
+      "target_slots": {
+        "date": "yesterday"
+      },
+      "dev_count": 39
+    },
+    {
+      "command_id": "cmd_15",
+      "canonical_text": "skip this song",
+      "domain": "music",
+      "intent": "music_settings",
+      "target_slots": {},
+      "dev_count": 88
+    },
+    {
+      "command_id": "cmd_16",
+      "canonical_text": "add this music to favorites",
+      "domain": "music",
+      "intent": "music_likeness",
+      "target_slots": {},
+      "dev_count": 87
+    },
+    {
+      "command_id": "cmd_17",
+      "canonical_text": "play billboard's top forty on pandora",
+      "domain": "play",
+      "intent": "play_music",
+      "target_slots": {
+        "song_name": "billboard's top forty",
+        "app_name": "pandora"
+      },
+      "dev_count": 39
+    },
+    {
+      "command_id": "cmd_18",
+      "canonical_text": "play the latest episode of crime junkie",
+      "domain": "play",
+      "intent": "play_podcasts",
+      "target_slots": {
+        "media_type": "latest episode",
+        "song_name": "crime junkie"
+      },
+      "dev_count": 37
+    },
+    {
+      "command_id": "cmd_19",
+      "canonical_text": "lower the temperature",
+      "domain": "iot",
+      "intent": "iot_hue_lightdim",
+      "target_slots": {
+        "device_setting": "temperature",
+        "order_type": "lower"
+      },
+      "dev_count": 92
+    },
+    {
+      "command_id": "cmd_20",
+      "canonical_text": "what's the temperature in the living room",
+      "domain": "weather",
+      "intent": "weather_query",
+      "target_slots": {
+        "place_name": "living room"
+      },
+      "dev_count": 86
+    },
+    {
+      "command_id": "cmd_21",
+      "canonical_text": "set the heat to seventy two",
+      "domain": "iot",
+      "intent": "iot_wemo_on",
+      "target_slots": {
+        "device_setting": "heat",
+        "change_amount": "seventy two"
+      },
+      "dev_count": 37
+    },
+    {
+      "command_id": "cmd_22",
+      "canonical_text": "what's the time",
+      "domain": "datetime",
+      "intent": "datetime_query",
+      "target_slots": {},
+      "dev_count": 81
+    },
+    {
+      "command_id": "cmd_23",
+      "canonical_text": "when is my next alarm",
+      "domain": "alarm",
+      "intent": "alarm_query",
+      "target_slots": {},
+      "dev_count": 44
+    },
+    {
+      "command_id": "cmd_24",
+      "canonical_text": "set an alarm for every sunday at eight p m",
+      "domain": "alarm",
+      "intent": "alarm_set",
+      "target_slots": {
+        "time": "eight p m",
+        "general_frequency": "every sunday"
+      },
+      "dev_count": 38
+    },
+    {
+      "command_id": "cmd_25",
+      "canonical_text": "set an alarm in forty minutes",
+      "domain": "alarm",
+      "intent": "alarm_set",
+      "target_slots": {
+        "time": "forty minutes"
+      },
+      "dev_count": 38
+    },
+    {
+      "command_id": "cmd_26",
+      "canonical_text": "what's on my calendar tomorrow",
+      "domain": "calendar",
+      "intent": "calendar_query",
+      "target_slots": {
+        "date": "tomorrow"
+      },
+      "dev_count": 87
+    },
+    {
+      "command_id": "cmd_27",
+      "canonical_text": "how many refills are left on my risperidone",
+      "domain": "health",
+      "intent": "health_refill_query",
+      "target_slots": {
+        "medication": "risperidone"
+      },
+      "dev_count": 73
+    },
+    {
+      "command_id": "cmd_28",
+      "canonical_text": "how many refills are left on my warfarin",
+      "domain": "health",
+      "intent": "health_refill_query",
+      "target_slots": {
+        "medication": "warfarin"
+      },
+      "dev_count": 39
+    },
+    {
+      "command_id": "cmd_29",
+      "canonical_text": "set a reminder to take amoxicillin with lunch",
+      "domain": "health",
+      "intent": "health_medication_reminder",
+      "target_slots": {
+        "medication": "amoxicillin",
+        "time": "lunch"
+      },
+      "dev_count": 37
+    },
+    {
+      "command_id": "cmd_30",
+      "canonical_text": "take guanfacine at six a m",
+      "domain": "health",
+      "intent": "health_medication_reminder",
+      "target_slots": {
+        "medication": "guanfacine",
+        "time": "six a m"
+      },
+      "dev_count": 5
+    }
+  ]
+}

@@ -41,7 +41,9 @@
       "canonical_text": "turn off the t v",
       "domain": "iot",
       "intent": "iot_wemo_off",
-      "target_slots": {},
+      "target_slots": {
+        "device_type": "t v"
+      },
       "dev_count": 91
     },
     {
@@ -49,7 +51,9 @@
       "canonical_text": "turn off heat",
       "domain": "iot",
       "intent": "iot_wemo_off",
-      "target_slots": {},
+      "target_slots": {
+        "device_type": "heat"
+      },
       "dev_count": 83
     },
     {

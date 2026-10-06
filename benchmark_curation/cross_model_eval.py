@@ -25,9 +25,9 @@ You must categorize the command strictly into one of the following 20 domains:
   - datetime (datetime_query)
   - email (email_sendmail, email_query)
   - general (general_quirky, general_greet)
-  - iot (iot_wemo_on, iot_wemo_off, iot_hue_lighton, iot_hue_lightoff, iot_coffee)
+  - iot (iot_wemo_on, iot_wemo_off, iot_hue_lighton, iot_hue_lightoff, iot_hue_lightdim, iot_coffee)
   - lists (lists_createoradd, lists_query, lists_remove)
-  - music (music_likeness, music_query)
+  - music (music_likeness, music_query, music_settings)
   - news (news_query)
   - play (play_music, play_audiobook, play_podcasts)
   - qa (qa_factoid, qa_definition, qa_stock)
@@ -44,6 +44,25 @@ You must categorize the command strictly into one of the following 20 domains:
     - accessibility_ui_scale (slots: ui_element, direction)
     - accessibility_dictation_toggle (slots: state)
 
+Important Schema Definitions:
+- iot_hue_lighton / iot_hue_lightoff: ONLY for lights, bulbs, and lamps.
+- iot_wemo_on / iot_wemo_off: For all appliances, TVs, plugs, switches, heaters, and AC/cooling.
+- iot_hue_lightdim: For lowering or dimming temperature or brightness (slots: device_setting, order_type).
+- social_post: Used for sending messages AND handling phone/video calls (including "call", "video call", "answer the call", "hang up").
+- person: Always use the slot name 'person' (NOT 'contact_name') for people's names.
+- place_name: Always use slot name 'place_name' (NOT 'location') for rooms, cities, and places.
+- date: Use 'date' (NOT 'time') for days like 'yesterday', 'tomorrow', and calendar dates. Use 'time' only for clock times like 'eight p m'.
+- general_frequency: Always use slot name 'general_frequency' (NOT 'day_of_week') for recurring intervals like 'every sunday'.
+- recommendation_locations: Used for finding or contacting local businesses, coffee shops, and restaurants (slots: business_type, place_name). Do NOT use iot_coffee for coffee shops!
+- play_music (Domain: play): For requests to play songs, playlists, or radio on apps like Pandora (slots: song_name, app_name).
+- play_podcasts (Domain: play): For playing podcasts (slots: media_type, song_name).
+- music_settings (Domain: music): For media controls like "skip this song" (slots: {}).
+- music_likeness (Domain: music): For adding music to favorites (slots: {}).
+- general_quirky: For jokes, chitchat, and assistant features like "find my phone".
+- accessibility_dictation_toggle: For dictation voice controls like "start listening" (state: "start") and "stop listening" (state: "stop").
+- time slot formatting: In medication reminders, extract only the temporal word without prepositions like 'with' or 'at' (e.g. 'lunch', NOT 'with lunch').
+- verbatim tokens: Include modifiers like 'all' if present (e.g. 'all switches').
+
 ### 3. Extraction & Normalization Directives:
 1. Select strictly from the canonical intent catalog above (<domain>_<action>).
 2. Extract slot values verbatim as exact substrings from the command (lowercase). Do not alter or summarize entity text.
@@ -59,8 +78,6 @@ Respond ONLY with a valid, raw JSON object matching this exact schema:
   }
 }
 Do not include Markdown backticks, explanation, or any surrounding text.
-
-### 5. Few-Shot Exemplars:
 
 ### 5. Few-Shot Exemplars:
 

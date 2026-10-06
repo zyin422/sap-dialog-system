@@ -44,6 +44,35 @@ STANDALONE_WAKE_WORDS: Set[str] = {
     "computer",
 }
 
+# Standard clinical reading passage markers (literature excerpts for articulation testing)
+READING_PASSAGE_MARKERS: Set[str] = {
+    "cleared his throat",
+    "forty thousand pounds",
+    "surprised and puzzled",
+    "too kind hearted",
+    "billy woodchuck",
+    "nitro glycerine",
+    "duty to resign",
+    "air of aversion",
+    "born business manager",
+    "stubby toes",
+    "golden crop",
+    "hardheadedness",
+    "roguish smile",
+}
+
+# Legitimate single-word assistive and smart device voice commands
+VALID_SINGLE_WORD_COMMANDS: Set[str] = {
+    "snooze",
+    "redial",
+    "delete",
+    "backspace",
+    "cancel",
+    "stop",
+    "pause",
+    "resume",
+}
+
 
 def extract_speaker_id(audio_path: str) -> str:
     """
@@ -59,8 +88,10 @@ def extract_speaker_id(audio_path: str) -> str:
 
 def extract_candidate_commands(
     manifest_dir: Path,
-    min_count: int = 5,
+    min_count: int = 3,
     wake_words: Set[str] = STANDALONE_WAKE_WORDS,
+    passage_markers: Set[str] = READING_PASSAGE_MARKERS,
+    valid_single_words: Set[str] = VALID_SINGLE_WORD_COMMANDS,
 ) -> Dict[str, Dict[str, Any]]:
     """
     Reads dev manifest files, applies filtering rules, and groups commands by canonical text.
@@ -113,6 +144,8 @@ def extract_candidate_commands(
 
     survey_filtered = 0
     wake_word_filtered = 0
+    passage_filtered = 0
+    isolated_word_filtered = 0
     empty_filtered = 0
 
     for idx, (audio_path, origin_text, raw_clean_text) in enumerate(
@@ -128,8 +161,19 @@ def extract_candidate_commands(
             empty_filtered += 1
             continue
 
+        # Filtering Rule 2: Filter out standalone wake words
         if canonical_text in wake_words:
             wake_word_filtered += 1
+            continue
+
+        # Filtering Rule 3: Filter out literary reading passages
+        if any(marker in canonical_text for marker in passage_markers):
+            passage_filtered += 1
+            continue
+
+        # Filtering Rule 4: Filter out isolated diagnostic test words (e.g. "president", "enough")
+        if len(canonical_text.split()) == 1 and canonical_text not in valid_single_words:
+            isolated_word_filtered += 1
             continue
 
         # Extract speaker ID from audio path
@@ -142,12 +186,14 @@ def extract_candidate_commands(
         entry["speakers_set"].add(speaker_id)
 
     logger.info(f"Filtering Summary:")
-    logger.info(f"  - Total records processed:       {total_audio_entries:,}")
-    logger.info(f"  - Survey speech filtered ([...]): {survey_filtered:,}")
-    logger.info(f"  - Standalone wake words filtered: {wake_word_filtered:,}")
+    logger.info(f"  - Total records processed:        {total_audio_entries:,}")
+    logger.info(f"  - Survey speech filtered ([...]):  {survey_filtered:,}")
+    logger.info(f"  - Standalone wake words filtered:  {wake_word_filtered:,}")
+    logger.info(f"  - Reading passages filtered:       {passage_filtered:,}")
+    logger.info(f"  - Isolated test words filtered:    {isolated_word_filtered:,}")
     if empty_filtered:
-        logger.info(f"  - Empty strings filtered:         {empty_filtered:,}")
-    logger.info(f"  - Total unique candidate phrases: {len(groups):,}")
+        logger.info(f"  - Empty strings filtered:          {empty_filtered:,}")
+    logger.info(f"  - Total unique candidate phrases:  {len(groups):,}")
 
     # Filtering Rule 4: Frequency Threshold (count >= min_count)
     candidates = [
@@ -208,8 +254,8 @@ def main() -> None:
     parser.add_argument(
         "--min-count",
         type=int,
-        default=5,
-        help="Minimum frequency threshold across the dataset (default: 5)",
+        default=3,
+        help="Minimum frequency threshold across the dataset (default: 3)",
     )
     args = parser.parse_args()
 

@@ -1,78 +1,884 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "SAP Spoken Dialog Benchmark Schema Registry",
-  "description": "Standardized canonical taxonomy for evaluating Tool Selection (TS) and Parameter Filling (PF) on dysarthric speech. Sourced from Amazon MASSIVE/SLURP with clinical and accessibility extensions.",
-  "ontology_sources": {
-    "base": "Amazon MASSIVE / SLURP (18 domains, 60 intents, 55 slot types)",
-    "extensions": [
-      {
-        "domain": "health",
-        "rationale": "Captures dysarthria-specific clinical prescriptions and dosage management present in the SAP recording protocol.",
-        "intents": {
-          "health_refill_query": {
-            "description": "Inquire about remaining prescription refills or pharmacy status.",
-            "allowed_slots": ["medication"]
+  "description": "Canonical taxonomy for evaluating Tool Selection (TS) and Parameter Filling (PF) on dysarthric speech across 10 functional domains and 30 canonical tools with typed JSON Schema parameter definitions.",
+  "extraction_guidelines": {
+    "span_rule": "Extract bare nominal entities (BaseNP). Strictly exclude leading prepositions (at, with, on, in, to, for) and determiners (a, an, the).",
+    "wake_words": "Treat wake words (hey siri, alexa, hey google, cortana, hey facebook) as Outside (O) tokens. Never extract wake words into slot parameters.",
+    "normalization": "Verbatim substring match from the user transcript in lowercase."
+  },
+  "ontology_summary": {
+    "total_domains": 10,
+    "total_tools": 30,
+    "total_unique_slots": 45
+  },
+  "tools": {
+    "health_medication_reminder": {
+      "domain": "health",
+      "description": "Schedule prescription medication or supplement dosage reminders.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "medication": {
+            "type": "string",
+            "description": "Prescription drug or supplement name."
           },
-          "health_medication_reminder": {
-            "description": "Schedule medication intake or dosage reminders.",
-            "allowed_slots": ["medication", "time"]
+          "time": {
+            "type": "string",
+            "description": "Scheduled intake time or meal (e.g. lunch, six thirty p m)."
           }
-        }
-      },
-      {
-        "domain": "accessibility",
-        "rationale": "Captures assistive UI voice controls essential for speakers with motor-speech and physical impairments.",
-        "intents": {
-          "accessibility_ui_scale": {
-            "description": "Modify UI scale or text size.",
-            "allowed_slots": ["ui_element", "direction"]
-          },
-          "accessibility_dictation_toggle": {
-            "description": "Enable or disable hands-free voice dictation listening.",
-            "allowed_slots": ["state"]
-          }
-        }
+        },
+        "required": [
+          "medication"
+        ],
+        "additionalProperties": false
       }
-    ]
+    },
+    "health_refill_query": {
+      "domain": "health",
+      "description": "Inquire about remaining prescription refills or pharmacy status.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "medication": {
+            "type": "string",
+            "description": "Prescription drug name."
+          }
+        },
+        "required": [
+          "medication"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "health_info_query": {
+      "domain": "health",
+      "description": "Inquire about clinical medication side effects or dosage.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "medication": {
+            "type": "string",
+            "description": "Prescription drug name."
+          },
+          "info_type": {
+            "type": "string",
+            "enum": [
+              "side_effects",
+              "dosage"
+            ],
+            "description": "Type of clinical information."
+          }
+        },
+        "required": [
+          "medication",
+          "info_type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "iot_device_power": {
+      "domain": "smart_home",
+      "description": "Toggle binary power state of appliances, plugs, switches, TVs, fans, heaters, or simple lights. Also handles door lock states (lock -> state: on, unlock -> state: off). Absence of state denotes a status query.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_type": {
+            "type": "string",
+            "description": "Target appliance, device, switch, or lock."
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "on",
+              "off"
+            ],
+            "description": "Target binary state."
+          }
+        },
+        "required": [
+          "device_type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "iot_device_adjust": {
+      "domain": "smart_home",
+      "description": "Adjust continuous scalar attributes of IoT devices like thermostats, dimmers, fans, or ovens.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device_type": {
+            "type": "string",
+            "description": "Target device."
+          },
+          "setting": {
+            "type": "string",
+            "description": "Setting name (e.g. temperature, brightness, speed)."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "lower",
+              "raise"
+            ],
+            "description": "Direction of change."
+          },
+          "value": {
+            "type": "string",
+            "description": "Target amount or setpoint."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "iot_sensor_query": {
+      "domain": "smart_home",
+      "description": "Check ambient environmental room sensors.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "room": {
+            "type": "string",
+            "description": "Target room."
+          },
+          "sensor_type": {
+            "type": "string",
+            "enum": [
+              "temperature"
+            ],
+            "description": "Sensor metric."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "call_make": {
+      "domain": "communication",
+      "description": "Place an outgoing voice or video call.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "recipient_name": {
+            "type": "string",
+            "description": "Contact or person being called."
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Spoken phone digits."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "call_manage": {
+      "domain": "communication",
+      "description": "Telephony in-call management.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "hang_up",
+              "redial"
+            ],
+            "description": "Call control action."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "messages_manage": {
+      "domain": "communication",
+      "description": "Send or read SMS / instant text messages.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "send",
+              "read"
+            ],
+            "description": "Messaging action."
+          },
+          "recipient": {
+            "type": "string",
+            "description": "Recipient name or phone number."
+          },
+          "message_body": {
+            "type": "string",
+            "description": "Text message body."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "email_manage": {
+      "domain": "communication",
+      "description": "Send, read, or search emails.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "send",
+              "read",
+              "search"
+            ],
+            "description": "Email action."
+          },
+          "recipient": {
+            "type": "string",
+            "description": "Recipient name or address."
+          },
+          "date": {
+            "type": "string",
+            "description": "Date query filter."
+          },
+          "message_body": {
+            "type": "string",
+            "description": "Email body text."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "contacts_manage": {
+      "domain": "communication",
+      "description": "Address book contact management.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "add",
+              "search",
+              "delete"
+            ],
+            "description": "Contact action."
+          },
+          "contact_name": {
+            "type": "string",
+            "description": "Contact person name."
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Contact phone number."
+          },
+          "email_address": {
+            "type": "string",
+            "description": "Contact email address."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "media_play": {
+      "domain": "media",
+      "description": "Stream music, albums, podcasts, audiobooks, or radio.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "media_type": {
+            "type": "string",
+            "enum": [
+              "music",
+              "podcast",
+              "audiobook",
+              "radio"
+            ],
+            "description": "Media format."
+          },
+          "title": {
+            "type": "string",
+            "description": "Media title."
+          },
+          "artist": {
+            "type": "string",
+            "description": "Artist or author."
+          },
+          "house_place": {
+            "type": "string",
+            "description": "Destination speaker room."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "media_control": {
+      "domain": "media",
+      "description": "Control media playback session.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "skip",
+              "pause",
+              "resume",
+              "replay",
+              "like",
+              "dislike"
+            ],
+            "description": "Playback control."
+          },
+          "target_type": {
+            "type": "string",
+            "enum": [
+              "music",
+              "podcast"
+            ],
+            "description": "Target media type."
+          },
+          "duration": {
+            "type": "string",
+            "description": "Seek duration."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "media_volume": {
+      "domain": "media",
+      "description": "Adjust local device playback volume.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down",
+              "mute",
+              "set_level"
+            ],
+            "description": "Volume operation."
+          },
+          "change_amount": {
+            "type": "string",
+            "description": "Magnitude or target level."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "calendar_manage": {
+      "domain": "calendar_alarm",
+      "description": "Schedule, query, or cancel calendar meetings and events.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "set",
+              "query",
+              "cancel"
+            ],
+            "description": "Calendar operation."
+          },
+          "event_name": {
+            "type": "string",
+            "description": "Event title."
+          },
+          "date": {
+            "type": "string",
+            "description": "Event date."
+          },
+          "time": {
+            "type": "string",
+            "description": "Event time."
+          },
+          "person": {
+            "type": "string",
+            "description": "Event participant."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "alarm_manage": {
+      "domain": "calendar_alarm",
+      "description": "Set, inspect, cancel, or snooze alarms and timers.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "set",
+              "query",
+              "cancel",
+              "snooze"
+            ],
+            "description": "Alarm operation."
+          },
+          "time": {
+            "type": "string",
+            "description": "Alarm clock time."
+          },
+          "date": {
+            "type": "string",
+            "description": "Alarm date."
+          },
+          "general_frequency": {
+            "type": "string",
+            "description": "Recurrence frequency."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "reminder_manage": {
+      "domain": "calendar_alarm",
+      "description": "Set, query, or delete non-clinical daily task reminders.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "set",
+              "query",
+              "delete"
+            ],
+            "description": "Reminder operation."
+          },
+          "title": {
+            "type": "string",
+            "description": "Reminder subject."
+          },
+          "date": {
+            "type": "string",
+            "description": "Due date."
+          },
+          "time": {
+            "type": "string",
+            "description": "Due time."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "maps_route": {
+      "domain": "maps_places",
+      "description": "Request driving directions, navigation, distance, or route traffic.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Target destination."
+          },
+          "query_type": {
+            "type": "string",
+            "enum": [
+              "navigation",
+              "traffic",
+              "distance"
+            ],
+            "description": "Route query type."
+          }
+        },
+        "required": [
+          "destination",
+          "query_type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "places_search": {
+      "domain": "maps_places",
+      "description": "Search for nearby local venues, stores, restaurants, or business hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "business_type": {
+            "type": "string",
+            "description": "Business category."
+          },
+          "business_name": {
+            "type": "string",
+            "description": "Specific brand or venue."
+          },
+          "sort_by": {
+            "type": "string",
+            "enum": [
+              "nearest"
+            ],
+            "description": "Sort order."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "reservations_manage": {
+      "domain": "maps_places",
+      "description": "Book or inspect restaurant / venue table reservations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "description": "Venue name."
+          },
+          "party_size": {
+            "type": "string",
+            "description": "Number of people."
+          },
+          "date": {
+            "type": "string",
+            "description": "Reservation date."
+          },
+          "time": {
+            "type": "string",
+            "description": "Reservation time."
+          }
+        },
+        "required": [
+          "business_name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rideshare_book": {
+      "domain": "transport",
+      "description": "Order or hail a taxi, cab, or rideshare vehicle.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Drop-off destination."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "transit_lookup": {
+      "domain": "transport",
+      "description": "Check schedules or book tickets for public transit, trains, buses, and flights.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "transit_type": {
+            "type": "string",
+            "enum": [
+              "train",
+              "bus",
+              "flight"
+            ],
+            "description": "Transit vehicle."
+          },
+          "route_or_station": {
+            "type": "string",
+            "description": "Route, station, or carrier."
+          },
+          "destination": {
+            "type": "string",
+            "description": "Transit destination."
+          },
+          "date": {
+            "type": "string",
+            "description": "Departure date."
+          },
+          "time": {
+            "type": "string",
+            "description": "Scheduled time."
+          }
+        },
+        "required": [
+          "transit_type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "accessibility_ui_scale": {
+      "domain": "accessibility",
+      "description": "Adjust on-screen text size or screen brightness accommodations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ui_element": {
+            "type": "string",
+            "enum": [
+              "text",
+              "screen"
+            ],
+            "description": "UI element."
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "larger",
+              "brighten",
+              "darken"
+            ],
+            "description": "Adjustment direction."
+          }
+        },
+        "required": [
+          "ui_element",
+          "direction"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "accessibility_dictation_toggle": {
+      "domain": "accessibility",
+      "description": "Toggle continuous voice dictation listening state.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "enum": [
+              "start",
+              "stop"
+            ],
+            "description": "Dictation state."
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "memory_note_manage": {
+      "domain": "notes_memory",
+      "description": "Save, recall, or clear cognitive memory aids like passcodes or parking spaces.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "save",
+              "query",
+              "delete"
+            ],
+            "description": "Memory operation."
+          },
+          "key": {
+            "type": "string",
+            "enum": [
+              "pin",
+              "parking_space",
+              "note"
+            ],
+            "description": "Memory key."
+          },
+          "value": {
+            "type": "string",
+            "description": "Stored value."
+          }
+        },
+        "required": [
+          "action",
+          "key"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "lists_manage": {
+      "domain": "notes_memory",
+      "description": "Create, read, or modify shopping and to-do lists.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "list_name": {
+            "type": "string",
+            "description": "List name."
+          },
+          "item": {
+            "type": "string",
+            "description": "Item to add or remove."
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "add",
+              "read",
+              "remove"
+            ],
+            "description": "List operation."
+          }
+        },
+        "required": [
+          "list_name",
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "weather_query": {
+      "domain": "general_qa",
+      "description": "Check meteorological weather conditions and forecasts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "place_name": {
+            "type": "string",
+            "description": "Location."
+          },
+          "date": {
+            "type": "string",
+            "description": "Date reference."
+          },
+          "weather_aspect": {
+            "type": "string",
+            "enum": [
+              "rain",
+              "snow",
+              "temperature"
+            ],
+            "description": "Aspect."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "order_manage": {
+      "domain": "general_qa",
+      "description": "Manage e-commerce parcel tracking, cancellations, returns, and reports.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "track_status",
+              "cancel_order",
+              "return_item",
+              "report_issue"
+            ],
+            "description": "Order action."
+          },
+          "order_id": {
+            "type": "string",
+            "description": "Order ID."
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "device_find": {
+      "domain": "general_qa",
+      "description": "Trigger an audible ping to locate a misplaced hardware device.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string",
+            "enum": [
+              "phone"
+            ],
+            "description": "Device to ping."
+          }
+        },
+        "required": [
+          "device"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "qa_search": {
+      "domain": "general_qa",
+      "description": "Open factual web queries for world knowledge, recipes, news briefings, stock prices, and general definitions.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search string."
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
   },
   "benchmark_pilot_30": [
     {
       "command_id": "cmd_01",
       "canonical_text": "turn off the t v",
-      "domain": "iot",
-      "intent": "iot_wemo_off",
+      "domain": "smart_home",
+      "intent": "iot_device_power",
       "target_slots": {
-        "device_type": "t v"
+        "device_type": "t v",
+        "state": "off"
       },
       "dev_count": 91
     },
     {
       "command_id": "cmd_02",
       "canonical_text": "turn off heat",
-      "domain": "iot",
-      "intent": "iot_wemo_off",
+      "domain": "smart_home",
+      "intent": "iot_device_power",
       "target_slots": {
-        "device_type": "heat"
+        "device_type": "heat",
+        "state": "off"
       },
       "dev_count": 83
     },
     {
       "command_id": "cmd_03",
       "canonical_text": "turn on all switches",
-      "domain": "iot",
-      "intent": "iot_wemo_on",
+      "domain": "smart_home",
+      "intent": "iot_device_power",
       "target_slots": {
-        "device_type": "all switches"
+        "device_type": "all switches",
+        "state": "on"
       },
       "dev_count": 92
     },
     {
       "command_id": "cmd_04",
       "canonical_text": "turn on cooling",
-      "domain": "iot",
-      "intent": "iot_wemo_on",
+      "domain": "smart_home",
+      "intent": "iot_device_power",
       "target_slots": {
-        "device_type": "cooling"
+        "device_type": "cooling",
+        "state": "on"
       },
       "dev_count": 87
     },
@@ -90,10 +896,10 @@
     {
       "command_id": "cmd_06",
       "canonical_text": "find my phone",
-      "domain": "general",
-      "intent": "general_quirky",
+      "domain": "general_qa",
+      "intent": "device_find",
       "target_slots": {
-        "device_type": "phone"
+        "device": "phone"
       },
       "dev_count": 93
     },
@@ -120,56 +926,61 @@
     {
       "command_id": "cmd_09",
       "canonical_text": "answer the call",
-      "domain": "social",
-      "intent": "social_post",
-      "target_slots": {},
+      "domain": "communication",
+      "intent": "call_manage",
+      "target_slots": {
+        "action": "answer"
+      },
       "dev_count": 90
     },
     {
       "command_id": "cmd_10",
       "canonical_text": "hang up",
-      "domain": "social",
-      "intent": "social_post",
-      "target_slots": {},
+      "domain": "communication",
+      "intent": "call_manage",
+      "target_slots": {
+        "action": "hang_up"
+      },
       "dev_count": 90
     },
     {
       "command_id": "cmd_11",
       "canonical_text": "please call kathy bianco",
-      "domain": "social",
-      "intent": "social_post",
+      "domain": "communication",
+      "intent": "call_make",
       "target_slots": {
-        "person": "kathy bianco"
+        "recipient_name": "kathy bianco"
       },
       "dev_count": 39
     },
     {
       "command_id": "cmd_12",
       "canonical_text": "video call lennart vass",
-      "domain": "social",
-      "intent": "social_post",
+      "domain": "communication",
+      "intent": "call_make",
       "target_slots": {
-        "person": "lennart vass"
+        "recipient_name": "lennart vass"
       },
       "dev_count": 40
     },
     {
       "command_id": "cmd_13",
       "canonical_text": "call the nearest coffee shop",
-      "domain": "recommendation",
-      "intent": "recommendation_locations",
+      "domain": "maps_places",
+      "intent": "places_search",
       "target_slots": {
         "business_type": "coffee shop",
-        "place_name": "nearest"
+        "sort_by": "nearest"
       },
       "dev_count": 44
     },
     {
       "command_id": "cmd_14",
       "canonical_text": "did i miss any emails from yesterday",
-      "domain": "email",
-      "intent": "email_query",
+      "domain": "communication",
+      "intent": "email_manage",
       "target_slots": {
+        "action": "search",
         "date": "yesterday"
       },
       "dev_count": 39
@@ -177,95 +988,106 @@
     {
       "command_id": "cmd_15",
       "canonical_text": "skip this song",
-      "domain": "music",
-      "intent": "music_settings",
-      "target_slots": {},
+      "domain": "media",
+      "intent": "media_control",
+      "target_slots": {
+        "action": "skip"
+      },
       "dev_count": 88
     },
     {
       "command_id": "cmd_16",
       "canonical_text": "add this music to favorites",
-      "domain": "music",
-      "intent": "music_likeness",
-      "target_slots": {},
+      "domain": "media",
+      "intent": "media_control",
+      "target_slots": {
+        "action": "like",
+        "target_type": "music"
+      },
       "dev_count": 87
     },
     {
       "command_id": "cmd_17",
       "canonical_text": "play billboard's top forty on pandora",
-      "domain": "play",
-      "intent": "play_music",
+      "domain": "media",
+      "intent": "media_play",
       "target_slots": {
-        "song_name": "billboard's top forty",
-        "app_name": "pandora"
+        "media_type": "music",
+        "title": "billboard's top forty"
       },
       "dev_count": 39
     },
     {
       "command_id": "cmd_18",
       "canonical_text": "play the latest episode of crime junkie",
-      "domain": "play",
-      "intent": "play_podcasts",
+      "domain": "media",
+      "intent": "media_play",
       "target_slots": {
-        "media_type": "latest episode",
-        "song_name": "crime junkie"
+        "media_type": "podcast",
+        "title": "crime junkie"
       },
       "dev_count": 37
     },
     {
       "command_id": "cmd_19",
       "canonical_text": "lower the temperature",
-      "domain": "iot",
-      "intent": "iot_hue_lightdim",
+      "domain": "smart_home",
+      "intent": "iot_device_adjust",
       "target_slots": {
-        "device_setting": "temperature",
-        "order_type": "lower"
+        "setting": "temperature",
+        "direction": "lower"
       },
       "dev_count": 92
     },
     {
       "command_id": "cmd_20",
       "canonical_text": "what's the temperature in the living room",
-      "domain": "weather",
-      "intent": "weather_query",
+      "domain": "smart_home",
+      "intent": "iot_sensor_query",
       "target_slots": {
-        "place_name": "living room"
+        "room": "living room",
+        "sensor_type": "temperature"
       },
       "dev_count": 86
     },
     {
       "command_id": "cmd_21",
       "canonical_text": "set the heat to seventy two",
-      "domain": "iot",
-      "intent": "iot_wemo_on",
+      "domain": "smart_home",
+      "intent": "iot_device_adjust",
       "target_slots": {
-        "device_setting": "heat",
-        "change_amount": "seventy two"
+        "device_type": "heat",
+        "value": "seventy two"
       },
       "dev_count": 37
     },
     {
       "command_id": "cmd_22",
       "canonical_text": "what's the time",
-      "domain": "datetime",
-      "intent": "datetime_query",
-      "target_slots": {},
+      "domain": "general_qa",
+      "intent": "qa_search",
+      "target_slots": {
+        "query": "time"
+      },
       "dev_count": 81
     },
     {
       "command_id": "cmd_23",
       "canonical_text": "when is my next alarm",
-      "domain": "alarm",
-      "intent": "alarm_query",
-      "target_slots": {},
+      "domain": "calendar_alarm",
+      "intent": "alarm_manage",
+      "target_slots": {
+        "action": "query"
+      },
       "dev_count": 44
     },
     {
       "command_id": "cmd_24",
       "canonical_text": "set an alarm for every sunday at eight p m",
-      "domain": "alarm",
-      "intent": "alarm_set",
+      "domain": "calendar_alarm",
+      "intent": "alarm_manage",
       "target_slots": {
+        "action": "set",
         "time": "eight p m",
         "general_frequency": "every sunday"
       },
@@ -274,9 +1096,10 @@
     {
       "command_id": "cmd_25",
       "canonical_text": "set an alarm in forty minutes",
-      "domain": "alarm",
-      "intent": "alarm_set",
+      "domain": "calendar_alarm",
+      "intent": "alarm_manage",
       "target_slots": {
+        "action": "set",
         "time": "forty minutes"
       },
       "dev_count": 38
@@ -284,9 +1107,10 @@
     {
       "command_id": "cmd_26",
       "canonical_text": "what's on my calendar tomorrow",
-      "domain": "calendar",
-      "intent": "calendar_query",
+      "domain": "calendar_alarm",
+      "intent": "calendar_manage",
       "target_slots": {
+        "action": "query",
         "date": "tomorrow"
       },
       "dev_count": 87

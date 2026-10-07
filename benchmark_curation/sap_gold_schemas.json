@@ -1,0 +1,3857 @@
+[
+  {
+    "command_id": "cmd_0001",
+    "canonical_text": "start listening",
+    "domain": "accessibility",
+    "intent": "accessibility_dictation_toggle",
+    "slots": {
+      "state": "start"
+    }
+  },
+  {
+    "command_id": "cmd_0002",
+    "canonical_text": "tell me the news",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "news"
+    }
+  },
+  {
+    "command_id": "cmd_0003",
+    "canonical_text": "find my phone",
+    "domain": "general_qa",
+    "intent": "device_find",
+    "slots": {
+      "device": "phone"
+    }
+  },
+  {
+    "command_id": "cmd_0004",
+    "canonical_text": "stop the call",
+    "domain": "communication",
+    "intent": "call_manage",
+    "slots": {
+      "action": "hang_up"
+    }
+  },
+  {
+    "command_id": "cmd_0005",
+    "canonical_text": "lower the temperature",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "setting": "temperature",
+      "direction": "lower"
+    }
+  },
+  {
+    "command_id": "cmd_0006",
+    "canonical_text": "turn on all switches",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "all switches",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0007",
+    "canonical_text": "turn off the t v",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "t v",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0008",
+    "canonical_text": "hang up",
+    "domain": "communication",
+    "intent": "call_manage",
+    "slots": {
+      "action": "hang_up"
+    }
+  },
+  {
+    "command_id": "cmd_0009",
+    "canonical_text": "answer the call",
+    "domain": "communication",
+    "intent": "call_manage",
+    "slots": {
+      "action": "answer"
+    }
+  },
+  {
+    "command_id": "cmd_0010",
+    "canonical_text": "stop listening",
+    "domain": "accessibility",
+    "intent": "accessibility_dictation_toggle",
+    "slots": {
+      "state": "stop"
+    }
+  },
+  {
+    "command_id": "cmd_0011",
+    "canonical_text": "what's on my shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "shopping list",
+      "action": "read"
+    }
+  },
+  {
+    "command_id": "cmd_0012",
+    "canonical_text": "make the text larger",
+    "domain": "accessibility",
+    "intent": "accessibility_ui_scale",
+    "slots": {
+      "ui_element": "text",
+      "direction": "larger"
+    }
+  },
+  {
+    "command_id": "cmd_0013",
+    "canonical_text": "skip this song",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "skip"
+    }
+  },
+  {
+    "command_id": "cmd_0014",
+    "canonical_text": "what's on my calendar tomorrow",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "date": "tomorrow"
+    }
+  },
+  {
+    "command_id": "cmd_0015",
+    "canonical_text": "turn on cooling",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "cooling",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0016",
+    "canonical_text": "add this music to favorites",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "like",
+      "target_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0017",
+    "canonical_text": "decrease volume to minimum",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "down",
+      "change_amount": "minimum"
+    }
+  },
+  {
+    "command_id": "cmd_0018",
+    "canonical_text": "what's the temperature in the living room",
+    "domain": "smart_home",
+    "intent": "iot_sensor_query",
+    "slots": {
+      "room": "living room",
+      "sensor_type": "temperature"
+    }
+  },
+  {
+    "command_id": "cmd_0019",
+    "canonical_text": "what restaurants are nearby",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "restaurants",
+      "sort_by": "nearest"
+    }
+  },
+  {
+    "command_id": "cmd_0020",
+    "canonical_text": "what's the weather like today",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "today"
+    }
+  },
+  {
+    "command_id": "cmd_0021",
+    "canonical_text": "open reminders",
+    "domain": "calendar_alarm",
+    "intent": "reminder_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0022",
+    "canonical_text": "turn off heat",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "heat",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0023",
+    "canonical_text": "increase volume to maximum",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "up",
+      "change_amount": "maximum"
+    }
+  },
+  {
+    "command_id": "cmd_0024",
+    "canonical_text": "what's the time",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "time"
+    }
+  },
+  {
+    "command_id": "cmd_0025",
+    "canonical_text": "call area code zero five three six two one four eight seven nine",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "phone_number": "zero five three six two one four eight seven nine"
+    }
+  },
+  {
+    "command_id": "cmd_0026",
+    "canonical_text": "answer the door",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "answer the door"
+    }
+  },
+  {
+    "command_id": "cmd_0027",
+    "canonical_text": "brighten the screen",
+    "domain": "accessibility",
+    "intent": "accessibility_ui_scale",
+    "slots": {
+      "ui_element": "screen",
+      "direction": "brighten"
+    }
+  },
+  {
+    "command_id": "cmd_0028",
+    "canonical_text": "raise the temperature",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "setting": "temperature",
+      "direction": "raise"
+    }
+  },
+  {
+    "command_id": "cmd_0029",
+    "canonical_text": "when does the next train arrive",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "train"
+    }
+  },
+  {
+    "command_id": "cmd_0030",
+    "canonical_text": "dislike this song",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "dislike",
+      "target_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0031",
+    "canonical_text": "flip a coin",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "flip a coin"
+    }
+  },
+  {
+    "command_id": "cmd_0032",
+    "canonical_text": "get help",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "help"
+    }
+  },
+  {
+    "command_id": "cmd_0033",
+    "canonical_text": "read my new email",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "read"
+    }
+  },
+  {
+    "command_id": "cmd_0034",
+    "canonical_text": "what's the temperature outside",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "weather_aspect": "temperature"
+    }
+  },
+  {
+    "command_id": "cmd_0035",
+    "canonical_text": "like this song",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "like",
+      "target_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0036",
+    "canonical_text": "make it warmer",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "direction": "raise"
+    }
+  },
+  {
+    "command_id": "cmd_0037",
+    "canonical_text": "where did i park",
+    "domain": "notes_memory",
+    "intent": "memory_note_manage",
+    "slots": {
+      "action": "query",
+      "key": "parking_space"
+    }
+  },
+  {
+    "command_id": "cmd_0038",
+    "canonical_text": "increase the volume",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "up"
+    }
+  },
+  {
+    "command_id": "cmd_0039",
+    "canonical_text": "read my book",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "audiobook"
+    }
+  },
+  {
+    "command_id": "cmd_0040",
+    "canonical_text": "turn down the volume",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "down"
+    }
+  },
+  {
+    "command_id": "cmd_0041",
+    "canonical_text": "unlock the front door",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "front door",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0042",
+    "canonical_text": "what time is it",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "time"
+    }
+  },
+  {
+    "command_id": "cmd_0043",
+    "canonical_text": "where is my first event tomorrow",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "event_name": "first event",
+      "date": "tomorrow"
+    }
+  },
+  {
+    "command_id": "cmd_0044",
+    "canonical_text": "when did this song come out",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "when did this song come out"
+    }
+  },
+  {
+    "command_id": "cmd_0045",
+    "canonical_text": "when is thanksgiving this year",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "thanksgiving this year"
+    }
+  },
+  {
+    "command_id": "cmd_0046",
+    "canonical_text": "where is my next meeting",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "event_name": "meeting"
+    }
+  },
+  {
+    "command_id": "cmd_0047",
+    "canonical_text": "call the nearest coffee shop",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "coffee shop",
+      "sort_by": "nearest"
+    }
+  },
+  {
+    "command_id": "cmd_0048",
+    "canonical_text": "cortana what's playing",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "what's playing"
+    }
+  },
+  {
+    "command_id": "cmd_0049",
+    "canonical_text": "help me relax",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "help me relax"
+    }
+  },
+  {
+    "command_id": "cmd_0050",
+    "canonical_text": "redial",
+    "domain": "communication",
+    "intent": "call_manage",
+    "slots": {
+      "action": "redial"
+    }
+  },
+  {
+    "command_id": "cmd_0051",
+    "canonical_text": "request a taxi ride",
+    "domain": "transport",
+    "intent": "rideshare_book",
+    "slots": {}
+  },
+  {
+    "command_id": "cmd_0052",
+    "canonical_text": "when is it going to rain",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "weather_aspect": "rain"
+    }
+  },
+  {
+    "command_id": "cmd_0053",
+    "canonical_text": "when is my next alarm",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0054",
+    "canonical_text": "where is the nearest bus stop",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "bus"
+    }
+  },
+  {
+    "command_id": "cmd_0055",
+    "canonical_text": "cortana play music",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0056",
+    "canonical_text": "do i need an umbrella today",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "today",
+      "weather_aspect": "rain"
+    }
+  },
+  {
+    "command_id": "cmd_0057",
+    "canonical_text": "hey facebook resume",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "resume"
+    }
+  },
+  {
+    "command_id": "cmd_0058",
+    "canonical_text": "hey facebook turn down the sound",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "down"
+    }
+  },
+  {
+    "command_id": "cmd_0059",
+    "canonical_text": "hey google sing me a song",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "song"
+    }
+  },
+  {
+    "command_id": "cmd_0060",
+    "canonical_text": "hey google what's this song",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "what's this song"
+    }
+  },
+  {
+    "command_id": "cmd_0061",
+    "canonical_text": "read this page",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "read this page"
+    }
+  },
+  {
+    "command_id": "cmd_0062",
+    "canonical_text": "show me my alarms",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0063",
+    "canonical_text": "tell me a poem",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "poem"
+    }
+  },
+  {
+    "command_id": "cmd_0064",
+    "canonical_text": "turn off all switches",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "all switches",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0065",
+    "canonical_text": "turn up the sound",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "up"
+    }
+  },
+  {
+    "command_id": "cmd_0066",
+    "canonical_text": "what alarms are set",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0067",
+    "canonical_text": "what are some great vacation ideas",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "great vacation ideas"
+    }
+  },
+  {
+    "command_id": "cmd_0068",
+    "canonical_text": "lock the front door",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "front door",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0069",
+    "canonical_text": "what's the thermostat set to",
+    "domain": "smart_home",
+    "intent": "iot_sensor_query",
+    "slots": {
+      "sensor_type": "temperature"
+    }
+  },
+  {
+    "command_id": "cmd_0070",
+    "canonical_text": "add a meeting to my calendar",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "set",
+      "event_name": "meeting"
+    }
+  },
+  {
+    "command_id": "cmd_0071",
+    "canonical_text": "boil the kettle",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "kettle",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0072",
+    "canonical_text": "decrease the volume",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "down"
+    }
+  },
+  {
+    "command_id": "cmd_0073",
+    "canonical_text": "give me a motivational quote",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "motivational quote"
+    }
+  },
+  {
+    "command_id": "cmd_0074",
+    "canonical_text": "hey siri pause the music",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "pause",
+      "target_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0075",
+    "canonical_text": "hey siri turn up the volume",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "up"
+    }
+  },
+  {
+    "command_id": "cmd_0076",
+    "canonical_text": "how do you spell government",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "government"
+    }
+  },
+  {
+    "command_id": "cmd_0077",
+    "canonical_text": "how many calories does a big mac have",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "big mac"
+    }
+  },
+  {
+    "command_id": "cmd_0078",
+    "canonical_text": "is the front door locked",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "front door"
+    }
+  },
+  {
+    "command_id": "cmd_0079",
+    "canonical_text": "listen to c b s",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "radio",
+      "title": "c b s"
+    }
+  },
+  {
+    "command_id": "cmd_0080",
+    "canonical_text": "lower the temperature three degrees",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "setting": "temperature",
+      "direction": "lower",
+      "value": "three degrees"
+    }
+  },
+  {
+    "command_id": "cmd_0081",
+    "canonical_text": "raise the temperature two degrees",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "setting": "temperature",
+      "direction": "raise",
+      "value": "two degrees"
+    }
+  },
+  {
+    "command_id": "cmd_0082",
+    "canonical_text": "read my messages",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "read"
+    }
+  },
+  {
+    "command_id": "cmd_0083",
+    "canonical_text": "scan a q r code",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "scan a q r code"
+    }
+  },
+  {
+    "command_id": "cmd_0084",
+    "canonical_text": "snooze",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "snooze"
+    }
+  },
+  {
+    "command_id": "cmd_0085",
+    "canonical_text": "turn on my t v",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "t v",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0086",
+    "canonical_text": "what are my reminders",
+    "domain": "calendar_alarm",
+    "intent": "reminder_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0087",
+    "canonical_text": "what song is this",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "what song is this"
+    }
+  },
+  {
+    "command_id": "cmd_0088",
+    "canonical_text": "what's on my to do list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "to do list",
+      "action": "read"
+    }
+  },
+  {
+    "command_id": "cmd_0089",
+    "canonical_text": "what's the temperature inside",
+    "domain": "smart_home",
+    "intent": "iot_sensor_query",
+    "slots": {
+      "room": "inside",
+      "sensor_type": "temperature"
+    }
+  },
+  {
+    "command_id": "cmd_0090",
+    "canonical_text": "darken the screen",
+    "domain": "accessibility",
+    "intent": "accessibility_ui_scale",
+    "slots": {
+      "ui_element": "screen",
+      "direction": "darken"
+    }
+  },
+  {
+    "command_id": "cmd_0091",
+    "canonical_text": "do i have any alarms set",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0092",
+    "canonical_text": "how do you say help me in mandarin chinese",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "help me in mandarin chinese"
+    }
+  },
+  {
+    "command_id": "cmd_0093",
+    "canonical_text": "is there a chance of rain on the twentieth",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "twentieth",
+      "weather_aspect": "rain"
+    }
+  },
+  {
+    "command_id": "cmd_0094",
+    "canonical_text": "make it cooler",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "direction": "lower"
+    }
+  },
+  {
+    "command_id": "cmd_0095",
+    "canonical_text": "open email",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "read"
+    }
+  },
+  {
+    "command_id": "cmd_0096",
+    "canonical_text": "set the volume to ten",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "set_level",
+      "change_amount": "ten"
+    }
+  },
+  {
+    "command_id": "cmd_0097",
+    "canonical_text": "show me nearby restaurants",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "restaurants",
+      "sort_by": "nearest"
+    }
+  },
+  {
+    "command_id": "cmd_0098",
+    "canonical_text": "skip this track",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "skip"
+    }
+  },
+  {
+    "command_id": "cmd_0099",
+    "canonical_text": "turn on the porch light",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "porch light",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0100",
+    "canonical_text": "turn up the temperature one degree",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "setting": "temperature",
+      "direction": "raise",
+      "value": "one degree"
+    }
+  },
+  {
+    "command_id": "cmd_0101",
+    "canonical_text": "what film won the oscar for best picture in nineteen forty nine",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "film won the oscar for best picture in nineteen forty nine"
+    }
+  },
+  {
+    "command_id": "cmd_0102",
+    "canonical_text": "what movies came out last week",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "movies came out last week"
+    }
+  },
+  {
+    "command_id": "cmd_0103",
+    "canonical_text": "when is shell open until",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_name": "shell"
+    }
+  },
+  {
+    "command_id": "cmd_0104",
+    "canonical_text": "who won the n h l game yesterday",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "n h l game yesterday"
+    }
+  },
+  {
+    "command_id": "cmd_0105",
+    "canonical_text": "alexa play more like this",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0106",
+    "canonical_text": "delete my reminders for tomorrow",
+    "domain": "calendar_alarm",
+    "intent": "reminder_manage",
+    "slots": {
+      "action": "delete",
+      "date": "tomorrow"
+    }
+  },
+  {
+    "command_id": "cmd_0107",
+    "canonical_text": "how long is left on the timer",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0108",
+    "canonical_text": "is my flight on time",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "flight"
+    }
+  },
+  {
+    "command_id": "cmd_0109",
+    "canonical_text": "is there a chance of rain on the sixteenth",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "sixteenth",
+      "weather_aspect": "rain"
+    }
+  },
+  {
+    "command_id": "cmd_0110",
+    "canonical_text": "navigate to walgreens",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "walgreens",
+      "query_type": "navigation"
+    }
+  },
+  {
+    "command_id": "cmd_0111",
+    "canonical_text": "open duolingo",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "open duolingo"
+    }
+  },
+  {
+    "command_id": "cmd_0112",
+    "canonical_text": "show me nearby cafes",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "cafes",
+      "sort_by": "nearest"
+    }
+  },
+  {
+    "command_id": "cmd_0113",
+    "canonical_text": "show me nearby shopping malls",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "shopping malls",
+      "sort_by": "nearest"
+    }
+  },
+  {
+    "command_id": "cmd_0114",
+    "canonical_text": "skip forward forty five seconds",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "skip",
+      "duration": "forty five seconds"
+    }
+  },
+  {
+    "command_id": "cmd_0115",
+    "canonical_text": "skip to the next chapter",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "skip"
+    }
+  },
+  {
+    "command_id": "cmd_0116",
+    "canonical_text": "snooze the alarm",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "snooze"
+    }
+  },
+  {
+    "command_id": "cmd_0117",
+    "canonical_text": "turn down the temperature five degrees",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "setting": "temperature",
+      "direction": "lower",
+      "value": "five degrees"
+    }
+  },
+  {
+    "command_id": "cmd_0118",
+    "canonical_text": "turn on the t v",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "t v",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0119",
+    "canonical_text": "turn the t v to c b s",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "t v",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0120",
+    "canonical_text": "video call lennart vass",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "lennart vass"
+    }
+  },
+  {
+    "command_id": "cmd_0121",
+    "canonical_text": "what does my day look like",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query"
+    }
+  },
+  {
+    "command_id": "cmd_0122",
+    "canonical_text": "what team won the world series in nineteen thirty eight",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "team won the world series in nineteen thirty eight"
+    }
+  },
+  {
+    "command_id": "cmd_0123",
+    "canonical_text": "broadcast the football game is about to start",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "broadcast the football game is about to start"
+    }
+  },
+  {
+    "command_id": "cmd_0124",
+    "canonical_text": "cancel alarm for seven thirty",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "cancel",
+      "time": "seven thirty"
+    }
+  },
+  {
+    "command_id": "cmd_0125",
+    "canonical_text": "create a sam's club shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "sam's club shopping list",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0126",
+    "canonical_text": "did i miss any emails from yesterday",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "search",
+      "date": "yesterday"
+    }
+  },
+  {
+    "command_id": "cmd_0127",
+    "canonical_text": "how do you spell succeed",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "succeed"
+    }
+  },
+  {
+    "command_id": "cmd_0128",
+    "canonical_text": "how far is bridgeport california from here",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "bridgeport california",
+      "query_type": "distance"
+    }
+  },
+  {
+    "command_id": "cmd_0129",
+    "canonical_text": "how far is costco from here",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "costco",
+      "query_type": "distance"
+    }
+  },
+  {
+    "command_id": "cmd_0130",
+    "canonical_text": "how much is a round trip flight to sedona arizona",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "flight",
+      "destination": "sedona arizona"
+    }
+  },
+  {
+    "command_id": "cmd_0131",
+    "canonical_text": "is yellowstone national park a d a compliant",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "yellowstone national park a d a compliant"
+    }
+  },
+  {
+    "command_id": "cmd_0132",
+    "canonical_text": "open youtube",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "open youtube"
+    }
+  },
+  {
+    "command_id": "cmd_0133",
+    "canonical_text": "play billboard's top forty on pandora",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music",
+      "title": "billboard's top forty"
+    }
+  },
+  {
+    "command_id": "cmd_0134",
+    "canonical_text": "play music on office speakers",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music",
+      "house_place": "office"
+    }
+  },
+  {
+    "command_id": "cmd_0135",
+    "canonical_text": "please call kathy bianco",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "kathy bianco"
+    }
+  },
+  {
+    "command_id": "cmd_0136",
+    "canonical_text": "preheat the oven to three hundred degrees",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "device_type": "oven",
+      "value": "three hundred degrees"
+    }
+  },
+  {
+    "command_id": "cmd_0137",
+    "canonical_text": "remind me to take a break in fifteen minutes",
+    "domain": "calendar_alarm",
+    "intent": "reminder_manage",
+    "slots": {
+      "action": "set",
+      "title": "take a break",
+      "time": "fifteen minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0138",
+    "canonical_text": "turn off cooling",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "cooling",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0139",
+    "canonical_text": "turn off the closet light",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "closet light",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0140",
+    "canonical_text": "turn on heat",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "heat",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0141",
+    "canonical_text": "what's apple trading at",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "apple"
+    }
+  },
+  {
+    "command_id": "cmd_0142",
+    "canonical_text": "what's it like outside",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {}
+  },
+  {
+    "command_id": "cmd_0143",
+    "canonical_text": "when's my first meeting today",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "event_name": "meeting",
+      "date": "today"
+    }
+  },
+  {
+    "command_id": "cmd_0144",
+    "canonical_text": "buy tickets at six fifteen p m",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "time": "six fifteen p m"
+    }
+  },
+  {
+    "command_id": "cmd_0145",
+    "canonical_text": "do i have anything scheduled for friday",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "date": "friday"
+    }
+  },
+  {
+    "command_id": "cmd_0146",
+    "canonical_text": "fast forward five minutes",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "skip",
+      "duration": "five minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0147",
+    "canonical_text": "how many refills are left on my estradiol",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "estradiol"
+    }
+  },
+  {
+    "command_id": "cmd_0148",
+    "canonical_text": "navigate to c v s",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "c v s",
+      "query_type": "navigation"
+    }
+  },
+  {
+    "command_id": "cmd_0149",
+    "canonical_text": "set an alarm for every sunday at eight p m",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "eight p m",
+      "general_frequency": "every sunday"
+    }
+  },
+  {
+    "command_id": "cmd_0150",
+    "canonical_text": "set an alarm in forty minutes",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "forty minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0151",
+    "canonical_text": "set the air conditioning to seventy eight",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "device_type": "air conditioning",
+      "value": "seventy eight"
+    }
+  },
+  {
+    "command_id": "cmd_0152",
+    "canonical_text": "what are the best places for vacation in june",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "best places for vacation in june"
+    }
+  },
+  {
+    "command_id": "cmd_0153",
+    "canonical_text": "what's on my agenda for today",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "date": "today"
+    }
+  },
+  {
+    "command_id": "cmd_0154",
+    "canonical_text": "add rechargeable hand warmers for robert to my gift list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "gift list",
+      "item": "rechargeable hand warmers for robert",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0155",
+    "canonical_text": "alexa what's this album",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "what's this album"
+    }
+  },
+  {
+    "command_id": "cmd_0156",
+    "canonical_text": "brighten the dining room light",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "device_type": "dining room light",
+      "direction": "raise"
+    }
+  },
+  {
+    "command_id": "cmd_0157",
+    "canonical_text": "cancel alarm for eight",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "cancel",
+      "time": "eight"
+    }
+  },
+  {
+    "command_id": "cmd_0158",
+    "canonical_text": "dim the hallway lights to ten percent",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "device_type": "hallway lights",
+      "direction": "lower",
+      "value": "ten percent"
+    }
+  },
+  {
+    "command_id": "cmd_0159",
+    "canonical_text": "how many refills are left on my baclofen",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "baclofen"
+    }
+  },
+  {
+    "command_id": "cmd_0160",
+    "canonical_text": "how many refills are left on my nitroglycerin",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "nitroglycerin"
+    }
+  },
+  {
+    "command_id": "cmd_0161",
+    "canonical_text": "how many refills are left on my warfarin",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "warfarin"
+    }
+  },
+  {
+    "command_id": "cmd_0162",
+    "canonical_text": "is the dentist's office on park street wheelchair accessible",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "dentist's office on park street wheelchair accessible"
+    }
+  },
+  {
+    "command_id": "cmd_0163",
+    "canonical_text": "map a route to john f kennedy airport",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "john f kennedy airport",
+      "query_type": "navigation"
+    }
+  },
+  {
+    "command_id": "cmd_0164",
+    "canonical_text": "play the latest episode of crime junkie",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "podcast",
+      "title": "crime junkie"
+    }
+  },
+  {
+    "command_id": "cmd_0165",
+    "canonical_text": "remember that my pin is nine three seven four",
+    "domain": "notes_memory",
+    "intent": "memory_note_manage",
+    "slots": {
+      "action": "save",
+      "key": "pin",
+      "value": "nine three seven four"
+    }
+  },
+  {
+    "command_id": "cmd_0166",
+    "canonical_text": "set a reminder for our dinner reservation on friday",
+    "domain": "calendar_alarm",
+    "intent": "reminder_manage",
+    "slots": {
+      "action": "set",
+      "title": "dinner reservation",
+      "date": "friday"
+    }
+  },
+  {
+    "command_id": "cmd_0167",
+    "canonical_text": "set the heat to seventy two",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "device_type": "heat",
+      "value": "seventy two"
+    }
+  },
+  {
+    "command_id": "cmd_0168",
+    "canonical_text": "show me photos from the eighteenth of september",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "photos from the eighteenth of september"
+    }
+  },
+  {
+    "command_id": "cmd_0169",
+    "canonical_text": "tell me about seattle sounders f c",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "seattle sounders f c"
+    }
+  },
+  {
+    "command_id": "cmd_0170",
+    "canonical_text": "tell me news from m s n b c",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "news from m s n b c"
+    }
+  },
+  {
+    "command_id": "cmd_0171",
+    "canonical_text": "wake me up at six forty five a m every day",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "six forty five a m",
+      "general_frequency": "every day"
+    }
+  },
+  {
+    "command_id": "cmd_0172",
+    "canonical_text": "what's the microsoft stock price",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "microsoft stock price"
+    }
+  },
+  {
+    "command_id": "cmd_0173",
+    "canonical_text": "how many refills are left on my risperidone",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "risperidone"
+    }
+  },
+  {
+    "command_id": "cmd_0174",
+    "canonical_text": "broadcast the coffee's ready",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "broadcast the coffee's ready"
+    }
+  },
+  {
+    "command_id": "cmd_0175",
+    "canonical_text": "dim the porch lights to seventy percent",
+    "domain": "smart_home",
+    "intent": "iot_device_adjust",
+    "slots": {
+      "device_type": "porch lights",
+      "direction": "lower",
+      "value": "seventy percent"
+    }
+  },
+  {
+    "command_id": "cmd_0176",
+    "canonical_text": "play music on playroom speakers",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music",
+      "house_place": "playroom"
+    }
+  },
+  {
+    "command_id": "cmd_0177",
+    "canonical_text": "set a reminder to take glipizide at six thirty p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "glipizide",
+      "time": "six thirty p m"
+    }
+  },
+  {
+    "command_id": "cmd_0178",
+    "canonical_text": "set an alarm in thirty minutes",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "thirty minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0179",
+    "canonical_text": "start listening what's the weather for the weekend",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "weekend"
+    }
+  },
+  {
+    "command_id": "cmd_0180",
+    "canonical_text": "turn off the lights in the guestroom",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "lights in the guestroom",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0181",
+    "canonical_text": "what's playing in the theaters near me",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "what's playing in the theaters near me"
+    }
+  },
+  {
+    "command_id": "cmd_0182",
+    "canonical_text": "book a table for six at baldamar",
+    "domain": "maps_places",
+    "intent": "reservations_manage",
+    "slots": {
+      "business_name": "baldamar",
+      "party_size": "six"
+    }
+  },
+  {
+    "command_id": "cmd_0183",
+    "canonical_text": "how many refills are left on my lorazepam",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "lorazepam"
+    }
+  },
+  {
+    "command_id": "cmd_0184",
+    "canonical_text": "how many refills are left on my propanolol",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "propanolol"
+    }
+  },
+  {
+    "command_id": "cmd_0185",
+    "canonical_text": "is alaska center for the performing arts a d a compliant",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "alaska center for the performing arts a d a compliant"
+    }
+  },
+  {
+    "command_id": "cmd_0186",
+    "canonical_text": "my parking space is purple",
+    "domain": "notes_memory",
+    "intent": "memory_note_manage",
+    "slots": {
+      "action": "save",
+      "key": "parking_space",
+      "value": "purple"
+    }
+  },
+  {
+    "command_id": "cmd_0187",
+    "canonical_text": "set a reminder for molly's vet appointment",
+    "domain": "calendar_alarm",
+    "intent": "reminder_manage",
+    "slots": {
+      "action": "set",
+      "title": "molly's vet appointment"
+    }
+  },
+  {
+    "command_id": "cmd_0188",
+    "canonical_text": "set a reminder to take amoxicillin with lunch",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "amoxicillin",
+      "time": "lunch"
+    }
+  },
+  {
+    "command_id": "cmd_0189",
+    "canonical_text": "set a reminder to take spironolactone at nine p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "spironolactone",
+      "time": "nine p m"
+    }
+  },
+  {
+    "command_id": "cmd_0190",
+    "canonical_text": "wake me up at nine o'clock thursday",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "nine o'clock",
+      "date": "thursday"
+    }
+  },
+  {
+    "command_id": "cmd_0191",
+    "canonical_text": "what are the side effects of levothyroxine",
+    "domain": "health",
+    "intent": "health_info_query",
+    "slots": {
+      "medication": "levothyroxine",
+      "info_type": "side_effects"
+    }
+  },
+  {
+    "command_id": "cmd_0192",
+    "canonical_text": "who's winning between duke and north carolina",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "who's winning between duke and north carolina"
+    }
+  },
+  {
+    "command_id": "cmd_0193",
+    "canonical_text": "find me flights to kansas city kansas",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "flight",
+      "destination": "kansas city kansas"
+    }
+  },
+  {
+    "command_id": "cmd_0194",
+    "canonical_text": "how far is pisa italy from rome italy",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "pisa italy",
+      "query_type": "distance"
+    }
+  },
+  {
+    "command_id": "cmd_0195",
+    "canonical_text": "how many refills are left on my clindamycin risperidone",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "clindamycin risperidone"
+    }
+  },
+  {
+    "command_id": "cmd_0196",
+    "canonical_text": "how many refills are left on my omeprazole",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "omeprazole"
+    }
+  },
+  {
+    "command_id": "cmd_0197",
+    "canonical_text": "how tall is the tallest person who ever lived",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "tallest person who ever lived"
+    }
+  },
+  {
+    "command_id": "cmd_0198",
+    "canonical_text": "set a reminder to take citalopram at eight a m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "citalopram",
+      "time": "eight a m"
+    }
+  },
+  {
+    "command_id": "cmd_0199",
+    "canonical_text": "set a reminder to take furosemide at bed time",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "furosemide",
+      "time": "bed time"
+    }
+  },
+  {
+    "command_id": "cmd_0200",
+    "canonical_text": "set a reminder to take potassium at two p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "potassium",
+      "time": "two p m"
+    }
+  },
+  {
+    "command_id": "cmd_0201",
+    "canonical_text": "set a reminder to take simvastatin at dinner time",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "simvastatin",
+      "time": "dinner time"
+    }
+  },
+  {
+    "command_id": "cmd_0202",
+    "canonical_text": "skip backward two minutes",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "replay",
+      "duration": "two minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0203",
+    "canonical_text": "start listening what's today's news",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "today's news"
+    }
+  },
+  {
+    "command_id": "cmd_0204",
+    "canonical_text": "what's the distance to hibbing minnesota",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "hibbing minnesota",
+      "query_type": "distance"
+    }
+  },
+  {
+    "command_id": "cmd_0205",
+    "canonical_text": "what's the latest in science and technology",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "science and technology"
+    }
+  },
+  {
+    "command_id": "cmd_0206",
+    "canonical_text": "what's the weather like in new york",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "place_name": "new york"
+    }
+  },
+  {
+    "command_id": "cmd_0207",
+    "canonical_text": "who won the gold medal in men's figure skating in the nineteen fifty two winter olympics",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "gold medal in men's figure skating in the nineteen fifty two winter olympics"
+    }
+  },
+  {
+    "command_id": "cmd_0208",
+    "canonical_text": "cancel my meeting with sanjiv lynne at two thirty p m tuesday the ninth",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "cancel",
+      "event_name": "meeting",
+      "person": "sanjiv lynne",
+      "time": "two thirty p m",
+      "date": "tuesday the ninth"
+    }
+  },
+  {
+    "command_id": "cmd_0209",
+    "canonical_text": "define conundrum",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "conundrum"
+    }
+  },
+  {
+    "command_id": "cmd_0210",
+    "canonical_text": "did the seattle mariners win",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "seattle mariners"
+    }
+  },
+  {
+    "command_id": "cmd_0211",
+    "canonical_text": "find me a holiday cocktail recipe with cranberry juice and gin",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "holiday cocktail recipe with cranberry juice and gin"
+    }
+  },
+  {
+    "command_id": "cmd_0212",
+    "canonical_text": "i parked on level four",
+    "domain": "notes_memory",
+    "intent": "memory_note_manage",
+    "slots": {
+      "action": "save",
+      "key": "parking_space",
+      "value": "level four"
+    }
+  },
+  {
+    "command_id": "cmd_0213",
+    "canonical_text": "is buca di beppo open today",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_name": "buca di beppo"
+    }
+  },
+  {
+    "command_id": "cmd_0214",
+    "canonical_text": "make me a reservation at bayern brewery",
+    "domain": "maps_places",
+    "intent": "reservations_manage",
+    "slots": {
+      "business_name": "bayern brewery"
+    }
+  },
+  {
+    "command_id": "cmd_0215",
+    "canonical_text": "reschedule my meeting with virginia daniel at seven saturday",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "set",
+      "event_name": "meeting",
+      "person": "virginia daniel",
+      "time": "seven",
+      "date": "saturday"
+    }
+  },
+  {
+    "command_id": "cmd_0216",
+    "canonical_text": "set a reminder to take acetaminophen at one p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "acetaminophen",
+      "time": "one p m"
+    }
+  },
+  {
+    "command_id": "cmd_0217",
+    "canonical_text": "video call martin starosta",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "martin starosta"
+    }
+  },
+  {
+    "command_id": "cmd_0218",
+    "canonical_text": "what's one dollar in british pounds",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "one dollar in british pounds"
+    }
+  },
+  {
+    "command_id": "cmd_0219",
+    "canonical_text": "when are the san franscisco giants playing next",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "san franscisco giants playing next"
+    }
+  },
+  {
+    "command_id": "cmd_0220",
+    "canonical_text": "wikipedia list of highest grossing films",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "wikipedia list of highest grossing films"
+    }
+  },
+  {
+    "command_id": "cmd_0221",
+    "canonical_text": "add ingredients for chili pizza dough shredded mozzarella and heel balm to the shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "shopping list",
+      "item": "ingredients for chili pizza dough shredded mozzarella and heel balm",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0222",
+    "canonical_text": "find me flights to barcelona spain",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "flight",
+      "destination": "barcelona spain"
+    }
+  },
+  {
+    "command_id": "cmd_0223",
+    "canonical_text": "how many refills are left on my allopurinol",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "allopurinol"
+    }
+  },
+  {
+    "command_id": "cmd_0224",
+    "canonical_text": "map a route to dallas fortworth international airport",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "dallas fortworth international airport",
+      "query_type": "navigation"
+    }
+  },
+  {
+    "command_id": "cmd_0225",
+    "canonical_text": "play indiana jones and the raiders of the lost ark on paramount plus",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "indiana jones and the raiders of the lost ark on paramount plus"
+    }
+  },
+  {
+    "command_id": "cmd_0226",
+    "canonical_text": "play the tears of a clown by smokey robinson and the miracles",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music",
+      "title": "the tears of a clown",
+      "artist": "smokey robinson and the miracles"
+    }
+  },
+  {
+    "command_id": "cmd_0227",
+    "canonical_text": "please send this email dear customer service comma i am writing about the status of order number three eight four nine seven two period do you have a tracking update question mark thank you period",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "send",
+      "message_body": "dear customer service comma i am writing about the status of order number three eight four nine seven two period do you have a tracking update question mark thank you period"
+    }
+  },
+  {
+    "command_id": "cmd_0228",
+    "canonical_text": "read for whom the bell tolls on audiobook",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "audiobook",
+      "title": "for whom the bell tolls"
+    }
+  },
+  {
+    "command_id": "cmd_0229",
+    "canonical_text": "send a message to krasimir gregory",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "send",
+      "recipient": "krasimir gregory"
+    }
+  },
+  {
+    "command_id": "cmd_0230",
+    "canonical_text": "set a reminder to take pantoprazole at six a m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "pantoprazole",
+      "time": "six a m"
+    }
+  },
+  {
+    "command_id": "cmd_0231",
+    "canonical_text": "what time is it in fairbanks alaska",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "fairbanks alaska"
+    }
+  },
+  {
+    "command_id": "cmd_0232",
+    "canonical_text": "what's the conversion of sixteen ounces to liters",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "conversion of sixteen ounces to liters"
+    }
+  },
+  {
+    "command_id": "cmd_0233",
+    "canonical_text": "who is the lead character in citizen kane",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "lead character in citizen kane"
+    }
+  },
+  {
+    "command_id": "cmd_0234",
+    "canonical_text": "add a hair dryer brush for nessa to my gift list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "gift list",
+      "item": "hair dryer brush for nessa",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0235",
+    "canonical_text": "how did the portland timbers game turn out yesterday",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "portland timbers game turn out yesterday"
+    }
+  },
+  {
+    "command_id": "cmd_0236",
+    "canonical_text": "how do i make brisket on the smoker",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "brisket on the smoker"
+    }
+  },
+  {
+    "command_id": "cmd_0237",
+    "canonical_text": "is the observatory at the willis tower wheelchair accessible",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "observatory at the willis tower wheelchair accessible"
+    }
+  },
+  {
+    "command_id": "cmd_0238",
+    "canonical_text": "please call carola fulton",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "carola fulton"
+    }
+  },
+  {
+    "command_id": "cmd_0239",
+    "canonical_text": "schedule a refill for my clonazepam prescription",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "clonazepam"
+    }
+  },
+  {
+    "command_id": "cmd_0240",
+    "canonical_text": "schedule a refill for my pantoprazole prescription",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "pantoprazole"
+    }
+  },
+  {
+    "command_id": "cmd_0241",
+    "canonical_text": "set a reminder to take ibuprofen at eleven thirty a m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "ibuprofen",
+      "time": "eleven thirty a m"
+    }
+  },
+  {
+    "command_id": "cmd_0242",
+    "canonical_text": "show me an image of business meetings",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "image of business meetings"
+    }
+  },
+  {
+    "command_id": "cmd_0243",
+    "canonical_text": "show me movies with troy kotsur",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "movies with troy kotsur"
+    }
+  },
+  {
+    "command_id": "cmd_0244",
+    "canonical_text": "what are the side effects of losartan",
+    "domain": "health",
+    "intent": "health_info_query",
+    "slots": {
+      "medication": "losartan",
+      "info_type": "side_effects"
+    }
+  },
+  {
+    "command_id": "cmd_0245",
+    "canonical_text": "add frozen strawberries blueberries a case of paper towels and cereal to the shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "shopping list",
+      "item": "frozen strawberries blueberries a case of paper towels and cereal",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0246",
+    "canonical_text": "find me a vegetarian stew recipe with smoked paprika fresh garlic and lentils",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "vegetarian stew recipe with smoked paprika fresh garlic and lentils"
+    }
+  },
+  {
+    "command_id": "cmd_0247",
+    "canonical_text": "how many calories does a pint of ben and jerry's ice cream have",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "pint of ben and jerry's ice cream"
+    }
+  },
+  {
+    "command_id": "cmd_0248",
+    "canonical_text": "please send this text hi exclamation point what time will you be home question mark thanks exclamation point",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "send",
+      "message_body": "hi exclamation point what time will you be home question mark thanks exclamation point"
+    }
+  },
+  {
+    "command_id": "cmd_0249",
+    "canonical_text": "set a timer for covid nineteen test for fifteen minutes",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "fifteen minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0250",
+    "canonical_text": "who played third base for the pittsburgh pirates in nineteen sixty",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "third base for the pittsburgh pirates in nineteen sixty"
+    }
+  },
+  {
+    "command_id": "cmd_0251",
+    "canonical_text": "book me a room at crowne plaza hotel in grand junction colorado on june ninth through june nineteenth",
+    "domain": "maps_places",
+    "intent": "reservations_manage",
+    "slots": {
+      "business_name": "crowne plaza hotel",
+      "date": "june ninth through june nineteenth"
+    }
+  },
+  {
+    "command_id": "cmd_0252",
+    "canonical_text": "cancel my meeting with vincente and lin at one forty five p m tuesday",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "cancel",
+      "event_name": "meeting",
+      "person": "vincente and lin",
+      "time": "one forty five p m",
+      "date": "tuesday"
+    }
+  },
+  {
+    "command_id": "cmd_0253",
+    "canonical_text": "play the latest episode of ologies",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "podcast",
+      "title": "ologies"
+    }
+  },
+  {
+    "command_id": "cmd_0254",
+    "canonical_text": "what was the score for the last l s u tigers game",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "score for the last l s u tigers game"
+    }
+  },
+  {
+    "command_id": "cmd_0255",
+    "canonical_text": "set a timer for one hour",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "one hour"
+    }
+  },
+  {
+    "command_id": "cmd_0256",
+    "canonical_text": "send an email to sabina k at westerly dot e d u",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "send",
+      "recipient": "sabina k at westerly dot e d u"
+    }
+  },
+  {
+    "command_id": "cmd_0257",
+    "canonical_text": "how's the traffic to mount washington new hamshire",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "mount washington new hamshire",
+      "query_type": "traffic"
+    }
+  },
+  {
+    "command_id": "cmd_0258",
+    "canonical_text": "how much is a hundred and fifty dollars in euros",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "hundred and fifty dollars in euros"
+    }
+  },
+  {
+    "command_id": "cmd_0259",
+    "canonical_text": "find non stop flights to lisbon portugal on tap",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "flight",
+      "destination": "lisbon portugal",
+      "route_or_station": "tap"
+    }
+  },
+  {
+    "command_id": "cmd_0260",
+    "canonical_text": "please send this text",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "send"
+    }
+  },
+  {
+    "command_id": "cmd_0261",
+    "canonical_text": "find non stop flights to lisbon portugal on t a p",
+    "domain": "transport",
+    "intent": "transit_lookup",
+    "slots": {
+      "transit_type": "flight",
+      "destination": "lisbon portugal",
+      "route_or_station": "t a p"
+    }
+  },
+  {
+    "command_id": "cmd_0262",
+    "canonical_text": "how's the traffic to mount washington new hampshire",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "mount washington new hampshire",
+      "query_type": "traffic"
+    }
+  },
+  {
+    "command_id": "cmd_0263",
+    "canonical_text": "is the pharmacy open",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "pharmacy"
+    }
+  },
+  {
+    "command_id": "cmd_0264",
+    "canonical_text": "send a message",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "send"
+    }
+  },
+  {
+    "command_id": "cmd_0265",
+    "canonical_text": "make the screen brighter",
+    "domain": "accessibility",
+    "intent": "accessibility_ui_scale",
+    "slots": {
+      "ui_element": "screen",
+      "direction": "brighten"
+    }
+  },
+  {
+    "command_id": "cmd_0266",
+    "canonical_text": "set a timer for one hour minutes",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "one hour minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0267",
+    "canonical_text": "reschedule my meeting",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "event_name": "meeting"
+    }
+  },
+  {
+    "command_id": "cmd_0268",
+    "canonical_text": "how much is one hundred and fifty dollars in euros",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "one hundred and fifty dollars in euros"
+    }
+  },
+  {
+    "command_id": "cmd_0269",
+    "canonical_text": "turn off the heat",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "heat",
+      "state": "off"
+    }
+  },
+  {
+    "command_id": "cmd_0270",
+    "canonical_text": "call area code o five three six two one four eight seven nine",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "phone_number": "o five three six two one four eight seven nine"
+    }
+  },
+  {
+    "command_id": "cmd_0271",
+    "canonical_text": "who is the main character in spider man",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "main character in spider man"
+    }
+  },
+  {
+    "command_id": "cmd_0272",
+    "canonical_text": "now is our one moment of glory",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "now is our one moment of glory"
+    }
+  },
+  {
+    "command_id": "cmd_0273",
+    "canonical_text": "add ingredients for chili to shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "shopping list",
+      "item": "ingredients for chili",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0274",
+    "canonical_text": "cancel my meeting with vincent and lin",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "cancel",
+      "event_name": "meeting",
+      "person": "vincent and lin"
+    }
+  },
+  {
+    "command_id": "cmd_0275",
+    "canonical_text": "how many refills are left on my buspar",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "buspar"
+    }
+  },
+  {
+    "command_id": "cmd_0276",
+    "canonical_text": "i need to return this item",
+    "domain": "general_qa",
+    "intent": "order_manage",
+    "slots": {
+      "action": "return_item"
+    }
+  },
+  {
+    "command_id": "cmd_0277",
+    "canonical_text": "is red lobster open today",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_name": "red lobster"
+    }
+  },
+  {
+    "command_id": "cmd_0278",
+    "canonical_text": "please call carol fulton",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "carol fulton"
+    }
+  },
+  {
+    "command_id": "cmd_0279",
+    "canonical_text": "please respond to my text",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "send"
+    }
+  },
+  {
+    "command_id": "cmd_0280",
+    "canonical_text": "please send this email to the group",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "send",
+      "recipient": "group"
+    }
+  },
+  {
+    "command_id": "cmd_0281",
+    "canonical_text": "show me movies with tom cruise",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "movies with tom cruise"
+    }
+  },
+  {
+    "command_id": "cmd_0282",
+    "canonical_text": "take insulin at dinner time",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "insulin",
+      "time": "dinner time"
+    }
+  },
+  {
+    "command_id": "cmd_0283",
+    "canonical_text": "turn on the heat",
+    "domain": "smart_home",
+    "intent": "iot_device_power",
+    "slots": {
+      "device_type": "heat",
+      "state": "on"
+    }
+  },
+  {
+    "command_id": "cmd_0284",
+    "canonical_text": "what's the weather on labor day",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "labor day"
+    }
+  },
+  {
+    "command_id": "cmd_0285",
+    "canonical_text": "what's the weather on memorial day",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "memorial day"
+    }
+  },
+  {
+    "command_id": "cmd_0286",
+    "canonical_text": "when are the giants playing",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "giants playing"
+    }
+  },
+  {
+    "command_id": "cmd_0287",
+    "canonical_text": "call dan barker",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "dan barker"
+    }
+  },
+  {
+    "command_id": "cmd_0288",
+    "canonical_text": "call lynn banks",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "lynn banks"
+    }
+  },
+  {
+    "command_id": "cmd_0289",
+    "canonical_text": "call shawna brock",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "shawna brock"
+    }
+  },
+  {
+    "command_id": "cmd_0290",
+    "canonical_text": "cancel my meeting with sonya lee",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "cancel",
+      "event_name": "meeting",
+      "person": "sonya lee"
+    }
+  },
+  {
+    "command_id": "cmd_0291",
+    "canonical_text": "dear customer service comma",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "dear customer service comma"
+    }
+  },
+  {
+    "command_id": "cmd_0292",
+    "canonical_text": "define conclude",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "conclude"
+    }
+  },
+  {
+    "command_id": "cmd_0293",
+    "canonical_text": "how far is naples italy from rome",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "naples italy",
+      "query_type": "distance"
+    }
+  },
+  {
+    "command_id": "cmd_0294",
+    "canonical_text": "how many people live in maryland",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "people live in maryland"
+    }
+  },
+  {
+    "command_id": "cmd_0295",
+    "canonical_text": "how many refills are left on my abilify",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "abilify"
+    }
+  },
+  {
+    "command_id": "cmd_0296",
+    "canonical_text": "i need to cancel my order",
+    "domain": "general_qa",
+    "intent": "order_manage",
+    "slots": {
+      "action": "cancel_order"
+    }
+  },
+  {
+    "command_id": "cmd_0297",
+    "canonical_text": "make me a reservation at baytown brewery",
+    "domain": "maps_places",
+    "intent": "reservations_manage",
+    "slots": {
+      "business_name": "baytown brewery"
+    }
+  },
+  {
+    "command_id": "cmd_0298",
+    "canonical_text": "our parking space is purple",
+    "domain": "notes_memory",
+    "intent": "memory_note_manage",
+    "slots": {
+      "action": "save",
+      "key": "parking_space",
+      "value": "purple"
+    }
+  },
+  {
+    "command_id": "cmd_0299",
+    "canonical_text": "play the latest episode of planet money",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "podcast",
+      "title": "planet money"
+    }
+  },
+  {
+    "command_id": "cmd_0300",
+    "canonical_text": "recipe with buttermilk and coconut",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with buttermilk and coconut"
+    }
+  },
+  {
+    "command_id": "cmd_0301",
+    "canonical_text": "recipe with cranberry and gin",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with cranberry and gin"
+    }
+  },
+  {
+    "command_id": "cmd_0302",
+    "canonical_text": "skip backwards two minutes",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "replay",
+      "duration": "two minutes"
+    }
+  },
+  {
+    "command_id": "cmd_0303",
+    "canonical_text": "take fish oil at bedtime",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "fish oil",
+      "time": "bedtime"
+    }
+  },
+  {
+    "command_id": "cmd_0304",
+    "canonical_text": "what are the side effects of strattera",
+    "domain": "health",
+    "intent": "health_info_query",
+    "slots": {
+      "medication": "strattera",
+      "info_type": "side_effects"
+    }
+  },
+  {
+    "command_id": "cmd_0305",
+    "canonical_text": "what was the score for the l s u game",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "score for the l s u game"
+    }
+  },
+  {
+    "command_id": "cmd_0306",
+    "canonical_text": "what's the weather next week",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "next week"
+    }
+  },
+  {
+    "command_id": "cmd_0307",
+    "canonical_text": "what's the weather on christmas",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "christmas"
+    }
+  },
+  {
+    "command_id": "cmd_0308",
+    "canonical_text": "what's the weather on my birthday",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "birthday"
+    }
+  },
+  {
+    "command_id": "cmd_0309",
+    "canonical_text": "what's the weather on september twenty second",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "september twenty second"
+    }
+  },
+  {
+    "command_id": "cmd_0310",
+    "canonical_text": "call caleb neville",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "caleb neville"
+    }
+  },
+  {
+    "command_id": "cmd_0311",
+    "canonical_text": "call denise chavez",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "denise chavez"
+    }
+  },
+  {
+    "command_id": "cmd_0312",
+    "canonical_text": "call flo giannopoulos",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "flo giannopoulos"
+    }
+  },
+  {
+    "command_id": "cmd_0313",
+    "canonical_text": "call goodwin alma",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "goodwin alma"
+    }
+  },
+  {
+    "command_id": "cmd_0314",
+    "canonical_text": "call herman gutierrez",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "herman gutierrez"
+    }
+  },
+  {
+    "command_id": "cmd_0315",
+    "canonical_text": "call noreen sanada",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "noreen sanada"
+    }
+  },
+  {
+    "command_id": "cmd_0316",
+    "canonical_text": "did the seattle seahawks win",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "seattle seahawks"
+    }
+  },
+  {
+    "command_id": "cmd_0317",
+    "canonical_text": "find me a drink recipe",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "drink recipe"
+    }
+  },
+  {
+    "command_id": "cmd_0318",
+    "canonical_text": "find me a vegetarian stew recipe",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "vegetarian stew recipe"
+    }
+  },
+  {
+    "command_id": "cmd_0319",
+    "canonical_text": "find me things to do in kansas city kansas",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "things to do in kansas city kansas"
+    }
+  },
+  {
+    "command_id": "cmd_0320",
+    "canonical_text": "find me things to do in madrid spain",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "things to do in madrid spain"
+    }
+  },
+  {
+    "command_id": "cmd_0321",
+    "canonical_text": "ginny daniel at seven p m saturday",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "set",
+      "person": "ginny daniel",
+      "time": "seven p m",
+      "date": "saturday"
+    }
+  },
+  {
+    "command_id": "cmd_0322",
+    "canonical_text": "hi exclamation point",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "hi exclamation point"
+    }
+  },
+  {
+    "command_id": "cmd_0323",
+    "canonical_text": "how many refills are left on my adderall",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "adderall"
+    }
+  },
+  {
+    "command_id": "cmd_0324",
+    "canonical_text": "how many refills are left on my albuterol",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "albuterol"
+    }
+  },
+  {
+    "command_id": "cmd_0325",
+    "canonical_text": "how many refills are left on my allegra",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "allegra"
+    }
+  },
+  {
+    "command_id": "cmd_0326",
+    "canonical_text": "how many refills are left on my aricept",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "aricept"
+    }
+  },
+  {
+    "command_id": "cmd_0327",
+    "canonical_text": "how many refills are left on my citalopram",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "citalopram"
+    }
+  },
+  {
+    "command_id": "cmd_0328",
+    "canonical_text": "how many refills are left on my clindamycin",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "clindamycin"
+    }
+  },
+  {
+    "command_id": "cmd_0329",
+    "canonical_text": "how many refills are left on my clonidine",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "clonidine"
+    }
+  },
+  {
+    "command_id": "cmd_0330",
+    "canonical_text": "how many refills are left on my concerta",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "concerta"
+    }
+  },
+  {
+    "command_id": "cmd_0331",
+    "canonical_text": "how tall is the tallest person",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "tallest person"
+    }
+  },
+  {
+    "command_id": "cmd_0332",
+    "canonical_text": "i received a wrong item",
+    "domain": "general_qa",
+    "intent": "order_manage",
+    "slots": {
+      "action": "report_issue"
+    }
+  },
+  {
+    "command_id": "cmd_0333",
+    "canonical_text": "is my order shipped question mark",
+    "domain": "general_qa",
+    "intent": "order_manage",
+    "slots": {
+      "action": "track_status"
+    }
+  },
+  {
+    "command_id": "cmd_0334",
+    "canonical_text": "is willis tower wheelchair accessible",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "willis tower wheelchair accessible"
+    }
+  },
+  {
+    "command_id": "cmd_0335",
+    "canonical_text": "map a route to dulles airport",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "dulles airport",
+      "query_type": "navigation"
+    }
+  },
+  {
+    "command_id": "cmd_0336",
+    "canonical_text": "play blinding lights by the weekend",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music",
+      "title": "blinding lights",
+      "artist": "the weekend"
+    }
+  },
+  {
+    "command_id": "cmd_0337",
+    "canonical_text": "recipe with cilantro chicken and garlic",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with cilantro chicken and garlic"
+    }
+  },
+  {
+    "command_id": "cmd_0338",
+    "canonical_text": "recipe with garlic and lentils",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with garlic and lentils"
+    }
+  },
+  {
+    "command_id": "cmd_0339",
+    "canonical_text": "recipe with pineapple bananas and orange juice",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with pineapple bananas and orange juice"
+    }
+  },
+  {
+    "command_id": "cmd_0340",
+    "canonical_text": "recipe with tomatoes rice and celery",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with tomatoes rice and celery"
+    }
+  },
+  {
+    "command_id": "cmd_0341",
+    "canonical_text": "recipe with two percent milk",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with two percent milk"
+    }
+  },
+  {
+    "command_id": "cmd_0342",
+    "canonical_text": "schedule a refill for my levoxyl prescription",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "levoxyl"
+    }
+  },
+  {
+    "command_id": "cmd_0343",
+    "canonical_text": "take depakote at one p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "depakote",
+      "time": "one p m"
+    }
+  },
+  {
+    "command_id": "cmd_0344",
+    "canonical_text": "take flonase at six thirty p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "flonase",
+      "time": "six thirty p m"
+    }
+  },
+  {
+    "command_id": "cmd_0345",
+    "canonical_text": "thank you period",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "thank you period"
+    }
+  },
+  {
+    "command_id": "cmd_0346",
+    "canonical_text": "thanks exclamation point",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "thanks exclamation point"
+    }
+  },
+  {
+    "command_id": "cmd_0347",
+    "canonical_text": "video call martin star",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "martin star"
+    }
+  },
+  {
+    "command_id": "cmd_0348",
+    "canonical_text": "what are the side effects of xopanex",
+    "domain": "health",
+    "intent": "health_info_query",
+    "slots": {
+      "medication": "xopanex",
+      "info_type": "side_effects"
+    }
+  },
+  {
+    "command_id": "cmd_0349",
+    "canonical_text": "what museums are in cincinnati ohio",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "museums are in cincinnati ohio"
+    }
+  },
+  {
+    "command_id": "cmd_0350",
+    "canonical_text": "what time is it in alaska",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "alaska"
+    }
+  },
+  {
+    "command_id": "cmd_0351",
+    "canonical_text": "what time will you be home question mark",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "what time will you be home question mark"
+    }
+  },
+  {
+    "command_id": "cmd_0352",
+    "canonical_text": "what's the latest in technology",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "technology"
+    }
+  },
+  {
+    "command_id": "cmd_0353",
+    "canonical_text": "increase the volume to maximum",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "up",
+      "change_amount": "maximum"
+    }
+  },
+  {
+    "command_id": "cmd_0354",
+    "canonical_text": "what's the weather in new york",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "place_name": "new york"
+    }
+  },
+  {
+    "command_id": "cmd_0355",
+    "canonical_text": "what's the weather on february first",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "february first"
+    }
+  },
+  {
+    "command_id": "cmd_0356",
+    "canonical_text": "wikipedia list of most popular movies",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "wikipedia list of most popular movies"
+    }
+  },
+  {
+    "command_id": "cmd_0357",
+    "canonical_text": "book a table for six at belle vista",
+    "domain": "maps_places",
+    "intent": "reservations_manage",
+    "slots": {
+      "business_name": "belle vista",
+      "party_size": "six"
+    }
+  },
+  {
+    "command_id": "cmd_0358",
+    "canonical_text": "call aliz kinsley",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "recipient_name": "aliz kinsley"
+    }
+  },
+  {
+    "command_id": "cmd_0359",
+    "canonical_text": "how do i make brisket",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "brisket"
+    }
+  },
+  {
+    "command_id": "cmd_0360",
+    "canonical_text": "how many calories does a pint of ice cream have",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "pint of ice cream"
+    }
+  },
+  {
+    "command_id": "cmd_0361",
+    "canonical_text": "message kramer gray",
+    "domain": "communication",
+    "intent": "messages_manage",
+    "slots": {
+      "action": "send",
+      "recipient": "kramer gray"
+    }
+  },
+  {
+    "command_id": "cmd_0362",
+    "canonical_text": "play transformers on paramount plus",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "transformers on paramount plus"
+    }
+  },
+  {
+    "command_id": "cmd_0363",
+    "canonical_text": "read a series of unfortunate events on audiobook",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "audiobook",
+      "title": "a series of unfortunate events"
+    }
+  },
+  {
+    "command_id": "cmd_0364",
+    "canonical_text": "recipe with avocados and tomatoes",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with avocados and tomatoes"
+    }
+  },
+  {
+    "command_id": "cmd_0365",
+    "canonical_text": "recipe with carrots and potatoes",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with carrots and potatoes"
+    }
+  },
+  {
+    "command_id": "cmd_0366",
+    "canonical_text": "recipe with sriracha noodles and cabbage",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "recipe with sriracha noodles and cabbage"
+    }
+  },
+  {
+    "command_id": "cmd_0367",
+    "canonical_text": "schedule a refill for my omeprazole prescription",
+    "domain": "health",
+    "intent": "health_refill_query",
+    "slots": {
+      "medication": "omeprazole"
+    }
+  },
+  {
+    "command_id": "cmd_0368",
+    "canonical_text": "show me a photo of business meetings",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "photo of business meetings"
+    }
+  },
+  {
+    "command_id": "cmd_0369",
+    "canonical_text": "take enalapril with lunch",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "enalapril",
+      "time": "lunch"
+    }
+  },
+  {
+    "command_id": "cmd_0370",
+    "canonical_text": "take escitalopram at eight a m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "escitalopram",
+      "time": "eight a m"
+    }
+  },
+  {
+    "command_id": "cmd_0371",
+    "canonical_text": "take guanfacine at six a m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "guanfacine",
+      "time": "six a m"
+    }
+  },
+  {
+    "command_id": "cmd_0372",
+    "canonical_text": "take intuniv at two p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "intuniv",
+      "time": "two p m"
+    }
+  },
+  {
+    "command_id": "cmd_0373",
+    "canonical_text": "timer for covid test",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set"
+    }
+  },
+  {
+    "command_id": "cmd_0374",
+    "canonical_text": "we parked on level four",
+    "domain": "notes_memory",
+    "intent": "memory_note_manage",
+    "slots": {
+      "action": "save",
+      "key": "parking_space",
+      "value": "level four"
+    }
+  },
+  {
+    "command_id": "cmd_0375",
+    "canonical_text": "what was the score of the last l s u tigers game",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "score of the last l s u tigers game"
+    }
+  },
+  {
+    "command_id": "cmd_0376",
+    "canonical_text": "what's the weather on december sixth",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "december sixth"
+    }
+  },
+  {
+    "command_id": "cmd_0377",
+    "canonical_text": "what's the weather on new year's eve",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "new year's eve"
+    }
+  },
+  {
+    "command_id": "cmd_0378",
+    "canonical_text": "when is my item arriving question mark",
+    "domain": "general_qa",
+    "intent": "order_manage",
+    "slots": {
+      "action": "track_status"
+    }
+  },
+  {
+    "command_id": "cmd_0379",
+    "canonical_text": "who won the portland game yesterday",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "portland game yesterday"
+    }
+  },
+  {
+    "command_id": "cmd_0380",
+    "canonical_text": "what restaurant are nearby",
+    "domain": "maps_places",
+    "intent": "places_search",
+    "slots": {
+      "business_type": "restaurant",
+      "sort_by": "nearest"
+    }
+  },
+  {
+    "command_id": "cmd_0381",
+    "canonical_text": "what's the weather on halloween",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "date": "halloween"
+    }
+  },
+  {
+    "command_id": "cmd_0382",
+    "canonical_text": "who plays third base for the pirates",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "third base for the pirates"
+    }
+  },
+  {
+    "command_id": "cmd_0383",
+    "canonical_text": "add a hair dryer brush for vanessa to my gift list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "gift list",
+      "item": "hair dryer brush for vanessa",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0384",
+    "canonical_text": "add paper towels and cereal to shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "shopping list",
+      "item": "paper towels and cereal",
+      "action": "add"
+    }
+  },
+  {
+    "command_id": "cmd_0385",
+    "canonical_text": "email sabrina k at west dot e d u",
+    "domain": "communication",
+    "intent": "email_manage",
+    "slots": {
+      "action": "send",
+      "recipient": "sabrina k at west dot e d u"
+    }
+  },
+  {
+    "command_id": "cmd_0386",
+    "canonical_text": "take focalin at eleven thirty a m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "focalin",
+      "time": "eleven thirty a m"
+    }
+  },
+  {
+    "command_id": "cmd_0387",
+    "canonical_text": "take lactulose at nine p m",
+    "domain": "health",
+    "intent": "health_medication_reminder",
+    "slots": {
+      "medication": "lactulose",
+      "time": "nine p m"
+    }
+  },
+  {
+    "command_id": "cmd_0388",
+    "canonical_text": "what is it like outside",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {}
+  },
+  {
+    "command_id": "cmd_0389",
+    "canonical_text": "what's sixteen ounces to liters",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "sixteen ounces to liters"
+    }
+  },
+  {
+    "command_id": "cmd_0390",
+    "canonical_text": "what's the distance to minnesota",
+    "domain": "maps_places",
+    "intent": "maps_route",
+    "slots": {
+      "destination": "minnesota",
+      "query_type": "distance"
+    }
+  },
+  {
+    "command_id": "cmd_0391",
+    "canonical_text": "who won gold in men's figure skating in the last olympics",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "gold in men's figure skating in the last olympics"
+    }
+  },
+  {
+    "command_id": "cmd_0392",
+    "canonical_text": "who won the gold medal in men's figure skating in nineteen fifty two winter olympics",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "gold medal in men's figure skating in nineteen fifty two winter olympics"
+    }
+  },
+  {
+    "command_id": "cmd_0393",
+    "canonical_text": "what the time",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "time"
+    }
+  },
+  {
+    "command_id": "cmd_0394",
+    "canonical_text": "call area code zero five three dash six hundred and twenty one dash four thousand eight hundred and seventy nine",
+    "domain": "communication",
+    "intent": "call_make",
+    "slots": {
+      "phone_number": "zero five three dash six hundred and twenty one dash four thousand eight hundred and seventy nine"
+    }
+  },
+  {
+    "command_id": "cmd_0395",
+    "canonical_text": "add this music to my favorites",
+    "domain": "media",
+    "intent": "media_control",
+    "slots": {
+      "action": "like",
+      "target_type": "music"
+    }
+  },
+  {
+    "command_id": "cmd_0396",
+    "canonical_text": "decrease the volume to minimum",
+    "domain": "media",
+    "intent": "media_volume",
+    "slots": {
+      "action": "down",
+      "change_amount": "minimum"
+    }
+  },
+  {
+    "command_id": "cmd_0397",
+    "canonical_text": "play music on playroom speaker",
+    "domain": "media",
+    "intent": "media_play",
+    "slots": {
+      "media_type": "music",
+      "house_place": "playroom"
+    }
+  },
+  {
+    "command_id": "cmd_0398",
+    "canonical_text": "wake me up at six forty five every day",
+    "domain": "calendar_alarm",
+    "intent": "alarm_manage",
+    "slots": {
+      "action": "set",
+      "time": "six forty five",
+      "general_frequency": "every day"
+    }
+  },
+  {
+    "command_id": "cmd_0399",
+    "canonical_text": "what is the temperature outside",
+    "domain": "general_qa",
+    "intent": "weather_query",
+    "slots": {
+      "weather_aspect": "temperature"
+    }
+  },
+  {
+    "command_id": "cmd_0400",
+    "canonical_text": "what's a dollar in british pounds",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "dollar in british pounds"
+    }
+  },
+  {
+    "command_id": "cmd_0401",
+    "canonical_text": "when my first meeting today",
+    "domain": "calendar_alarm",
+    "intent": "calendar_manage",
+    "slots": {
+      "action": "query",
+      "event_name": "meeting",
+      "date": "today"
+    }
+  },
+  {
+    "command_id": "cmd_0402",
+    "canonical_text": "backspace",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "backspace"
+    }
+  },
+  {
+    "command_id": "cmd_0403",
+    "canonical_text": "delete",
+    "domain": "general_qa",
+    "intent": "qa_search",
+    "slots": {
+      "query": "delete"
+    }
+  },
+  {
+    "command_id": "cmd_0404",
+    "canonical_text": "what on my shopping list",
+    "domain": "notes_memory",
+    "intent": "lists_manage",
+    "slots": {
+      "list_name": "shopping list",
+      "action": "read"
+    }
+  },
+  {
+    "command_id": "cmd_0405",
+    "canonical_text": "what the temperature in the living room",
+    "domain": "smart_home",
+    "intent": "iot_sensor_query",
+    "slots": {
+      "room": "living room",
+      "sensor_type": "temperature"
+    }
+  }
+]

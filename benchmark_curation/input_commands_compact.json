@@ -1,0 +1,1622 @@
+[
+  {
+    "command_id": "cmd_0001",
+    "canonical_text": "start listening"
+  },
+  {
+    "command_id": "cmd_0002",
+    "canonical_text": "tell me the news"
+  },
+  {
+    "command_id": "cmd_0003",
+    "canonical_text": "find my phone"
+  },
+  {
+    "command_id": "cmd_0004",
+    "canonical_text": "stop the call"
+  },
+  {
+    "command_id": "cmd_0005",
+    "canonical_text": "lower the temperature"
+  },
+  {
+    "command_id": "cmd_0006",
+    "canonical_text": "turn on all switches"
+  },
+  {
+    "command_id": "cmd_0007",
+    "canonical_text": "turn off the t v"
+  },
+  {
+    "command_id": "cmd_0008",
+    "canonical_text": "hang up"
+  },
+  {
+    "command_id": "cmd_0009",
+    "canonical_text": "answer the call"
+  },
+  {
+    "command_id": "cmd_0010",
+    "canonical_text": "stop listening"
+  },
+  {
+    "command_id": "cmd_0011",
+    "canonical_text": "what's on my shopping list"
+  },
+  {
+    "command_id": "cmd_0012",
+    "canonical_text": "make the text larger"
+  },
+  {
+    "command_id": "cmd_0013",
+    "canonical_text": "skip this song"
+  },
+  {
+    "command_id": "cmd_0014",
+    "canonical_text": "what's on my calendar tomorrow"
+  },
+  {
+    "command_id": "cmd_0015",
+    "canonical_text": "turn on cooling"
+  },
+  {
+    "command_id": "cmd_0016",
+    "canonical_text": "add this music to favorites"
+  },
+  {
+    "command_id": "cmd_0017",
+    "canonical_text": "decrease volume to minimum"
+  },
+  {
+    "command_id": "cmd_0018",
+    "canonical_text": "what's the temperature in the living room"
+  },
+  {
+    "command_id": "cmd_0019",
+    "canonical_text": "what restaurants are nearby"
+  },
+  {
+    "command_id": "cmd_0020",
+    "canonical_text": "what's the weather like today"
+  },
+  {
+    "command_id": "cmd_0021",
+    "canonical_text": "open reminders"
+  },
+  {
+    "command_id": "cmd_0022",
+    "canonical_text": "turn off heat"
+  },
+  {
+    "command_id": "cmd_0023",
+    "canonical_text": "increase volume to maximum"
+  },
+  {
+    "command_id": "cmd_0024",
+    "canonical_text": "what's the time"
+  },
+  {
+    "command_id": "cmd_0025",
+    "canonical_text": "call area code zero five three six two one four eight seven nine"
+  },
+  {
+    "command_id": "cmd_0026",
+    "canonical_text": "answer the door"
+  },
+  {
+    "command_id": "cmd_0027",
+    "canonical_text": "brighten the screen"
+  },
+  {
+    "command_id": "cmd_0028",
+    "canonical_text": "raise the temperature"
+  },
+  {
+    "command_id": "cmd_0029",
+    "canonical_text": "when does the next train arrive"
+  },
+  {
+    "command_id": "cmd_0030",
+    "canonical_text": "dislike this song"
+  },
+  {
+    "command_id": "cmd_0031",
+    "canonical_text": "flip a coin"
+  },
+  {
+    "command_id": "cmd_0032",
+    "canonical_text": "get help"
+  },
+  {
+    "command_id": "cmd_0033",
+    "canonical_text": "read my new email"
+  },
+  {
+    "command_id": "cmd_0034",
+    "canonical_text": "what's the temperature outside"
+  },
+  {
+    "command_id": "cmd_0035",
+    "canonical_text": "like this song"
+  },
+  {
+    "command_id": "cmd_0036",
+    "canonical_text": "make it warmer"
+  },
+  {
+    "command_id": "cmd_0037",
+    "canonical_text": "where did i park"
+  },
+  {
+    "command_id": "cmd_0038",
+    "canonical_text": "increase the volume"
+  },
+  {
+    "command_id": "cmd_0039",
+    "canonical_text": "read my book"
+  },
+  {
+    "command_id": "cmd_0040",
+    "canonical_text": "turn down the volume"
+  },
+  {
+    "command_id": "cmd_0041",
+    "canonical_text": "unlock the front door"
+  },
+  {
+    "command_id": "cmd_0042",
+    "canonical_text": "what time is it"
+  },
+  {
+    "command_id": "cmd_0043",
+    "canonical_text": "where is my first event tomorrow"
+  },
+  {
+    "command_id": "cmd_0044",
+    "canonical_text": "when did this song come out"
+  },
+  {
+    "command_id": "cmd_0045",
+    "canonical_text": "when is thanksgiving this year"
+  },
+  {
+    "command_id": "cmd_0046",
+    "canonical_text": "where is my next meeting"
+  },
+  {
+    "command_id": "cmd_0047",
+    "canonical_text": "call the nearest coffee shop"
+  },
+  {
+    "command_id": "cmd_0048",
+    "canonical_text": "cortana what's playing"
+  },
+  {
+    "command_id": "cmd_0049",
+    "canonical_text": "help me relax"
+  },
+  {
+    "command_id": "cmd_0050",
+    "canonical_text": "redial"
+  },
+  {
+    "command_id": "cmd_0051",
+    "canonical_text": "request a taxi ride"
+  },
+  {
+    "command_id": "cmd_0052",
+    "canonical_text": "when is it going to rain"
+  },
+  {
+    "command_id": "cmd_0053",
+    "canonical_text": "when is my next alarm"
+  },
+  {
+    "command_id": "cmd_0054",
+    "canonical_text": "where is the nearest bus stop"
+  },
+  {
+    "command_id": "cmd_0055",
+    "canonical_text": "cortana play music"
+  },
+  {
+    "command_id": "cmd_0056",
+    "canonical_text": "do i need an umbrella today"
+  },
+  {
+    "command_id": "cmd_0057",
+    "canonical_text": "hey facebook resume"
+  },
+  {
+    "command_id": "cmd_0058",
+    "canonical_text": "hey facebook turn down the sound"
+  },
+  {
+    "command_id": "cmd_0059",
+    "canonical_text": "hey google sing me a song"
+  },
+  {
+    "command_id": "cmd_0060",
+    "canonical_text": "hey google what's this song"
+  },
+  {
+    "command_id": "cmd_0061",
+    "canonical_text": "read this page"
+  },
+  {
+    "command_id": "cmd_0062",
+    "canonical_text": "show me my alarms"
+  },
+  {
+    "command_id": "cmd_0063",
+    "canonical_text": "tell me a poem"
+  },
+  {
+    "command_id": "cmd_0064",
+    "canonical_text": "turn off all switches"
+  },
+  {
+    "command_id": "cmd_0065",
+    "canonical_text": "turn up the sound"
+  },
+  {
+    "command_id": "cmd_0066",
+    "canonical_text": "what alarms are set"
+  },
+  {
+    "command_id": "cmd_0067",
+    "canonical_text": "what are some great vacation ideas"
+  },
+  {
+    "command_id": "cmd_0068",
+    "canonical_text": "lock the front door"
+  },
+  {
+    "command_id": "cmd_0069",
+    "canonical_text": "what's the thermostat set to"
+  },
+  {
+    "command_id": "cmd_0070",
+    "canonical_text": "add a meeting to my calendar"
+  },
+  {
+    "command_id": "cmd_0071",
+    "canonical_text": "boil the kettle"
+  },
+  {
+    "command_id": "cmd_0072",
+    "canonical_text": "decrease the volume"
+  },
+  {
+    "command_id": "cmd_0073",
+    "canonical_text": "give me a motivational quote"
+  },
+  {
+    "command_id": "cmd_0074",
+    "canonical_text": "hey siri pause the music"
+  },
+  {
+    "command_id": "cmd_0075",
+    "canonical_text": "hey siri turn up the volume"
+  },
+  {
+    "command_id": "cmd_0076",
+    "canonical_text": "how do you spell government"
+  },
+  {
+    "command_id": "cmd_0077",
+    "canonical_text": "how many calories does a big mac have"
+  },
+  {
+    "command_id": "cmd_0078",
+    "canonical_text": "is the front door locked"
+  },
+  {
+    "command_id": "cmd_0079",
+    "canonical_text": "listen to c b s"
+  },
+  {
+    "command_id": "cmd_0080",
+    "canonical_text": "lower the temperature three degrees"
+  },
+  {
+    "command_id": "cmd_0081",
+    "canonical_text": "raise the temperature two degrees"
+  },
+  {
+    "command_id": "cmd_0082",
+    "canonical_text": "read my messages"
+  },
+  {
+    "command_id": "cmd_0083",
+    "canonical_text": "scan a q r code"
+  },
+  {
+    "command_id": "cmd_0084",
+    "canonical_text": "snooze"
+  },
+  {
+    "command_id": "cmd_0085",
+    "canonical_text": "turn on my t v"
+  },
+  {
+    "command_id": "cmd_0086",
+    "canonical_text": "what are my reminders"
+  },
+  {
+    "command_id": "cmd_0087",
+    "canonical_text": "what song is this"
+  },
+  {
+    "command_id": "cmd_0088",
+    "canonical_text": "what's on my to do list"
+  },
+  {
+    "command_id": "cmd_0089",
+    "canonical_text": "what's the temperature inside"
+  },
+  {
+    "command_id": "cmd_0090",
+    "canonical_text": "darken the screen"
+  },
+  {
+    "command_id": "cmd_0091",
+    "canonical_text": "do i have any alarms set"
+  },
+  {
+    "command_id": "cmd_0092",
+    "canonical_text": "how do you say help me in mandarin chinese"
+  },
+  {
+    "command_id": "cmd_0093",
+    "canonical_text": "is there a chance of rain on the twentieth"
+  },
+  {
+    "command_id": "cmd_0094",
+    "canonical_text": "make it cooler"
+  },
+  {
+    "command_id": "cmd_0095",
+    "canonical_text": "open email"
+  },
+  {
+    "command_id": "cmd_0096",
+    "canonical_text": "set the volume to ten"
+  },
+  {
+    "command_id": "cmd_0097",
+    "canonical_text": "show me nearby restaurants"
+  },
+  {
+    "command_id": "cmd_0098",
+    "canonical_text": "skip this track"
+  },
+  {
+    "command_id": "cmd_0099",
+    "canonical_text": "turn on the porch light"
+  },
+  {
+    "command_id": "cmd_0100",
+    "canonical_text": "turn up the temperature one degree"
+  },
+  {
+    "command_id": "cmd_0101",
+    "canonical_text": "what film won the oscar for best picture in nineteen forty nine"
+  },
+  {
+    "command_id": "cmd_0102",
+    "canonical_text": "what movies came out last week"
+  },
+  {
+    "command_id": "cmd_0103",
+    "canonical_text": "when is shell open until"
+  },
+  {
+    "command_id": "cmd_0104",
+    "canonical_text": "who won the n h l game yesterday"
+  },
+  {
+    "command_id": "cmd_0105",
+    "canonical_text": "alexa play more like this"
+  },
+  {
+    "command_id": "cmd_0106",
+    "canonical_text": "delete my reminders for tomorrow"
+  },
+  {
+    "command_id": "cmd_0107",
+    "canonical_text": "how long is left on the timer"
+  },
+  {
+    "command_id": "cmd_0108",
+    "canonical_text": "is my flight on time"
+  },
+  {
+    "command_id": "cmd_0109",
+    "canonical_text": "is there a chance of rain on the sixteenth"
+  },
+  {
+    "command_id": "cmd_0110",
+    "canonical_text": "navigate to walgreens"
+  },
+  {
+    "command_id": "cmd_0111",
+    "canonical_text": "open duolingo"
+  },
+  {
+    "command_id": "cmd_0112",
+    "canonical_text": "show me nearby cafes"
+  },
+  {
+    "command_id": "cmd_0113",
+    "canonical_text": "show me nearby shopping malls"
+  },
+  {
+    "command_id": "cmd_0114",
+    "canonical_text": "skip forward forty five seconds"
+  },
+  {
+    "command_id": "cmd_0115",
+    "canonical_text": "skip to the next chapter"
+  },
+  {
+    "command_id": "cmd_0116",
+    "canonical_text": "snooze the alarm"
+  },
+  {
+    "command_id": "cmd_0117",
+    "canonical_text": "turn down the temperature five degrees"
+  },
+  {
+    "command_id": "cmd_0118",
+    "canonical_text": "turn on the t v"
+  },
+  {
+    "command_id": "cmd_0119",
+    "canonical_text": "turn the t v to c b s"
+  },
+  {
+    "command_id": "cmd_0120",
+    "canonical_text": "video call lennart vass"
+  },
+  {
+    "command_id": "cmd_0121",
+    "canonical_text": "what does my day look like"
+  },
+  {
+    "command_id": "cmd_0122",
+    "canonical_text": "what team won the world series in nineteen thirty eight"
+  },
+  {
+    "command_id": "cmd_0123",
+    "canonical_text": "broadcast the football game is about to start"
+  },
+  {
+    "command_id": "cmd_0124",
+    "canonical_text": "cancel alarm for seven thirty"
+  },
+  {
+    "command_id": "cmd_0125",
+    "canonical_text": "create a sam's club shopping list"
+  },
+  {
+    "command_id": "cmd_0126",
+    "canonical_text": "did i miss any emails from yesterday"
+  },
+  {
+    "command_id": "cmd_0127",
+    "canonical_text": "how do you spell succeed"
+  },
+  {
+    "command_id": "cmd_0128",
+    "canonical_text": "how far is bridgeport california from here"
+  },
+  {
+    "command_id": "cmd_0129",
+    "canonical_text": "how far is costco from here"
+  },
+  {
+    "command_id": "cmd_0130",
+    "canonical_text": "how much is a round trip flight to sedona arizona"
+  },
+  {
+    "command_id": "cmd_0131",
+    "canonical_text": "is yellowstone national park a d a compliant"
+  },
+  {
+    "command_id": "cmd_0132",
+    "canonical_text": "open youtube"
+  },
+  {
+    "command_id": "cmd_0133",
+    "canonical_text": "play billboard's top forty on pandora"
+  },
+  {
+    "command_id": "cmd_0134",
+    "canonical_text": "play music on office speakers"
+  },
+  {
+    "command_id": "cmd_0135",
+    "canonical_text": "please call kathy bianco"
+  },
+  {
+    "command_id": "cmd_0136",
+    "canonical_text": "preheat the oven to three hundred degrees"
+  },
+  {
+    "command_id": "cmd_0137",
+    "canonical_text": "remind me to take a break in fifteen minutes"
+  },
+  {
+    "command_id": "cmd_0138",
+    "canonical_text": "turn off cooling"
+  },
+  {
+    "command_id": "cmd_0139",
+    "canonical_text": "turn off the closet light"
+  },
+  {
+    "command_id": "cmd_0140",
+    "canonical_text": "turn on heat"
+  },
+  {
+    "command_id": "cmd_0141",
+    "canonical_text": "what's apple trading at"
+  },
+  {
+    "command_id": "cmd_0142",
+    "canonical_text": "what's it like outside"
+  },
+  {
+    "command_id": "cmd_0143",
+    "canonical_text": "when's my first meeting today"
+  },
+  {
+    "command_id": "cmd_0144",
+    "canonical_text": "buy tickets at six fifteen p m"
+  },
+  {
+    "command_id": "cmd_0145",
+    "canonical_text": "do i have anything scheduled for friday"
+  },
+  {
+    "command_id": "cmd_0146",
+    "canonical_text": "fast forward five minutes"
+  },
+  {
+    "command_id": "cmd_0147",
+    "canonical_text": "how many refills are left on my estradiol"
+  },
+  {
+    "command_id": "cmd_0148",
+    "canonical_text": "navigate to c v s"
+  },
+  {
+    "command_id": "cmd_0149",
+    "canonical_text": "set an alarm for every sunday at eight p m"
+  },
+  {
+    "command_id": "cmd_0150",
+    "canonical_text": "set an alarm in forty minutes"
+  },
+  {
+    "command_id": "cmd_0151",
+    "canonical_text": "set the air conditioning to seventy eight"
+  },
+  {
+    "command_id": "cmd_0152",
+    "canonical_text": "what are the best places for vacation in june"
+  },
+  {
+    "command_id": "cmd_0153",
+    "canonical_text": "what's on my agenda for today"
+  },
+  {
+    "command_id": "cmd_0154",
+    "canonical_text": "add rechargeable hand warmers for robert to my gift list"
+  },
+  {
+    "command_id": "cmd_0155",
+    "canonical_text": "alexa what's this album"
+  },
+  {
+    "command_id": "cmd_0156",
+    "canonical_text": "brighten the dining room light"
+  },
+  {
+    "command_id": "cmd_0157",
+    "canonical_text": "cancel alarm for eight"
+  },
+  {
+    "command_id": "cmd_0158",
+    "canonical_text": "dim the hallway lights to ten percent"
+  },
+  {
+    "command_id": "cmd_0159",
+    "canonical_text": "how many refills are left on my baclofen"
+  },
+  {
+    "command_id": "cmd_0160",
+    "canonical_text": "how many refills are left on my nitroglycerin"
+  },
+  {
+    "command_id": "cmd_0161",
+    "canonical_text": "how many refills are left on my warfarin"
+  },
+  {
+    "command_id": "cmd_0162",
+    "canonical_text": "is the dentist's office on park street wheelchair accessible"
+  },
+  {
+    "command_id": "cmd_0163",
+    "canonical_text": "map a route to john f kennedy airport"
+  },
+  {
+    "command_id": "cmd_0164",
+    "canonical_text": "play the latest episode of crime junkie"
+  },
+  {
+    "command_id": "cmd_0165",
+    "canonical_text": "remember that my pin is nine three seven four"
+  },
+  {
+    "command_id": "cmd_0166",
+    "canonical_text": "set a reminder for our dinner reservation on friday"
+  },
+  {
+    "command_id": "cmd_0167",
+    "canonical_text": "set the heat to seventy two"
+  },
+  {
+    "command_id": "cmd_0168",
+    "canonical_text": "show me photos from the eighteenth of september"
+  },
+  {
+    "command_id": "cmd_0169",
+    "canonical_text": "tell me about seattle sounders f c"
+  },
+  {
+    "command_id": "cmd_0170",
+    "canonical_text": "tell me news from m s n b c"
+  },
+  {
+    "command_id": "cmd_0171",
+    "canonical_text": "wake me up at six forty five a m every day"
+  },
+  {
+    "command_id": "cmd_0172",
+    "canonical_text": "what's the microsoft stock price"
+  },
+  {
+    "command_id": "cmd_0173",
+    "canonical_text": "how many refills are left on my risperidone"
+  },
+  {
+    "command_id": "cmd_0174",
+    "canonical_text": "broadcast the coffee's ready"
+  },
+  {
+    "command_id": "cmd_0175",
+    "canonical_text": "dim the porch lights to seventy percent"
+  },
+  {
+    "command_id": "cmd_0176",
+    "canonical_text": "play music on playroom speakers"
+  },
+  {
+    "command_id": "cmd_0177",
+    "canonical_text": "set a reminder to take glipizide at six thirty p m"
+  },
+  {
+    "command_id": "cmd_0178",
+    "canonical_text": "set an alarm in thirty minutes"
+  },
+  {
+    "command_id": "cmd_0179",
+    "canonical_text": "start listening what's the weather for the weekend"
+  },
+  {
+    "command_id": "cmd_0180",
+    "canonical_text": "turn off the lights in the guestroom"
+  },
+  {
+    "command_id": "cmd_0181",
+    "canonical_text": "what's playing in the theaters near me"
+  },
+  {
+    "command_id": "cmd_0182",
+    "canonical_text": "book a table for six at baldamar"
+  },
+  {
+    "command_id": "cmd_0183",
+    "canonical_text": "how many refills are left on my lorazepam"
+  },
+  {
+    "command_id": "cmd_0184",
+    "canonical_text": "how many refills are left on my propanolol"
+  },
+  {
+    "command_id": "cmd_0185",
+    "canonical_text": "is alaska center for the performing arts a d a compliant"
+  },
+  {
+    "command_id": "cmd_0186",
+    "canonical_text": "my parking space is purple"
+  },
+  {
+    "command_id": "cmd_0187",
+    "canonical_text": "set a reminder for molly's vet appointment"
+  },
+  {
+    "command_id": "cmd_0188",
+    "canonical_text": "set a reminder to take amoxicillin with lunch"
+  },
+  {
+    "command_id": "cmd_0189",
+    "canonical_text": "set a reminder to take spironolactone at nine p m"
+  },
+  {
+    "command_id": "cmd_0190",
+    "canonical_text": "wake me up at nine o'clock thursday"
+  },
+  {
+    "command_id": "cmd_0191",
+    "canonical_text": "what are the side effects of levothyroxine"
+  },
+  {
+    "command_id": "cmd_0192",
+    "canonical_text": "who's winning between duke and north carolina"
+  },
+  {
+    "command_id": "cmd_0193",
+    "canonical_text": "find me flights to kansas city kansas"
+  },
+  {
+    "command_id": "cmd_0194",
+    "canonical_text": "how far is pisa italy from rome italy"
+  },
+  {
+    "command_id": "cmd_0195",
+    "canonical_text": "how many refills are left on my clindamycin risperidone"
+  },
+  {
+    "command_id": "cmd_0196",
+    "canonical_text": "how many refills are left on my omeprazole"
+  },
+  {
+    "command_id": "cmd_0197",
+    "canonical_text": "how tall is the tallest person who ever lived"
+  },
+  {
+    "command_id": "cmd_0198",
+    "canonical_text": "set a reminder to take citalopram at eight a m"
+  },
+  {
+    "command_id": "cmd_0199",
+    "canonical_text": "set a reminder to take furosemide at bed time"
+  },
+  {
+    "command_id": "cmd_0200",
+    "canonical_text": "set a reminder to take potassium at two p m"
+  },
+  {
+    "command_id": "cmd_0201",
+    "canonical_text": "set a reminder to take simvastatin at dinner time"
+  },
+  {
+    "command_id": "cmd_0202",
+    "canonical_text": "skip backward two minutes"
+  },
+  {
+    "command_id": "cmd_0203",
+    "canonical_text": "start listening what's today's news"
+  },
+  {
+    "command_id": "cmd_0204",
+    "canonical_text": "what's the distance to hibbing minnesota"
+  },
+  {
+    "command_id": "cmd_0205",
+    "canonical_text": "what's the latest in science and technology"
+  },
+  {
+    "command_id": "cmd_0206",
+    "canonical_text": "what's the weather like in new york"
+  },
+  {
+    "command_id": "cmd_0207",
+    "canonical_text": "who won the gold medal in men's figure skating in the nineteen fifty two winter olympics"
+  },
+  {
+    "command_id": "cmd_0208",
+    "canonical_text": "cancel my meeting with sanjiv lynne at two thirty p m tuesday the ninth"
+  },
+  {
+    "command_id": "cmd_0209",
+    "canonical_text": "define conundrum"
+  },
+  {
+    "command_id": "cmd_0210",
+    "canonical_text": "did the seattle mariners win"
+  },
+  {
+    "command_id": "cmd_0211",
+    "canonical_text": "find me a holiday cocktail recipe with cranberry juice and gin"
+  },
+  {
+    "command_id": "cmd_0212",
+    "canonical_text": "i parked on level four"
+  },
+  {
+    "command_id": "cmd_0213",
+    "canonical_text": "is buca di beppo open today"
+  },
+  {
+    "command_id": "cmd_0214",
+    "canonical_text": "make me a reservation at bayern brewery"
+  },
+  {
+    "command_id": "cmd_0215",
+    "canonical_text": "reschedule my meeting with virginia daniel at seven saturday"
+  },
+  {
+    "command_id": "cmd_0216",
+    "canonical_text": "set a reminder to take acetaminophen at one p m"
+  },
+  {
+    "command_id": "cmd_0217",
+    "canonical_text": "video call martin starosta"
+  },
+  {
+    "command_id": "cmd_0218",
+    "canonical_text": "what's one dollar in british pounds"
+  },
+  {
+    "command_id": "cmd_0219",
+    "canonical_text": "when are the san franscisco giants playing next"
+  },
+  {
+    "command_id": "cmd_0220",
+    "canonical_text": "wikipedia list of highest grossing films"
+  },
+  {
+    "command_id": "cmd_0221",
+    "canonical_text": "add ingredients for chili pizza dough shredded mozzarella and heel balm to the shopping list"
+  },
+  {
+    "command_id": "cmd_0222",
+    "canonical_text": "find me flights to barcelona spain"
+  },
+  {
+    "command_id": "cmd_0223",
+    "canonical_text": "how many refills are left on my allopurinol"
+  },
+  {
+    "command_id": "cmd_0224",
+    "canonical_text": "map a route to dallas fortworth international airport"
+  },
+  {
+    "command_id": "cmd_0225",
+    "canonical_text": "play indiana jones and the raiders of the lost ark on paramount plus"
+  },
+  {
+    "command_id": "cmd_0226",
+    "canonical_text": "play the tears of a clown by smokey robinson and the miracles"
+  },
+  {
+    "command_id": "cmd_0227",
+    "canonical_text": "please send this email dear customer service comma i am writing about the status of order number three eight four nine seven two period do you have a tracking update question mark thank you period"
+  },
+  {
+    "command_id": "cmd_0228",
+    "canonical_text": "read for whom the bell tolls on audiobook"
+  },
+  {
+    "command_id": "cmd_0229",
+    "canonical_text": "send a message to krasimir gregory"
+  },
+  {
+    "command_id": "cmd_0230",
+    "canonical_text": "set a reminder to take pantoprazole at six a m"
+  },
+  {
+    "command_id": "cmd_0231",
+    "canonical_text": "what time is it in fairbanks alaska"
+  },
+  {
+    "command_id": "cmd_0232",
+    "canonical_text": "what's the conversion of sixteen ounces to liters"
+  },
+  {
+    "command_id": "cmd_0233",
+    "canonical_text": "who is the lead character in citizen kane"
+  },
+  {
+    "command_id": "cmd_0234",
+    "canonical_text": "add a hair dryer brush for nessa to my gift list"
+  },
+  {
+    "command_id": "cmd_0235",
+    "canonical_text": "how did the portland timbers game turn out yesterday"
+  },
+  {
+    "command_id": "cmd_0236",
+    "canonical_text": "how do i make brisket on the smoker"
+  },
+  {
+    "command_id": "cmd_0237",
+    "canonical_text": "is the observatory at the willis tower wheelchair accessible"
+  },
+  {
+    "command_id": "cmd_0238",
+    "canonical_text": "please call carola fulton"
+  },
+  {
+    "command_id": "cmd_0239",
+    "canonical_text": "schedule a refill for my clonazepam prescription"
+  },
+  {
+    "command_id": "cmd_0240",
+    "canonical_text": "schedule a refill for my pantoprazole prescription"
+  },
+  {
+    "command_id": "cmd_0241",
+    "canonical_text": "set a reminder to take ibuprofen at eleven thirty a m"
+  },
+  {
+    "command_id": "cmd_0242",
+    "canonical_text": "show me an image of business meetings"
+  },
+  {
+    "command_id": "cmd_0243",
+    "canonical_text": "show me movies with troy kotsur"
+  },
+  {
+    "command_id": "cmd_0244",
+    "canonical_text": "what are the side effects of losartan"
+  },
+  {
+    "command_id": "cmd_0245",
+    "canonical_text": "add frozen strawberries blueberries a case of paper towels and cereal to the shopping list"
+  },
+  {
+    "command_id": "cmd_0246",
+    "canonical_text": "find me a vegetarian stew recipe with smoked paprika fresh garlic and lentils"
+  },
+  {
+    "command_id": "cmd_0247",
+    "canonical_text": "how many calories does a pint of ben and jerry's ice cream have"
+  },
+  {
+    "command_id": "cmd_0248",
+    "canonical_text": "please send this text hi exclamation point what time will you be home question mark thanks exclamation point"
+  },
+  {
+    "command_id": "cmd_0249",
+    "canonical_text": "set a timer for covid nineteen test for fifteen minutes"
+  },
+  {
+    "command_id": "cmd_0250",
+    "canonical_text": "who played third base for the pittsburgh pirates in nineteen sixty"
+  },
+  {
+    "command_id": "cmd_0251",
+    "canonical_text": "book me a room at crowne plaza hotel in grand junction colorado on june ninth through june nineteenth"
+  },
+  {
+    "command_id": "cmd_0252",
+    "canonical_text": "cancel my meeting with vincente and lin at one forty five p m tuesday"
+  },
+  {
+    "command_id": "cmd_0253",
+    "canonical_text": "play the latest episode of ologies"
+  },
+  {
+    "command_id": "cmd_0254",
+    "canonical_text": "what was the score for the last l s u tigers game"
+  },
+  {
+    "command_id": "cmd_0255",
+    "canonical_text": "set a timer for one hour"
+  },
+  {
+    "command_id": "cmd_0256",
+    "canonical_text": "send an email to sabina k at westerly dot e d u"
+  },
+  {
+    "command_id": "cmd_0257",
+    "canonical_text": "how's the traffic to mount washington new hamshire"
+  },
+  {
+    "command_id": "cmd_0258",
+    "canonical_text": "how much is a hundred and fifty dollars in euros"
+  },
+  {
+    "command_id": "cmd_0259",
+    "canonical_text": "find non stop flights to lisbon portugal on tap"
+  },
+  {
+    "command_id": "cmd_0260",
+    "canonical_text": "please send this text"
+  },
+  {
+    "command_id": "cmd_0261",
+    "canonical_text": "find non stop flights to lisbon portugal on t a p"
+  },
+  {
+    "command_id": "cmd_0262",
+    "canonical_text": "how's the traffic to mount washington new hampshire"
+  },
+  {
+    "command_id": "cmd_0263",
+    "canonical_text": "is the pharmacy open"
+  },
+  {
+    "command_id": "cmd_0264",
+    "canonical_text": "send a message"
+  },
+  {
+    "command_id": "cmd_0265",
+    "canonical_text": "make the screen brighter"
+  },
+  {
+    "command_id": "cmd_0266",
+    "canonical_text": "set a timer for one hour minutes"
+  },
+  {
+    "command_id": "cmd_0267",
+    "canonical_text": "reschedule my meeting"
+  },
+  {
+    "command_id": "cmd_0268",
+    "canonical_text": "how much is one hundred and fifty dollars in euros"
+  },
+  {
+    "command_id": "cmd_0269",
+    "canonical_text": "turn off the heat"
+  },
+  {
+    "command_id": "cmd_0270",
+    "canonical_text": "call area code o five three six two one four eight seven nine"
+  },
+  {
+    "command_id": "cmd_0271",
+    "canonical_text": "who is the main character in spider man"
+  },
+  {
+    "command_id": "cmd_0272",
+    "canonical_text": "now is our one moment of glory"
+  },
+  {
+    "command_id": "cmd_0273",
+    "canonical_text": "add ingredients for chili to shopping list"
+  },
+  {
+    "command_id": "cmd_0274",
+    "canonical_text": "cancel my meeting with vincent and lin"
+  },
+  {
+    "command_id": "cmd_0275",
+    "canonical_text": "how many refills are left on my buspar"
+  },
+  {
+    "command_id": "cmd_0276",
+    "canonical_text": "i need to return this item"
+  },
+  {
+    "command_id": "cmd_0277",
+    "canonical_text": "is red lobster open today"
+  },
+  {
+    "command_id": "cmd_0278",
+    "canonical_text": "please call carol fulton"
+  },
+  {
+    "command_id": "cmd_0279",
+    "canonical_text": "please respond to my text"
+  },
+  {
+    "command_id": "cmd_0280",
+    "canonical_text": "please send this email to the group"
+  },
+  {
+    "command_id": "cmd_0281",
+    "canonical_text": "show me movies with tom cruise"
+  },
+  {
+    "command_id": "cmd_0282",
+    "canonical_text": "take insulin at dinner time"
+  },
+  {
+    "command_id": "cmd_0283",
+    "canonical_text": "turn on the heat"
+  },
+  {
+    "command_id": "cmd_0284",
+    "canonical_text": "what's the weather on labor day"
+  },
+  {
+    "command_id": "cmd_0285",
+    "canonical_text": "what's the weather on memorial day"
+  },
+  {
+    "command_id": "cmd_0286",
+    "canonical_text": "when are the giants playing"
+  },
+  {
+    "command_id": "cmd_0287",
+    "canonical_text": "call dan barker"
+  },
+  {
+    "command_id": "cmd_0288",
+    "canonical_text": "call lynn banks"
+  },
+  {
+    "command_id": "cmd_0289",
+    "canonical_text": "call shawna brock"
+  },
+  {
+    "command_id": "cmd_0290",
+    "canonical_text": "cancel my meeting with sonya lee"
+  },
+  {
+    "command_id": "cmd_0291",
+    "canonical_text": "dear customer service comma"
+  },
+  {
+    "command_id": "cmd_0292",
+    "canonical_text": "define conclude"
+  },
+  {
+    "command_id": "cmd_0293",
+    "canonical_text": "how far is naples italy from rome"
+  },
+  {
+    "command_id": "cmd_0294",
+    "canonical_text": "how many people live in maryland"
+  },
+  {
+    "command_id": "cmd_0295",
+    "canonical_text": "how many refills are left on my abilify"
+  },
+  {
+    "command_id": "cmd_0296",
+    "canonical_text": "i need to cancel my order"
+  },
+  {
+    "command_id": "cmd_0297",
+    "canonical_text": "make me a reservation at baytown brewery"
+  },
+  {
+    "command_id": "cmd_0298",
+    "canonical_text": "our parking space is purple"
+  },
+  {
+    "command_id": "cmd_0299",
+    "canonical_text": "play the latest episode of planet money"
+  },
+  {
+    "command_id": "cmd_0300",
+    "canonical_text": "recipe with buttermilk and coconut"
+  },
+  {
+    "command_id": "cmd_0301",
+    "canonical_text": "recipe with cranberry and gin"
+  },
+  {
+    "command_id": "cmd_0302",
+    "canonical_text": "skip backwards two minutes"
+  },
+  {
+    "command_id": "cmd_0303",
+    "canonical_text": "take fish oil at bedtime"
+  },
+  {
+    "command_id": "cmd_0304",
+    "canonical_text": "what are the side effects of strattera"
+  },
+  {
+    "command_id": "cmd_0305",
+    "canonical_text": "what was the score for the l s u game"
+  },
+  {
+    "command_id": "cmd_0306",
+    "canonical_text": "what's the weather next week"
+  },
+  {
+    "command_id": "cmd_0307",
+    "canonical_text": "what's the weather on christmas"
+  },
+  {
+    "command_id": "cmd_0308",
+    "canonical_text": "what's the weather on my birthday"
+  },
+  {
+    "command_id": "cmd_0309",
+    "canonical_text": "what's the weather on september twenty second"
+  },
+  {
+    "command_id": "cmd_0310",
+    "canonical_text": "call caleb neville"
+  },
+  {
+    "command_id": "cmd_0311",
+    "canonical_text": "call denise chavez"
+  },
+  {
+    "command_id": "cmd_0312",
+    "canonical_text": "call flo giannopoulos"
+  },
+  {
+    "command_id": "cmd_0313",
+    "canonical_text": "call goodwin alma"
+  },
+  {
+    "command_id": "cmd_0314",
+    "canonical_text": "call herman gutierrez"
+  },
+  {
+    "command_id": "cmd_0315",
+    "canonical_text": "call noreen sanada"
+  },
+  {
+    "command_id": "cmd_0316",
+    "canonical_text": "did the seattle seahawks win"
+  },
+  {
+    "command_id": "cmd_0317",
+    "canonical_text": "find me a drink recipe"
+  },
+  {
+    "command_id": "cmd_0318",
+    "canonical_text": "find me a vegetarian stew recipe"
+  },
+  {
+    "command_id": "cmd_0319",
+    "canonical_text": "find me things to do in kansas city kansas"
+  },
+  {
+    "command_id": "cmd_0320",
+    "canonical_text": "find me things to do in madrid spain"
+  },
+  {
+    "command_id": "cmd_0321",
+    "canonical_text": "ginny daniel at seven p m saturday"
+  },
+  {
+    "command_id": "cmd_0322",
+    "canonical_text": "hi exclamation point"
+  },
+  {
+    "command_id": "cmd_0323",
+    "canonical_text": "how many refills are left on my adderall"
+  },
+  {
+    "command_id": "cmd_0324",
+    "canonical_text": "how many refills are left on my albuterol"
+  },
+  {
+    "command_id": "cmd_0325",
+    "canonical_text": "how many refills are left on my allegra"
+  },
+  {
+    "command_id": "cmd_0326",
+    "canonical_text": "how many refills are left on my aricept"
+  },
+  {
+    "command_id": "cmd_0327",
+    "canonical_text": "how many refills are left on my citalopram"
+  },
+  {
+    "command_id": "cmd_0328",
+    "canonical_text": "how many refills are left on my clindamycin"
+  },
+  {
+    "command_id": "cmd_0329",
+    "canonical_text": "how many refills are left on my clonidine"
+  },
+  {
+    "command_id": "cmd_0330",
+    "canonical_text": "how many refills are left on my concerta"
+  },
+  {
+    "command_id": "cmd_0331",
+    "canonical_text": "how tall is the tallest person"
+  },
+  {
+    "command_id": "cmd_0332",
+    "canonical_text": "i received a wrong item"
+  },
+  {
+    "command_id": "cmd_0333",
+    "canonical_text": "is my order shipped question mark"
+  },
+  {
+    "command_id": "cmd_0334",
+    "canonical_text": "is willis tower wheelchair accessible"
+  },
+  {
+    "command_id": "cmd_0335",
+    "canonical_text": "map a route to dulles airport"
+  },
+  {
+    "command_id": "cmd_0336",
+    "canonical_text": "play blinding lights by the weekend"
+  },
+  {
+    "command_id": "cmd_0337",
+    "canonical_text": "recipe with cilantro chicken and garlic"
+  },
+  {
+    "command_id": "cmd_0338",
+    "canonical_text": "recipe with garlic and lentils"
+  },
+  {
+    "command_id": "cmd_0339",
+    "canonical_text": "recipe with pineapple bananas and orange juice"
+  },
+  {
+    "command_id": "cmd_0340",
+    "canonical_text": "recipe with tomatoes rice and celery"
+  },
+  {
+    "command_id": "cmd_0341",
+    "canonical_text": "recipe with two percent milk"
+  },
+  {
+    "command_id": "cmd_0342",
+    "canonical_text": "schedule a refill for my levoxyl prescription"
+  },
+  {
+    "command_id": "cmd_0343",
+    "canonical_text": "take depakote at one p m"
+  },
+  {
+    "command_id": "cmd_0344",
+    "canonical_text": "take flonase at six thirty p m"
+  },
+  {
+    "command_id": "cmd_0345",
+    "canonical_text": "thank you period"
+  },
+  {
+    "command_id": "cmd_0346",
+    "canonical_text": "thanks exclamation point"
+  },
+  {
+    "command_id": "cmd_0347",
+    "canonical_text": "video call martin star"
+  },
+  {
+    "command_id": "cmd_0348",
+    "canonical_text": "what are the side effects of xopanex"
+  },
+  {
+    "command_id": "cmd_0349",
+    "canonical_text": "what museums are in cincinnati ohio"
+  },
+  {
+    "command_id": "cmd_0350",
+    "canonical_text": "what time is it in alaska"
+  },
+  {
+    "command_id": "cmd_0351",
+    "canonical_text": "what time will you be home question mark"
+  },
+  {
+    "command_id": "cmd_0352",
+    "canonical_text": "what's the latest in technology"
+  },
+  {
+    "command_id": "cmd_0353",
+    "canonical_text": "increase the volume to maximum"
+  },
+  {
+    "command_id": "cmd_0354",
+    "canonical_text": "what's the weather in new york"
+  },
+  {
+    "command_id": "cmd_0355",
+    "canonical_text": "what's the weather on february first"
+  },
+  {
+    "command_id": "cmd_0356",
+    "canonical_text": "wikipedia list of most popular movies"
+  },
+  {
+    "command_id": "cmd_0357",
+    "canonical_text": "book a table for six at belle vista"
+  },
+  {
+    "command_id": "cmd_0358",
+    "canonical_text": "call aliz kinsley"
+  },
+  {
+    "command_id": "cmd_0359",
+    "canonical_text": "how do i make brisket"
+  },
+  {
+    "command_id": "cmd_0360",
+    "canonical_text": "how many calories does a pint of ice cream have"
+  },
+  {
+    "command_id": "cmd_0361",
+    "canonical_text": "message kramer gray"
+  },
+  {
+    "command_id": "cmd_0362",
+    "canonical_text": "play transformers on paramount plus"
+  },
+  {
+    "command_id": "cmd_0363",
+    "canonical_text": "read a series of unfortunate events on audiobook"
+  },
+  {
+    "command_id": "cmd_0364",
+    "canonical_text": "recipe with avocados and tomatoes"
+  },
+  {
+    "command_id": "cmd_0365",
+    "canonical_text": "recipe with carrots and potatoes"
+  },
+  {
+    "command_id": "cmd_0366",
+    "canonical_text": "recipe with sriracha noodles and cabbage"
+  },
+  {
+    "command_id": "cmd_0367",
+    "canonical_text": "schedule a refill for my omeprazole prescription"
+  },
+  {
+    "command_id": "cmd_0368",
+    "canonical_text": "show me a photo of business meetings"
+  },
+  {
+    "command_id": "cmd_0369",
+    "canonical_text": "take enalapril with lunch"
+  },
+  {
+    "command_id": "cmd_0370",
+    "canonical_text": "take escitalopram at eight a m"
+  },
+  {
+    "command_id": "cmd_0371",
+    "canonical_text": "take guanfacine at six a m"
+  },
+  {
+    "command_id": "cmd_0372",
+    "canonical_text": "take intuniv at two p m"
+  },
+  {
+    "command_id": "cmd_0373",
+    "canonical_text": "timer for covid test"
+  },
+  {
+    "command_id": "cmd_0374",
+    "canonical_text": "we parked on level four"
+  },
+  {
+    "command_id": "cmd_0375",
+    "canonical_text": "what was the score of the last l s u tigers game"
+  },
+  {
+    "command_id": "cmd_0376",
+    "canonical_text": "what's the weather on december sixth"
+  },
+  {
+    "command_id": "cmd_0377",
+    "canonical_text": "what's the weather on new year's eve"
+  },
+  {
+    "command_id": "cmd_0378",
+    "canonical_text": "when is my item arriving question mark"
+  },
+  {
+    "command_id": "cmd_0379",
+    "canonical_text": "who won the portland game yesterday"
+  },
+  {
+    "command_id": "cmd_0380",
+    "canonical_text": "what restaurant are nearby"
+  },
+  {
+    "command_id": "cmd_0381",
+    "canonical_text": "what's the weather on halloween"
+  },
+  {
+    "command_id": "cmd_0382",
+    "canonical_text": "who plays third base for the pirates"
+  },
+  {
+    "command_id": "cmd_0383",
+    "canonical_text": "add a hair dryer brush for vanessa to my gift list"
+  },
+  {
+    "command_id": "cmd_0384",
+    "canonical_text": "add paper towels and cereal to shopping list"
+  },
+  {
+    "command_id": "cmd_0385",
+    "canonical_text": "email sabrina k at west dot e d u"
+  },
+  {
+    "command_id": "cmd_0386",
+    "canonical_text": "take focalin at eleven thirty a m"
+  },
+  {
+    "command_id": "cmd_0387",
+    "canonical_text": "take lactulose at nine p m"
+  },
+  {
+    "command_id": "cmd_0388",
+    "canonical_text": "what is it like outside"
+  },
+  {
+    "command_id": "cmd_0389",
+    "canonical_text": "what's sixteen ounces to liters"
+  },
+  {
+    "command_id": "cmd_0390",
+    "canonical_text": "what's the distance to minnesota"
+  },
+  {
+    "command_id": "cmd_0391",
+    "canonical_text": "who won gold in men's figure skating in the last olympics"
+  },
+  {
+    "command_id": "cmd_0392",
+    "canonical_text": "who won the gold medal in men's figure skating in nineteen fifty two winter olympics"
+  },
+  {
+    "command_id": "cmd_0393",
+    "canonical_text": "what the time"
+  },
+  {
+    "command_id": "cmd_0394",
+    "canonical_text": "call area code zero five three dash six hundred and twenty one dash four thousand eight hundred and seventy nine"
+  },
+  {
+    "command_id": "cmd_0395",
+    "canonical_text": "add this music to my favorites"
+  },
+  {
+    "command_id": "cmd_0396",
+    "canonical_text": "decrease the volume to minimum"
+  },
+  {
+    "command_id": "cmd_0397",
+    "canonical_text": "play music on playroom speaker"
+  },
+  {
+    "command_id": "cmd_0398",
+    "canonical_text": "wake me up at six forty five every day"
+  },
+  {
+    "command_id": "cmd_0399",
+    "canonical_text": "what is the temperature outside"
+  },
+  {
+    "command_id": "cmd_0400",
+    "canonical_text": "what's a dollar in british pounds"
+  },
+  {
+    "command_id": "cmd_0401",
+    "canonical_text": "when my first meeting today"
+  },
+  {
+    "command_id": "cmd_0402",
+    "canonical_text": "backspace"
+  },
+  {
+    "command_id": "cmd_0403",
+    "canonical_text": "delete"
+  },
+  {
+    "command_id": "cmd_0404",
+    "canonical_text": "what on my shopping list"
+  },
+  {
+    "command_id": "cmd_0405",
+    "canonical_text": "what the temperature in the living room"
+  }
+]

@@ -9,64 +9,71 @@ if str(REPO_ROOT) not in sys.path:
 
 from s2t_pipeline import BaseLLM, LLMInstruct
 
-BENCHMARK_SYSTEM_PROMPT = """
-You are an expert semantic parser mapping voice assistant commands into canonical hierarchical tool calls for a spoken dialog benchmark.
+BENCHMARK_SYSTEM_PROMPT = """You are an expert semantic parser mapping voice assistant commands into canonical hierarchical tool calls for a spoken dialog benchmark.
 
 ### 1. Objective:
 Analyze the user's spoken command and map it to its exact canonical (Domain, Intent, Slots) representation.
 
 ### 2. Closed Schema Ontology:
-You must categorize the command strictly into one of the following 20 domains:
-- 18 MASSIVE Domains:
-  - alarm (alarm_set, alarm_query, alarm_remove)
-  - audio (audio_volume_up, audio_volume_down, audio_volume_mute)
-  - calendar (calendar_set, calendar_query, calendar_remove)
-  - cooking (cooking_recipe)
-  - datetime (datetime_query)
-  - email (email_sendmail, email_query)
-  - general (general_quirky, general_greet)
-  - iot (iot_wemo_on, iot_wemo_off, iot_hue_lighton, iot_hue_lightoff, iot_hue_lightdim, iot_coffee)
-  - lists (lists_createoradd, lists_query, lists_remove)
-  - music (music_likeness, music_query, music_settings)
-  - news (news_query)
-  - play (play_music, play_audiobook, play_podcasts)
-  - qa (qa_factoid, qa_definition, qa_stock)
-  - recommendation (recommendation_locations, recommendation_movies)
-  - social (social_post, social_query)
-  - takeaway (takeaway_order, takeaway_query)
-  - transport (transport_taxi, transport_ticket, transport_traffic)
-  - weather (weather_query)
-- Clinical & Accessibility Extensions:
-  - health:
-    - health_refill_query (slots: medication)
-    - health_medication_reminder (slots: medication, time)
-  - accessibility:
-    - accessibility_ui_scale (slots: ui_element, direction)
-    - accessibility_dictation_toggle (slots: state)
+You must categorize the command strictly into one of the following 10 domains and 30 canonical tools:
 
-Important Schema Definitions:
-- iot_hue_lighton / iot_hue_lightoff: ONLY for lights, bulbs, and lamps.
-- iot_wemo_on / iot_wemo_off: For all appliances, TVs, plugs, switches, heaters, and AC/cooling.
-- iot_hue_lightdim: For lowering or dimming temperature or brightness (slots: device_setting, order_type).
-- social_post: Used for sending messages AND handling phone/video calls (including "call", "video call", "answer the call", "hang up").
-- person: Always use the slot name 'person' (NOT 'contact_name') for people's names.
-- place_name: Always use slot name 'place_name' (NOT 'location') for rooms, cities, and places.
-- date: Use 'date' (NOT 'time') for days like 'yesterday', 'tomorrow', and calendar dates. Use 'time' only for clock times like 'eight p m'.
-- general_frequency: Always use slot name 'general_frequency' (NOT 'day_of_week') for recurring intervals like 'every sunday'.
-- recommendation_locations: Used for finding or contacting local businesses, coffee shops, and restaurants (slots: business_type, place_name). Do NOT use iot_coffee for coffee shops!
-- play_music (Domain: play): For requests to play songs, playlists, or radio on apps like Pandora (slots: song_name, app_name).
-- play_podcasts (Domain: play): For playing podcasts (slots: media_type, song_name).
-- music_settings (Domain: music): For media controls like "skip this song" (slots: {}).
-- music_likeness (Domain: music): For adding music to favorites (slots: {}).
-- general_quirky: For jokes, chitchat, and assistant features like "find my phone".
-- accessibility_dictation_toggle: For dictation voice controls like "start listening" (state: "start") and "stop listening" (state: "stop").
-- time slot formatting: In medication reminders, extract only the temporal word without prepositions like 'with' or 'at' (e.g. 'lunch', NOT 'with lunch').
-- verbatim tokens: Include modifiers like 'all' if present (e.g. 'all switches').
+1. health
+- health_medication_reminder: Schedule prescription medication or supplement dosage reminders. (Allowed slots: medication, time)
+- health_refill_query: Inquire about remaining prescription refills or pharmacy status. (Allowed slots: medication)
+- health_info_query: Inquire about clinical medication side effects or dosage. (Allowed slots: medication, info_type ["side_effects", "dosage"])
+
+2. smart_home
+- iot_device_power: Toggle binary power state of appliances, plugs, switches, TVs, fans, heaters, or simple lights. Also handles door lock states ('lock' -> state: 'on', 'unlock' -> state: 'off'). (Allowed slots: device_type, state ["on", "off"])
+- iot_device_adjust: Adjust continuous scalar attributes of IoT devices like thermostats, dimmers, fans, or ovens. (Allowed slots: device_type, setting, direction ["lower", "raise"], value)
+- iot_sensor_query: Check ambient environmental room sensors. (Allowed slots: room, sensor_type ["temperature"])
+
+3. communication
+- call_make: Place an outgoing voice or video call. (Allowed slots: recipient_name, phone_number)
+- call_manage: Telephony in-call management. (Allowed slots: action ["answer", "hang_up", "redial"])
+- messages_manage: Send or read SMS / instant text messages. (Allowed slots: action ["send", "read"], recipient, message_body)
+- email_manage: Send, read, or search emails. (Allowed slots: action ["send", "read", "search"], recipient, date, message_body)
+- contacts_manage: Address book contact management. (Allowed slots: action ["add", "search", "delete"], contact_name, phone_number, email_address)
+
+4. media
+- media_play: Stream music, albums, podcasts, audiobooks, or radio. (Allowed slots: media_type ["music", "podcast", "audiobook", "radio"], title, artist, house_place)
+- media_control: Control media playback session. (Allowed slots: action ["skip", "pause", "resume", "replay", "like", "dislike"], target_type ["music", "podcast"], duration)
+- media_volume: Adjust local device playback volume. (Allowed slots: action ["up", "down", "mute", "set_level"], change_amount)
+
+5. calendar_alarm
+- calendar_manage: Schedule, query, or cancel calendar meetings and events. (Allowed slots: action ["set", "query", "cancel"], event_name, date, time, person)
+- alarm_manage: Set, inspect, cancel, or snooze alarms and timers. (Allowed slots: action ["set", "query", "cancel", "snooze"], time, date, general_frequency)
+- reminder_manage: Set, query, or delete non-clinical daily task reminders. (Allowed slots: action ["set", "query", "delete"], title, date, time)
+
+6. maps_places
+- maps_route: Request driving directions, navigation, distance, or route traffic. (Allowed slots: destination, query_type ["navigation", "traffic", "distance"])
+- places_search: Search for nearby local venues, stores, restaurants, or business hours. (Allowed slots: business_type, business_name, sort_by ["nearest"])
+- reservations_manage: Book or inspect restaurant / venue table reservations. (Allowed slots: business_name, party_size, date, time)
+
+7. transport
+- rideshare_book: Order or hail a taxi, cab, or rideshare vehicle. (Allowed slots: destination)
+- transit_lookup: Check schedules or book tickets for public transit, trains, buses, and flights. (Allowed slots: transit_type ["train", "bus", "flight"], route_or_station, destination, date, time)
+
+8. accessibility
+- accessibility_ui_scale: Adjust on-screen text size or screen brightness accommodations. (Allowed slots: ui_element ["text", "screen"], direction ["larger", "brighten", "darken"])
+- accessibility_dictation_toggle: Toggle continuous voice dictation listening state. (Allowed slots: state ["start", "stop"])
+
+9. notes_memory
+- memory_note_manage: Save, recall, or clear cognitive memory aids like passcodes or parking spaces. (Allowed slots: action ["save", "query", "delete"], key ["pin", "parking_space", "note"], value)
+- lists_manage: Create, read, or modify shopping and to-do lists. (Allowed slots: list_name, item, action ["add", "read", "remove"])
+
+10. general_qa
+- weather_query: Check meteorological weather conditions and forecasts. (Allowed slots: place_name, date, weather_aspect ["rain", "snow", "temperature"])
+- order_manage: Manage e-commerce parcel tracking, cancellations, returns, and reports. (Allowed slots: action ["track_status", "cancel_order", "return_item", "report_issue"], order_id)
+- device_find: Trigger an audible ping to locate a misplaced hardware device. (Allowed slots: device ["phone"])
+- qa_search: Open factual web queries for world knowledge, recipes, news briefings, stock prices, and general definitions. (Allowed slots: query)
 
 ### 3. Extraction & Normalization Directives:
 1. Select strictly from the canonical intent catalog above (<domain>_<action>).
-2. Extract slot values verbatim as exact substrings from the command (lowercase). Do not alter or summarize entity text.
-3. If the command requires no parameters or slots, "slots" MUST be an empty object {}.
+2. Nominal Core Span Rule: Extract bare nominal entities. Strictly strip leading governing prepositions ('at', 'with', 'on', 'to', 'for', 'in') and determiners ('a', 'an', 'the').
+3. Extract slot values verbatim as exact lowercase substrings from the command. Do not normalize spoken numbers to digits or alter spelling.
+4. Never extract or hallucinate an entity that was not spoken in the command.
+5. If the command requires no parameters or slots, 'slots' MUST be an empty object {}.
+6. Wake words ('hey siri', 'alexa', 'ok google', 'cortana', 'hey facebook') are outside tokens (O). Never extract wake words into slot parameters.
 
 ### 4. Output Contract:
 Respond ONLY with a valid, raw JSON object matching this exact schema:
@@ -77,26 +84,7 @@ Respond ONLY with a valid, raw JSON object matching this exact schema:
     "<slot_key>": "<verbatim_slot_value>"
   }
 }
-Do not include Markdown backticks, explanation, or any surrounding text.
-
-### 5. Few-Shot Exemplars:
-
-Example 1:
-Input: tell me the news
-Output: {"domain": "news", "intent": "news_query", "slots": {}}
-
-Example 2:
-Input: turn off the closet light
-Output: {"domain": "iot", "intent": "iot_hue_lightoff", "slots": {"device_type": "closet light"}}
-
-Example 3:
-Input: how many refills are left on my baclofen
-Output: {"domain": "health", "intent": "health_refill_query", "slots": {"medication": "baclofen"}}
-
-Example 4:
-Input: brighten the screen
-Output: {"domain": "accessibility", "intent": "accessibility_ui_scale", "slots": {"ui_element": "screen", "direction": "brighten"}}
-"""
+Do not include Markdown backticks, explanation, or any surrounding text."""
 
 
 class CrossModelEvaluatorLLM(LLMInstruct):

@@ -345,6 +345,9 @@ def run_batch_autolabeling(
     Computes inter-model agreement (consensus) and flags discrepancies.
     """
     print(f"\n[Phase 2] Starting batch auto-labeling on {len(candidates)} candidate commands...")
+    if isinstance(candidates, list):
+        candidates = {item.get("command_id", f"cmd_{i:04d}"): item for i, item in enumerate(candidates, start=1)}
+
     labeled_results = {}
     consensus_count = 0
     disagreement_count = 0

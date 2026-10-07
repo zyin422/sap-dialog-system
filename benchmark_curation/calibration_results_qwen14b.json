@@ -1,0 +1,597 @@
+{
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "total_prompts": 30,
+  "metrics": {
+    "domain_acc": 0.9,
+    "intent_acc": 0.9,
+    "exact_match": 0.8667,
+    "slot_precision": 0.8,
+    "slot_recall": 0.8163,
+    "slot_f1": 0.8081,
+    "tp": 40,
+    "fp": 10,
+    "fn": 9
+  },
+  "itemized_results": [
+    {
+      "command_id": "cmd_01",
+      "canonical_text": "turn off the t v",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "t v",
+          "state": "off"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "tv",
+          "state": "off"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_02",
+      "canonical_text": "turn off heat",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "heat",
+          "state": "off"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "heat",
+          "state": "off"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_03",
+      "canonical_text": "turn on all switches",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "all switches",
+          "state": "on"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "switches",
+          "state": "on"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_04",
+      "canonical_text": "turn on cooling",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_device_power",
+        "slots": {
+          "device_type": "cooling",
+          "state": "on"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_device_adjust",
+        "slots": {
+          "device_type": "cooling",
+          "direction": "raise",
+          "value": ""
+        }
+      }
+    },
+    {
+      "command_id": "cmd_05",
+      "canonical_text": "make the text larger",
+      "gold": {
+        "domain": "accessibility",
+        "intent": "accessibility_ui_scale",
+        "slots": {
+          "ui_element": "text",
+          "direction": "larger"
+        }
+      },
+      "prediction": {
+        "domain": "accessibility",
+        "intent": "accessibility_ui_scale",
+        "slots": {
+          "ui_element": "text",
+          "direction": "larger"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_06",
+      "canonical_text": "find my phone",
+      "gold": {
+        "domain": "general_qa",
+        "intent": "device_find",
+        "slots": {
+          "device": "phone"
+        }
+      },
+      "prediction": {
+        "domain": "accessibility",
+        "intent": "device_find",
+        "slots": {
+          "device": "phone"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_07",
+      "canonical_text": "start listening",
+      "gold": {
+        "domain": "accessibility",
+        "intent": "accessibility_dictation_toggle",
+        "slots": {
+          "state": "start"
+        }
+      },
+      "prediction": {
+        "domain": "accessibility",
+        "intent": "accessibility_dictation_toggle",
+        "slots": {
+          "state": "start"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_08",
+      "canonical_text": "stop listening",
+      "gold": {
+        "domain": "accessibility",
+        "intent": "accessibility_dictation_toggle",
+        "slots": {
+          "state": "stop"
+        }
+      },
+      "prediction": {
+        "domain": "accessibility",
+        "intent": "accessibility_dictation_toggle",
+        "slots": {
+          "state": "stop"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_09",
+      "canonical_text": "answer the call",
+      "gold": {
+        "domain": "communication",
+        "intent": "call_manage",
+        "slots": {
+          "action": "answer"
+        }
+      },
+      "prediction": {
+        "domain": "communication",
+        "intent": "call_manage",
+        "slots": {
+          "action": "answer"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_10",
+      "canonical_text": "hang up",
+      "gold": {
+        "domain": "communication",
+        "intent": "call_manage",
+        "slots": {
+          "action": "hang_up"
+        }
+      },
+      "prediction": {
+        "domain": "communication",
+        "intent": "call_manage",
+        "slots": {
+          "action": "hang_up"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_11",
+      "canonical_text": "please call kathy bianco",
+      "gold": {
+        "domain": "communication",
+        "intent": "call_make",
+        "slots": {
+          "recipient_name": "kathy bianco"
+        }
+      },
+      "prediction": {
+        "domain": "communication",
+        "intent": "call_make",
+        "slots": {
+          "recipient_name": "kathy bianco"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_12",
+      "canonical_text": "video call lennart vass",
+      "gold": {
+        "domain": "communication",
+        "intent": "call_make",
+        "slots": {
+          "recipient_name": "lennart vass"
+        }
+      },
+      "prediction": {
+        "domain": "communication",
+        "intent": "call_make",
+        "slots": {
+          "recipient_name": "lennart vass"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_13",
+      "canonical_text": "call the nearest coffee shop",
+      "gold": {
+        "domain": "maps_places",
+        "intent": "places_search",
+        "slots": {
+          "business_type": "coffee shop",
+          "sort_by": "nearest"
+        }
+      },
+      "prediction": {
+        "domain": "communication",
+        "intent": "call_make",
+        "slots": {
+          "recipient_name": "nearest coffee shop"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_14",
+      "canonical_text": "did i miss any emails from yesterday",
+      "gold": {
+        "domain": "communication",
+        "intent": "email_manage",
+        "slots": {
+          "action": "search",
+          "date": "yesterday"
+        }
+      },
+      "prediction": {
+        "domain": "communication",
+        "intent": "email_manage",
+        "slots": {
+          "action": "search",
+          "date": "yesterday"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_15",
+      "canonical_text": "skip this song",
+      "gold": {
+        "domain": "media",
+        "intent": "media_control",
+        "slots": {
+          "action": "skip"
+        }
+      },
+      "prediction": {
+        "domain": "media",
+        "intent": "media_control",
+        "slots": {
+          "action": "skip",
+          "target_type": "music"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_16",
+      "canonical_text": "add this music to favorites",
+      "gold": {
+        "domain": "media",
+        "intent": "media_control",
+        "slots": {
+          "action": "like",
+          "target_type": "music"
+        }
+      },
+      "prediction": {
+        "domain": "media",
+        "intent": "media_control",
+        "slots": {
+          "action": "like",
+          "target_type": "music"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_17",
+      "canonical_text": "play billboard's top forty on pandora",
+      "gold": {
+        "domain": "media",
+        "intent": "media_play",
+        "slots": {
+          "media_type": "music",
+          "title": "billboard's top forty"
+        }
+      },
+      "prediction": {
+        "domain": "media",
+        "intent": "media_play",
+        "slots": {
+          "media_type": "music",
+          "title": "billboard's top forty",
+          "house_place": "pandora"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_18",
+      "canonical_text": "play the latest episode of crime junkie",
+      "gold": {
+        "domain": "media",
+        "intent": "media_play",
+        "slots": {
+          "media_type": "podcast",
+          "title": "crime junkie"
+        }
+      },
+      "prediction": {
+        "domain": "media",
+        "intent": "media_play",
+        "slots": {
+          "media_type": "podcast",
+          "title": "crime junkie"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_19",
+      "canonical_text": "lower the temperature",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_device_adjust",
+        "slots": {
+          "setting": "temperature",
+          "direction": "lower"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_device_adjust",
+        "slots": {
+          "device_type": "temperature",
+          "direction": "lower"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_20",
+      "canonical_text": "what's the temperature in the living room",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_sensor_query",
+        "slots": {
+          "room": "living room",
+          "sensor_type": "temperature"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_sensor_query",
+        "slots": {
+          "room": "living room",
+          "sensor_type": "temperature"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_21",
+      "canonical_text": "set the heat to seventy two",
+      "gold": {
+        "domain": "smart_home",
+        "intent": "iot_device_adjust",
+        "slots": {
+          "device_type": "heat",
+          "value": "seventy two"
+        }
+      },
+      "prediction": {
+        "domain": "smart_home",
+        "intent": "iot_device_adjust",
+        "slots": {
+          "device_type": "heat",
+          "setting": "seventy two"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_22",
+      "canonical_text": "what's the time",
+      "gold": {
+        "domain": "general_qa",
+        "intent": "qa_search",
+        "slots": {
+          "query": "time"
+        }
+      },
+      "prediction": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "query"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_23",
+      "canonical_text": "when is my next alarm",
+      "gold": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "query"
+        }
+      },
+      "prediction": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "query"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_24",
+      "canonical_text": "set an alarm for every sunday at eight p m",
+      "gold": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "set",
+          "time": "eight p m",
+          "general_frequency": "every sunday"
+        }
+      },
+      "prediction": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "set",
+          "time": "eight p m",
+          "general_frequency": "every sunday"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_25",
+      "canonical_text": "set an alarm in forty minutes",
+      "gold": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "set",
+          "time": "forty minutes"
+        }
+      },
+      "prediction": {
+        "domain": "calendar_alarm",
+        "intent": "alarm_manage",
+        "slots": {
+          "action": "set",
+          "time": "forty minutes"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_26",
+      "canonical_text": "what's on my calendar tomorrow",
+      "gold": {
+        "domain": "calendar_alarm",
+        "intent": "calendar_manage",
+        "slots": {
+          "action": "query",
+          "date": "tomorrow"
+        }
+      },
+      "prediction": {
+        "domain": "calendar_alarm",
+        "intent": "calendar_manage",
+        "slots": {
+          "action": "query",
+          "date": "tomorrow"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_27",
+      "canonical_text": "how many refills are left on my risperidone",
+      "gold": {
+        "domain": "health",
+        "intent": "health_refill_query",
+        "slots": {
+          "medication": "risperidone"
+        }
+      },
+      "prediction": {
+        "domain": "health",
+        "intent": "health_refill_query",
+        "slots": {
+          "medication": "risperidone"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_28",
+      "canonical_text": "how many refills are left on my warfarin",
+      "gold": {
+        "domain": "health",
+        "intent": "health_refill_query",
+        "slots": {
+          "medication": "warfarin"
+        }
+      },
+      "prediction": {
+        "domain": "health",
+        "intent": "health_refill_query",
+        "slots": {
+          "medication": "warfarin"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_29",
+      "canonical_text": "set a reminder to take amoxicillin with lunch",
+      "gold": {
+        "domain": "health",
+        "intent": "health_medication_reminder",
+        "slots": {
+          "medication": "amoxicillin",
+          "time": "lunch"
+        }
+      },
+      "prediction": {
+        "domain": "health",
+        "intent": "health_medication_reminder",
+        "slots": {
+          "medication": "amoxicillin",
+          "time": "with lunch"
+        }
+      }
+    },
+    {
+      "command_id": "cmd_30",
+      "canonical_text": "take guanfacine at six a m",
+      "gold": {
+        "domain": "health",
+        "intent": "health_medication_reminder",
+        "slots": {
+          "medication": "guanfacine",
+          "time": "six a m"
+        }
+      },
+      "prediction": {
+        "domain": "health",
+        "intent": "health_medication_reminder",
+        "slots": {
+          "medication": "guanfacine",
+          "time": "six a m"
+        }
+      }
+    }
+  ]
+}

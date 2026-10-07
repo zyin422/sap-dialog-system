@@ -1,0 +1,149 @@
+=== Delta Job Initialized ===
+Node:    gpub077.delta.ncsa.illinois.edu
+GPU:     NVIDIA A40, 46068 MiB
+Python:  /work/hdd/bedl/zyin2/conda_envs/sap_env/bin/python
+HF_HOME: /work/hdd/bedl/zyin2/hf_cache
+=============================
+Loading Evaluator Model 1: Qwen/Qwen2.5-14B-Instruct...
+Qwen Model Device:          cuda:0
+Qwen Device Map:             No device_map
+
+[Phase 1] Starting calibration on 30 pilot prompts using Qwen/Qwen2.5-14B-Instruct...
+  [01/30] Evaluating: "turn off the t v"
+  [02/30] Evaluating: "turn off heat"
+  [03/30] Evaluating: "turn on all switches"
+  [04/30] Evaluating: "turn on cooling"
+  [05/30] Evaluating: "make the text larger"
+  [06/30] Evaluating: "find my phone"
+  [07/30] Evaluating: "start listening"
+  [08/30] Evaluating: "stop listening"
+  [09/30] Evaluating: "answer the call"
+  [10/30] Evaluating: "hang up"
+  [11/30] Evaluating: "please call kathy bianco"
+  [12/30] Evaluating: "video call lennart vass"
+  [13/30] Evaluating: "call the nearest coffee shop"
+  [14/30] Evaluating: "did i miss any emails from yesterday"
+  [15/30] Evaluating: "skip this song"
+  [16/30] Evaluating: "add this music to favorites"
+  [17/30] Evaluating: "play billboard's top forty on pandora"
+  [18/30] Evaluating: "play the latest episode of crime junkie"
+  [19/30] Evaluating: "lower the temperature"
+  [20/30] Evaluating: "what's the temperature in the living room"
+  [21/30] Evaluating: "set the heat to seventy two"
+  [22/30] Evaluating: "what's the time"
+  [23/30] Evaluating: "when is my next alarm"
+  [24/30] Evaluating: "set an alarm for every sunday at eight p m"
+  [25/30] Evaluating: "set an alarm in forty minutes"
+  [26/30] Evaluating: "what's on my calendar tomorrow"
+  [27/30] Evaluating: "how many refills are left on my risperidone"
+  [28/30] Evaluating: "how many refills are left on my warfarin"
+  [29/30] Evaluating: "set a reminder to take amoxicillin with lunch"
+  [30/30] Evaluating: "take guanfacine at six a m"
+
+=======================================================
+           CALIBRATION METRICS SUMMARY
+=======================================================
+  • Domain Accuracy:      80.0%
+  • Intent Accuracy:      56.7%
+  • Exact Match (Dom+Int):56.7%
+  • Slot Precision:       40.0%
+  • Slot Recall:          38.7%
+  • Slot F1 Score:        39.3%
+  • TP / FP / FN:         12 / 18 / 19
+=======================================================
+
+=========================================================================================================
+                     PHASE 1 DISCREPANCY REPORT: 22 / 30 MISMATCHES
+=========================================================================================================
+[cmd_01] "turn off the t v"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: iot | Intent: iot_wemo_off | Slots: {}
+  • PRED:   Domain: iot | Intent: iot_hue_lightoff | Slots: {'device_type': 't v'}
+---------------------------------------------------------------------------------------------------------
+[cmd_02] "turn off heat"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: iot | Intent: iot_wemo_off | Slots: {}
+  • PRED:   Domain: iot | Intent: iot_hue_lightoff | Slots: {'device_type': 'heat'}
+---------------------------------------------------------------------------------------------------------
+[cmd_03] "turn on all switches"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: iot | Intent: iot_wemo_on | Slots: {'device_type': 'all switches'}
+  • PRED:   Domain: iot | Intent: iot_wemo_on | Slots: {'device_type': 'switches'}
+---------------------------------------------------------------------------------------------------------
+[cmd_04] "turn on cooling"  -->  MISMATCH IN: [INTENT]
+  • GOLD:   Domain: iot | Intent: iot_wemo_on | Slots: {'device_type': 'cooling'}
+  • PRED:   Domain: iot | Intent: iot_hue_lighton | Slots: {'device_type': 'cooling'}
+---------------------------------------------------------------------------------------------------------
+[cmd_06] "find my phone"  -->  MISMATCH IN: [DOMAIN, INTENT]
+  • GOLD:   Domain: general | Intent: general_quirky | Slots: {'device_type': 'phone'}
+  • PRED:   Domain: iot | Intent: iot_wemo_on | Slots: {'device_type': 'phone'}
+---------------------------------------------------------------------------------------------------------
+[cmd_08] "stop listening"  -->  MISMATCH IN: [DOMAIN, INTENT, SLOTS]
+  • GOLD:   Domain: accessibility | Intent: accessibility_dictation_toggle | Slots: {'state': 'stop'}
+  • PRED:   Domain: general | Intent: general_quirky | Slots: {}
+---------------------------------------------------------------------------------------------------------
+[cmd_09] "answer the call"  -->  MISMATCH IN: [DOMAIN, INTENT]
+  • GOLD:   Domain: social | Intent: social_post | Slots: {}
+  • PRED:   Domain: general | Intent: general_quirky | Slots: {}
+---------------------------------------------------------------------------------------------------------
+[cmd_10] "hang up"  -->  MISMATCH IN: [DOMAIN, INTENT]
+  • GOLD:   Domain: social | Intent: social_post | Slots: {}
+  • PRED:   Domain: general | Intent: general_quirky | Slots: {}
+---------------------------------------------------------------------------------------------------------
+[cmd_11] "please call kathy bianco"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: social | Intent: social_post | Slots: {'person': 'kathy bianco'}
+  • PRED:   Domain: social | Intent: social_query | Slots: {'contact_name': 'kathy bianco'}
+---------------------------------------------------------------------------------------------------------
+[cmd_12] "video call lennart vass"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: social | Intent: social_post | Slots: {'person': 'lennart vass'}
+  • PRED:   Domain: social | Intent: social_post | Slots: {'content': 'video call lennart vass'}
+---------------------------------------------------------------------------------------------------------
+[cmd_13] "call the nearest coffee shop"  -->  MISMATCH IN: [DOMAIN, INTENT, SLOTS]
+  • GOLD:   Domain: recommendation | Intent: recommendation_locations | Slots: {'business_type': 'coffee shop', 'place_name': 'nearest'}
+  • PRED:   Domain: iot | Intent: iot_coffee | Slots: {}
+---------------------------------------------------------------------------------------------------------
+[cmd_14] "did i miss any emails from yesterday"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: email | Intent: email_query | Slots: {'date': 'yesterday'}
+  • PRED:   Domain: email | Intent: email_query | Slots: {'time': 'yesterday'}
+---------------------------------------------------------------------------------------------------------
+[cmd_15] "skip this song"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: music | Intent: music_settings | Slots: {}
+  • PRED:   Domain: music | Intent: music_likeness | Slots: {'action': 'skip'}
+---------------------------------------------------------------------------------------------------------
+[cmd_16] "add this music to favorites"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: music | Intent: music_likeness | Slots: {}
+  • PRED:   Domain: music | Intent: music_query | Slots: {'action': 'add to favorites'}
+---------------------------------------------------------------------------------------------------------
+[cmd_17] "play billboard's top forty on pandora"  -->  MISMATCH IN: [DOMAIN, INTENT, SLOTS]
+  • GOLD:   Domain: play | Intent: play_music | Slots: {'song_name': "billboard's top forty", 'app_name': 'pandora'}
+  • PRED:   Domain: music | Intent: music_query | Slots: {'artist': 'billboard', 'playlist': 'top forty'}
+---------------------------------------------------------------------------------------------------------
+[cmd_18] "play the latest episode of crime junkie"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: play | Intent: play_podcasts | Slots: {'media_type': 'latest episode', 'song_name': 'crime junkie'}
+  • PRED:   Domain: play | Intent: play_podcasts | Slots: {'podcast': 'crime junkie'}
+---------------------------------------------------------------------------------------------------------
+[cmd_19] "lower the temperature"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: iot | Intent: iot_hue_lightdim | Slots: {'device_setting': 'temperature', 'order_type': 'lower'}
+  • PRED:   Domain: iot | Intent: iot_hue_lightoff | Slots: {'action': 'lower', 'parameter': 'temperature'}
+---------------------------------------------------------------------------------------------------------
+[cmd_20] "what's the temperature in the living room"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: weather | Intent: weather_query | Slots: {'place_name': 'living room'}
+  • PRED:   Domain: weather | Intent: weather_query | Slots: {'location': 'living room'}
+---------------------------------------------------------------------------------------------------------
+[cmd_21] "set the heat to seventy two"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: iot | Intent: iot_wemo_on | Slots: {'device_setting': 'heat', 'change_amount': 'seventy two'}
+  • PRED:   Domain: iot | Intent: iot_wemo_on | Slots: {'device_type': 'heat', 'temperature': 'seventy two'}
+---------------------------------------------------------------------------------------------------------
+[cmd_24] "set an alarm for every sunday at eight p m"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: alarm | Intent: alarm_set | Slots: {'time': 'eight p m', 'general_frequency': 'every sunday'}
+  • PRED:   Domain: alarm | Intent: alarm_set | Slots: {'day_of_week': 'sunday', 'time': 'eight p m'}
+---------------------------------------------------------------------------------------------------------
+[cmd_26] "what's on my calendar tomorrow"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: calendar | Intent: calendar_query | Slots: {'date': 'tomorrow'}
+  • PRED:   Domain: calendar | Intent: calendar_query | Slots: {}
+---------------------------------------------------------------------------------------------------------
+[cmd_29] "set a reminder to take amoxicillin with lunch"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: health | Intent: health_medication_reminder | Slots: {'medication': 'amoxicillin', 'time': 'lunch'}
+  • PRED:   Domain: health | Intent: health_medication_reminder | Slots: {'medication': 'amoxicillin', 'time': 'with lunch'}
+---------------------------------------------------------------------------------------------------------
+=========================================================================================================
+
+Calibration results successfully saved to: benchmark_curation/calibration_results_qwen14b.json
+=== Calibration Run Complete ===

@@ -1,0 +1,136 @@
+=== Delta Job Initialized ===
+Node:    gpub046.delta.ncsa.illinois.edu
+GPU:     NVIDIA A40, 46068 MiB
+Python:  /work/hdd/bedl/zyin2/conda_envs/sap_env/bin/python
+HF_HOME: /work/hdd/bedl/zyin2/hf_cache
+=============================
+--- Running Phase 1: Pilot Calibration (30 commands) ---
+Loading Evaluator Model 1: Qwen/Qwen2.5-14B-Instruct...
+Qwen Model Device:          cuda:0
+Qwen Device Map:             No device_map
+
+[Phase 1] Starting calibration on 30 pilot prompts using Qwen/Qwen2.5-14B-Instruct...
+  [01/30] Evaluating: "turn off the t v"
+       -> Pred: smart_home/iot_device_power | {'device_type': 'tv', 'state': 'off'}
+  [02/30] Evaluating: "turn off heat"
+       -> Pred: smart_home/iot_device_power | {'device_type': 'heat', 'state': 'off'}
+  [03/30] Evaluating: "turn on all switches"
+       -> Pred: smart_home/iot_device_power | {'device_type': 'switches', 'state': 'on'}
+  [04/30] Evaluating: "turn on cooling"
+       -> Pred: smart_home/iot_device_adjust | {'device_type': 'cooling', 'direction': 'raise', 'value': ''}
+  [05/30] Evaluating: "make the text larger"
+       -> Pred: accessibility/accessibility_ui_scale | {'ui_element': 'text', 'direction': 'larger'}
+  [06/30] Evaluating: "find my phone"
+       -> Pred: accessibility/device_find | {'device': 'phone'}
+  [07/30] Evaluating: "start listening"
+       -> Pred: accessibility/accessibility_dictation_toggle | {'state': 'start'}
+  [08/30] Evaluating: "stop listening"
+       -> Pred: accessibility/accessibility_dictation_toggle | {'state': 'stop'}
+  [09/30] Evaluating: "answer the call"
+       -> Pred: communication/call_manage | {'action': 'answer'}
+  [10/30] Evaluating: "hang up"
+       -> Pred: communication/call_manage | {'action': 'hang_up'}
+  [11/30] Evaluating: "please call kathy bianco"
+       -> Pred: communication/call_make | {'recipient_name': 'kathy bianco'}
+  [12/30] Evaluating: "video call lennart vass"
+       -> Pred: communication/call_make | {'recipient_name': 'lennart vass'}
+  [13/30] Evaluating: "call the nearest coffee shop"
+       -> Pred: communication/call_make | {'recipient_name': 'nearest coffee shop'}
+  [14/30] Evaluating: "did i miss any emails from yesterday"
+       -> Pred: communication/email_manage | {'action': 'search', 'date': 'yesterday'}
+  [15/30] Evaluating: "skip this song"
+       -> Pred: media/media_control | {'action': 'skip', 'target_type': 'music'}
+  [16/30] Evaluating: "add this music to favorites"
+       -> Pred: media/media_control | {'action': 'like', 'target_type': 'music'}
+  [17/30] Evaluating: "play billboard's top forty on pandora"
+       -> Pred: media/media_play | {'media_type': 'music', 'title': "billboard's top forty", 'house_place': 'pandora'}
+  [18/30] Evaluating: "play the latest episode of crime junkie"
+       -> Pred: media/media_play | {'media_type': 'podcast', 'title': 'crime junkie'}
+  [19/30] Evaluating: "lower the temperature"
+       -> Pred: smart_home/iot_device_adjust | {'device_type': 'temperature', 'direction': 'lower'}
+  [20/30] Evaluating: "what's the temperature in the living room"
+       -> Pred: smart_home/iot_sensor_query | {'room': 'living room', 'sensor_type': 'temperature'}
+  [21/30] Evaluating: "set the heat to seventy two"
+       -> Pred: smart_home/iot_device_adjust | {'device_type': 'heat', 'setting': 'seventy two'}
+  [22/30] Evaluating: "what's the time"
+       -> Pred: calendar_alarm/alarm_manage | {'action': 'query'}
+  [23/30] Evaluating: "when is my next alarm"
+       -> Pred: calendar_alarm/alarm_manage | {'action': 'query'}
+  [24/30] Evaluating: "set an alarm for every sunday at eight p m"
+       -> Pred: calendar_alarm/alarm_manage | {'action': 'set', 'time': 'eight p m', 'general_frequency': 'every sunday'}
+  [25/30] Evaluating: "set an alarm in forty minutes"
+       -> Pred: calendar_alarm/alarm_manage | {'action': 'set', 'time': 'forty minutes'}
+  [26/30] Evaluating: "what's on my calendar tomorrow"
+       -> Pred: calendar_alarm/calendar_manage | {'action': 'query', 'date': 'tomorrow'}
+  [27/30] Evaluating: "how many refills are left on my risperidone"
+       -> Pred: health/health_refill_query | {'medication': 'risperidone'}
+  [28/30] Evaluating: "how many refills are left on my warfarin"
+       -> Pred: health/health_refill_query | {'medication': 'warfarin'}
+  [29/30] Evaluating: "set a reminder to take amoxicillin with lunch"
+       -> Pred: health/health_medication_reminder | {'medication': 'amoxicillin', 'time': 'with lunch'}
+  [30/30] Evaluating: "take guanfacine at six a m"
+       -> Pred: health/health_medication_reminder | {'medication': 'guanfacine', 'time': 'six a m'}
+
+=======================================================
+           CALIBRATION METRICS SUMMARY
+=======================================================
+  • Domain Accuracy:      90.0%
+  • Intent Accuracy:      90.0%
+  • Exact Match (Dom+Int):86.7%
+  • Slot Precision:       80.0%
+  • Slot Recall:          81.6%
+  • Slot F1 Score:        80.8%
+  • TP / FP / FN:         40 / 10 / 9
+=======================================================
+
+=========================================================================================================
+                     PHASE 1 DISCREPANCY REPORT: 11 / 30 MISMATCHES
+=========================================================================================================
+[cmd_01] "turn off the t v"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: smart_home | Intent: iot_device_power | Slots: {'device_type': 't v', 'state': 'off'}
+  • PRED:   Domain: smart_home | Intent: iot_device_power | Slots: {'device_type': 'tv', 'state': 'off'}
+---------------------------------------------------------------------------------------------------------
+[cmd_03] "turn on all switches"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: smart_home | Intent: iot_device_power | Slots: {'device_type': 'all switches', 'state': 'on'}
+  • PRED:   Domain: smart_home | Intent: iot_device_power | Slots: {'device_type': 'switches', 'state': 'on'}
+---------------------------------------------------------------------------------------------------------
+[cmd_04] "turn on cooling"  -->  MISMATCH IN: [INTENT, SLOTS]
+  • GOLD:   Domain: smart_home | Intent: iot_device_power | Slots: {'device_type': 'cooling', 'state': 'on'}
+  • PRED:   Domain: smart_home | Intent: iot_device_adjust | Slots: {'device_type': 'cooling', 'direction': 'raise', 'value': ''}
+---------------------------------------------------------------------------------------------------------
+[cmd_06] "find my phone"  -->  MISMATCH IN: [DOMAIN]
+  • GOLD:   Domain: general_qa | Intent: device_find | Slots: {'device': 'phone'}
+  • PRED:   Domain: accessibility | Intent: device_find | Slots: {'device': 'phone'}
+---------------------------------------------------------------------------------------------------------
+[cmd_13] "call the nearest coffee shop"  -->  MISMATCH IN: [DOMAIN, INTENT, SLOTS]
+  • GOLD:   Domain: maps_places | Intent: places_search | Slots: {'business_type': 'coffee shop', 'sort_by': 'nearest'}
+  • PRED:   Domain: communication | Intent: call_make | Slots: {'recipient_name': 'nearest coffee shop'}
+---------------------------------------------------------------------------------------------------------
+[cmd_15] "skip this song"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: media | Intent: media_control | Slots: {'action': 'skip'}
+  • PRED:   Domain: media | Intent: media_control | Slots: {'action': 'skip', 'target_type': 'music'}
+---------------------------------------------------------------------------------------------------------
+[cmd_17] "play billboard's top forty on pandora"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: media | Intent: media_play | Slots: {'media_type': 'music', 'title': "billboard's top forty"}
+  • PRED:   Domain: media | Intent: media_play | Slots: {'media_type': 'music', 'title': "billboard's top forty", 'house_place': 'pandora'}
+---------------------------------------------------------------------------------------------------------
+[cmd_19] "lower the temperature"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: smart_home | Intent: iot_device_adjust | Slots: {'setting': 'temperature', 'direction': 'lower'}
+  • PRED:   Domain: smart_home | Intent: iot_device_adjust | Slots: {'device_type': 'temperature', 'direction': 'lower'}
+---------------------------------------------------------------------------------------------------------
+[cmd_21] "set the heat to seventy two"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: smart_home | Intent: iot_device_adjust | Slots: {'device_type': 'heat', 'value': 'seventy two'}
+  • PRED:   Domain: smart_home | Intent: iot_device_adjust | Slots: {'device_type': 'heat', 'setting': 'seventy two'}
+---------------------------------------------------------------------------------------------------------
+[cmd_22] "what's the time"  -->  MISMATCH IN: [DOMAIN, INTENT, SLOTS]
+  • GOLD:   Domain: general_qa | Intent: qa_search | Slots: {'query': 'time'}
+  • PRED:   Domain: calendar_alarm | Intent: alarm_manage | Slots: {'action': 'query'}
+---------------------------------------------------------------------------------------------------------
+[cmd_29] "set a reminder to take amoxicillin with lunch"  -->  MISMATCH IN: [SLOTS]
+  • GOLD:   Domain: health | Intent: health_medication_reminder | Slots: {'medication': 'amoxicillin', 'time': 'lunch'}
+  • PRED:   Domain: health | Intent: health_medication_reminder | Slots: {'medication': 'amoxicillin', 'time': 'with lunch'}
+---------------------------------------------------------------------------------------------------------
+=========================================================================================================
+
+Calibration results successfully saved to: benchmark_curation/calibration_results_qwen14b.json
+=== Delta Run Complete ===

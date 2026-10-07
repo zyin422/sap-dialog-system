@@ -13,7 +13,7 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --gpu-bind=closest
 #SBATCH --mem=50G
-#SBATCH --time=00:20:00
+#SBATCH --time=01:00:00
 #SBATCH --constraint="scratch"
 
 # Output logs directed to your organized log directory
@@ -38,7 +38,8 @@ echo "Python:  $(which python)"
 echo "HF_HOME: $HF_HOME"
 echo "============================="
 
-# Phase 1: Calibrate Qwen-14B on the 30 pilot prompts
+# Phase 1: Calibrate Qwen-14B zero-shot on the 30 pilot prompts
+echo "--- Running Phase 1: Pilot Calibration (30 commands) ---"
 srun "$WORK_DIR/conda_envs/sap_env/bin/python" -u benchmark_curation/cross_model_eval.py \
     --phase calibrate \
     --model_id "Qwen/Qwen2.5-14B-Instruct" \
@@ -46,4 +47,13 @@ srun "$WORK_DIR/conda_envs/sap_env/bin/python" -u benchmark_curation/cross_model
     --output_path "benchmark_curation/calibration_results_qwen14b.json" \
     --temperature 0.0
 
-echo "=== Calibration Run Complete ==="
+# Phase 2: Full batch inference on all 405 unique commands (Uncomment when running all 405)
+# echo "--- Running Phase 2: Batch Inference (405 commands) ---"
+# srun "$WORK_DIR/conda_envs/sap_env/bin/python" -u benchmark_curation/cross_model_eval.py \
+#     --phase autolabel \
+#     --model_id "Qwen/Qwen2.5-14B-Instruct" \
+#     --candidates_path "benchmark_curation/input_commands_compact.json" \
+#     --gold_output_path "benchmark_curation/predictions_qwen14b.json" \
+#     --temperature 0.0
+
+echo "=== Delta Run Complete ==="

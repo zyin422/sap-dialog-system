@@ -287,6 +287,7 @@ def run_calibration(
 
         pred = evaluator.inference(command_text)
         predictions.append(pred)
+        print(f"       -> Pred: {pred.get('domain')}/{pred.get('intent')} | {pred.get('slots')}")
 
         record = {
             "command_id": item.get("command_id", f"cmd_{i:02d}"),

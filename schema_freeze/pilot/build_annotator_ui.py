@@ -590,19 +590,38 @@ def build_html():
   <script>
     const ONTOLOGY = {ontology_json_str};
     const DEFAULT_COMMANDS = {commands_json_str};
-    const STORAGE_KEY = "sap_slu_pilot_50_labels_v1";
+    const STORAGE_KEY = "sap_slu_pilot_50_labels_v2";
 
     let state = {{
       currentIndex: 0,
       commands: []
     }};
 
-    // Initialize state from localStorage or default
+    // Initialize state: always anchor on DEFAULT_COMMANDS prompts, overlaying user labels by ID
     function initState() {{
+      // Purge obsolete v1 cache
+      try {{ localStorage.removeItem("sap_slu_pilot_50_labels_v1"); }} catch(e) {{}}
+
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {{
         try {{
-          state.commands = JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          const savedMap = {{}};
+          parsed.forEach(c => {{ if (c && c.id) savedMap[c.id] = c; }});
+
+          state.commands = DEFAULT_COMMANDS.map(defCmd => {{
+            const s = savedMap[defCmd.id];
+            if (s) {{
+              return {{
+                ...defCmd,
+                domain: s.domain || "",
+                intent: s.intent || "",
+                slots: s.slots || {{}},
+                notes: s.notes || ""
+              }};
+            }}
+            return JSON.parse(JSON.stringify(defCmd));
+          }});
         }} catch(e) {{
           console.error("Failed to parse saved state, fallback to defaults", e);
           state.commands = JSON.parse(JSON.stringify(DEFAULT_COMMANDS));

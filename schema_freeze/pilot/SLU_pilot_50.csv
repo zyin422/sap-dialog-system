@@ -1,6 +1,6 @@
 id,set,prompt,etiology,block_set,canonical_text,sap_domain,sap_intent,sap_slots,label_source
 160,shared,"Recipe with cliantro, chicken, and garlic.",DS;CP;Stroke,b2-9,recipe with cliantro chicken and garlic,general_qa,qa_search,"{""query"": ""recipe with cliantro chicken and garlic""}",manual
-212,shared,"Hi, exclamation point.",DS;CP;Stroke,b2-9,hi exclamation point,general_qa,qa_search,"{""query"": ""hi exclamation point""}",manual
+985,nonshared,Add laundry detergent and toothpaste to shopping list.,DS;CP;Stroke,b2-9,add laundry detergent and toothpaste to shopping list,notes_memory,lists_manage,"{""list_name"": ""shopping list"", ""item"": ""laundry detergent and toothpaste"", ""action"": ""add""}",manual
 252,nonshared,Open Hulu.,PD;DS;CP;Stroke,b2-9,open hulu,general_qa,qa_search,"{""query"": ""open hulu""}",manual
 286,nonshared,Play 'Transformers' on Paramount Plus.,DS;CP;Stroke,b2-9,play transformers on paramount plus,general_qa,qa_search,"{""query"": ""transformers on paramount plus""}",manual
 364,nonshared,Did the Clemson Tigers win?,DS;CP;Stroke,b2-9,did the clemson tigers win,general_qa,qa_search,"{""query"": ""clemson tigers""}",manual

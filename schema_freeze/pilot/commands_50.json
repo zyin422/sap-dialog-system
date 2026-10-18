@@ -11,11 +11,11 @@
     "notes": ""
   },
   {
-    "id": 212,
-    "prompt": "Hi, exclamation point.",
+    "id": 985,
+    "prompt": "Add laundry detergent and toothpaste to shopping list.",
     "etiology": "DS;CP;Stroke",
     "block_set": "b2-9",
-    "canonical_text": "hi exclamation point",
+    "canonical_text": "add laundry detergent and toothpaste to shopping list",
     "domain": "",
     "intent": "",
     "slots": {},

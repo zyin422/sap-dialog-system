@@ -10,3 +10,5 @@ venv/
 context.txt
 manifest/
 !benchmark_curation/*.json
+!schema_freeze/**/*.json
+!schema_freeze/*.json

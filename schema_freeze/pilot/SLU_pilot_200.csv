@@ -1,0 +1,201 @@
+id,set,prompt,etiology,block_set,canonical_text,sap_domain,sap_intent,sap_slots,label_source
+1,shared,Add this music to favorites.,PD;DS;CP;Stroke,b1&10,add this music to favorites,media,media_control,"{""action"": ""like"", ""target_type"": ""music""}",manual
+2,shared,"Alexa, play more like this.",PD;DS;CP;Stroke,b2-9,alexa play more like this,media,media_play,"{""media_type"": ""music""}",manual
+6,shared,Decrease volume to minimum.,PD;DS;CP;Stroke,b1&10,decrease volume to minimum,media,media_volume,"{""action"": ""down"", ""change_amount"": ""minimum""}",manual
+7,shared,Dislike this song.,PD;DS;CP;Stroke,b2-9,dislike this song,media,media_control,"{""action"": ""dislike"", ""target_type"": ""music""}",manual
+10,shared,"Hey Facebook, turn down the sound.",PD;DS;CP;Stroke,b2-9,hey facebook turn down the sound,media,media_volume,"{""action"": ""down""}",manual
+24,shared,Turn up the sound.,PD;DS;CP;Stroke,b2-9,turn up the sound,media,media_volume,"{""action"": ""up""}",manual
+32,shared,What movies came out last week?,PD;DS;CP;Stroke,b2-9,what movies came out last week,general_qa,qa_search,"{""query"": ""movies came out last week""}",manual
+39,shared,What's the weather on February 1st?,DS;CP;Stroke,b2-9,what's the weather on february first,general_qa,weather_query,"{""date"": ""february first""}",manual
+44,shared,What's the weather on New Year's Eve?,DS;CP;Stroke,b2-9,what's the weather on new year's eve,general_qa,weather_query,"{""date"": ""new year's eve""}",manual
+52,shared,Is the pharmacy open?,DS;CP;Stroke,b1&10,is the pharmacy open,maps_places,places_search,"{""business_type"": ""pharmacy""}",manual
+65,shared,Answer the call.,PD;DS;CP;Stroke,b1&10,answer the call,communication,call_manage,"{""action"": ""answer""}",manual
+66,shared,Brighten the screen.,PD;DS;CP;Stroke,b2-9,brighten the screen,accessibility,accessibility_ui_scale,"{""ui_element"": ""screen"", ""direction"": ""brighten""}",manual
+71,shared,Call Denise Chavez.,DS;CP;Stroke,b2-9,call denise chavez,communication,call_make,"{""recipient_name"": ""denise chavez""}",manual
+73,shared,Call Goodwin Alma.,DS;CP;Stroke,b2-9,call goodwin alma,communication,call_make,"{""recipient_name"": ""goodwin alma""}",manual
+81,shared,Darken the screen.,PD;DS;CP;Stroke,b2-9,darken the screen,accessibility,accessibility_ui_scale,"{""ui_element"": ""screen"", ""direction"": ""darken""}",manual
+83,shared,Find my phone.,PD;DS;CP;Stroke,b1&10,find my phone,general_qa,device_find,"{""device"": ""phone""}",manual
+85,shared,Hang up.,PD;DS;CP;Stroke,b1&10,hang up,communication,call_manage,"{""action"": ""hang_up""}",manual
+86,shared,How long is left on the timer?,PD;DS;CP;Stroke,b2-9,how long is left on the timer,calendar_alarm,alarm_manage,"{""action"": ""query""}",manual
+88,shared,Make the screen brighter.,DS;CP;Stroke,b1&10,make the screen brighter,accessibility,accessibility_ui_scale,"{""ui_element"": ""screen"", ""direction"": ""brighten""}",manual
+89,shared,Make the text larger.,PD;DS;CP;Stroke,b1&10,make the text larger,accessibility,accessibility_ui_scale,"{""ui_element"": ""text"", ""direction"": ""larger""}",manual
+90,shared,Open email.,PD;DS;CP;Stroke,b2-9,open email,communication,email_manage,"{""action"": ""read""}",manual
+91,shared,Please send this text.,DS;CP;Stroke,b1&10,please send this text,communication,messages_manage,"{""action"": ""send""}",manual
+92,shared,Read my messages.,PD;DS;CP;Stroke,b2-9,read my messages,communication,messages_manage,"{""action"": ""read""}",manual
+93,shared,Read my new email.,PD;DS;CP;Stroke,b2-9,read my new email,communication,email_manage,"{""action"": ""read""}",manual
+95,shared,Redial.,PD;DS;CP;Stroke,b2-9,redial,communication,call_manage,"{""action"": ""redial""}",manual
+96,shared,Request a taxi ride.,PD;DS;CP;Stroke,b2-9,request a taxi ride,transport,rideshare_book,{},manual
+100,shared,Stop the call.,PD;DS;CP;Stroke,b1&10,stop the call,communication,call_manage,"{""action"": ""hang_up""}",manual
+103,shared,Is the front door locked?,PD;DS;CP;Stroke,b2-9,is the front door locked,smart_home,iot_device_power,"{""device_type"": ""front door""}",manual
+104,shared,Lock the front door.,PD;DS;CP;Stroke,b2-9,lock the front door,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""on""}",manual
+105,shared,Lower the temperature.,PD;DS;CP;Stroke,b1&10,lower the temperature,smart_home,iot_device_adjust,"{""setting"": ""temperature"", ""direction"": ""lower""}",manual
+112,shared,Turn off the TV.,PD;DS;CP;Stroke,b1&10,turn off the t v,smart_home,iot_device_power,"{""device_type"": ""t v"", ""state"": ""off""}",manual
+116,shared,Unlock the front door.,PD;DS;CP;Stroke,b2-9,unlock the front door,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""off""}",manual
+117,shared,What's the temperature in the living room?,PD;DS;CP;Stroke,b1&10,what's the temperature in the living room,smart_home,iot_sensor_query,"{""room"": ""living room"", ""sensor_type"": ""temperature""}",manual
+118,shared,What's the temperature inside?,PD;DS;CP;Stroke,b2-9,what's the temperature inside,smart_home,iot_sensor_query,"{""room"": ""inside"", ""sensor_type"": ""temperature""}",manual
+119,shared,What's the thermostat set to?,PD;DS;CP;Stroke,b2-9,what's the thermostat set to,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature""}",manual
+121,shared,Delete my reminders for tomorrow.,PD;DS;CP;Stroke,b2-9,delete my reminders for tomorrow,calendar_alarm,reminder_manage,"{""action"": ""delete"", ""date"": ""tomorrow""}",manual
+151,shared,How many refills are left on my risperidone?,PD,b2-9,how many refills are left on my risperidone,health,health_refill_query,"{""medication"": ""risperidone""}",manual
+152,shared,How many refills are left on my Valium?,Stroke,b2-9,how many refills are left on my valium,health,health_refill_query,"{""medication"": ""valium""}",manual
+154,shared,Open reminders.,PD;DS;CP;Stroke,b1&10,open reminders,calendar_alarm,reminder_manage,"{""action"": ""query""}",manual
+160,shared,"Recipe with cliantro, chicken, and garlic.",DS;CP;Stroke,b2-9,recipe with cliantro chicken and garlic,general_qa,qa_search,"{""query"": ""recipe with cliantro chicken and garlic""}",manual
+167,shared,Set a reminder to take acetaminophen at 1PM.,PD,b2-9,set a reminder to take acetaminophen at one p m,health,health_medication_reminder,"{""medication"": ""acetaminophen"", ""time"": ""one p m""}",manual
+175,shared,Set a reminder to take simvastatin at dinner time.,PD,b2-9,set a reminder to take simvastatin at dinner time,health,health_medication_reminder,"{""medication"": ""simvastatin"", ""time"": ""dinner time""}",manual
+176,shared,Set a reminder to take Spironolactone at 9 PM.,PD,b2-9,set a reminder to take spironolactone at nine p m,health,health_medication_reminder,"{""medication"": ""spironolactone"", ""time"": ""nine p m""}",manual
+178,shared,Snooze the alarm.,PD;DS;CP;Stroke,b2-9,snooze the alarm,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",manual
+180,shared,Take depakote at 1 PM.,DS;CP,b2-9,take depakote at one p m,health,health_medication_reminder,"{""medication"": ""depakote"", ""time"": ""one p m""}",manual
+182,shared,Take enalapril with lunch.,DS;CP,b2-9,take enalapril with lunch,health,health_medication_reminder,"{""medication"": ""enalapril"", ""time"": ""lunch""}",manual
+185,shared,Take flonase at 6:30 PM.,CP;DS;Stroke,b2-9,take flonase at six thirty p m,health,health_medication_reminder,"{""medication"": ""flonase"", ""time"": ""six thirty p m""}",manual
+187,shared,Take focalin at 11:30 AM.,DS;CP,b2-9,take focalin at eleven thirty a m,health,health_medication_reminder,"{""medication"": ""focalin"", ""time"": ""eleven thirty a m""}",manual
+191,shared,Take lactalose at 9 PM.,DS;CP,b2-9,take lactalose at nine p m,health,health_medication_reminder,"{""medication"": ""lactalose"", ""time"": ""nine p m""}",manual
+208,shared,Where did I park?,PD;DS;CP;Stroke,b2-9,where did i park,notes_memory,memory_note_manage,"{""action"": ""query"", ""key"": ""parking_space""}",manual
+212,shared,"Hi, exclamation point.",DS;CP;Stroke,b2-9,hi exclamation point,general_qa,qa_search,"{""query"": ""hi exclamation point""}",manual
+213,shared,I need to cancel my order.,DS;CP;Stroke,b2-9,i need to cancel my order,general_qa,order_manage,"{""action"": ""cancel_order""}",manual
+214,shared,I need to return this item.,DS;CP;Stroke,b2-9,i need to return this item,general_qa,order_manage,"{""action"": ""return_item""}",manual
+215,shared,I received a wrong item.,DS;CP;Stroke,b2-9,i received a wrong item,general_qa,order_manage,"{""action"": ""report_issue""}",manual
+218,shared,Please respond to my text.,DS;CP;Stroke,b2-9,please respond to my text,communication,messages_manage,"{""action"": ""send""}",manual
+225,shared,"When is my item arriving, question mark.",DS;CP;Stroke,b2-9,when is my item arriving question mark,general_qa,order_manage,"{""action"": ""track_status""}",manual
+233,shared,Start listening.,CP;DS;PD;Stroke,b1&10;b2-9,start listening,accessibility,accessibility_dictation_toggle,"{""state"": ""start""}",manual
+235,shared,Stop listening.,CP;DS;PD;Stroke,b1&10,stop listening,accessibility,accessibility_dictation_toggle,"{""state"": ""stop""}",manual
+245,nonshared,Fast forward 1 minute.,PD;DS;CP;Stroke,b2-9,fast forward one minute,media,media_control,"{""action"": ""skip"", ""duration"": ""one minute""}",manual
+246,nonshared,Fast forward 2 minutes.,PD;DS;CP;Stroke,b2-9,fast forward two minutes,media,media_control,"{""action"": ""skip"", ""duration"": ""two minutes""}",manual
+249,nonshared,Fast forward 5 minutes.,PD;DS;CP;Stroke,b2-9,fast forward five minutes,media,media_control,"{""action"": ""skip"", ""duration"": ""five minutes""}",manual
+252,nonshared,Open Hulu.,PD;DS;CP;Stroke,b2-9,open hulu,general_qa,qa_search,"{""query"": ""open hulu""}",manual
+259,nonshared,"Play 'Blinding Lights"" by the Weekend.",DS;CP;Stroke,b2-9,play blinding lights by the weekend,media,media_play,"{""media_type"": ""music"", ""title"": ""blinding lights"", ""artist"": ""the weekend""}",manual
+267,nonshared,Play 'Georgia on My Mind' by Ray Charles.,PD,b2-9,play georgia on my mind by ray charles,media,media_play,"{""media_type"": ""music"", ""title"": ""georgia on my mind"", ""artist"": ""ray charles""}",manual
+286,nonshared,Play 'Transformers' on Paramount Plus.,DS;CP;Stroke,b2-9,play transformers on paramount plus,general_qa,qa_search,"{""query"": ""transformers on paramount plus""}",manual
+332,nonshared,Read 'The One and Only Ivan' on Audiobook.,DS;CP;Stroke,b2-9,read the one and only ivan on audiobook,media,media_play,"{""media_type"": ""audiobook"", ""title"": ""the one and only ivan""}",manual
+342,nonshared,Set the volume to 8.,PD;DS;CP;Stroke,b2-9,set the volume to eight,media,media_volume,"{""action"": ""set_level"", ""change_amount"": ""eight""}",manual
+344,nonshared,Skip backward 1 minute.,PD;DS;CP;Stroke,b2-9,skip backward one minute,media,media_control,"{""action"": ""replay"", ""duration"": ""one minute""}",manual
+346,nonshared,Skip backward 15 seconds.,PD;DS;CP;Stroke,b2-9,skip backward fifteen seconds,media,media_control,"{""action"": ""replay"", ""duration"": ""fifteen seconds""}",manual
+348,nonshared,Skip backward 30 seconds.,PD;DS;CP;Stroke,b2-9,skip backward thirty seconds,media,media_control,"{""action"": ""replay"", ""duration"": ""thirty seconds""}",manual
+364,nonshared,Did the Clemson Tigers win?,DS;CP;Stroke,b2-9,did the clemson tigers win,general_qa,qa_search,"{""query"": ""clemson tigers""}",manual
+366,nonshared,Did the Eagles win?,DS;CP;Stroke,b2-9,did the eagles win,general_qa,qa_search,"{""query"": ""eagles""}",manual
+369,nonshared,Did the Manchester United win?,PD,b2-9,did the manchester united win,general_qa,qa_search,"{""query"": ""manchester united""}",manual
+383,nonshared,"How far is Brattleboro, Vermont from Montreal, Canada?",PD,b2-9,how far is brattleboro vermont from montreal canada,maps_places,maps_route,"{""destination"": ""brattleboro vermont"", ""query_type"": ""distance""}",manual
+387,nonshared,How far is Home Depot from here?,DS;CP;Stroke,b2-9,how far is home depot from here,maps_places,maps_route,"{""destination"": ""home depot"", ""query_type"": ""distance""}",manual
+393,nonshared,How far is Kroger from here?,PD;DS;CP;Stroke,b2-9,how far is kroger from here,maps_places,maps_route,"{""destination"": ""kroger"", ""query_type"": ""distance""}",manual
+411,nonshared,"How's the traffic to Orlando, Florida?",PD;DS;CP;Stroke,b2-9,how's the traffic to orlando florida,maps_places,maps_route,"{""destination"": ""orlando florida"", ""query_type"": ""traffic""}",manual
+416,nonshared,Is Best Buy open today?,PD;DS;CP;Stroke,b2-9,is best buy open today,maps_places,places_search,"{""business_name"": ""best buy""}",manual
+432,nonshared,Is there a chance of rain tonight?,PD;DS;CP;Stroke,b2-9,is there a chance of rain tonight,general_qa,weather_query,"{""date"": ""tonight"", ""weather_aspect"": ""rain""}",manual
+445,nonshared,Map a route to our hotel.,PD;DS;CP;Stroke,b2-9,map a route to our hotel,maps_places,maps_route,"{""destination"": ""hotel"", ""query_type"": ""navigation""}",manual
+455,nonshared,Navigate to Los Angeles Union Station.,PD;DS;CP;Stroke,b2-9,navigate to los angeles union station,maps_places,maps_route,"{""destination"": ""los angeles union station"", ""query_type"": ""navigation""}",manual
+457,nonshared,Navigate to mom's house.,PD;DS;CP;Stroke,b2-9,navigate to mom's house,maps_places,maps_route,"{""destination"": ""mom's house"", ""query_type"": ""navigation""}",manual
+460,nonshared,Navigate to Walgreens.,PD;DS;CP;Stroke,b2-9,navigate to walgreens,maps_places,maps_route,"{""destination"": ""walgreens"", ""query_type"": ""navigation""}",manual
+466,nonshared,Tell me news from ABC.,PD;DS;CP;Stroke,b2-9,tell me news from a b c,general_qa,qa_search,"{""query"": ""news from a b c""}",manual
+482,nonshared,What was the score for the last New Orleans Pelicans game?,PD,b2-9,what was the score for the last new orleans pelicans game,general_qa,qa_search,"{""query"": ""score for the last new orleans pelicans game""}",manual
+497,nonshared,What's Tesla trading at?,PD;DS;CP;Stroke,b2-9,what's tesla trading at,general_qa,qa_search,"{""query"": ""tesla""}",manual
+502,nonshared,"What's the distance to Fairfax, Virginia?",PD,b2-9,what's the distance to fairfax virginia,maps_places,maps_route,"{""destination"": ""fairfax virginia"", ""query_type"": ""distance""}",manual
+515,nonshared,What's the distance to Virginia?,DS;CP;Stroke,b2-9,what's the distance to virginia,maps_places,maps_route,"{""destination"": ""virginia"", ""query_type"": ""distance""}",manual
+521,nonshared,What's the latest in the election?,PD;DS;CP;Stroke,b2-9,what's the latest in the election,general_qa,qa_search,"{""query"": ""election""}",manual
+531,nonshared,What's the weather in Australia?,DS;CP;Stroke,b2-9,what's the weather in australia,general_qa,weather_query,"{""place_name"": ""australia""}",manual
+552,nonshared,When are the Ducks playing?,DS;CP;Stroke,b2-9,when are the ducks playing,general_qa,qa_search,"{""query"": ""ducks playing""}",manual
+563,nonshared,When is AMC Theater open until?,PD;DS;CP;Stroke,b2-9,when is a m c theater open until,maps_places,places_search,"{""business_name"": ""a m c theater""}",manual
+570,nonshared,When is Trader Joe's open until?,PD;DS;CP;Stroke,b2-9,when is trader joe's open until,maps_places,places_search,"{""business_name"": ""trader joe's""}",manual
+575,nonshared,Who won the basketball game yesterday?,PD;DS;CP;Stroke,b2-9,who won the basketball game yesterday,general_qa,qa_search,"{""query"": ""basketball game yesterday""}",manual
+602,nonshared,Buy tickets at 2:45 PM.,PD;DS;CP;Stroke,b2-9,buy tickets at two forty five p m,transport,transit_lookup,"{""time"": ""two forty five p m""}",manual
+604,nonshared,Buy tickets at 6:15 PM.,PD;DS;CP;Stroke,b2-9,buy tickets at six fifteen p m,transport,transit_lookup,"{""time"": ""six fifteen p m""}",manual
+622,nonshared,Define 'ubiquitous'.,PD,b2-9,define ubiquitous,general_qa,qa_search,"{""query"": ""ubiquitous""}",manual
+638,nonshared,How do you spell 'government'?,PD;DS;CP;Stroke,b2-9,how do you spell government,general_qa,qa_search,"{""query"": ""government""}",manual
+647,nonshared,"How many people live in Beijing, China?",DS;CP;Stroke,b2-9,how many people live in beijing china,general_qa,qa_search,"{""query"": ""people live in beijing china""}",manual
+664,nonshared,How much is $10 in euros?,PD;DS;CP;Stroke,b2-9,how much is ten dollars in euros,general_qa,qa_search,"{""query"": ""ten dollars in euros""}",manual
+677,nonshared,How tall is the tallest building?,DS;CP;Stroke,b2-9,how tall is the tallest building,general_qa,qa_search,"{""query"": ""tallest building""}",manual
+696,nonshared,Is the MOMA ADA compliant?,DS;CP;Stroke,b2-9,is the m o m a a d a compliant,general_qa,qa_search,"{""query"": ""m o m a a d a compliant""}",manual
+713,nonshared,Show me a photo of man's first steps on the moon in 1969.,DS;CP;Stroke,b2-9,show me a photo of man's first steps on the moon in one thousand nine hundred and sixty nine,general_qa,qa_search,"{""query"": ""photo of man's first steps on the moon in one thousand nine hundred and sixty nine""}",manual
+724,nonshared,Show me movies with Benicio Del Toro.,PD,b2-9,show me movies with benicio del toro,general_qa,qa_search,"{""query"": ""movies with benicio del toro""}",manual
+738,nonshared,Show me movies with Will Ferrell.,DS;CP;Stroke,b2-9,show me movies with will ferrell,general_qa,qa_search,"{""query"": ""movies with will ferrell""}",manual
+739,nonshared,What are the side effects of atorvastatin?,PD,b2-9,what are the side effects of atorvastatin,health,health_info_query,"{""medication"": ""atorvastatin"", ""info_type"": ""side_effects""}",manual
+740,nonshared,What are the side effects of fluoxetine?,PD,b2-9,what are the side effects of fluoxetine,health,health_info_query,"{""medication"": ""fluoxetine"", ""info_type"": ""side_effects""}",manual
+742,nonshared,What are the side effects of levothyroxine?,PD,b2-9,what are the side effects of levothyroxine,health,health_info_query,"{""medication"": ""levothyroxine"", ""info_type"": ""side_effects""}",manual
+744,nonshared,What are the side effects of losartan?,PD,b2-9,what are the side effects of losartan,health,health_info_query,"{""medication"": ""losartan"", ""info_type"": ""side_effects""}",manual
+747,nonshared,What are the side effects of Qvar?,DS;CP;Stroke,b2-9,what are the side effects of qvar,health,health_info_query,"{""medication"": ""qvar"", ""info_type"": ""side_effects""}",manual
+755,nonshared,What are the side effects of singular?,DS;CP,b2-9,what are the side effects of singular,health,health_info_query,"{""medication"": ""singular"", ""info_type"": ""side_effects""}",manual
+760,nonshared,What celebrities are from New Mexico?,DS;CP;Stroke,b2-9,what celebrities are from new mexico,general_qa,qa_search,"{""query"": ""celebrities are from new mexico""}",manual
+767,nonshared,"What museums are in Cincinnati, Ohio?",DS;CP;Stroke,b2-9,what museums are in cincinnati ohio,general_qa,qa_search,"{""query"": ""museums are in cincinnati ohio""}",manual
+796,nonshared,Who is the main character in Little Mermaid?,Stroke,b2-9,who is the main character in little mermaid,general_qa,qa_search,"{""query"": ""main character in little mermaid""}",manual
+811,nonshared,Message Elle Shu.,DS;CP;Stroke,b2-9,message elle shu,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""elle shu""}",manual
+814,nonshared,Message Kramer Gray.,DS;CP;Stroke,b2-9,message kramer gray,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""kramer gray""}",manual
+820,nonshared,Open Facebook Messenger to send a message to Dyson Bunker.,PD,b2-9,open facebook messenger to send a message to dyson bunker,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""dyson bunker""}",manual
+829,nonshared,Please call Amalia Adamson.,PD,b2-9,please call amalia adamson,communication,call_make,"{""recipient_name"": ""amalia adamson""}",manual
+833,nonshared,Please call Carola Fulton.,PD,b2-9,please call carola fulton,communication,call_make,"{""recipient_name"": ""carola fulton""}",manual
+840,nonshared,Please call Vik Salva.,DS;CP;Stroke,b2-9,please call vik salva,communication,call_make,"{""recipient_name"": ""vik salva""}",manual
+841,nonshared,Please call Vikram Salva.,PD,b2-9,please call vikram salva,communication,call_make,"{""recipient_name"": ""vikram salva""}",manual
+842,nonshared,Send a message to Ellinor Shehu.,PD,b2-9,send a message to ellinor shehu,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""ellinor shehu""}",manual
+845,nonshared,Send a message to Krasimir Gregory.,PD,b2-9,send a message to krasimir gregory,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""krasimir gregory""}",manual
+850,nonshared,Send an email to Malachi Janowski.,PD,b2-9,send an email to malachi janowski,communication,email_manage,"{""action"": ""send"", ""recipient"": ""malachi janowski""}",manual
+852,nonshared,Send an email to reservations@QuaintCozyCottages.com.,PD,b2-9,send an email to reservations at quaintcozycottages com,communication,email_manage,"{""action"": ""send"", ""recipient"": ""reservations at quaintcozycottages com""}",manual
+864,nonshared,Video call 1-800-642-7676.,PD;DS;CP;Stroke,b2-9,video call one eight zero zero six four two seven six seven six,communication,call_make,"{""phone_number"": ""one eight zero zero six four two seven six seven six""}",manual
+867,nonshared,Video call area code 650-253-0000.,PD;DS;CP;Stroke,b2-9,video call area code six five zero two five three zero zero zero zero,communication,call_make,"{""phone_number"": ""six five zero two five three zero zero zero zero""}",manual
+873,nonshared,Video call Pat Eaton.,DS;CP;Stroke,b2-9,video call pat eaton,communication,call_make,"{""recipient_name"": ""pat eaton""}",manual
+888,nonshared,Brighten the den light.,PD;DS;CP;Stroke,b2-9,brighten the den light,smart_home,iot_device_adjust,"{""device_type"": ""den light"", ""direction"": ""raise""}",manual
+895,nonshared,Brighten the the living room light.,PD;DS;CP,b2-9,brighten the the living room light,smart_home,iot_device_adjust,"{""device_type"": ""living room light"", ""direction"": ""raise""}",manual
+896,nonshared,Dim the dining room lights to 10%.,PD;DS;CP;Stroke,b2-9,dim the dining room lights to ten percent,smart_home,iot_device_adjust,"{""device_type"": ""dining room lights"", ""direction"": ""lower"", ""value"": ""ten percent""}",manual
+916,nonshared,Preheat the oven to 375 degrees.,PD;DS;CP;Stroke,b2-9,preheat the oven to three hundred and seventy five degrees,smart_home,iot_device_adjust,"{""device_type"": ""oven"", ""value"": ""three hundred and seventy five degrees""}",manual
+919,nonshared,Raise the temperature 2 degrees.,PD;DS;CP;Stroke,b2-9,raise the temperature two degrees,smart_home,iot_device_adjust,"{""setting"": ""temperature"", ""direction"": ""raise"", ""value"": ""two degrees""}",manual
+928,nonshared,Set the heat to 62.,PD;DS;CP;Stroke,b2-9,set the heat to sixty two,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""value"": ""sixty two""}",manual
+929,nonshared,Set the heat to 66.,PD;DS;CP;Stroke,b2-9,set the heat to sixty six,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""value"": ""sixty six""}",manual
+931,nonshared,Set the heat to 70.,PD;DS;CP;Stroke,b2-9,set the heat to seventy,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""value"": ""seventy""}",manual
+937,nonshared,Turn down the temperature 5 degrees.,PD;DS;CP;Stroke,b2-9,turn down the temperature five degrees,smart_home,iot_device_adjust,"{""setting"": ""temperature"", ""direction"": ""lower"", ""value"": ""five degrees""}",manual
+942,nonshared,Turn off the family room light.,PD;DS;CP;Stroke,b2-9,turn off the family room light,smart_home,iot_device_power,"{""device_type"": ""family room light"", ""state"": ""off""}",manual
+943,nonshared,Turn off the lights in the den.,PD;DS;CP;Stroke,b2-9,turn off the lights in the den,smart_home,iot_device_power,"{""device_type"": ""lights in the den"", ""state"": ""off""}",manual
+952,nonshared,Turn off the office light.,PD;DS;CP;Stroke,b2-9,turn off the office light,smart_home,iot_device_power,"{""device_type"": ""office light"", ""state"": ""off""}",manual
+956,nonshared,Turn on the den light.,PD;DS;CP;Stroke,b2-9,turn on the den light,smart_home,iot_device_power,"{""device_type"": ""den light"", ""state"": ""on""}",manual
+958,nonshared,Turn on the family room light.,PD;DS;CP;Stroke,b2-9,turn on the family room light,smart_home,iot_device_power,"{""device_type"": ""family room light"", ""state"": ""on""}",manual
+960,nonshared,Turn on the living room light.,PD;DS;CP;Stroke,b2-9,turn on the living room light,smart_home,iot_device_power,"{""device_type"": ""living room light"", ""state"": ""on""}",manual
+964,nonshared,Turn up the temperature 3 degrees.,PD;DS;CP;Stroke,b2-9,turn up the temperature three degrees,smart_home,iot_device_adjust,"{""setting"": ""temperature"", ""direction"": ""raise"", ""value"": ""three degrees""}",manual
+990,nonshared,Add non-fat Greek yogurt and pecans to shopping list.,Stroke,b2-9,add non fat greek yogurt and pecans to shopping list,notes_memory,lists_manage,"{""list_name"": ""shopping list"", ""item"": ""non fat greek yogurt and pecans"", ""action"": ""add""}",manual
+991,nonshared,Add paper towels and cereal to shopping list.,DS;CP;Stroke,b2-9,add paper towels and cereal to shopping list,notes_memory,lists_manage,"{""list_name"": ""shopping list"", ""item"": ""paper towels and cereal"", ""action"": ""add""}",manual
+1005,nonshared,Cancel alarm for 5:15.,PD;DS;CP;Stroke,b2-9,cancel alarm for five fifteen,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""five fifteen""}",manual
+1007,nonshared,Cancel alarm for 7:30.,PD;DS;CP;Stroke,b2-9,cancel alarm for seven thirty,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""seven thirty""}",manual
+1018,nonshared,"Cancel my meeting with Nelida Ausra on Monday morning, September first.",PD,b2-9,cancel my meeting with nelida ausra on monday morning september first,calendar_alarm,calendar_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""nelida ausra"", ""date"": ""monday morning september first""}",manual
+1022,nonshared,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.",PD,b2-9,cancel my meeting with sanjiv lynne at two thirty p m tuesday the ninth,calendar_alarm,calendar_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""sanjiv lynne"", ""time"": ""two thirty p m"", ""date"": ""tuesday the ninth""}",manual
+1024,nonshared,Cancel my meeting with Sib and Gil.,DS;CP;Stroke,b2-9,cancel my meeting with sib and gil,calendar_alarm,calendar_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""sib and gil""}",manual
+1030,nonshared,Cancel my meeting with Vincent & Lin.,DS;CP;Stroke,b2-9,cancel my meeting with vincent & lin,calendar_alarm,calendar_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""vincent & lin""}",manual
+1031,nonshared,"Cancel my meeting with Vincente & Lin at 1:45 PM, Tuesday.",PD,b2-9,cancel my meeting with vincente & lin at one forty five p m tuesday,calendar_alarm,calendar_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""vincente & lin"", ""time"": ""one forty five p m"", ""date"": ""tuesday""}",manual
+1035,nonshared,Create a Dollar General shopping list.,DS;CP;Stroke,b2-9,create a dollar general shopping list,notes_memory,lists_manage,"{""list_name"": ""dollar general shopping list"", ""action"": ""add""}",manual
+1036,nonshared,Create a grocery shopping list.,PD;DS;CP;Stroke,b2-9,create a grocery shopping list,notes_memory,lists_manage,"{""list_name"": ""grocery shopping list"", ""action"": ""add""}",manual
+1044,nonshared,Do I have anything scheduled for Friday?,PD;DS;CP;Stroke,b2-9,do i have anything scheduled for friday,calendar_alarm,calendar_manage,"{""action"": ""query"", ""date"": ""friday""}",manual
+1046,nonshared,Do I have anything scheduled for Saturday?,PD;DS;CP;Stroke,b2-9,do i have anything scheduled for saturday,calendar_alarm,calendar_manage,"{""action"": ""query"", ""date"": ""saturday""}",manual
+1059,nonshared,"Find me a Cook's Illustrated recipe with sriracha, noodles, and cabbage.",PD,b2-9,find me a cook's illustrated recipe with sriracha noodles and cabbage,general_qa,qa_search,"{""query"": ""cook's illustrated recipe with sriracha noodles and cabbage""}",manual
+1067,nonshared,Find me a homemade yogurt recipe.,DS;CP;Stroke,b2-9,find me a homemade yogurt recipe,general_qa,qa_search,"{""query"": ""homemade yogurt recipe""}",manual
+1078,nonshared,"Ginny Daniel at 7PM, Saturday.",DS;CP;Stroke,b2-9,ginny daniel at seven p m saturday,calendar_alarm,calendar_manage,"{""action"": ""set"", ""person"": ""ginny daniel"", ""time"": ""seven p m"", ""date"": ""saturday""}",manual
+1079,nonshared,How do I make a 13 pound turkey?,PD;DS;CP;Stroke,b2-9,how do i make a thirteen pound turkey,general_qa,qa_search,"{""query"": ""thirteen pound turkey""}",manual
+1099,nonshared,My parking space is orange.,PD,b2-9,my parking space is orange,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""orange""}",manual
+1100,nonshared,My parking space is purple.,PD,b2-9,my parking space is purple,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""purple""}",manual
+1103,nonshared,Our parking space is green.,DS;CP;Stroke,b2-9,our parking space is green,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""green""}",manual
+1106,nonshared,Our parking space is red.,DS;CP;Stroke,b2-9,our parking space is red,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""red""}",manual
+1108,nonshared,Remember that I left my wallet and keys on the counter.,DS;CP;Stroke,b2-9,remember that i left my wallet and keys on the counter,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""note"", ""value"": ""i left my wallet and keys on the counter""}",manual
+1111,nonshared,Remember that I need to fuel the car before we head north.,PD,b2-9,remember that i need to fuel the car before we head north,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""note"", ""value"": ""i need to fuel the car before we head north""}",manual
+1113,nonshared,Remember that I put my passport in the filing cabinet.,PD;DS;CP;Stroke,b2-9,remember that i put my passport in the filing cabinet,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""note"", ""value"": ""i put my passport in the filing cabinet""}",manual
+1118,nonshared,Remember that we're out of batteries.,DS;CP;Stroke,b2-9,remember that we're out of batteries,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""note"", ""value"": ""we're out of batteries""}",manual
+1120,nonshared,Remind me to take a break in 15 minutes.,PD;DS;CP;Stroke,b2-9,remind me to take a break in fifteen minutes,calendar_alarm,reminder_manage,"{""action"": ""set"", ""title"": ""take a break"", ""time"": ""fifteen minutes""}",manual
+1122,nonshared,Remind me to take a break in 30 minutes.,PD;DS;CP;Stroke,b2-9,remind me to take a break in thirty minutes,calendar_alarm,reminder_manage,"{""action"": ""set"", ""title"": ""take a break"", ""time"": ""thirty minutes""}",manual
+1129,nonshared,"Reschedule my meeting with Fred Placid at 11:30, September 18th.",PD,b2-9,reschedule my meeting with fred placid at eleven thirty september eighteenth,calendar_alarm,calendar_manage,"{""action"": ""set"", ""event_name"": ""meeting"", ""person"": ""fred placid"", ""time"": ""eleven thirty"", ""date"": ""september eighteenth""}",manual
+1132,nonshared,"Reschedule my meeting with Virginia Daniel at 7, Saturday.",PD,b2-9,reschedule my meeting with virginia daniel at seven saturday,calendar_alarm,calendar_manage,"{""action"": ""set"", ""event_name"": ""meeting"", ""person"": ""virginia daniel"", ""time"": ""seven"", ""date"": ""saturday""}",manual
+1149,nonshared,Schedule a refill for my pantoprazole prescription.,PD,b2-9,schedule a refill for my pantoprazole prescription,health,health_refill_query,"{""medication"": ""pantoprazole""}",manual
+1156,nonshared,Schedule a refill for my tramadol prescription.,PD,b2-9,schedule a refill for my tramadol prescription,health,health_refill_query,"{""medication"": ""tramadol""}",manual
+1158,nonshared,Set a reminder for Kerstin's recital.,PD,b2-9,set a reminder for kerstin's recital,calendar_alarm,reminder_manage,"{""action"": ""set"", ""title"": ""kerstin's recital""}",manual
+1161,nonshared,Set a reminder for my dentist appointment.,PD;DS;CP;Stroke,b2-9,set a reminder for my dentist appointment,calendar_alarm,reminder_manage,"{""action"": ""set"", ""title"": ""dentist appointment""}",manual
+1163,nonshared,Set a reminder for our dinner reservation on Friday.,PD;DS;CP;Stroke,b2-9,set a reminder for our dinner reservation on friday,calendar_alarm,reminder_manage,"{""action"": ""set"", ""title"": ""dinner reservation"", ""date"": ""friday""}",manual
+1166,nonshared,Set a reminder for the day spring training starts.,PD;DS;CP;Stroke,b2-9,set a reminder for the day spring training starts,calendar_alarm,reminder_manage,"{""action"": ""set"", ""title"": ""day spring training starts""}",manual
+1171,nonshared,Set a timer for 15 minutes.,PD;DS;CP;Stroke,b2-9,set a timer for fifteen minutes,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""fifteen minutes""}",manual
+1181,nonshared,Set a timer for COVID-19 test for 15 minutes.,PD,b2-9,set a timer for covid nineteen test for fifteen minutes,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""fifteen minutes""}",manual
+1187,nonshared,Set an alarm for 5:30 AM on Thursday.,PD;DS;CP;Stroke,b2-9,set an alarm for five thirty a m on thursday,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""five thirty a m"", ""date"": ""thursday""}",manual
+1208,nonshared,Timer for meditation.,DS;CP;Stroke,b2-9,timer for meditation,calendar_alarm,alarm_manage,"{""action"": ""set""}",manual
+1217,nonshared,Wake me up at 6:30 AM every day.,PD;DS;CP;Stroke,b2-9,wake me up at six thirty a m every day,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""six thirty a m"", ""general_frequency"": ""every day""}",manual
+1219,nonshared,Wake me up at 6:45 AM every day.,PD;DS;CP;Stroke,b2-9,wake me up at six forty five a m every day,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""six forty five a m"", ""general_frequency"": ""every day""}",manual
+1226,nonshared,Wake me up at 9 o'clock Thursday.,PD;DS;CP;Stroke,b2-9,wake me up at nine o'clock thursday,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""nine o'clock"", ""date"": ""thursday""}",manual
+1230,nonshared,We parked on level 4.,DS;CP;Stroke,b2-9,we parked on level four,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""level four""}",manual
+1260,nonshared,Book a table for 8 at Coastal Fish Company.,PD;DS;CP;Stroke,b2-9,book a table for eight at coastal fish company,maps_places,reservations_manage,"{""business_name"": ""coastal fish company"", ""party_size"": ""eight""}",manual
+1271,nonshared,"Find me flights to Detroit, Michigan.",PD,b2-9,find me flights to detroit michigan,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""detroit michigan""}",manual
+1285,nonshared,Find me things to do in San Francisco.,DS;CP;Stroke,b2-9,find me things to do in san francisco,general_qa,qa_search,"{""query"": ""things to do in san francisco""}",manual
+1291,nonshared,"Find non-stop flights to Memphis, Tennessee on Southwest Airlines.",PD,b2-9,find non stop flights to memphis tennessee on southwest airlines,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""memphis tennessee"", ""route_or_station"": ""southwest airlines""}",manual
+1293,nonshared,"Find non-stop flights to New York, New York on Jet Blue.",PD,b2-9,find non stop flights to new york new york on jet blue,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""new york new york"", ""route_or_station"": ""jet blue""}",manual
+1294,nonshared,"Find non-stop flights to Shanghai, China on Air China.",PD,b2-9,find non stop flights to shanghai china on air china,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""shanghai china"", ""route_or_station"": ""air china""}",manual
+1296,nonshared,"How far is Bridgeport, California from here?",PD;DS;CP;Stroke,b2-9,how far is bridgeport california from here,maps_places,maps_route,"{""destination"": ""bridgeport california"", ""query_type"": ""distance""}",manual
+1307,nonshared,How much is a round-trip flight to London?,DS;CP;Stroke,b2-9,how much is a round trip flight to london,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""london""}",manual
+1310,nonshared,How much is a round-trip flight to Paris?,DS;CP;Stroke,b2-9,how much is a round trip flight to paris,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""paris""}",manual
+1313,nonshared,How much is a round-trip flight to Slovenia?,DS;CP;Stroke,b2-9,how much is a round trip flight to slovenia,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""slovenia""}",manual
+1320,nonshared,Make me a reservation at Baytown Brewery.,DS;CP;Stroke,b2-9,make me a reservation at baytown brewery,maps_places,reservations_manage,"{""business_name"": ""baytown brewery""}",manual
+1324,nonshared,Make me a reservation at Diaz Café.,PD,b2-9,make me a reservation at diaz café,maps_places,reservations_manage,"{""business_name"": ""diaz café""}",manual
+1329,nonshared,Make me a reservation at Polly's Pancake Parlor.,PD;DS;CP;Stroke,b2-9,make me a reservation at polly's pancake parlor,maps_places,reservations_manage,"{""business_name"": ""polly's pancake parlor""}",manual

@@ -1,0 +1,51 @@
+id,set,prompt,etiology,block_set,canonical_text,sap_domain,sap_intent,sap_slots,label_source
+160,shared,"Recipe with cliantro, chicken, and garlic.",DS;CP;Stroke,b2-9,recipe with cliantro chicken and garlic,general_qa,qa_search,"{""query"": ""recipe with cliantro chicken and garlic""}",manual
+212,shared,"Hi, exclamation point.",DS;CP;Stroke,b2-9,hi exclamation point,general_qa,qa_search,"{""query"": ""hi exclamation point""}",manual
+252,nonshared,Open Hulu.,PD;DS;CP;Stroke,b2-9,open hulu,general_qa,qa_search,"{""query"": ""open hulu""}",manual
+286,nonshared,Play 'Transformers' on Paramount Plus.,DS;CP;Stroke,b2-9,play transformers on paramount plus,general_qa,qa_search,"{""query"": ""transformers on paramount plus""}",manual
+364,nonshared,Did the Clemson Tigers win?,DS;CP;Stroke,b2-9,did the clemson tigers win,general_qa,qa_search,"{""query"": ""clemson tigers""}",manual
+497,nonshared,What's Tesla trading at?,PD;DS;CP;Stroke,b2-9,what's tesla trading at,general_qa,qa_search,"{""query"": ""tesla""}",manual
+622,nonshared,Define 'ubiquitous'.,PD,b2-9,define ubiquitous,general_qa,qa_search,"{""query"": ""ubiquitous""}",manual
+647,nonshared,"How many people live in Beijing, China?",DS;CP;Stroke,b2-9,how many people live in beijing china,general_qa,qa_search,"{""query"": ""people live in beijing china""}",manual
+664,nonshared,How much is $10 in euros?,PD;DS;CP;Stroke,b2-9,how much is ten dollars in euros,general_qa,qa_search,"{""query"": ""ten dollars in euros""}",manual
+724,nonshared,Show me movies with Benicio Del Toro.,PD,b2-9,show me movies with benicio del toro,general_qa,qa_search,"{""query"": ""movies with benicio del toro""}",manual
+121,shared,Delete my reminders for tomorrow.,PD;DS;CP;Stroke,b2-9,delete my reminders for tomorrow,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""date"": ""tomorrow""}",manual
+1120,nonshared,Remind me to take a break in 15 minutes.,PD;DS;CP;Stroke,b2-9,remind me to take a break in fifteen minutes,calendar_alarm,schedule_manage,"{""action"": ""set"", ""title"": ""take a break"", ""time"": ""fifteen minutes""}",manual
+178,shared,Snooze the alarm.,PD;DS;CP;Stroke,b2-9,snooze the alarm,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",manual
+1163,nonshared,Set a reminder for our dinner reservation on Friday.,PD;DS;CP;Stroke,b2-9,set a reminder for our dinner reservation on friday,calendar_alarm,schedule_manage,"{""action"": ""set"", ""title"": ""dinner reservation"", ""date"": ""friday""}",manual
+1018,nonshared,"Cancel my meeting with Nelida Ausra on Monday morning, September first.",PD,b2-9,cancel my meeting with nelida ausra on monday morning september first,calendar_alarm,schedule_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""nelida ausra"", ""date"": ""monday morning september first""}",manual
+1031,nonshared,"Cancel my meeting with Vincente & Lin at 1:45 PM, Tuesday.",PD,b2-9,cancel my meeting with vincente & lin at one forty five p m tuesday,calendar_alarm,schedule_manage,"{""action"": ""cancel"", ""event_name"": ""meeting"", ""person"": ""vincente & lin"", ""time"": ""one forty five p m"", ""date"": ""tuesday""}",manual
+1078,nonshared,"Ginny Daniel at 7PM, Saturday.",DS;CP;Stroke,b2-9,ginny daniel at seven p m saturday,calendar_alarm,schedule_manage,"{""action"": ""set"", ""person"": ""ginny daniel"", ""time"": ""seven p m"", ""date"": ""saturday""}",manual
+1129,nonshared,"Reschedule my meeting with Fred Placid at 11:30, September 18th.",PD,b2-9,reschedule my meeting with fred placid at eleven thirty september eighteenth,calendar_alarm,schedule_manage,"{""action"": ""set"", ""event_name"": ""meeting"", ""person"": ""fred placid"", ""time"": ""eleven thirty"", ""date"": ""september eighteenth""}",manual
+103,shared,Is the front door locked?,PD;DS;CP;Stroke,b2-9,is the front door locked,smart_home,iot_device_power,"{""device_type"": ""front door""}",manual
+104,shared,Lock the front door.,PD;DS;CP;Stroke,b2-9,lock the front door,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""on""}",manual
+105,shared,Lower the temperature.,PD;DS;CP;Stroke,b1&10,lower the temperature,smart_home,iot_device_adjust,"{""setting"": ""temperature"", ""direction"": ""lower""}",manual
+117,shared,What's the temperature in the living room?,PD;DS;CP;Stroke,b1&10,what's the temperature in the living room,smart_home,iot_sensor_query,"{""room"": ""living room"", ""sensor_type"": ""temperature""}",manual
+119,shared,What's the thermostat set to?,PD;DS;CP;Stroke,b2-9,what's the thermostat set to,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature""}",manual
+916,nonshared,Preheat the oven to 375 degrees.,PD;DS;CP;Stroke,b2-9,preheat the oven to three hundred and seventy five degrees,smart_home,iot_device_adjust,"{""device_type"": ""oven"", ""value"": ""three hundred and seventy five degrees""}",manual
+943,nonshared,Turn off the lights in the den.,PD;DS;CP;Stroke,b2-9,turn off the lights in the den,smart_home,iot_device_power,"{""device_type"": ""lights in the den"", ""state"": ""off""}",manual
+960,nonshared,Turn on the living room light.,PD;DS;CP;Stroke,b2-9,turn on the living room light,smart_home,iot_device_power,"{""device_type"": ""living room light"", ""state"": ""on""}",manual
+208,shared,Where did I park?,PD;DS;CP;Stroke,b2-9,where did i park,notes_memory,memory_note_manage,"{""action"": ""query"", ""key"": ""parking_space""}",manual
+1099,nonshared,My parking space is orange.,PD,b2-9,my parking space is orange,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""orange""}",manual
+1103,nonshared,Our parking space is green.,DS;CP;Stroke,b2-9,our parking space is green,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""green""}",manual
+1108,nonshared,Remember that I left my wallet and keys on the counter.,DS;CP;Stroke,b2-9,remember that i left my wallet and keys on the counter,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""note"", ""value"": ""i left my wallet and keys on the counter""}",manual
+1118,nonshared,Remember that we're out of batteries.,DS;CP;Stroke,b2-9,remember that we're out of batteries,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""note"", ""value"": ""we're out of batteries""}",manual
+1230,nonshared,We parked on level 4.,DS;CP;Stroke,b2-9,we parked on level four,notes_memory,memory_note_manage,"{""action"": ""save"", ""key"": ""parking_space"", ""value"": ""level four""}",manual
+1,shared,Add this music to favorites.,PD;DS;CP;Stroke,b1&10,add this music to favorites,media,media_control,"{""action"": ""like"", ""target_type"": ""music""}",manual
+6,shared,Decrease volume to minimum.,PD;DS;CP;Stroke,b1&10,decrease volume to minimum,media,media_volume,"{""action"": ""down"", ""change_amount"": ""minimum""}",manual
+245,nonshared,Fast forward 1 minute.,PD;DS;CP;Stroke,b2-9,fast forward one minute,media,media_control,"{""action"": ""skip"", ""duration"": ""one minute""}",manual
+259,nonshared,"Play 'Blinding Lights"" by the Weekend.",DS;CP;Stroke,b2-9,play blinding lights by the weekend,media,media_play,"{""media_type"": ""music"", ""title"": ""blinding lights"", ""artist"": ""the weekend""}",manual
+342,nonshared,Set the volume to 8.,PD;DS;CP;Stroke,b2-9,set the volume to eight,media,media_volume,"{""action"": ""set_level"", ""change_amount"": ""eight""}",manual
+346,nonshared,Skip backward 15 seconds.,PD;DS;CP;Stroke,b2-9,skip backward fifteen seconds,media,media_control,"{""action"": ""replay"", ""duration"": ""fifteen seconds""}",manual
+95,shared,Redial.,PD;DS;CP;Stroke,b2-9,redial,communication,call_manage,"{""action"": ""redial""}",manual
+820,nonshared,Open Facebook Messenger to send a message to Dyson Bunker.,PD,b2-9,open facebook messenger to send a message to dyson bunker,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""dyson bunker""}",manual
+829,nonshared,Please call Amalia Adamson.,PD,b2-9,please call amalia adamson,communication,call_make,"{""recipient_name"": ""amalia adamson""}",manual
+850,nonshared,Send an email to Malachi Janowski.,PD,b2-9,send an email to malachi janowski,communication,email_manage,"{""action"": ""send"", ""recipient"": ""malachi janowski""}",manual
+867,nonshared,Video call area code 650-253-0000.,PD;DS;CP;Stroke,b2-9,video call area code six five zero two five three zero zero zero zero,communication,call_make,"{""phone_number"": ""six five zero two five three zero zero zero zero""}",manual
+387,nonshared,How far is Home Depot from here?,DS;CP;Stroke,b2-9,how far is home depot from here,maps_places,maps_route,"{""destination"": ""home depot"", ""query_type"": ""distance""}",manual
+445,nonshared,Map a route to our hotel.,PD;DS;CP;Stroke,b2-9,map a route to our hotel,maps_places,maps_route,"{""destination"": ""hotel"", ""query_type"": ""navigation""}",manual
+570,nonshared,When is Trader Joe's open until?,PD;DS;CP;Stroke,b2-9,when is trader joe's open until,maps_places,places_search,"{""business_name"": ""trader joe's""}",manual
+1291,nonshared,"Find non-stop flights to Memphis, Tennessee on Southwest Airlines.",PD,b2-9,find non stop flights to memphis tennessee on southwest airlines,transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""memphis tennessee"", ""route_or_station"": ""southwest airlines""}",manual
+151,shared,How many refills are left on my risperidone?,PD,b2-9,how many refills are left on my risperidone,health,health_refill_query,"{""medication"": ""risperidone""}",manual
+180,shared,Take depakote at 1 PM.,DS;CP,b2-9,take depakote at one p m,health,health_medication_reminder,"{""medication"": ""depakote"", ""time"": ""one p m""}",manual
+739,nonshared,What are the side effects of atorvastatin?,PD,b2-9,what are the side effects of atorvastatin,health,health_info_query,"{""medication"": ""atorvastatin"", ""info_type"": ""side_effects""}",manual

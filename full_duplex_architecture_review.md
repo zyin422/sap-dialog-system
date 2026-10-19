@@ -260,7 +260,91 @@ The **NeurIPS 2024 framework** (*Wang et al.*) solves this by embedding a **2-st
 
 ---
 
-## 6. Active Discussion & Evolution Log
+## 6. Deep Internal Mechanics & Curated Learning Roadmap: Moving Beyond the Black Box
+
+To transition from treating ASR and full-duplex systems as black-box APIs to engineering their internal mechanisms, you must master the mathematical foundations, decoding algorithms, and low-level streaming pipelines.
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        THE SPOKEN DIALOG SYSTEMS LEARNING ROADMAP                      │
+├────────────────────────────────────────────┬───────────────────────────────────────────┤
+│  TRACK 1: STREAMING ASR INTERNALS          │  TRACK 2: FULL-DUPLEX & TURN-TAKING       │
+│  * Acoustic Feature Extraction (Log-Mel)   │  * Audio Pipeline Plumbing (PCM/WebRTC)   │
+│  * Causal Masking & Chunked Attention      │  * Acoustic Echo Cancellation (AEC)       │
+│  * CTC Loss & Neural Transducers (RNN-T)   │  * Predictive Turn-Taking (VAP / TurnGPT) │
+│  * Delayed-Streams Autoregression (DSM)    │  * Multi-Stream Codec Modeling (Moshi)    │
+└────────────────────────────────────────────┴───────────────────────────────────────────┘
+```
+
+---
+
+### Track 1: Streaming Automatic Speech Recognition (ASR) Internals
+
+#### 1. What Happens Under the Hood:
+1. **Front-End Acoustic Representations:**
+   * Raw audio waveforms (16 kHz, 16-bit PCM) are converted via Short-Time Fourier Transform (STFT) using a 25ms Hamming window with a 10ms hop size.
+   * Converted into an **80-dimensional Log-Mel Spectrogram**, which models human auditory frequency sensitivity (Mel scale).
+2. **Streaming Acoustic Encoders:**
+   * **The Lookahead Constraint:** Offline models (like standard Whisper) use bidirectional, non-causal self-attention, looking into the entire future audio. Streaming encoders enforce **causal masking** or **chunked attention** (e.g., processing 160ms chunks with a fixed 80ms lookahead), capping algorithmic latency at the cost of slight acoustic ambiguity.
+   * **Conformer & Zipformer:** Modern encoders interleave Depthwise Separable Convolutions (capturing local phonetic details) with Multi-Head Self-Attention (capturing global syntactic dependencies).
+3. **The Three Core Decoding Paradigms:**
+   * **CTC (Connectionist Temporal Classification):** Introduces a blank token $\epsilon$ to align variable-length audio frames to shorter text token sequences without intermediate alignments. *Limitation:* Assumes conditional independence between output tokens given the acoustic input, preventing strong language modeling.
+   * **Neural Transducers (RNN-T / Conformer-Transducer):** Eliminates CTC's independence flaw by coupling an **Acoustic Transcription Network** $h_t^{\text{enc}}$ with an autoregressive **Prediction Network** $p_u^{\text{pred}}$ via a **Joint Network**:
+     $$z_{t,u} = \text{Joint}(h_t^{\text{enc}}, p_u^{\text{pred}}) \implies P(y_{t,u} \mid x_{1:t}, y_{1:u-1})$$
+     This allows frame-synchronous streaming decoding where multiple tokens can be emitted for a single audio frame (or none, via blank $\varnothing$). This is the industrial foundation of low-latency assistants (Google Assistant, Apple Siri, Icefall).
+   * **Delayed-Streams Autoregressive Models (Voxtral DSM):** Uses stream-synchronous next-token prediction with dynamic delay $\tau \in [80, 2400]\text{ms}$, interleaving acoustic padding $[P]$ tokens and word-boundary $[W]$ tokens to synchronize the decoder with live audio.
+
+#### 2. Essential Curated Resources for Streaming ASR:
+* **The Foundational Textbook:**
+  * **Jurafsky & Martin, *Speech and Language Processing* (3rd ed. draft):** Read *Chapter 16: Automatic Speech Recognition* and *Chapter 17: Speech Recognition: Advanced Topics*. Covers STFT, Mel filterbanks, CTC forward-backward alignment, and WFST decoding.
+* **The Canonical Lecture Course:**
+  * **CMU 11-751 / Shinji Watanabe (Creator of ESPnet):** *Speech Recognition and Understanding*. Publicly available lecture slides and videos cover the mathematical derivation of CTC loss, Transducers (RNN-T), and Conformer self-attention.
+* **The Hands-On Repositories (Read the Source Code):**
+  * **[k2-fsa / icefall & sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx):** Developed by Daniel Povey (creator of Kaldi). This is the gold standard for high-performance streaming ASR in C++ and Python. Study `pruned_transducer_stateless` in Icefall to understand how streaming memory cache tensors are passed between audio chunks.
+  * **[Hugging Face Audio Course (Chapter 5: Speech Recognition)](https://huggingface.co/learn/audio-course/chapter5/introduction):** Practical walkthrough of feature extractors, CTC fine-tuning, and audio data collation.
+
+---
+
+### Track 2: Full-Duplex Systems & Turn-Taking Internals
+
+#### 1. What Happens Under the Hood:
+1. **The Low-Level Audio & Networking Plumbing:**
+   * **Audio Transport:** Real-time audio streams cannot use HTTP request/response. They use **WebSockets** or **WebRTC DataChannels** transmitting raw 16kHz PCM chunks or compressed Opus frames every 20ms.
+   * **Acoustic Echo Cancellation (AEC):** In full-duplex, the speaker and microphone are active simultaneously. Without AEC (e.g., WebRTC APM module), the system’s microphone captures its own TTS voice, causing an infinite acoustic feedback loop.
+   * **Asynchronous Task Cancellation:** When a user barge-in event occurs, the server must execute a non-blocking cancellation (e.g., `asyncio.Task.cancel()`), instantly flushing downstream TTS synthesis buffers and emptying OS audio device queues.
+2. **Predictive Turn-Taking vs. Energy VAD:**
+   * Traditional VAD only detects *past* energy (is there silence right now?).
+   * Full-duplex systems use **continuous turn-completion forecasting**:
+     * **Voice Activity Projection (VAP):** Rather than thresholding energy, a neural model continuously outputs the probability distribution of who will speak in the upcoming 2-second window (divided into discrete bins: $[0, 200\text{ms}], [200, 600\text{ms}], \dots$). It detects intonation drop (pitch fall) and syntactic completion *before* silence occurs.
+3. **Multi-Stream Audio Modeling:**
+   * Models like **Moshi** (Kyutai) compress audio into discrete tokens at 12.5 Hz using the **Mimi neural audio codec**.
+   * The LLM models multiple parallel streams simultaneously: User Audio Tokens, User Text Tokens, Agent Text Tokens, Agent Audio Tokens. Turn-taking is completely internalized: the model emits audio silence tokens when listening and voice tokens when speaking.
+
+#### 2. Essential Curated Resources for Full-Duplex:
+* **The Breakthrough Full-Duplex Model:**
+  * **Moshi: a speech-text foundation model for real-time dialogue** ([arXiv:2410.00037](https://arxiv.org/abs/2410.00037) / [GitHub: kyutai-labs/moshi](https://github.com/kyutai-labs/moshi)). Dissect the architecture: 80ms latency Mimi neural codec, Helium LLM, and multi-stream token interleaving.
+* **The Predictive Turn-Taking Foundation:**
+  * **Voice Activity Projection (VAP)** (*Ekstedt & Skantze*, Interspeech 2022 / IEEE TASLP 2024; [GitHub: ErikEkstedt/VoiceActivityProjection](https://github.com/ErikEkstedt/VoiceActivityProjection)). The definitive framework for learning continuous turn-taking from prosody and acoustics.
+  * **TurnGPT** (*Findings of EMNLP 2020*): How language models predict turn-completion from incremental transcripts.
+* **Open-Source Modular Frameworks (Engineering Blueprint):**
+  * **[X-Talk Source Code](https://github.com/xcc-zach/xtalk):** Dissect `event_bus.py`, `service_manager.py`, and `frontend/vad.py` to see how event routing, client-side VAD, and buffered filler masking are implemented in Python.
+  * **[Pipecat AI](https://github.com/pipecat-ai/pipecat):** The leading open-source framework for voice-to-voice agents. Study its pipeline design (`Transport -> VAD -> STT -> LLM -> TTS -> Transport`).
+
+---
+
+### Recommended 2-Week Learning Plan
+
+| Phase | Focus Area | Concrete Hands-On Milestone |
+| :--- | :--- | :--- |
+| **Days 1–4** | **ASR Acoustic Pipeline & Streaming Transducers** | 1. Read Jurafsky & Martin (Ch. 16: ASR & CTC).<br>2. Run a minimal streaming Zipformer/Conformer inference loop in `sherpa-onnx` on a local WAV file, inspecting chunk cache updates. |
+| **Days 5–8** | **Streaming Latency & Dysarthric Fine-Tuning** | 1. Read Voxtral DSM (arXiv:2602.11298, Sec. 3).<br>2. Understand why CTC and Transducer blank tokens collapse repetitive dysarthric speech differently. |
+| **Days 9–11** | **Turn-Taking, VAP, & State Machines** | 1. Read the DuplexLM Survey (arXiv:2606.19453) and VAP paper.<br>2. Trace the 5-state transitions (`IDLE`, `LISTEN`, `WAIT`, `SPEAK`, `DUAL`) on an annotated dysarthric utterance with long pauses. |
+| **Days 12–14** | **Modular Orchestration & Event Plumbing** | 1. Clone and trace `X-Talk` (`event_bus.py`) and `Pipecat`.<br>2. Implement a mock async Python loop where a synthetic user interrupt event immediately cancels an active streaming generator. |
+
+---
+
+## 7. Active Discussion & Evolution Log
 
 * **2026-10-18 (Session 1):** Initial synthesis established. Key alignment around modular design (*X-Talk*), Neural State Machine (*NeurIPS 2024* / *DuplexLM*), and speculative execution (*Stream RAG*) for dysarthric spoken dialogue.
 * **2026-10-18 (Session 2):** In-depth technical breakdown added for **Neural FSM** (two-state physical actuator controlled by LLM next-token control emissions) and **X-Talk** (client-side edge VAD, sliding-window ASR caching, buffered statement latency masking, and 3-rule false interruption tolerance). Compared both paradigms against dysarthric speech requirements.
+* **2026-10-18 (Session 3):** Added **Section 6: Deep Internal Mechanics & Curated Learning Roadmap**, detailing acoustic feature extraction, CTC vs. Transducers (RNN-T), delayed streams, WebRTC/AEC plumbing, Voice Activity Projection (VAP), Moshi multi-stream modeling, and a structured 2-week learning plan with authoritative references (Jurafsky & Martin, CMU 11-751, sherpa-onnx, Moshi, X-Talk, Pipecat).

@@ -153,8 +153,114 @@ To build a scientifically valid full-duplex benchmark using the existing dataset
 
 ---
 
-## 5. Active Discussion & Evolution Log
+## 5. Deep-Dive: Hybrid LLM-FSM (Neural FSM) vs. Modular Orchestration (X-Talk)
 
-*(This section will track questions, critiques, and design refinements as our discussion progresses).*
+### 5.1 The Hybrid LLM-FSM & The "Neural FSM" (NeurIPS 2024)
 
-* **2026-10-18:** Initial synthesis established. Key alignment around modular design (*X-Talk*), Neural State Machine (*NeurIPS 2024* / *DuplexLM*), and speculative execution (*Stream RAG*) for dysarthric spoken dialogue.
+Standard voice assistants delegate turn-taking to an external deterministic script (e.g., if acoustic volume $> \text{threshold}$, stop TTS). However, an external script is linguistically blind: it cannot tell the difference between a real user interruption (*"Wait, stop!"*), a cough, or an agreeable backchannel (*"uh-huh"*).
+
+The **NeurIPS 2024 framework** (*Wang et al.*) solves this by embedding a **2-state physical Finite State Machine (FSM)** directly governed by an aligned LLM:
+
+```
+                  ┌──────────────────────────────────────────────┐
+                  │           Large Language Model (LLM)         │
+                  │  (Autoregressive Next-Token Prediction)      │
+                  └───────────────┬──────────────┬───────────────┘
+                     Text Tokens  │              │ Control Tokens
+                                  ▼              ▼
+                       ┌────────────────┐  ┌─────────────┐
+                       │  Motor Module  │  │  Neural     │
+                       │ (Streaming TTS)│  │  FSM        │
+                       └────────────────┘  └──────┬──────┘
+                                                  │ Controls Physical
+                                                  ▼ Actuation
+                       ┌─────────────────────────────────────────┐
+                       │ State: { LISTEN, SPEAK }                │
+                       └─────────────────────────────────────────┘
+                                                  ▲
+                                                  │ Audio Chunk Events
+                                           ┌──────┴──────┐
+                                           │ Perception  │
+                                           │ (Stream ASR)│
+                                           └─────────────┘
+```
+
+#### Core Components & Mechanics:
+1. **Perception Module:** Audio stream is partitioned into fixed 640ms chunks and transcribed by streaming ASR into incremental token packets.
+2. **Motor Module:** Streaming TTS converting LLM-generated response tokens into audible waveforms.
+3. **The 2 Physical States:**
+   * **`LISTEN`:** Motor module is idle; system is ingesting user speech chunks.
+   * **`SPEAK`:** Motor module is actively synthesizing; system continues listening in the background.
+4. **Why is it called a "Neural" FSM?**
+   The FSM transitions are **not hardcoded by heuristic rules**. Instead, the LLM emits special **discrete control tokens** interleaved directly in its autoregressive token stream:
+   * **$\text{LISTEN} \to \text{LISTEN}$ (`WAIT`):** The user paused mid-sentence. The LLM reads the partial transcript, detects syntactic or semantic incompleteness, and emits a wait control token, holding the floor open without triggering TTS.
+   * **$\text{LISTEN} \to \text{SPEAK}$ (`RESPOND` / `INTERRUPT`):** The LLM recognizes that the user completed their request (or timed out), emits a start-speech token, and begins streaming textual response tokens to the Motor module.
+   * **$\text{SPEAK} \to \text{SPEAK}$ (`CONTINUE`):** The LLM continues delivering its planned response while ignoring benign acoustic noise.
+   * **$\text{SPEAK} \to \text{LISTEN}$ (`YIELD` / `BARGE-IN`):** While the system is speaking, the Perception module passes new user tokens. The LLM immediately detects that the user is intentionally taking the floor, emits a yield token, instantly halts the Motor module (canceling remaining audio buffers), and shifts back to `LISTEN`.
+5. **Serialized Dialogue Representation:**
+   The entire conversation is represented as a single, time-serialized chronological sequence where user perception chunks and system motor tokens are interleaved in real-time. Next-token prediction on this unified sequence naturally optimizes both *what to say* and *when to yield*.
+
+---
+
+### 5.2 Deep-Dive into X-Talk (arXiv:2512.18706)
+
+**X-Talk** (SJTU, Dec 2025) directly challenges the trend toward monolithic "omni-models" (like Moshi and GPT-4o voice), demonstrating that a **systematically optimized modular cascade** can achieve sub-second latency while preserving the full reasoning, tool-calling, and fine-tuning benefits of decoupled systems.
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│  1. CLIENT-SIDE FRONTEND LAYER                                         │
+│     FastEnhancer (Neural Denoise) ──► Silero VAD (Speech Detection)    │
+│     *Instant Local Playback Mute on Speech Detection*                  │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ WebSocket Typed Events
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│  2. EVENT CENTER (Asynchronous Event Bus with Priority Routing)        │
+├───────────────────────────────────┬────────────────────────────────────┤
+│  3. SPEECH UNDERSTANDING          │  4. LLM CONVERSATIONAL AGENT       │
+│     * Zipformer/SenseVoice ASR    │     * LangChain Toolset            │
+│     * Sliding-Window Cache        │     * Web Search (Tiered Serper)   │
+│     * Omni-Captioner (Env Audio)  │     * Local RAG (Chroma + Qwen3)   │
+│     * Pyannote ResNet34 Voiceprint│     * Timbre & Emotion Switching   │
+├───────────────────────────────────┴────────────────────────────────────┤
+│  5. SPEECH GENERATION (TTS Chorus: CosyVoice, ChatTTS, IndexTTS)       │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Key Architectural Innovations in X-Talk:
+
+1. **Client-Side Edge Interruption (Zero-Round-Trip Barge-In):**
+   * Rather than sending audio to the server and waiting for a server VAD $\to$ network packet $\to$ client mute cycle (which adds 150–350ms of perceived lag), X-Talk runs **FastEnhancer** (neural denoiser) and **Silero VAD** directly on the client (browser / edge device).
+   * The millisecond speech energy is detected, the client **instantly halts local audio playback**, creating an immediate, responsive barge-in experience.
+
+2. **Sliding-Window Cache for ASR:**
+   * To bridge offline and streaming ASR, X-Talk maintains a cumulative buffer and an incremental buffer.
+   * A sliding-window cache tracks prefix stability: once the text prefix remains stable across $W$ consecutive windows, it is finalized and committed to the LLM context, flushing the processed audio buffer.
+
+3. **Buffered Statement Mechanism (Acoustic Latency Masking):**
+   * External tool calls (database queries, web searches, calendar lookups) introduce unavoidable 500–1500ms network delays that break spoken conversational rhythm.
+   * X-Talk introduces **buffered filler statements**: the moment an agent triggers a tool call, it speculatively synthesizes and speaks a natural acoustic placeholder (*"Let me pull up your schedule..."* or *"Checking that now..."*), completely masking the execution latency of the backend API.
+
+4. **Multi-Rule False Interruption Tolerance:**
+   To prevent background noise or benign user habits from erroneously killing the system's speech, X-Talk implements three validation filters before confirming a barge-in:
+   * **Rule 1 (Audio Duration Gate):** Any user sound $< 0.5\text{s}$ is classified as transient noise.
+   * **Rule 2 (Lexical Density Gate):** If the streaming ASR returns an empty string or a single isolated digit/letter, it is discarded.
+   * **Rule 3 (Filler / Backchannel Whitelist):** Maintains a dictionary of conversational backchannels (*"uh-huh"*, *"yeah"*, *"mm"*). If the user's speech consists solely of backchannels while the system is speaking, X-Talk treats it as active listening, keeps the TTS playing, and commands the client to **resume audio playback**.
+
+---
+
+### 5.3 Comparative Matrix: Neural FSM vs. X-Talk for Dysarthric Speech
+
+| System Property | Neural FSM (*NeurIPS 2024*) | X-Talk (*arXiv:2512.18706*) | Direct Implication for SAP Project |
+| :--- | :--- | :--- | :--- |
+| **Turn-Taking Arbiter** | Internal LLM control tokens (`WAIT`, `YIELD`, `RESPOND`). | Client-side VAD + Server-side heuristic validation rules. | **Neural FSM is smarter for dysarthria:** Acoustic VAD cutoffs fail on dysarthric pauses; an LLM evaluating semantic completeness understands that *"Set timer for..."* is incomplete even after 1.5s of silence. |
+| **Tool Calling / RAG** | Text-based prompt generation. | Native LangChain integration + Buffered statement latency masking. | **X-Talk is better engineered for tools:** Our 28-tool schema requires strict JSON validation and buffered fillers while querying calendars/alarms. |
+| **Interruption Precision** | High semantic precision (understands intent to interrupt vs. cough). | Rule-based (0.5s duration threshold + backchannel whitelist). | X-Talk's 0.5s rule risks cutting off dysarthric speakers who produce short, low-intensity phonemes. |
+| **Engineering Complexity** | Requires instruction fine-tuning / aligning an LLM to emit control tokens. | Plug-and-play modular framework (uses off-the-shelf models and event bus). | X-Talk can be deployed immediately with existing checkpoints; Neural FSM requires fine-tuning an LLM on serialized dialog tokens. |
+
+---
+
+## 6. Active Discussion & Evolution Log
+
+* **2026-10-18 (Session 1):** Initial synthesis established. Key alignment around modular design (*X-Talk*), Neural State Machine (*NeurIPS 2024* / *DuplexLM*), and speculative execution (*Stream RAG*) for dysarthric spoken dialogue.
+* **2026-10-18 (Session 2):** In-depth technical breakdown added for **Neural FSM** (two-state physical actuator controlled by LLM next-token control emissions) and **X-Talk** (client-side edge VAD, sliding-window ASR caching, buffered statement latency masking, and 3-rule false interruption tolerance). Compared both paradigms against dysarthric speech requirements.

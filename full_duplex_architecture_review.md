@@ -343,9 +343,91 @@ To transition from treating ASR and full-duplex systems as black-box APIs to eng
 
 ---
 
-## 7. Active Discussion & Evolution Log
+## 7. Deep-Dive: Full-Duplex-Bench & The Adaptation Plan for SAP
+
+### 7.1 Overview of Full-Duplex-Bench ([arXiv / NTU & UC Berkeley](https://github.com/DanielLin94144/Full-Duplex-Bench))
+
+**Full-Duplex-Bench** (*Lin et al.*, NTU, UC Berkeley, UW, MIT CSAIL; paper located at [`papers/full-duplex-bench.pdf`](file:///Users/zixuan/agy2-projects/sap-dialog-system/papers/full-duplex-bench.pdf)) is the first standardized benchmark designed to systematically evaluate spoken dialogue models across four fundamental turn-taking capabilities rather than traditional text perplexity or word error rate.
+
+```
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                           FULL-DUPLEX-BENCH TAXONOMY                             │
+├──────────────────────────┬───────────────────────────────────────────────────────┤
+│  1. Pause Handling       │ Model stays silent during user intra-turn pauses      │
+│  2. Backchanneling       │ Model emits timely acknowledgments without seizing    │
+│  3. Smooth Turn-Taking   │ Model takes the turn promptly when user finishes      │
+│  4. User Interruption    │ Model yields floor immediately on user barge-in       │
+└──────────────────────────┴───────────────────────────────────────────────────────┘
+```
+
+#### The Four Evaluation Dimensions & Metrics:
+1. **Pause Handling (Acoustic Floor Holding):**
+   * *Behavior:* When the user pauses mid-turn for 0.4s–1.0s (measured via Candor), does the model stay silent or prematurely take over?
+   * *Metric:* **Takeover Rate ($\text{TOR} \downarrow$):** Percentage of pauses where the model incorrectly seized the floor. Ideal $\text{TOR} = 0$.
+2. **Backchanneling (Active Listening):**
+   * *Behavior:* Emitting brief acknowledgments (*"uh-huh"*, *"yeah"*) at Transition Relevance Places (TRPs, measured via ICC).
+   * *Metrics:* $\text{TOR} \downarrow$ (must not seize the floor), **Frequency ($\text{Freq} \uparrow$)**, and **Jensen-Shannon Divergence ($\text{JSD} \downarrow$)** comparing model backchannel timing distribution $P$ against human distribution $Q$.
+3. **Smooth Turn-Taking (End-of-Turn Promptness):**
+   * *Behavior:* Detecting when the user has actually finished speaking (turn gap $<0.4\text{s}$) and responding promptly.
+   * *Metrics:* $\text{TOR} \uparrow$ (must take the floor, ideal $\text{TOR} = 1.0$) and **Response Latency ($\text{Latency} \downarrow$ in seconds)** from user speech end to model speech onset.
+4. **User Interruption / Barge-In (Floor Yielding & Coherence):**
+   * *Behavior:* While the model is speaking, the user interrupts mid-sentence. The model must yield immediately, discard remaining TTS audio, and respond coherently to the new input.
+   * *Metrics:* $\text{TOR} \uparrow$ (must take new turn), **Latency After Interruption ($\downarrow$)**, and **GPT-4o Response Quality Score ($0\text{--}5 \uparrow$)**.
+
+---
+
+### 7.2 The Baseline Findings (Table III in Paper)
+
+| Model Architecture | Pause Handling ($\text{TOR} \downarrow$) | Smooth Turn Latency ($\downarrow$) | Interruption Latency ($\downarrow$) | Interruption GPT-4o Score ($\uparrow$) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Moshi** (End-to-End Multimodal) | **0.980** (Fails 98% of pauses) | **0.265s** | **0.257s** | 0.765 / 5.0 |
+| **dGSLM** (End-to-End) | **0.935** (Fails 93% of pauses) | 0.352s | 2.531s | 0.201 / 5.0 |
+| **Freeze-Omni** (Cascaded + State Head) | **0.481** (Better pause hold) | 0.953s | 1.409s | **3.615 / 5.0** |
+| **Gemini Live** (Commercial API) | **0.310** (Best pause hold) | 1.301s | 1.183s | 3.376 / 5.0 |
+
+> [!CRITICAL]
+> **Key Insight from Table III:** Pure end-to-end models like Moshi are hyper-aggressive: **Moshi interrupts users 98% of the time during natural pauses!** Cascaded systems with explicit state prediction heads (Freeze-Omni) hold the floor much better (TOR 48%), but struggle with longer response latency.
+
+---
+
+### 7.3 The Research Hook: Why This Matters for SAP Dysarthric Speech
+
+Full-Duplex-Bench evaluated **typical, fluent English speakers** with pause durations between **0.4s and 1.0s**.
+
+In **dysarthric speech (SAP)**:
+* Intra-utterance pauses frequently exceed **1.2s to 3.0s** due to motor-speech planning and respiratory fatigue.
+* Dysarthric speakers exhibit frequent phoneme prolongations and repetitions that trigger false turn-completion cues in standard models.
+* **If SOTA models like Moshi fail 98% of typical pauses, they will catastrophically interrupt dysarthric speakers on virtually 100% of turns.**
+
+This gives our paper its central experimental question:
+$$\text{RQ: How do full-duplex turn-taking architectures degrade on atypical dysarthric speech, and how can explicit state machines prevent premature takeover?}$$
+
+---
+
+### 7.4 Actionable Next Steps: What to Pitch to Haolong
+
+To establish clear division of labor and high-impact ownership, propose the following concrete plan to Haolong:
+
+1. **Adopt Full-Duplex-Bench's Test Harness:**
+   * Haolong owns the **model execution engine** (e.g., streaming Freeze-Omni, Moshi, or an X-Talk modular cascade).
+   * You own the **SAP-Duplex evaluation harness** adapting the open-source [Full-Duplex-Bench repository](https://github.com/DanielLin94144/Full-Duplex-Bench).
+2. **Prioritize the Two High-Value Dimensions for SAP:**
+   * **Task A: Dysarthric Pause Handling Benchmark:**
+     * Slice SAP audio files containing natural intra-command pauses (0.8s–2.5s) from speakers across dysarthria severity levels.
+     * Measure Takeover Rate ($\text{TOR}$) across: (1) Standard VAD baseline, (2) Moshi, (3) Haolong's full-duplex model.
+   * **Task B: Synthetic Barge-In & Tool Execution Benchmark:**
+     * Synthesize system speech turns.
+     * Inject overlapping SAP spoken commands mid-sentence (simulating user barge-in).
+     * Measure: (1) Interruption Detection Latency, (2) Tool Parameter Filling Accuracy (`PF`) on the interrupted command.
+3. **Immediate Question to Ask Haolong:**
+   * *"What streaming interface does your model expose (WebSocket, local Python generator, or FIFO pipe)? I will adapt the Full-Duplex-Bench streaming harness to feed our SAP audio slices into your interface and log TOR and latency automatically."*
+
+---
+
+## 8. Active Discussion & Evolution Log
 
 * **2026-10-18 (Session 1):** Initial synthesis established. Key alignment around modular design (*X-Talk*), Neural State Machine (*NeurIPS 2024* / *DuplexLM*), and speculative execution (*Stream RAG*) for dysarthric spoken dialogue.
 * **2026-10-18 (Session 2):** In-depth technical breakdown added for **Neural FSM** (two-state physical actuator controlled by LLM next-token control emissions) and **X-Talk** (client-side edge VAD, sliding-window ASR caching, buffered statement latency masking, and 3-rule false interruption tolerance). Compared both paradigms against dysarthric speech requirements.
 * **2026-10-18 (Session 3):** Added **Section 6: Deep Internal Mechanics & Curated Learning Roadmap**, detailing acoustic feature extraction, CTC vs. Transducers (RNN-T), delayed streams, WebRTC/AEC plumbing, Voice Activity Projection (VAP), Moshi multi-stream modeling, and a structured 2-week learning plan with authoritative references (Jurafsky & Martin, CMU 11-751, sherpa-onnx, Moshi, X-Talk, Pipecat).
 * **2026-10-18 (Session 4):** Student selected **Track 1: Streaming ASR Internals**. Formulated interactive, walking-friendly voice assistant prompt curriculum covering Log-Mel feature extraction, causal lookahead caps, CTC vs. Transducer Joint Networks, and dysarthric acoustic distortion handling.
+* **2026-10-19 (Session 5):** Deep-dive analysis of [`papers/full-duplex-bench.pdf`](file:///Users/zixuan/agy2-projects/sap-dialog-system/papers/full-duplex-bench.pdf) (Lin et al., NTU/UC Berkeley/MIT CSAIL). Documented the 4 evaluation dimensions (Pause Handling, Backchanneling, Smooth Turn-Taking, User Interruption), analyzed baseline failure rates (Moshi 98% pause takeover rate), and formulated the **SAP-Duplex-Bench** adaptation plan and division of labor with Haolong.

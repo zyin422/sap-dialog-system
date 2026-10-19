@@ -461,6 +461,65 @@ In typical voice assistants, a premature cutoff is an annoyance. For **speakers 
 
 ---
 
+### 7.6 The Interactive Evaluation Dilemma: Open-Loop Probing vs. Closed-Loop Environments
+
+#### The Fundamental Dilemma
+In natural spoken dialogue, conversation is **closed-loop**:
+$$\text{User Turn } U_{t+1} = f(\text{Model Turn } M_t, \text{Dialogue History } H_t)$$
+If the model says something different, or interrupts at a different timestamp, the human's subsequent response immediately changes.
+
+Yet, the **SAP dataset consists of disjoint, single-turn read prompts** (*"Add laundry detergent to shopping list"*, *"Set timer for 10 minutes"*). There are no pre-recorded multi-turn branches, and no recorded human audio for hypothetical model replies.
+
+#### How Do Other Full-Duplex Papers Actually Evaluate?
+Do published papers put their models in a real environment with live humans? **In the vast majority of machine learning papers (90%+), the answer is NO.**
+
+Across the literature (Full-Duplex-Bench, Moshi, Freeze-Omni, VoiceAgentBench, NeurIPS 2024), researchers use three distinct evaluation paradigms:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                      FULL-DUPLEX EVALUATION PARADIGMS IN LITERATURE                    │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│  PARADIGM 1: Open-Loop Behavioral Probing (Full-Duplex-Bench, Candor, Moshi)          │
+│  * Decomposes conversation into atomic acoustic test slices (pauses, overlaps).        │
+│  * 100% deterministic, zero live humans needed, highly reproducible across labs.       │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│  PARADIGM 2: Dual-Agent Closed-Loop Simulation (User Simulator, VoiceAgentBench)       │
+│  * An LLM acts as the user with a task goal, speaking via streaming TTS in real-time.  │
+│  * Tests multi-turn convergence, but synthetic TTS lacks dysarthric acoustic features. │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│  PARADIGM 3: Live Human-in-the-Loop Interaction (HCI / User Studies)                   │
+│  * Real human subjects interact with the live model.                                  │
+│  * High ecological validity, but low reproducibility, high cost, and requires IRB.    │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Why Open-Loop Probing (Full-Duplex-Bench) Solves the SAP Problem
+The breakthrough of **Full-Duplex-Bench** was proving that **you do not need a complete interactive environment to rigorously benchmark turn-taking capabilities**. Instead, you evaluate **atomic conversational reflexes**:
+
+1. **Pause Handling Does NOT Require a Future Turn:**
+   * Take an SAP audio recording containing an internal motor-speech pause (e.g., *"Call... [1.8s pause]... Caleb Neville"*).
+   * Stream the audio into the model.
+   * If the model begins speaking during that 1.8s pause $\to$ **Failure ($\text{TOR} = 1$)**.
+   * If the model waits patiently until the true sentence completion $\to$ **Success ($\text{TOR} = 0$)**.
+   * *The subsequent response does not matter—the turn-taking reflex was objectively evaluated.*
+
+2. **User Interruption Does NOT Require Live Humans:**
+   * Generate a fixed system TTS utterance (*"I found three appointments available on your calendar for Friday morning..."*).
+   * At timestamp $t = 2.5\text{s}$, programmatically inject an SAP user command audio slice (*"Cancel my meeting with Nelida"*).
+   * Evaluate the physical reflex:
+     * Did the system halt audio playback within $<400\text{ms}$?
+     * Did the downstream LLM extract the parameter `person: "nelida"` from the interrupting speech?
+
+3. **Scenario Stitching (Task-Oriented Multi-Turn Replay):**
+   * While SAP recordings are disjoint, many prompts belong to the same functional scenario.
+   * We construct scripted task flows (e.g., Shopping List):
+     * *Turn 1 (SAP Audio):* *"Add laundry detergent to shopping list."*
+     * *System Response (Fixed TTS):* *"Added laundry detergent. Anything else?"*
+     * *Turn 2 (SAP Audio):* *"Add toothpaste."*
+   * This bridges disjoint prompts into coherent, multi-turn goal evaluations.
+
+---
+
 ## 8. Active Discussion & Evolution Log
 
 * **2026-10-18 (Session 1):** Initial synthesis established. Key alignment around modular design (*X-Talk*), Neural State Machine (*NeurIPS 2024* / *DuplexLM*), and speculative execution (*Stream RAG*) for dysarthric spoken dialogue.
@@ -469,3 +528,4 @@ In typical voice assistants, a premature cutoff is an annoyance. For **speakers 
 * **2026-10-18 (Session 4):** Student selected **Track 1: Streaming ASR Internals**. Formulated interactive, walking-friendly voice assistant prompt curriculum covering Log-Mel feature extraction, causal lookahead caps, CTC vs. Transducer Joint Networks, and dysarthric acoustic distortion handling.
 * **2026-10-19 (Session 5):** Deep-dive analysis of [`papers/full-duplex-bench.pdf`](file:///Users/zixuan/agy2-projects/sap-dialog-system/papers/full-duplex-bench.pdf) (Lin et al., NTU/UC Berkeley/MIT CSAIL). Documented the 4 evaluation dimensions (Pause Handling, Backchanneling, Smooth Turn-Taking, User Interruption), analyzed baseline failure rates (Moshi 98% pause takeover rate), and formulated the **SAP-Duplex-Bench** adaptation plan and division of labor with Haolong.
 * **2026-10-19 (Session 6):** Analyzed the datasets used in Full-Duplex-Bench (Candor, ICC, GPT-4o+ChatTTS synthetic) and broke down the absence of human subjective studies vs. the 4 automatic UX proxies (TOR, Latency, JSD, GPT-4o Coherence). Documented accessibility UX implications for dysarthric speakers.
+* **2026-10-19 (Session 7):** Addressed the **interactive evaluation dilemma** (open-loop static probing vs. closed-loop environments). Deconstructed how literature avoids live human testing via atomic behavioral probing (TOR, Barge-in injection) and scenario stitching on disjoint speech corpora.

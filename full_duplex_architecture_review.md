@@ -424,6 +424,43 @@ To establish clear division of labor and high-impact ownership, propose the foll
 
 ---
 
+### 7.5 Evaluation Datasets & User Experience (UX) Metrics Analysis
+
+#### 1. Exactly What Datasets Are Used for Evaluation?
+Full-Duplex-Bench evaluates models on a curated test collection totaling **727 audio samples** across three data sources (Table II in paper):
+
+| Evaluation Task | Dataset Source | # of Samples | Audio Characteristics & Curation Protocol |
+| :--- | :--- | :---: | :--- |
+| **Pause Handling** | **Candor Corpus** (Spontaneous Conversation) | 216 | 2-channel spontaneous human-to-human phone calls. Filtered for single-speaker turns ($>5\text{s}$) containing an internal pause strictly between **0.4s and 1.0s**. Verified with dual-channel evidence. |
+| **Pause Handling** | **Synthetic Audio** (GPT-4o + ChatTTS) | 137 | Generated text with controlled pause lengths injected via ChatTTS's `[uv_break]` acoustic tag across 10 diverse synthetic voices. |
+| **Backchanneling** | **In Conversation Corpus (ICC)** | 55 | 28.3 minutes of informal American English where 118 native listeners provided natural backchannel reactions (*"hmm"*, *"yes"*). Segmented into 200ms time windows to derive ground-truth probability distribution $Q$. |
+| **Smooth Turn-Taking** | **Candor Corpus** (Spontaneous Conversation) | 119 | Turns ($>4\text{s}$) where consecutive speaker transitions occur with gaps **$<0.4\text{s}$** (fluent human transitions). Appended with 5 seconds of silence to give models response headroom. |
+| **User Interruption** | **Synthetic Dialogues** (GPT-4o + ChatTTS) | 200 | Multi-turn scripts synthesized with 10 speaker voices. The user interruption audio is injected exactly 7 seconds after system speech onset, followed by 15 seconds of silence. |
+
+#### 2. Are There Evaluation Metrics Pertaining to User Experience (UX)?
+
+The authors explicitly address this in **Section VII (Limitations and Future Work)**:
+> *"Our framework does not yet link described behaviors to human preferences; users need to determine what constitutes desirable or undesirable behavior according to their specific goals. Future work can integrate human judgment studies to provide the preference."*
+
+**Direct Finding:** The benchmark contains **zero subjective human listening evaluations** (no Mean Opinion Score [MOS], System Usability Scale [SUS], or A/B blind human preference tests).
+
+However, the benchmark uses **four computational proxies for conversational UX**:
+1. **Frustration / Disruption Proxy $\to$ Takeover Rate ($\text{TOR} \downarrow$):**
+   * *UX Impact:* When a user pauses to breathe or think, getting interrupted by the system causes severe conversational frustration. Lower TOR indicates a polite, patient system.
+2. **Conversational Sluggishness Proxy $\to$ Turn-Taking Latency ($\downarrow$ in seconds):**
+   * *UX Impact:* Human turn gaps average 200–250ms. Latencies $>1.0\text{s}$ break conversational immersion and feel awkward/laggy.
+3. **Conversational Naturalness Proxy $\to$ Jensen-Shannon Divergence ($\text{JSD} \downarrow$):**
+   * *UX Impact:* Measures whether the system emits backchannels (*"uh-huh"*) at socially appropriate moments. High JSD means the bot interrupts with weird, mistimed grunts.
+4. **Cognitive Coherence & Adaptability Proxy $\to$ GPT-4o Score ($0\text{--}5 \uparrow$):**
+   * *UX Impact:* Evaluates whether the system intelligently handled the interruption (pivoting to the new topic) or blindly continued answering the old, superseded prompt.
+
+#### 3. Implications for Dysarthric Accessibility UX
+In typical voice assistants, a premature cutoff is an annoyance. For **speakers with dysarthria**, a premature cutoff is an **accessibility barrier**:
+* Producing speech can require immense physical effort; being cut off forces exhausting repetitions.
+* In our SAP benchmark, augmenting objective TOR/Latency with **Task Completion Rate** and **User Repetition Count** (or a small 5-point Likert usability test: *"Did the system rush you?"*) will provide a massive scientific differentiator over standard textless speech benchmarks.
+
+---
+
 ## 8. Active Discussion & Evolution Log
 
 * **2026-10-18 (Session 1):** Initial synthesis established. Key alignment around modular design (*X-Talk*), Neural State Machine (*NeurIPS 2024* / *DuplexLM*), and speculative execution (*Stream RAG*) for dysarthric spoken dialogue.
@@ -431,3 +468,4 @@ To establish clear division of labor and high-impact ownership, propose the foll
 * **2026-10-18 (Session 3):** Added **Section 6: Deep Internal Mechanics & Curated Learning Roadmap**, detailing acoustic feature extraction, CTC vs. Transducers (RNN-T), delayed streams, WebRTC/AEC plumbing, Voice Activity Projection (VAP), Moshi multi-stream modeling, and a structured 2-week learning plan with authoritative references (Jurafsky & Martin, CMU 11-751, sherpa-onnx, Moshi, X-Talk, Pipecat).
 * **2026-10-18 (Session 4):** Student selected **Track 1: Streaming ASR Internals**. Formulated interactive, walking-friendly voice assistant prompt curriculum covering Log-Mel feature extraction, causal lookahead caps, CTC vs. Transducer Joint Networks, and dysarthric acoustic distortion handling.
 * **2026-10-19 (Session 5):** Deep-dive analysis of [`papers/full-duplex-bench.pdf`](file:///Users/zixuan/agy2-projects/sap-dialog-system/papers/full-duplex-bench.pdf) (Lin et al., NTU/UC Berkeley/MIT CSAIL). Documented the 4 evaluation dimensions (Pause Handling, Backchanneling, Smooth Turn-Taking, User Interruption), analyzed baseline failure rates (Moshi 98% pause takeover rate), and formulated the **SAP-Duplex-Bench** adaptation plan and division of labor with Haolong.
+* **2026-10-19 (Session 6):** Analyzed the datasets used in Full-Duplex-Bench (Candor, ICC, GPT-4o+ChatTTS synthetic) and broke down the absence of human subjective studies vs. the 4 automatic UX proxies (TOR, Latency, JSD, GPT-4o Coherence). Documented accessibility UX implications for dysarthric speakers.

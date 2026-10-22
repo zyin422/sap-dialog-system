@@ -9,7 +9,7 @@
 
 ## Master Ontology Map: Domains, Intents, and Associated Slots
 
-Before labeling, use this master index to review the complete 3-tier hierarchy across all **10 Functional Domains**, **28 Canonical Tools (Intents)**, and their typed parameter slots:
+Before labeling, use this master index to review the complete 3-tier hierarchy across all **10 Functional Domains**, **29 Canonical Tools (Intents)**, and their typed parameter slots:
 
 | Domain | Canonical Tool (Intent) | Associated Slots (Type) | Core Functional Scope |
 | :--- | :--- | :--- | :--- |
@@ -19,8 +19,6 @@ Before labeling, use this master index to review the complete 3-tier hierarchy a
 | | `schedule_manage` | `action` *(Enum)*, `title` *(Span)*, `date` *(Span)*, `time` *(Span)*, `person` *(Span)* | Create, update, cancel, or query calendar events, appointments, and task reminders. |
 | **`communication`** | `call_make` | `recipient_name` *(Span)*, `phone_number` *(Span)* | Initiate outgoing voice/video telephone calls. |
 | | `call_manage` | `action` *(Enum)* | In-call controls (answer, decline, hang up, mute, redial). |
-| | `messages_manage` | `action` *(Enum)*, `recipient` *(Span)*, `message_body` *(Span)* | Send, read, or reply to SMS text messages. |
-| | `email_manage` | `action` *(Enum)*, `recipient` *(Span)*, `date` *(Span)*, `message_body` *(Span)* | Compose, send, search, or read electronic mail. |
 | **`general_qa`** | `qa_search` | `query` *(Span)* | Factual knowledge, encyclopedia, recipes, news, stocks, math. |
 | | `weather_query` | `place_name` *(Span)*, `date` *(Span)*, `weather_aspect` *(Span)* | Meteorological weather forecasts, rain/snow, temperatures. |
 | | `device_find` | `device_type` *(Span)* | Audible ping to locate a misplaced hardware device. |
@@ -31,14 +29,15 @@ Before labeling, use this master index to review the complete 3-tier hierarchy a
 | **`maps_places`** | `maps_route` | `destination` *(Span)*, `query_type` *(Enum)* | Driving directions, navigation, distance, or commute traffic. |
 | | `places_search` | `business_name` *(Span)*, `business_type` *(Span)*, `sort_by` *(Enum)* | Search nearby stores, venues, restaurants, and opening hours. |
 | | `reservations_manage` | `business_name` *(Span)*, `time` *(Span)*, `party_size` *(Span)*, `date` *(Span)* | Book or inspect dining table reservations at venues. |
-| **`media`** | `media_play` | `media_type` *(Enum)*, `title` *(Span)*, `artist` *(Span)*, `house_place` *(Span)* | Stream music tracks, albums, podcasts, radio, or audiobooks. |
+| **`media`** | `media_play` | `media_type` *(Enum)*, `title` *(Span)*, `artist` *(Span)*, `service` *(Span)*, `house_place` *(Span)* | Stream music, podcasts, radio, movies, or video streaming services. |
+| | `media_search` | `media_type` *(Enum)*, `person` *(Span)*, `genre` *(Span)*, `title` *(Span)* | Search, browse, or recommend movies, shows, music, or audiobooks. |
 | | `media_control` | `action` *(Enum)*, `duration` *(Span)* | Playback state (pause, resume, skip, scrub forward/back, like). |
 | | `media_volume` | `action` *(Enum)*, `change_amount` *(Span)* | Adjust, mute, unmute, or set audio playback volume level. |
 | **`notes_memory`** | `lists_manage` | `action` *(Enum)*, `item` *(Span)*, `list_name` *(Span)* | Create, add items to, or query shopping and to-do lists. |
 | | `memory_note_manage` | `action` *(Enum)*, `key` *(Span)*, `value` *(Span)* | Store or recall personal facts and notes lacking time anchors. |
-| **`smart_home`** | `iot_device_power` | `device_type` *(Span)*, `state` *(Enum)*, `house_place` *(Span)* | Binary power toggle (appliances, lights) & door lock state. |
+| **`smart_home`** | `iot_device_power` | `device_type` *(Span)*, `state` *(Enum)*, `house_place` *(Span)* | Binary power toggle (appliances, lights) & door lock actuation. |
 | | `iot_device_adjust` | `device_type` *(Span)*, `setting` *(Enum)*, `direction` *(Enum)*, `value` *(Span)* | Continuous adjustments (thermostat, brightness, color, speed). |
-| | `iot_sensor_query` | `sensor_type` *(Enum)*, `room` *(Span)* | Inquire about ambient indoor room sensors (e.g. temperature). |
+| | `iot_sensor_query` | `sensor_type` *(Enum)*, `device_type` *(Span)*, `room` *(Span)* | Ambient sensor readings (temperature) & contact/lock status queries. |
 | **`transport`** | `rideshare_book` | `destination` *(Span)* | Hail or book a taxi, cab, or rideshare vehicle. |
 | | `transit_lookup` | `transit_type` *(Enum)*, `destination` *(Span)*, `route_or_station` *(Span)*, `time` *(Span)* | Public transit schedules and tickets (trains, buses, flights). |
 
@@ -64,10 +63,10 @@ Select 1 of the 10 functional domains defined in the Master Ontology Map above b
 ### Step 2: Select the Canonical Tool (Intent)
 Match the command against the tools defined in the Master Ontology Map and [`canonical_tool_catalog.md`](file:///Users/zixuan/agy2-projects/sap-dialog-system/schema_freeze/canonical_tool_catalog.md). Apply these core boundary rules:
 * **`alarm_manage` vs. `schedule_manage`:** `alarm_manage` requires explicit words (`"alarm"`, `"timer"`) or relative countdown offsets (*"in 15 minutes"*). `schedule_manage` handles calendar events, appointments, and task reminders.
-* **`media_play` vs. `media_control`:** `media_play` starts playback of media content. `media_control` changes state during playback (pause, resume, skip, fast-forward, rewind, like, dislike).
-* **`iot_device_power` vs. `iot_device_adjust`:** Binary power toggles (`{"on", "off"}`) are `iot_device_power` (including door locks: lock $\rightarrow$ `"on"`, unlock $\rightarrow$ `"off"`). Continuous adjustments (brightness, temperature, color, speed) are `iot_device_adjust`.
+* **`media_play` vs. `media_search` vs. `media_control`:** `media_play` starts playback of media content or launches streaming services (`service: "hulu"`). `media_search` browses, searches, or requests recommendations (*"Show me movies with..."*). `media_control` changes state during playback (pause, resume, skip, fast-forward, rewind, like, dislike).
+* **`iot_device_power` vs. `iot_device_adjust` vs. `iot_sensor_query`:** Binary power toggles (`{"on", "off"}`) are `iot_device_power` (including door lock actuation: lock $\rightarrow$ `"on"`, unlock $\rightarrow$ `"off"`). Continuous adjustments (brightness, temperature, color, speed) are `iot_device_adjust`. Interrogative state/sensor queries (*"Is the front door locked?"*, *"What's the temperature?"*) are `iot_sensor_query` (`sensor_type: "lock"` or `"temperature"`).
 * **`memory_note_manage` vs. `schedule_manage`:** If an utterance specifies a **specific trigger time or date** (*"Remind me at 3 PM to call Bob"*), route to `schedule_manage`. If it lacks a time anchor (*"Remember my locker code is 4412"*), route to `memory_note_manage`.
-* **`qa_search` Boundary:** Restrict to factual questions, definitions, calculations, and general queries. Do NOT route local business searches (`places_search`) or route directions (`maps_route`) to `qa_search`.
+* **`qa_search` Boundary:** Restrict to factual questions, encyclopedia lookups, definitions, calculations, and general open-domain queries. Do NOT route media discovery (`media_search`), local business searches (`places_search`), or route directions (`maps_route`) to `qa_search`.
 
 ---
 
@@ -76,7 +75,11 @@ Every parameter belongs strictly to one of two mutually exclusive types:
 
 #### Type A: Extractive Spans (Verbatim Substrings)
 * **Verbatim Substring:** Exact literal substring from the transcript in lowercase.
-* **Bare Nominal (BaseNP):** Exclude governing prepositions (`at`, `to`, `in`, `for`, `with`, `on`) and articles (`a`, `an`, `the`). E.g., *"Drive to Chicago"* $\rightarrow$ `destination: "chicago"`.
+* **Rule A (BaseNP & Possessive Stripping):** Exclude governing prepositions (`at`, `to`, `in`, `for`, `with`, `on`), articles (`a`, `an`, `the`), AND possessive pronouns (`my`, `our`, `your`, `his`, `her`). E.g., *"Map a route to our hotel"* $\rightarrow$ `destination: "hotel"`; *"Delete my reminders"* $\rightarrow$ `title: "reminders"`.
+* **Rule B (Carrier Phrase Stripping in `qa_search`):** Strip conversational carrier prefixes (*"can you look up"*, *"tell me"*, *"search google for"*), capturing only the core query. Preserve verbatim syntax (e.g., *"Did the Clemson Tigers win?"* $\rightarrow$ `query: "did the clemson tigers win"`).
+* **Rule C (Declarative vs. Keyed Memory in `memory_note_manage`):**
+  * **Associative Attributes ($X$ is $Y$):** Extract `key` and `value` (e.g. *"Our parking space is green"* $\rightarrow$ `key: "parking space"`, `value: "green"`).
+  * **Declarative Clauses (Unkeyed):** If the statement is a freeform clause, do NOT fracture it into an artificial key. Store the full clause in `value` and leave `key` empty (e.g. *"Remember that we're out of batteries"* $\rightarrow$ `action: "store"`, `value: "we're out of batteries"`).
 * **Strict No-Hallucination:** Only extract entities explicitly uttered. Never invent unuttered keys or default values (e.g., in *"Where did I park?"*, leave slots as `{"action": "recall"}`; do NOT invent `key: "parking_space"`).
 * **Dysarthric Speech Handling:** Strip repeated stutter words (e.g., *"the the living room"* $\rightarrow$ `"living room"`). Preserve literal phonetic transcriptions without spelling corrections (e.g., *"recipe with cliantro"* $\rightarrow$ `query: "recipe with cliantro"`).
 

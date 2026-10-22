@@ -1,0 +1,51 @@
+id,prompt,domain,intent,slots_json,adjudication_notes
+1,Add this music to favorites.,media,media_control,"{""action"": ""like""}",Adjudicated: favorite mapped to action like
+6,Decrease volume to minimum.,media,media_volume,"{""action"": ""down"", ""change_amount"": ""minimum""}",Agreed
+95,Redial.,communication,call_manage,"{""action"": ""redial""}",Agreed
+103,Is the front door locked?,smart_home,iot_sensor_query,"{""device_type"": ""front door"", ""sensor_type"": ""lock""}",Adjudicated: state query for door lock mapped to iot_sensor_query with sensor_type lock
+104,Lock the front door.,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""on""}",Agreed
+105,Lower the temperature.,smart_home,iot_device_adjust,"{""direction"": ""down"", ""setting"": ""temperature""}",Agreed
+117,What's the temperature in the living room?,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature"", ""room"": ""living room""}",Agreed
+119,What's the thermostat set to?,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature""}",Agreed
+121,Delete my reminders for tomorrow.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""reminders"", ""date"": ""tomorrow""}","Adjudicated: tomorrow is date entity, not time"
+151,How many refills are left on my risperidone?,health,health_refill_query,"{""medication"": ""risperidone""}",Agreed
+160,"Recipe with cliantro, chicken, and garlic.",general_qa,qa_search,"{""query"": ""recipe with cliantro, chicken, and garlic""}",Agreed: verbatim factual query
+178,Snooze the alarm.,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",Agreed
+180,Take depakote at 1 PM.,health,health_medication_reminder,"{""medication"": ""depakote"", ""time"": ""1 pm""}",Agreed
+208,Where did I park?,notes_memory,memory_note_manage,"{""action"": ""recall"", ""key"": ""park""}",Agreed
+245,Fast forward 1 minute.,media,media_control,"{""action"": ""fast_forward"", ""duration"": ""1 minute""}",Agreed
+252,Open Hulu.,media,media_play,"{""service"": ""hulu""}",Adjudicated: app launch mapped to media_play with service slot
+259,"Play 'Blinding Lights"" by the Weekend.",media,media_play,"{""title"": ""blinding lights"", ""artist"": ""the weekend"", ""media_type"": ""music""}",Agreed
+286,Play 'Transformers' on Paramount Plus.,media,media_play,"{""media_type"": ""movie"", ""title"": ""transformers"", ""service"": ""paramount plus""}","Adjudicated: video playback mapped to media_play with title, media_type movie, service"
+342,Set the volume to 8.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""8""}",Agreed
+346,Skip backward 15 seconds.,media,media_control,"{""action"": ""rewind"", ""duration"": ""15 seconds""}",Agreed
+364,Did the Clemson Tigers win?,general_qa,qa_search,"{""query"": ""did the clemson tigers win?""}",Agreed: verbatim factual query
+387,How far is Home Depot from here?,maps_places,maps_route,"{""query_type"": ""distance"", ""destination"": ""home depot""}",Agreed
+445,Map a route to our hotel.,maps_places,maps_route,"{""destination"": ""hotel"", ""query_type"": ""directions""}",Adjudicated: BaseNP strips possessive our
+497,What's Tesla trading at?,general_qa,qa_search,"{""query"": ""what's tesla trading at?""}",Agreed: verbatim factual query
+570,When is Trader Joe's open until?,maps_places,places_search,"{""business_name"": ""trader joe's""}",Agreed
+622,Define 'ubiquitous'.,general_qa,qa_search,"{""query"": ""define 'ubiquitous'""}",Agreed: verbatim factual query
+647,"How many people live in Beijing, China?",general_qa,qa_search,"{""query"": ""how many people live in beijing, china?""}",Agreed: verbatim factual query
+664,How much is $10 in euros?,general_qa,qa_search,"{""query"": ""how much is $10 in euros?""}",Agreed: verbatim factual query
+724,Show me movies with Benicio Del Toro.,media,media_search,"{""media_type"": ""movie"", ""person"": ""benicio del toro""}",Adjudicated: media discovery mapped to media_search
+739,What are the side effects of atorvastatin?,health,health_info_query,"{""medication"": ""atorvastatin"", ""info_type"": ""side_effects""}",Agreed
+820,Open Facebook Messenger to send a message to Dyson Bunker.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""dyson bunker""}",Agreed
+829,Please call Amalia Adamson.,communication,call_make,"{""recipient_name"": ""amalia adamson""}",Agreed
+850,Send an email to Malachi Janowski.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""malachi janowski""}",Agreed
+867,Video call area code 650-253-0000.,communication,call_make,"{""phone_number"": ""650-253-0000""}",Agreed
+916,Preheat the oven to 375 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""oven"", ""setting"": ""temperature"", ""value"": ""375 degrees""}","Adjudicated: setting temperature with verbatim value 375 degrees, direction omitted"
+943,Turn off the lights in the den.,smart_home,iot_device_power,"{""state"": ""off"", ""device_type"": ""lights"", ""house_place"": ""den""}",Adjudicated: separate house_place from device_type
+960,Turn on the living room light.,smart_home,iot_device_power,"{""state"": ""on"", ""device_type"": ""light"", ""house_place"": ""living room""}",Adjudicated: separate house_place from device_type
+985,Add laundry detergent and toothpaste to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""list_name"": ""shopping list"", ""item"": ""laundry detergent and toothpaste""}",Adjudicated: verbatim BaseNP conjunction string
+1018,"Cancel my meeting with Nelida Ausra on Monday morning, September first.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""nelida ausra"", ""date"": ""monday september first"", ""time"": ""morning""}",Agreed
+1031,"Cancel my meeting with Vincente & Lin at 1:45 PM, Tuesday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""vincente & lin"", ""date"": ""tuesday"", ""time"": ""1:45 pm""}",Agreed
+1078,"Ginny Daniel at 7PM, Saturday.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""ginny daniel"", ""time"": ""7pm"", ""date"": ""saturday""}",Adjudicated: shorthand scheduling appointment has action create
+1099,My parking space is orange.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""orange""}",Agreed
+1103,Our parking space is green.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""green""}",Agreed
+1108,Remember that I left my wallet and keys on the counter.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""wallet and keys"", ""value"": ""counter""}",Agreed
+1118,Remember that we're out of batteries.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""we're out of batteries""}",Adjudicated: unkeyed declarative memory stored in value
+1120,Remind me to take a break in 15 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""15 minutes""}",Agreed: normalized time
+1129,"Reschedule my meeting with Fred Placid at 11:30, September 18th.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""fred placid"", ""time"": ""11:30"", ""date"": ""september 18th""}",Adjudicated: reschedule explicitly maps to action update
+1163,Set a reminder for our dinner reservation on Friday.,calendar_alarm,schedule_manage,"{""title"": ""dinner reservation"", ""date"": ""friday"", ""action"": ""create""}",Agreed
+1230,We parked on level 4.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parked"", ""value"": ""level 4""}",Agreed
+1291,"Find non-stop flights to Memphis, Tennessee on Southwest Airlines.",transport,transit_lookup,"{""transit_type"": ""flight"", ""destination"": ""memphis, tennessee"", ""route_or_station"": ""southwest airlines""}",Agreed

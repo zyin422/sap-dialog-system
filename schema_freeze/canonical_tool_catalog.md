@@ -1,7 +1,7 @@
 # Speech Accessibility Project (SAP) — SLU Benchmark
-# Canonical Tool Catalog & Detailed Signatures (28 Tools)
+# Canonical Tool Catalog & Detailed Signatures (29 Tools)
 
-This document provides the exhaustive, detailed parameter definitions, slot types, inclusions, exclusions, and concrete examples for all **28 Canonical Tools (Intents)** across the **10 Functional Domains**.
+This document provides the exhaustive, detailed parameter definitions, slot types, inclusions, exclusions, and concrete examples for all **29 Canonical Tools (Intents)** across the **10 Functional Domains**.
 
 For high-level annotation guidelines, 3-step decision flow, and the parameter quick-reference table, see [`SLU_annotator_guidelines.md`](file:///Users/zixuan/agy2-projects/sap-dialog-system/schema_freeze/SLU_annotator_guidelines.md).
 
@@ -19,7 +19,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 | `action` | Various | Scoped by tool:<br>• `alarm_manage`: `["set", "cancel", "query", "snooze"]`<br>• `schedule_manage`: `["create", "delete", "query", "update"]`<br>• `call_manage`: `["answer", "decline", "hang_up", "mute", "unmute", "redial"]`<br>• `messages_manage`: `["send", "read", "reply"]`<br>• `email_manage`: `["send", "read", "search"]`<br>• `order_manage`: `["track", "cancel", "return", "status"]`<br>• `media_control`: `["pause", "resume", "stop", "next", "previous", "like", "dislike", "fast_forward", "rewind"]`<br>• `media_volume`: `["up", "down", "mute", "unmute", "set"]`<br>• `lists_manage`: `["create", "add", "remove", "query"]`<br>• `memory_note_manage`: `["store", "recall"]` |
 | `state` | `accessibility_dictation_toggle`<br>`iot_device_power` | `["on", "off", "enable", "disable"]`<br>*(Door locks: lock $\rightarrow$ `"on"`, unlock $\rightarrow$ `"off"`)* |
 | `direction` | `accessibility_ui_scale`<br>`iot_device_adjust` | `["up", "down", "in", "out"]`<br>*(Normalize: brighten/raise $\rightarrow$ `"up"`, darken/dim/lower $\rightarrow$ `"down"`)* |
-| `media_type` | `media_play` | `["music", "podcast", "radio", "audiobook"]` |
+| `media_type` | `media_play`<br>`media_search` | `["music", "podcast", "radio", "audiobook", "movie", "tv_show"]` |
 | `query_type` | `maps_route` | `["directions", "distance", "traffic"]`<br>*(Normalize: navigate/route $\rightarrow$ `"directions"`)* |
 | `info_type` | `health_info_query` | `["side_effects", "dosage", "interactions", "refill"]` |
 | `ui_element` | `accessibility_ui_scale` | `["zoom", "text_size", "high_contrast", "screen"]` |
@@ -27,7 +27,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 | `sort_by` | `places_search` | `["rating", "distance", "relevance"]` |
 | `general_frequency`| `alarm_manage` | `["daily", "weekdays", "weekends", "weekly", "monthly"]`<br>*(Normalize: every day $\rightarrow$ `"daily"`)* |
 | `transit_type` | `transit_lookup` | `["train", "bus", "flight"]` |
-| `sensor_type` | `iot_sensor_query` | `["temperature", "motion"]` |
+| `sensor_type` | `iot_sensor_query` | `["temperature", "motion", "lock", "contact"]` |
 
 ---
 
@@ -59,6 +59,8 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 | `party_size` | `reservations_manage` | Number of reservation guests (e.g. `"four"`, `"eight"`). |
 | `query` | `qa_search` | Verbatim factual question text (e.g. `"who was the 16th president"`, `"how many grams in an ounce"`). |
 | `route_or_station` | `transit_lookup` | Public line, flight airline, or station name (e.g. `"red line"`, `"southwest airlines"`, `"grand central"`). |
+| `service` | `media_play` | Streaming app or service provider (e.g. `"hulu"`, `"paramount plus"`, `"spotify"`, `"apple music"`). |
+| `genre` | `media_search` | Media category, genre, or style (e.g. `"horror"`, `"comedy"`, `"rock"`). |
 | `house_place` / `room` | `media_play`<br>`smart_home` | Residential room or location (e.g. `"kitchen"`, `"living room"`, `"den"`). |
 | `weather_aspect` | `weather_query` | Meteorological condition queried (e.g. `"rain"`, `"snow"`, `"temperature"`). |
 
@@ -66,7 +68,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 
 ---
 
-## 2. Canonical Tool Catalog (28 Tools)
+## 2. Canonical Tool Catalog (29 Tools)
 
 ### Domain: `accessibility`
 
@@ -273,17 +275,31 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 ### Domain: `media`
 
 #### 19. `media_play`
-* **Description:** Initiate playback of music, podcasts, radio stations, or audiobooks.
+* **Description:** Initiate playback of music, podcasts, radio stations, audiobooks, movies, or video streaming services.
 * **Slots:**
-  * `media_type` (**Categorical Enum**, optional): `["music", "podcast", "radio", "audiobook"]`
-  * `title` (**Extractive Span**, optional): Track, album, or episode title (*"billboard top 40"*, *"the daily"*)
+  * `media_type` (**Categorical Enum**, optional): `["music", "podcast", "radio", "audiobook", "movie", "tv_show"]`
+  * `title` (**Extractive Span**, optional): Track, album, movie, or episode title (*"billboard top 40"*, *"the daily"*, *"transformers"*)
   * `artist` (**Extractive Span**, optional): Musician or host (*"taylor swift"*, *"the beatles"*)
+  * `service` (**Extractive Span**, optional): Streaming app or platform (*"hulu"*, *"paramount plus"*, *"spotify"*)
   * `house_place` (**Extractive Span**, optional): Room (*"living room"*)
 * **Examples:**
   * *"Play music by The Beatles."* $\rightarrow$ `{"media_type": "music", "artist": "beatles"}`
-  * *"Play NPR podcast."* $\rightarrow$ `{"media_type": "podcast", "title": "npr"}`
+  * *"Play 'Transformers' on Paramount Plus."* $\rightarrow$ `{"media_type": "movie", "title": "transformers", "service": "paramount plus"}`
+  * *"Open Hulu."* $\rightarrow$ `{"service": "hulu"}`
 
-#### 20. `media_control`
+#### 20. `media_search`
+* **Description:** Search, browse, or recommend movies, shows, songs, albums, or audiobooks without immediate playback actuation.
+* **Inclusion:** Commands asking to show, find, browse, or recommend media (*"Show me movies with Benicio Del Toro"*, *"Recommend a comedy podcast"*).
+* **Slots:**
+  * `media_type` (**Categorical Enum**, optional): `["movie", "tv_show", "music", "podcast", "audiobook"]`
+  * `person` (**Extractive Span**, optional): Actor, director, or musician (*"benicio del toro"*, *"christopher nolan"*)
+  * `genre` (**Extractive Span**, optional): Genre or category (*"comedy"*, *"action"*, *"documentary"*)
+  * `title` (**Extractive Span**, optional): Franchise or title query (*"batman"*)
+* **Examples:**
+  * *"Show me movies with Benicio Del Toro."* $\rightarrow$ `{"media_type": "movie", "person": "benicio del toro"}`
+  * *"Find comedy podcasts."* $\rightarrow$ `{"media_type": "podcast", "genre": "comedy"}`
+
+#### 21. `media_control`
 * **Description:** Control playback state (pause, resume, stop, next track, skip backward, fast forward, like, dislike).
 * **Slots:**
   * `action` (**Categorical Enum**, required): `["pause", "resume", "stop", "next", "previous", "like", "dislike", "fast_forward", "rewind"]`
@@ -293,7 +309,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
   * *"Fast forward 2 minutes."* $\rightarrow$ `{"action": "fast_forward", "duration": "2 minutes"}`
   * *"Like this song."* $\rightarrow$ `{"action": "like"}`
 
-#### 21. `media_volume`
+#### 22. `media_volume`
 * **Description:** Adjust or mute audio output volume level.
 * **Slots:**
   * `action` (**Categorical Enum**, required): `["up", "down", "mute", "unmute", "set"]`
@@ -306,7 +322,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 
 ### Domain: `notes_memory`
 
-#### 22. `lists_manage`
+#### 23. `lists_manage`
 * **Description:** Create, view, add items to, or remove items from shopping or to-do lists.
 * **Slots:**
   * `action` (**Categorical Enum**, required): `["create", "add", "remove", "query"]`
@@ -316,7 +332,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
   * *"Add milk to my grocery list."* $\rightarrow$ `{"action": "add", "item": "milk", "list_name": "grocery list"}`
   * *"What is on my shopping list?"* $\rightarrow$ `{"action": "query", "list_name": "shopping list"}`
 
-#### 23. `memory_note_manage`
+#### 24. `memory_note_manage`
 * **Description:** Store or recall user personal notes, memos, and facts that **lack a specific trigger date or time**.
 * **Span Extraction Rule:** `key` and `value` must be literal substrings from the command. Never hallucinate an unmentioned key (e.g. for *"Where did I park?"*, do NOT invent `key: "parking_space"`; leave slots as `{"action": "recall"}`).
 * **Slots:**
@@ -332,9 +348,9 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 
 ### Domain: `smart_home`
 
-#### 24. `iot_device_power`
-* **Description:** Discrete binary power control: turn smart appliances and lighting on or off. Also handles smart door locks.
-* **Special Convention (Smart Door Locks):** Commands to lock/unlock route here with `state: "on"` for locking and `state: "off"` for unlocking.
+#### 25. `iot_device_power`
+* **Description:** Discrete binary power control: turn smart appliances and lighting on or off. Also handles smart door locks actuation.
+* **Special Convention (Smart Door Locks):** Commands to lock/unlock route here with `state: "on"` for locking and `state: "off"` for unlocking. State inspection queries route to `iot_sensor_query`.
 * **Slots:**
   * `device_type` (**Extractive Span**, optional): Hardware appliance or fixture (*"bedroom light"*, *"lamp"*, *"fan"*, *"front door"*)
   * `state` (**Categorical Enum**, required): `["on", "off"]`
@@ -345,7 +361,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
   * *"Lock the front door."* $\rightarrow$ `{"device_type": "front door", "state": "on"}`
   * *"Unlock the front door."* $\rightarrow$ `{"device_type": "front door", "state": "off"}`
 
-#### 25. `iot_device_adjust`
+#### 26. `iot_device_adjust`
 * **Description:** Adjust continuous smart device settings: brightness, temperature, color, or speed.
 * **Slots:**
   * `device_type` (**Extractive Span**, optional): Appliance (*"thermostat"*, *"lamp"*)
@@ -356,26 +372,29 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
   * *"Set the thermostat to 72 degrees."* $\rightarrow$ `{"device_type": "thermostat", "setting": "temperature", "value": "72 degrees"}`
   * *"Dim the living room light."* $\rightarrow$ `{"device_type": "light", "setting": "brightness", "direction": "down"}`
 
-#### 26. `iot_sensor_query`
-* **Description:** Inquire about the current reading of ambient indoor environmental sensors.
+#### 27. `iot_sensor_query`
+* **Description:** Inquire about ambient indoor sensor readings (temperature, motion) or state inspection of contact/lock sensors.
+* **Inclusion:** Environmental readings (*"What's the temperature in the living room?"*) and interrogative status queries (*"Is the front door locked?"*).
 * **Slots:**
-  * `sensor_type` (**Extractive Span**, optional): Modality (*"temperature"*, *"motion"*)
-  * `room` (**Extractive Span**, optional): Room (*"living room"*, *"kitchen"*)
+  * `sensor_type` (**Categorical Enum**, optional): `["temperature", "motion", "lock", "contact"]`
+  * `device_type` (**Extractive Span**, optional): Hardware target (*"front door"*, *"thermostat"*)
+  * `room` (**Extractive Span**, optional): Room or area (*"living room"*, *"kitchen"*)
 * **Examples:**
   * *"What is the temperature in the living room?"* $\rightarrow$ `{"sensor_type": "temperature", "room": "living room"}`
+  * *"Is the front door locked?"* $\rightarrow$ `{"sensor_type": "lock", "device_type": "front door"}`
 
 ---
 
 ### Domain: `transport`
 
-#### 27. `rideshare_book`
+#### 28. `rideshare_book`
 * **Description:** Order or hail a taxi, cab, or rideshare vehicle.
 * **Slots:**
   * `destination` (**Extractive Span**, optional): Arrival point (*"downtown"*, *"airport"*)
 * **Examples:**
   * *"Call me an Uber to the airport."* $\rightarrow$ `{"destination": "airport"}`
 
-#### 28. `transit_lookup`
+#### 29. `transit_lookup`
 * **Description:** Check schedules or book tickets for public transit, trains, buses, subways, and flights.
 * **Slots:**
   * `transit_type` (**Extractive Span**, optional): Transit mode (*"bus"*, *"train"*, *"flight"*)

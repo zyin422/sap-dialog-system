@@ -451,6 +451,10 @@
             "type": "string",
             "description": "Target geographic destination (BaseNP stripped)"
           },
+          "origin": {
+            "type": "string",
+            "description": "Starting geographic departure point (BaseNP stripped)"
+          },
           "query_type": {
             "type": "string",
             "enum": [

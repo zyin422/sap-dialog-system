@@ -4,6 +4,34 @@ This document tracks the formal evolutionary changelog of the Spoken Language Un
 
 ---
 
+## Version 1.2 — Dual-Frontier Stress-Test & Schema Freeze (October 22, 2026)
+
+### 1. Empirical Dual-Frontier Calibration (Claude 3.5 Sonnet vs. GPT-6 Instant)
+* **Dataset:** 100 high-ambiguity spoken commands spanning all 10 domains and 29 tools (0% overlap with Pilot 50).
+* **Batch 1 (Commands 1–50):** 100% Domain Agreement, 100% Intent Agreement, 74.0% Slot EM. Disagreements partitioned into 2 systematic boundary patterns (generic meeting titles and alarm frequency inference).
+* **Batch 2 (Commands 51–100):** 98.0% Domain Agreement, 98.0% Intent Agreement, 68.0% Slot EM. Tested cross-domain boundary cases in transport, maps, notes, and media.
+* **Publication Reproducibility Protocol:** Closed-source frontier LLMs were used exclusively for inductive edge-case discovery and ontology calibration. For the final archival benchmark paper, gold ground-truth generation will be executed via a frozen, pinned open-weights model checkpoint (e.g., Qwen 2.5 72B / Llama 3.3 70B) at $T=0.0$ with exact seed, prompt, and system environment logged.
+
+### 2. Schema Architectural Updates
+* **Added `origin` to `maps_route` (Domain: `maps_places`):**
+  * *Rationale:* Spoken navigation queries frequently specify explicit departure points (e.g., Prompt #383: *"How far is Brattleboro, Vermont from Montreal, Canada?"*). Adding an optional `origin` slot decouples the departure point (`origin: "montreal, canada"`) from the target destination (`destination: "brattleboro, vermont"`), avoiding loss of spatial information or artificial slot concatenation.
+* **Formalized Airline Carrier in `route_or_station` (`transit_lookup`):**
+  * *Rationale:* Affirmed parity with Pilot 50 Gold (#1291: *"on Southwest Airlines"* $\rightarrow$ `route_or_station: "southwest airlines"`). Commercial airline carriers (*"Jet Blue"*, *"Air Canada"*, *"American Airlines"*) belong in `route_or_station` alongside rail and bus lines.
+
+### 3. Codified Guideline Rules (Rules D through H)
+* **Rule D (Generic Event Noun Preservation in `schedule_manage`):**
+  * When an utterance contains a generic event noun (*"meeting"*, *"call"*, *"appointment"*, *"reminder"*) without a custom topic (e.g., *"Cancel my meeting with Sanjiv Lynne"*), retain the noun in `title` (`title: "meeting"`). The noun carries inherent event category metadata required for calendar retrieval.
+* **Rule E (Alarm Recurrence Token Constraint in `alarm_manage`):**
+  * The `general_frequency` enum (`daily`, `weekdays`, `weekends`, `weekly`, `monthly`) must ONLY be populated when an explicit recurrence token or frequency adverb is uttered (e.g., *"daily"*, *"weekdays"*, *"every Thursday"*). Coordinated multi-day targets without explicit recurrence markers (e.g., *"on Thursday and Friday"*) belong strictly in `date` (`date: "thursday and friday"`), leaving `general_frequency` unpopulated.
+* **Rule F (Business Hours & Metadata in `places_search`):**
+  * Spoken inquiries regarding commercial venue opening hours, closing times, or operational status (e.g., Prompt #564: *"When is Bed, Bath and Beyond open until?"*) map to `maps_places.places_search` (`business_name: "bed, bath and beyond"`), NOT `general_qa.qa_search`. Operating hours are structured attributes of a local business entity.
+* **Rule G (Transit Modifiers in `transit_lookup`):**
+  * Spoken commercial airlines extract into `route_or_station`. General flight modifiers such as *"non-stop"* or *"round-trip"* are Outside (O) tokens and must NOT be forced into `time` (which is strictly reserved for clock/departure timestamps).
+* **Rule H (Origin and Destination in `maps_route`):**
+  * When navigation or distance queries specify both a starting point and a target (e.g., *"How far is X from Y?"*), extract the departure point into `origin` and the destination into `destination`.
+
+---
+
 ## Version 1.1 — Post-Pilot Adjudication & Machine-Schema Freeze (October 22, 2026)
 
 ### 1. Architectural Changes (28 $\rightarrow$ 29 Tools)

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontier 100 Ambiguity Explorer</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(140, 140, 140, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(140, 140, 140, 0.5);
+    }
+    .highlight {
+      background-color: rgba(234, 179, 8, 0.35);
+      color: inherit;
+      font-weight: 600;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+    .score-6 { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .score-5 { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .score-4 { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+    .score-3 { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+  </style>
+</head>
+<body class="bg-[var(--background,#0b0f19)] text-[var(--foreground,#f1f5f9)] antialiased min-h-screen flex flex-col font-sans text-sm">
+
+  <!-- Header -->
+  <header class="bg-[var(--card,#131b2e)] border-b border-[var(--border,#1e293b)] px-6 py-4 shadow-sm sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="px-2.5 py-1 rounded-md text-xs font-bold tracking-wider uppercase bg-red-500/20 text-red-400 border border-red-500/30">Frontier 100 Benchmark</span>
+          <h1 class="text-xl md:text-2xl font-bold tracking-tight text-[var(--foreground,#ffffff)]">Curated Frontier Commands Inspector</h1>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground,#94a3b8)] mt-1">
+          High-ambiguity edge case commands from <code class="text-sky-300 font-mono">frontier_sample_100.csv</code> testing SLU boundary conditions & slot disambiguation.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 flex-wrap">
+        <button id="btn-mode-deck" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 text-white shadow-sm flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          Card Flip Deck
+        </button>
+        <button id="btn-mode-table" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary,#1e293b)] hover:bg-[var(--border,#334155)] border border-[var(--border,#334155)] text-[var(--muted-foreground,#94a3b8)] hover:text-white flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          Table View
+        </button>
+        <button id="btn-export-csv" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary,#1e293b)] hover:bg-[var(--border,#334155)] border border-[var(--border,#334155)] text-[var(--foreground,#f1f5f9)] flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Export CSV
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Metrics Strip -->
+  <section class="bg-[var(--card,#131b2e)]/50 border-b border-[var(--border,#1e293b)] px-6 py-3">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
+      <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] p-2.5 rounded-lg">
+        <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] uppercase font-semibold">Total Sampled</div>
+        <div class="text-lg font-bold text-white">100 <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-normal">commands</span></div>
+      </div>
+      <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] p-2.5 rounded-lg">
+        <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] uppercase font-semibold">Score 6 (Peak)</div>
+        <div class="text-lg font-bold text-red-400">13 <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-normal">(13%)</span></div>
+      </div>
+      <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] p-2.5 rounded-lg">
+        <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] uppercase font-semibold">Score 5 (High)</div>
+        <div class="text-lg font-bold text-amber-400">60 <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-normal">(60%)</span></div>
+      </div>
+      <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] p-2.5 rounded-lg">
+        <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] uppercase font-semibold">Score 4 (Medium)</div>
+        <div class="text-lg font-bold text-blue-400">20 <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-normal">(20%)</span></div>
+      </div>
+      <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] p-2.5 rounded-lg">
+        <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] uppercase font-semibold">Domain Quotas</div>
+        <div class="text-lg font-bold text-emerald-400">9 <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-normal">domains</span></div>
+      </div>
+      <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] p-2.5 rounded-lg">
+        <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] uppercase font-semibold">Haiku Intents</div>
+        <div class="text-lg font-bold text-purple-400">16 <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-normal">intents</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full px-6 py-6 flex-1 flex flex-col gap-5">
+
+    <!-- Interactive Inspection Deck View (Flip-Through Mode) -->
+    <section id="deck-view-container" class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] rounded-2xl p-6 shadow-xl flex flex-col gap-6 relative">
+      <div class="flex items-center justify-between border-b border-[var(--border,#1e293b)] pb-4">
+        <div class="flex items-center gap-3">
+          <span id="deck-counter" class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-blue-600/20 text-blue-400 border border-blue-500/30">1 / 100</span>
+          <span class="text-xs text-[var(--muted-foreground,#94a3b8)] font-mono">Original ID: <strong id="deck-id" class="text-white">650</strong></span>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <span id="deck-score-badge" class="px-3 py-1 rounded-full text-xs font-bold score-6">Score 6/6</span>
+          <span class="text-xs text-[var(--muted-foreground,#94a3b8)] hidden sm:inline">(Use <kbd class="px-1.5 py-0.5 rounded bg-[var(--background,#0b0f19)] border border-[var(--border,#1e293b)] text-white">←</kbd> <kbd class="px-1.5 py-0.5 rounded bg-[var(--background,#0b0f19)] border border-[var(--border,#1e293b)] text-white">→</kbd> arrow keys)</span>
+        </div>
+      </div>
+
+      <!-- Main Command Prompt Card -->
+      <div class="bg-[var(--background,#0b0f19)] border border-[var(--border,#1e293b)] rounded-xl p-6 flex flex-col justify-between gap-4 shadow-inner">
+        <div>
+          <div class="text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground,#94a3b8)] mb-2 flex items-center justify-between">
+            <span>Uttered Voice Command</span>
+            <button id="btn-deck-copy" class="text-blue-400 hover:text-blue-300 text-xs flex items-center gap-1 transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+              Copy Prompt
+            </button>
+          </div>
+          <p id="deck-prompt" class="text-xl md:text-2xl font-bold text-white leading-relaxed">
+            "How many calories does 15 baby carrots and a scoop of hummus have?"
+          </p>
+        </div>
+
+        <!-- Annotation & Classification Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-[var(--border,#1e293b)]/70">
+          <div class="bg-[var(--card,#131b2e)]/60 border border-[var(--border,#1e293b)] rounded-lg p-3">
+            <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] font-semibold uppercase">Domain Quota</div>
+            <div id="deck-domain" class="text-base font-semibold text-amber-400 mt-0.5">general_qa</div>
+          </div>
+          <div class="bg-[var(--card,#131b2e)]/60 border border-[var(--border,#1e293b)] rounded-lg p-3">
+            <div class="text-[11px] text-[var(--muted-foreground,#94a3b8)] font-semibold uppercase">Haiku Predicted Intent</div>
+            <div id="deck-intent" class="text-base font-semibold text-purple-400 font-mono mt-0.5">qa_search</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boundary & Ambiguity Tags -->
+      <div>
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground,#94a3b8)] mb-2">Ambiguity Dimensions & Boundary Triggers</div>
+        <div id="deck-tags-container" class="flex flex-wrap gap-2">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Deck Navigation Bar -->
+      <div class="flex items-center justify-between pt-2 border-t border-[var(--border,#1e293b)]">
+        <button id="btn-deck-prev" class="px-4 py-2 rounded-lg bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] border border-[var(--border,#1e293b)] text-white text-xs font-semibold flex items-center gap-2 transition disabled:opacity-30 disabled:cursor-not-allowed">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Previous Command
+        </button>
+
+        <div class="flex items-center gap-2">
+          <input id="deck-jump-input" type="number" min="1" max="100" value="1" class="w-14 bg-[var(--background,#0b0f19)] border border-[var(--border,#1e293b)] text-center text-xs py-1.5 rounded text-white font-mono outline-none" />
+          <span class="text-xs text-[var(--muted-foreground,#94a3b8)]">/ 100</span>
+          <button id="btn-deck-jump" class="px-2.5 py-1.5 rounded bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] border border-[var(--border,#1e293b)] text-xs text-blue-400">Go</button>
+        </div>
+
+        <button id="btn-deck-next" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold flex items-center gap-2 transition disabled:opacity-30 disabled:cursor-not-allowed">
+          Next Command
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Search & Filters Panel -->
+    <div class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] rounded-xl p-4 shadow-sm flex flex-col gap-4">
+      <!-- Search Input -->
+      <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+        <div class="relative flex-1">
+          <input
+            id="table-search"
+            type="text"
+            placeholder="Search prompts, domains, intents, or tags (e.g. 'calories', 'meeting', 'timer', 'boundary_qa')..."
+            class="w-full bg-[var(--background,#0b0f19)] border border-[var(--border,#1e293b)] focus:border-blue-500 rounded-lg px-4 py-2.5 pl-10 text-sm text-[var(--foreground,#f1f5f9)] placeholder-[var(--placeholder,#64748b)] outline-none transition"
+          />
+          <svg class="w-4 h-4 absolute left-3.5 top-3.5 text-[var(--muted-foreground,#94a3b8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <button id="btn-clear-search" class="hidden absolute right-3 top-3 text-[var(--muted-foreground,#94a3b8)] hover:text-white text-xs">✕</button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label class="text-xs text-[var(--muted-foreground,#94a3b8)]">Sort:</label>
+          <select id="sort-select" class="bg-[var(--background,#0b0f19)] border border-[var(--border,#1e293b)] text-xs rounded-lg px-2.5 py-1.5 text-[var(--foreground,#f1f5f9)] outline-none cursor-pointer">
+            <option value="original">Original Sample Order</option>
+            <option value="score-desc">Ambiguity Score (Highest first)</option>
+            <option value="score-asc">Ambiguity Score (Lowest first)</option>
+            <option value="domain">Domain Quota</option>
+            <option value="alpha">Alphabetical (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filter Row 1: Ambiguity Score Badges -->
+      <div>
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground,#94a3b8)] mb-2">Filter by Ambiguity Score:</div>
+        <div id="score-filters" class="flex flex-wrap gap-2">
+          <button data-score="all" class="score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white border border-blue-500">All (100)</button>
+          <button data-score="6" class="score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-red-400 border border-[var(--border,#1e293b)]">Score 6 (13)</button>
+          <button data-score="5" class="score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-amber-400 border border-[var(--border,#1e293b)]">Score 5 (60)</button>
+          <button data-score="4" class="score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-blue-400 border border-[var(--border,#1e293b)]">Score 4 (20)</button>
+          <button data-score="3" class="score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-slate-300 border border-[var(--border,#1e293b)]">Score 3 (7)</button>
+        </div>
+      </div>
+
+      <!-- Filter Row 2: Domain Quota -->
+      <div>
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground,#94a3b8)] mb-2">Filter by Domain Quota:</div>
+        <div id="domain-filters" class="flex flex-wrap gap-1.5">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Filter Row 3: Boundary Crossover Tags -->
+      <div>
+        <div class="text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground,#94a3b8)] mb-2">Filter by Boundary Condition:</div>
+        <div id="boundary-filters" class="flex flex-wrap gap-1.5">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Filters & Table Status -->
+    <div class="flex items-center justify-between text-xs text-[var(--muted-foreground,#94a3b8)] px-1">
+      <div class="flex items-center gap-2">
+        <span>Showing <strong id="filter-count" class="text-white font-semibold">100</strong> of <strong class="text-white">100</strong> commands</span>
+        <button id="btn-reset-filters" class="hidden text-blue-400 hover:text-blue-300 underline cursor-pointer ml-2">Reset filters</button>
+      </div>
+    </div>
+
+    <!-- Table View Container -->
+    <div id="table-view-container" class="bg-[var(--card,#131b2e)] border border-[var(--border,#1e293b)] rounded-xl shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-[var(--background,#0b0f19)]/60 text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground,#94a3b8)] border-b border-[var(--border,#1e293b)]">
+              <th class="py-3 px-4 w-12 text-center">#</th>
+              <th class="py-3 px-4 w-16">ID</th>
+              <th class="py-3 px-4 w-24">Score</th>
+              <th class="py-3 px-4 w-36">Domain Quota</th>
+              <th class="py-3 px-4 w-44">Haiku Intent</th>
+              <th class="py-3 px-4">Uttered Prompt</th>
+              <th class="py-3 px-4 w-28 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body" class="divide-y divide-[var(--border,#1e293b)]/40 text-xs">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="hidden fixed bottom-6 right-6 z-50 bg-blue-600 text-white px-4 py-2.5 rounded-xl shadow-lg text-xs font-medium flex items-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-msg">Copied prompt to clipboard!</span>
+  </div>
+
+  <script>
+    const COMMANDS = [{"index": 1, "id": "650", "prompt": "How many calories does 15 baby carrots and a scoop of hummus have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 13, "char_count": 66}, {"index": 2, "id": "658", "prompt": "How many calories does a pint of Ben and Jerry's ice cream have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 13, "char_count": 64}, {"index": 3, "id": "652", "prompt": "How many calories does 3 teaspoons of brown sugar have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 55}, {"index": 4, "id": "656", "prompt": "How many calories does a piece of grilled salmon have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 54}, {"index": 5, "id": "661", "prompt": "How many calories does a slice of sausage pizza have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 53}, {"index": 6, "id": "786", "prompt": "Who is the lead character in '2001: A Space Odyssey'?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 53}, {"index": 7, "id": "655", "prompt": "How many calories does a cup of blueberries have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 49}, {"index": 8, "id": "660", "prompt": "How many calories does a pint of ice cream have?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 48}, {"index": 9, "id": "792", "prompt": "Who is the lead character in 'West Side Story'?", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 47}, {"index": 10, "id": "726", "prompt": "Show me movies with Catherine Zeta-Jones.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 41}, {"index": 11, "id": "728", "prompt": "Show me movies with Denzel Washington.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 38}, {"index": 12, "id": "727", "prompt": "Show me movies with Daniel Day-Lewis.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 37}, {"index": 13, "id": "730", "prompt": "Show me movies with Jack Nicholson.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 35}, {"index": 14, "id": "731", "prompt": "Show me movies with Julianne Moore.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 35}, {"index": 15, "id": "734", "prompt": "Show me movies with Ryan Reynolds.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 34}, {"index": 16, "id": "725", "prompt": "Show me movies with Blake Lively.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 33}, {"index": 17, "id": "733", "prompt": "Show me movies with Ryan Gosling.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 33}, {"index": 18, "id": "738", "prompt": "Show me movies with Will Ferrell.", "domain_quota": "general_qa", "haiku_intent": "qa_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_qa_crossover"], "boundary_tags": ["boundary_qa_crossover"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 6, "char_count": 33}, {"index": 19, "id": "1026", "prompt": "Cancel my meeting with Soren Ignaz at 8:15 AM, Thursday the 30th.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 12, "char_count": 65}, {"index": 20, "id": "1180", "prompt": "Set a timer for chocolate chip and walnut cookies for 12 minutes.", "domain_quota": "calendar_alarm", "haiku_intent": "alarm_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 12, "char_count": 65}, {"index": 21, "id": "1022", "prompt": "Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 12, "char_count": 64}, {"index": 22, "id": "1016", "prompt": "Cancel my meeting with Kiley Jokin at 9 AM on July 14th, 2023.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 13, "char_count": 62}, {"index": 23, "id": "1023", "prompt": "Cancel my meeting with Sib and Gertrud at 9:30 AM, Sunday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 11, "char_count": 58}, {"index": 24, "id": "1029", "prompt": "Cancel my meeting with Valli Sylvia at 1:15, 8/15/2023.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 9, "char_count": 55}, {"index": 25, "id": "1014", "prompt": "Cancel my meeting with Jiro Thomas at 9 PM, Saturday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 10, "char_count": 53}, {"index": 26, "id": "1177", "prompt": "Set a timer for baked chicken for 2 and a half hours.", "domain_quota": "calendar_alarm", "haiku_intent": "alarm_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 12, "char_count": 53}, {"index": 27, "id": "1186", "prompt": "Set an alarm for 3:45 PM on Thursday and Friday.", "domain_quota": "calendar_alarm", "haiku_intent": "alarm_manage", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 10, "char_count": 48}, {"index": 28, "id": "1125", "prompt": "Reschedule my meeting with Barrett Sipho at 6:30 PM, April 4th, 2023.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 12, "char_count": 69}, {"index": 29, "id": "1127", "prompt": "Reschedule my meeting with Chanelle Kellen at noon, May 1st, Friday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 11, "char_count": 68}, {"index": 30, "id": "1131", "prompt": "Reschedule my meeting with Valeria Berengere at 11 O'clock, Sunday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 10, "char_count": 67}, {"index": 31, "id": "1126", "prompt": "Reschedule my meeting with Catherine Isabella at 8:30 AM, Monday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 10, "char_count": 65}, {"index": 32, "id": "1132", "prompt": "Reschedule my meeting with Virginia Daniel at 7, Saturday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 9, "char_count": 58}, {"index": 33, "id": "1130", "prompt": "Reschedule my meeting with Irene Anand at 4:15, Tuesday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 9, "char_count": 56}, {"index": 34, "id": "1128", "prompt": "Reschedule my meeting with Demetri Lucien at 9, Friday.", "domain_quota": "calendar_alarm", "haiku_intent": "calendar_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_timer_schedule"], "boundary_tags": ["boundary_timer_schedule"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 9, "char_count": 55}, {"index": 35, "id": "944", "prompt": "Turn off the lights in the dining room.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 39}, {"index": 36, "id": "945", "prompt": "Turn off the lights in the family room.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 39}, {"index": 37, "id": "947", "prompt": "Turn off the lights in the hall closet.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 39}, {"index": 38, "id": "950", "prompt": "Turn off the lights in the living room.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 39}, {"index": 39, "id": "948", "prompt": "Turn off the lights in the kids' room.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 38}, {"index": 40, "id": "946", "prompt": "Turn off the lights in the guestroom.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 7, "char_count": 37}, {"index": 41, "id": "934", "prompt": "Turn down the temperature 2 degrees.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 36}, {"index": 42, "id": "935", "prompt": "Turn down the temperature 3 degrees.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 36}, {"index": 43, "id": "936", "prompt": "Turn down the temperature 4 degrees.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 36}, {"index": 44, "id": "937", "prompt": "Turn down the temperature 5 degrees.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 36}, {"index": 45, "id": "933", "prompt": "Turn down the temperature 1 degree.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 35}, {"index": 46, "id": "949", "prompt": "Turn off the lights in the kitchen.", "domain_quota": "smart_home", "haiku_intent": "iot_device_power", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 7, "char_count": 35}, {"index": 47, "id": "963", "prompt": "Turn up the temperature 2 degrees.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 34}, {"index": 48, "id": "964", "prompt": "Turn up the temperature 3 degrees.", "domain_quota": "smart_home", "haiku_intent": "iot_device_adjust", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_iot_power_adjust_sensor"], "boundary_tags": ["boundary_iot_power_adjust_sensor"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 6, "char_count": 34}, {"index": 49, "id": "316", "prompt": "Play the latest episode of 'Ten Percent Happier' with Dan Harris on Spotify.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 13, "char_count": 76}, {"index": 50, "id": "283", "prompt": "Play 'The Tears of a Clown' by Smokey Robinson and the Miracles.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 6, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "polysemous_verb"], "word_count": 12, "char_count": 64}, {"index": 51, "id": "308", "prompt": "Play the latest episode of 'If Books Could Kill' on Spotify.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 11, "char_count": 60}, {"index": 52, "id": "330", "prompt": "Read 'The Lion, The Witch, and the Wardrobe' on Audiobook.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 10, "char_count": 58}, {"index": 53, "id": "318", "prompt": "Play the latest episode of 'The NPR Newsroom' on Spotify.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 57}, {"index": 54, "id": "314", "prompt": "Play the latest episode of 'Stand up Comedy' on Spotify.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 56}, {"index": 55, "id": "310", "prompt": "Play the latest episode of 'Let's be Real' on Spotify.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 54}, {"index": 56, "id": "306", "prompt": "Play the latest episode of \"A Little Something Extra\"", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 53}, {"index": 57, "id": "315", "prompt": "Play the latest episode of 'Stuff You Should Know'.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 51}, {"index": 58, "id": "309", "prompt": "Play the latest episode of 'Joe Rogan' on Spotify.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 50}, {"index": 59, "id": "261", "prompt": "Play 'Carol and Ava Detectives' on Audiobook.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 7, "char_count": 45}, {"index": 60, "id": "273", "prompt": "Play 'Me and Bobby McGee' by Janis Joplin.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 8, "char_count": 42}, {"index": 61, "id": "276", "prompt": "Play 'Stay with Me' by Sam Smith.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 7, "char_count": 33}, {"index": 62, "id": "319", "prompt": "Play the latest episode of 'This American Life'.", "domain_quota": "media", "haiku_intent": "media_play", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_media_play_search_control"], "boundary_tags": ["boundary_media_play_search_control"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 48}, {"index": 63, "id": "221", "prompt": "Please send this text: \"Hi, exclamation point. What time will you be home, question mark. Thanks, exclamation point.\"", "domain_quota": "communication", "haiku_intent": "messages_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 18, "char_count": 117}, {"index": 64, "id": "822", "prompt": "Open Gmail to send a message to Layne Banks.", "domain_quota": "communication", "haiku_intent": "messages_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 44}, {"index": 65, "id": "220", "prompt": "Please send this email: \"Dear customer service, comma. I am writing about the status of order number 384972, period. Do you have a tracking update, question mark. Thank you, period.\"", "domain_quota": "communication", "haiku_intent": "email_manage", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "length>=9", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6", "length>=9"], "word_count": 30, "char_count": 182}, {"index": 66, "id": "844", "prompt": "Send a message to Hayri & Amador Teague.", "domain_quota": "communication", "haiku_intent": "messages_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 8, "char_count": 40}, {"index": 67, "id": "855", "prompt": "Send an email to UPS Customer Service.", "domain_quota": "communication", "haiku_intent": "email_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 7, "char_count": 38}, {"index": 68, "id": "122", "prompt": "Did I miss any emails from yesterday?", "domain_quota": "communication", "haiku_intent": "email_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 7, "char_count": 37}, {"index": 69, "id": "849", "prompt": "Send an email to Jasmine Witherspoon.", "domain_quota": "communication", "haiku_intent": "email_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 6, "char_count": 37}, {"index": 70, "id": "219", "prompt": "Please send this email to the group.", "domain_quota": "communication", "haiku_intent": "email_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 7, "char_count": 36}, {"index": 71, "id": "843", "prompt": "Send a message to Felicitas Sinagra.", "domain_quota": "communication", "haiku_intent": "messages_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 6, "char_count": 36}, {"index": 72, "id": "846", "prompt": "Send a message to The Mounce Family.", "domain_quota": "communication", "haiku_intent": "messages_manage", "ambiguity_score": 3, "ambiguity_tags": ["length>=6", "boundary_comm_channels"], "boundary_tags": ["boundary_comm_channels"], "linguistic_tags": ["length>=6"], "word_count": 7, "char_count": 36}, {"index": 73, "id": "988", "prompt": "Add meat for grilling, pre-cut vegetables, teriyaki sauce, and bamboo skewers to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 15, "char_count": 99}, {"index": 74, "id": "984", "prompt": "Add ingredients for chili, pizza dough, shredded mozzarella, and heel balm to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 15, "char_count": 96}, {"index": 75, "id": "999", "prompt": "Add vanilla mousse, mussels, non-fat Greek yogurt, and triple A batteries to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 15, "char_count": 95}, {"index": 76, "id": "981", "prompt": "Add frozen strawberries, blueberries, a case of paper towels, and cereal to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 15, "char_count": 94}, {"index": 77, "id": "986", "prompt": "Add laundry detergent, toothpaste, aluminum foil, and cranberry juice to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 13, "char_count": 91}, {"index": 78, "id": "1000", "prompt": "Add whole pecans, eye drops, leeks, and 2 cartons of half-and-half to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 15, "char_count": 88}, {"index": 79, "id": "996", "prompt": "Add spaghetti, frozen cauliflower, bananas, and 3 jars of salsa to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 14, "char_count": 85}, {"index": 80, "id": "967", "prompt": "Add 3 pairs of socks, pears, apples, and carrots to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 13, "char_count": 70}, {"index": 81, "id": "998", "prompt": "Add sugar, flour, flower seeds, and fertilizer to the shopping list.", "domain_quota": "notes_memory", "haiku_intent": "lists_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 11, "char_count": 68}, {"index": 82, "id": "1107", "prompt": "Remember that I left my wallet and car keys on the counter.", "domain_quota": "notes_memory", "haiku_intent": "memory_note_manage", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "conjunction/multi-entity", "boundary_memory_list_note"], "boundary_tags": ["boundary_memory_list_note"], "linguistic_tags": ["length>=6", "length>=9", "conjunction/multi-entity"], "word_count": 12, "char_count": 59}, {"index": 83, "id": "134", "prompt": "How many refills are left on my clindamycin risperidone?", "domain_quota": "health", "haiku_intent": "health_refill_query", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 56}, {"index": 84, "id": "175", "prompt": "Set a reminder to take simvastatin at dinner time.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 50}, {"index": 85, "id": "168", "prompt": "Set a reminder to take amoxicillin with lunch.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 8, "char_count": 46}, {"index": 86, "id": "170", "prompt": "Set a reminder to take furosemide at bed time.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 46}, {"index": 87, "id": "176", "prompt": "Set a reminder to take Spironolactone at 9 PM.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 46}, {"index": 88, "id": "172", "prompt": "Set a reminder to take ibuprofen at 11:30 AM.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 45}, {"index": 89, "id": "171", "prompt": "Set a reminder to take glipizide at 6:30 PM.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 44}, {"index": 90, "id": "173", "prompt": "Set a reminder to take pantoprazole at 6 AM.", "domain_quota": "health", "haiku_intent": "health_medication_reminder", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_health_vs_schedule"], "boundary_tags": ["boundary_health_vs_schedule"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 44}, {"index": 91, "id": "1304", "prompt": "How far is West Orange, New Jersey from here?", "domain_quota": "maps_places", "haiku_intent": "maps_route", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_route_place_reservation"], "boundary_tags": ["boundary_route_place_reservation"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 45}, {"index": 92, "id": "564", "prompt": "When is Bed, Bath and Beyond open until?", "domain_quota": "maps_places", "haiku_intent": "places_search", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb", "boundary_route_place_reservation"], "boundary_tags": ["boundary_route_place_reservation"], "linguistic_tags": ["length>=6", "conjunction/multi-entity", "polysemous_verb"], "word_count": 8, "char_count": 40}, {"index": 93, "id": "383", "prompt": "How far is Brattleboro, Vermont from Montreal, Canada?", "domain_quota": "maps_places", "haiku_intent": "maps_route", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "polysemous_verb", "boundary_route_place_reservation"], "boundary_tags": ["boundary_route_place_reservation"], "linguistic_tags": ["length>=6", "polysemous_verb"], "word_count": 8, "char_count": 54}, {"index": 94, "id": "1247", "prompt": "Book a table for 2 at 3 Arts Club Café at RH Chicago.", "domain_quota": "maps_places", "haiku_intent": "reservations_manage", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "length>=9", "boundary_route_place_reservation"], "boundary_tags": ["boundary_route_place_reservation"], "linguistic_tags": ["length>=6", "length>=9"], "word_count": 13, "char_count": 53}, {"index": 95, "id": "450", "prompt": "Map a route to the closest car charging station.", "domain_quota": "maps_places", "haiku_intent": "maps_route", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "length>=9", "boundary_route_place_reservation"], "boundary_tags": ["boundary_route_place_reservation"], "linguistic_tags": ["length>=6", "length>=9"], "word_count": 9, "char_count": 48}, {"index": 96, "id": "1255", "prompt": "Book a table for 5 at Dry Dock Waterfront Grill.", "domain_quota": "maps_places", "haiku_intent": "reservations_manage", "ambiguity_score": 4, "ambiguity_tags": ["length>=6", "length>=9", "boundary_route_place_reservation"], "boundary_tags": ["boundary_route_place_reservation"], "linguistic_tags": ["length>=6", "length>=9"], "word_count": 10, "char_count": 48}, {"index": 97, "id": "1308", "prompt": "How much is a round-trip flight to Manchester, New Hampshire?", "domain_quota": "transport", "haiku_intent": "transit_lookup", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_transit_rideshare"], "boundary_tags": ["boundary_transit_rideshare"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 10, "char_count": 61}, {"index": 98, "id": "1293", "prompt": "Find non-stop flights to New York, New York on Jet Blue.", "domain_quota": "transport", "haiku_intent": "transit_lookup", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_transit_rideshare"], "boundary_tags": ["boundary_transit_rideshare"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 11, "char_count": 56}, {"index": 99, "id": "1287", "prompt": "Find non-stop flights to Dublin, Ireland on Air Canada.", "domain_quota": "transport", "haiku_intent": "transit_lookup", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_transit_rideshare"], "boundary_tags": ["boundary_transit_rideshare"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 55}, {"index": 100, "id": "1292", "prompt": "Find non-stop flights to New York on American Airlines.", "domain_quota": "transport", "haiku_intent": "transit_lookup", "ambiguity_score": 5, "ambiguity_tags": ["length>=6", "length>=9", "polysemous_verb", "boundary_transit_rideshare"], "boundary_tags": ["boundary_transit_rideshare"], "linguistic_tags": ["length>=6", "length>=9", "polysemous_verb"], "word_count": 9, "char_count": 55}];
+
+    let state = {
+      deckIndex: 0,
+      search: "",
+      score: "all",
+      domain: "all",
+      boundary: "all",
+      sortBy: "original",
+      activeMode: "deck"
+    };
+
+    // DOM Elements
+    const deckView = document.getElementById("deck-view-container");
+    const tableView = document.getElementById("table-view-container");
+    const btnModeDeck = document.getElementById("btn-mode-deck");
+    const btnModeTable = document.getElementById("btn-mode-table");
+    
+    // Deck elements
+    const deckCounter = document.getElementById("deck-counter");
+    const deckId = document.getElementById("deck-id");
+    const deckScoreBadge = document.getElementById("deck-score-badge");
+    const deckPrompt = document.getElementById("deck-prompt");
+    const deckDomain = document.getElementById("deck-domain");
+    const deckIntent = document.getElementById("deck-intent");
+    const deckTagsContainer = document.getElementById("deck-tags-container");
+    const btnDeckPrev = document.getElementById("btn-deck-prev");
+    const btnDeckNext = document.getElementById("btn-deck-next");
+    const btnDeckCopy = document.getElementById("btn-deck-copy");
+    const deckJumpInput = document.getElementById("deck-jump-input");
+    const btnDeckJump = document.getElementById("btn-deck-jump");
+
+    // Table & Filter elements
+    const tableSearch = document.getElementById("table-search");
+    const btnClearSearch = document.getElementById("btn-clear-search");
+    const sortSelect = document.getElementById("sort-select");
+    const domainFiltersContainer = document.getElementById("domain-filters");
+    const boundaryFiltersContainer = document.getElementById("boundary-filters");
+    const scoreBtns = document.querySelectorAll(".score-btn");
+    const filterCountEl = document.getElementById("filter-count");
+    const btnResetFilters = document.getElementById("btn-reset-filters");
+    const tableBody = document.getElementById("table-body");
+    const btnExportCsv = document.getElementById("btn-export-csv");
+
+    function initFilterPills() {
+      // Domain counts
+      const domCounts = {};
+      const bndCounts = {};
+      COMMANDS.forEach(c => {
+        domCounts[c.domain_quota] = (domCounts[c.domain_quota] || 0) + 1;
+        c.boundary_tags.forEach(b => {
+          bndCounts[b] = (bndCounts[b] || 0) + 1;
+        });
+      });
+
+      // Domains
+      let domHtml = `<button data-domain="all" class="dom-btn px-2.5 py-1 rounded-md text-xs font-medium bg-blue-600 text-white border border-blue-500">All (100)</button>`;
+      for (const [dom, cnt] of Object.entries(domCounts)) {
+        domHtml += `<button data-domain="${dom}" class="dom-btn px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-[var(--muted-foreground,#94a3b8)] border border-[var(--border,#1e293b)]">${dom} (${cnt})</button>`;
+      }
+      domainFiltersContainer.innerHTML = domHtml;
+
+      // Boundaries
+      let bndHtml = `<button data-boundary="all" class="bnd-btn px-2.5 py-1 rounded-md text-xs font-medium bg-blue-600 text-white border border-blue-500">All Boundaries</button>`;
+      for (const [bnd, cnt] of Object.entries(bndCounts)) {
+        bndHtml += `<button data-boundary="${bnd}" class="bnd-btn px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-red-300 border border-[var(--border,#1e293b)]">${bnd.replace('boundary_', '')} (${cnt})</button>`;
+      }
+      boundaryFiltersContainer.innerHTML = bndHtml;
+
+      // Add listeners
+      document.querySelectorAll(".dom-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.domain = btn.getAttribute("data-domain");
+          updateFilterStyles();
+          renderTable();
+        });
+      });
+
+      document.querySelectorAll(".bnd-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.boundary = btn.getAttribute("data-boundary");
+          updateFilterStyles();
+          renderTable();
+        });
+      });
+    }
+
+    function updateFilterStyles() {
+      // Scores
+      scoreBtns.forEach(btn => {
+        const isSel = btn.getAttribute("data-score") === state.score;
+        btn.className = isSel
+          ? "score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white border border-blue-500"
+          : "score-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-[var(--muted-foreground,#94a3b8)] border border-[var(--border,#1e293b)]";
+      });
+
+      // Domains
+      document.querySelectorAll(".dom-btn").forEach(btn => {
+        const isSel = btn.getAttribute("data-domain") === state.domain;
+        btn.className = isSel
+          ? "dom-btn px-2.5 py-1 rounded-md text-xs font-medium bg-blue-600 text-white border border-blue-500"
+          : "dom-btn px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-[var(--muted-foreground,#94a3b8)] border border-[var(--border,#1e293b)]";
+      });
+
+      // Boundaries
+      document.querySelectorAll(".bnd-btn").forEach(btn => {
+        const isSel = btn.getAttribute("data-boundary") === state.boundary;
+        btn.className = isSel
+          ? "bnd-btn px-2.5 py-1 rounded-md text-xs font-medium bg-blue-600 text-white border border-blue-500"
+          : "bnd-btn px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--background,#0b0f19)] hover:bg-[var(--border,#1e293b)] text-red-300 border border-[var(--border,#1e293b)]";
+      });
+
+      const hasFilters = state.search || state.score !== "all" || state.domain !== "all" || state.boundary !== "all";
+      btnResetFilters.classList.toggle("hidden", !hasFilters);
+      btnClearSearch.classList.toggle("hidden", !state.search);
+    }
+
+    function filterCommands() {
+      const q = state.search.toLowerCase().trim();
+      let res = COMMANDS.filter(c => {
+        if (state.score !== "all" && c.ambiguity_score !== parseInt(state.score, 10)) return false;
+        if (state.domain !== "all" && c.domain_quota !== state.domain) return false;
+        if (state.boundary !== "all" && !c.boundary_tags.includes(state.boundary)) return false;
+        if (q) {
+          const inPrompt = c.prompt.toLowerCase().includes(q);
+          const inDomain = c.domain_quota.toLowerCase().includes(q);
+          const inIntent = c.haiku_intent.toLowerCase().includes(q);
+          const inTags = c.ambiguity_tags.some(t => t.toLowerCase().includes(q));
+          const inId = c.id.includes(q);
+          if (!inPrompt && !inDomain && !inIntent && !inTags && !inId) return false;
+        }
+        return true;
+      });
+
+      if (state.sortBy === "score-desc") {
+        res.sort((a, b) => b.ambiguity_score - a.ambiguity_score || a.index - b.index);
+      } else if (state.sortBy === "score-asc") {
+        res.sort((a, b) => a.ambiguity_score - b.ambiguity_score || a.index - b.index);
+      } else if (state.sortBy === "domain") {
+        res.sort((a, b) => a.domain_quota.localeCompare(b.domain_quota) || a.index - b.index);
+      } else if (state.sortBy === "alpha") {
+        res.sort((a, b) => a.prompt.localeCompare(b.prompt));
+      } else {
+        res.sort((a, b) => a.index - b.index);
+      }
+
+      return res;
+    }
+
+    function renderDeck() {
+      const cur = COMMANDS[state.deckIndex];
+      if (!cur) return;
+
+      deckCounter.textContent = `${cur.index} / 100`;
+      deckId.textContent = cur.id;
+      deckJumpInput.value = cur.index;
+
+      // Score badge
+      deckScoreBadge.className = `px-3 py-1 rounded-full text-xs font-bold score-${cur.ambiguity_score}`;
+      deckScoreBadge.textContent = `Score ${cur.ambiguity_score}/6 Ambiguity`;
+
+      deckPrompt.textContent = `"${cur.prompt}"`;
+      deckDomain.textContent = cur.domain_quota;
+      deckIntent.textContent = cur.haiku_intent;
+
+      // Tags
+      let tagsHtml = "";
+      cur.boundary_tags.forEach(t => {
+        tagsHtml += `<span class="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-red-500/15 text-red-400 border border-red-500/30">⚡ ${t}</span>`;
+      });
+      cur.linguistic_tags.forEach(t => {
+        tagsHtml += `<span class="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-blue-500/15 text-blue-300 border border-blue-500/30">${t}</span>`;
+      });
+      deckTagsContainer.innerHTML = tagsHtml;
+
+      btnDeckPrev.disabled = state.deckIndex <= 0;
+      btnDeckNext.disabled = state.deckIndex >= COMMANDS.length - 1;
+    }
+
+    function renderTable() {
+      const filtered = filterCommands();
+      filterCountEl.textContent = filtered.length;
+
+      let html = "";
+      const q = state.search.toLowerCase().trim();
+
+      filtered.forEach(c => {
+        const scoreClass = `score-${c.ambiguity_score}`;
+        html += `
+          <tr class="hover:bg-[var(--background,#0b0f19)]/60 transition cursor-pointer" onclick="jumpToDeckItem(${c.index - 1})">
+            <td class="py-3 px-4 text-center font-mono text-[var(--muted-foreground,#94a3b8)]">${c.index}</td>
+            <td class="py-3 px-4 font-mono text-[var(--muted-foreground,#94a3b8)]">${c.id}</td>
+            <td class="py-3 px-4">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold ${scoreClass}">Score ${c.ambiguity_score}</span>
+            </td>
+            <td class="py-3 px-4">
+              <span class="text-amber-400 font-medium">${c.domain_quota}</span>
+            </td>
+            <td class="py-3 px-4">
+              <span class="text-purple-400 font-mono text-[11px]">${c.haiku_intent}</span>
+            </td>
+            <td class="py-3 px-4 text-white font-medium leading-relaxed">
+              ${escapeHtml(c.prompt)}
+              <div class="flex flex-wrap gap-1 mt-1">
+                ${c.boundary_tags.map(b => `<span class="px-1.5 py-0.2 rounded text-[10px] bg-red-500/15 text-red-300 font-mono">${b.replace('boundary_', '')}</span>`).join('')}
+              </div>
+            </td>
+            <td class="py-3 px-4 text-right" onclick="event.stopPropagation()">
+              <button onclick="copyPrompt('${escapeHtml(c.prompt)}')" title="Copy prompt" class="p-1.5 rounded hover:bg-[var(--border,#334155)] text-[var(--muted-foreground,#94a3b8)] hover:text-white transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+      tableBody.innerHTML = html;
+    }
+
+    function jumpToDeckItem(idx) {
+      state.deckIndex = idx;
+      renderDeck();
+      deckView.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, '&quot;');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      document.getElementById("toast-msg").textContent = msg;
+      t.classList.remove("hidden");
+      setTimeout(() => t.classList.add("hidden"), 2000);
+    }
+
+    function copyPrompt(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Copied prompt to clipboard!");
+      });
+    }
+
+    function resetFilters() {
+      state.search = "";
+      state.score = "all";
+      state.domain = "all";
+      state.boundary = "all";
+      tableSearch.value = "";
+      updateFilterStyles();
+      renderTable();
+    }
+
+    function exportCSV() {
+      const filtered = filterCommands();
+      const headers = ["id", "prompt", "domain_quota", "haiku_intent", "ambiguity_score", "ambiguity_tags"];
+      const lines = [headers.join(",")];
+      filtered.forEach(c => {
+        lines.push([
+          c.id,
+          `"${c.prompt.replace(/"/g, '""')}"`,
+          c.domain_quota,
+          c.haiku_intent,
+          c.ambiguity_score,
+          `"${c.ambiguity_tags.join('; ')}"`
+        ].join(","));
+      });
+      const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `frontier_sample_${filtered.length}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast(`Exported ${filtered.length} commands to CSV!`);
+    }
+
+    // Event Listeners
+    btnDeckPrev.addEventListener("click", () => {
+      if (state.deckIndex > 0) {
+        state.deckIndex--;
+        renderDeck();
+      }
+    });
+
+    btnDeckNext.addEventListener("click", () => {
+      if (state.deckIndex < COMMANDS.length - 1) {
+        state.deckIndex++;
+        renderDeck();
+      }
+    });
+
+    btnDeckCopy.addEventListener("click", () => {
+      copyPrompt(COMMANDS[state.deckIndex].prompt);
+    });
+
+    btnDeckJump.addEventListener("click", () => {
+      const val = parseInt(deckJumpInput.value, 10);
+      if (val >= 1 && val <= 100) {
+        state.deckIndex = val - 1;
+        renderDeck();
+      }
+    });
+
+    deckJumpInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") btnDeckJump.click();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (document.activeElement === tableSearch || document.activeElement === deckJumpInput) return;
+      if (e.key === "ArrowLeft") {
+        btnDeckPrev.click();
+      } else if (e.key === "ArrowRight") {
+        btnDeckNext.click();
+      }
+    });
+
+    tableSearch.addEventListener("input", (e) => {
+      state.search = e.target.value;
+      updateFilterStyles();
+      renderTable();
+    });
+
+    btnClearSearch.addEventListener("click", () => {
+      state.search = "";
+      tableSearch.value = "";
+      updateFilterStyles();
+      renderTable();
+    });
+
+    sortSelect.addEventListener("change", (e) => {
+      state.sortBy = e.target.value;
+      renderTable();
+    });
+
+    scoreBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.score = btn.getAttribute("data-score");
+        updateFilterStyles();
+        renderTable();
+      });
+    });
+
+    btnResetFilters.addEventListener("click", resetFilters);
+    btnExportCsv.addEventListener("click", exportCSV);
+
+    btnModeDeck.addEventListener("click", () => {
+      deckView.scrollIntoView({ behavior: "smooth" });
+    });
+
+    btnModeTable.addEventListener("click", () => {
+      tableView.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Initialize
+    initFilterPills();
+    renderDeck();
+    renderTable();
+  </script>
+</body>
+</html>

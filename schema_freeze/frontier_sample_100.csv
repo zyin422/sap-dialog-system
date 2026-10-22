@@ -1,0 +1,101 @@
+id,prompt,domain_quota,haiku_intent,ambiguity_score,ambiguity_tags
+650,How many calories does 15 baby carrots and a scoop of hummus have?,general_qa,qa_search,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+658,How many calories does a pint of Ben and Jerry's ice cream have?,general_qa,qa_search,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+652,How many calories does 3 teaspoons of brown sugar have?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+656,How many calories does a piece of grilled salmon have?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+661,How many calories does a slice of sausage pizza have?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+786,Who is the lead character in '2001: A Space Odyssey'?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+655,How many calories does a cup of blueberries have?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+660,How many calories does a pint of ice cream have?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+792,Who is the lead character in 'West Side Story'?,general_qa,qa_search,5,length>=6; length>=9; polysemous_verb; boundary_qa_crossover
+726,Show me movies with Catherine Zeta-Jones.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+728,Show me movies with Denzel Washington.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+727,Show me movies with Daniel Day-Lewis.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+730,Show me movies with Jack Nicholson.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+731,Show me movies with Julianne Moore.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+734,Show me movies with Ryan Reynolds.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+725,Show me movies with Blake Lively.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+733,Show me movies with Ryan Gosling.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+738,Show me movies with Will Ferrell.,general_qa,qa_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_qa_crossover
+1026,"Cancel my meeting with Soren Ignaz at 8:15 AM, Thursday the 30th.",calendar_alarm,calendar_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1180,Set a timer for chocolate chip and walnut cookies for 12 minutes.,calendar_alarm,alarm_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1022,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.",calendar_alarm,calendar_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1016,"Cancel my meeting with Kiley Jokin at 9 AM on July 14th, 2023.",calendar_alarm,calendar_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1023,"Cancel my meeting with Sib and Gertrud at 9:30 AM, Sunday.",calendar_alarm,calendar_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1029,"Cancel my meeting with Valli Sylvia at 1:15, 8/15/2023.",calendar_alarm,calendar_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1014,"Cancel my meeting with Jiro Thomas at 9 PM, Saturday.",calendar_alarm,calendar_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1177,Set a timer for baked chicken for 2 and a half hours.,calendar_alarm,alarm_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1186,Set an alarm for 3:45 PM on Thursday and Friday.,calendar_alarm,alarm_manage,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_timer_schedule
+1125,"Reschedule my meeting with Barrett Sipho at 6:30 PM, April 4th, 2023.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+1127,"Reschedule my meeting with Chanelle Kellen at noon, May 1st, Friday.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+1131,"Reschedule my meeting with Valeria Berengere at 11 O'clock, Sunday.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+1126,"Reschedule my meeting with Catherine Isabella at 8:30 AM, Monday.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+1132,"Reschedule my meeting with Virginia Daniel at 7, Saturday.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+1130,"Reschedule my meeting with Irene Anand at 4:15, Tuesday.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+1128,"Reschedule my meeting with Demetri Lucien at 9, Friday.",calendar_alarm,calendar_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_timer_schedule
+944,Turn off the lights in the dining room.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+945,Turn off the lights in the family room.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+947,Turn off the lights in the hall closet.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+950,Turn off the lights in the living room.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+948,Turn off the lights in the kids' room.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+946,Turn off the lights in the guestroom.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+934,Turn down the temperature 2 degrees.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+935,Turn down the temperature 3 degrees.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+936,Turn down the temperature 4 degrees.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+937,Turn down the temperature 5 degrees.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+933,Turn down the temperature 1 degree.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+949,Turn off the lights in the kitchen.,smart_home,iot_device_power,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+963,Turn up the temperature 2 degrees.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+964,Turn up the temperature 3 degrees.,smart_home,iot_device_adjust,4,length>=6; polysemous_verb; boundary_iot_power_adjust_sensor
+316,Play the latest episode of 'Ten Percent Happier' with Dan Harris on Spotify.,media,media_play,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_media_play_search_control
+283,Play 'The Tears of a Clown' by Smokey Robinson and the Miracles.,media,media_play,6,length>=6; length>=9; conjunction/multi-entity; polysemous_verb; boundary_media_play_search_control
+308,Play the latest episode of 'If Books Could Kill' on Spotify.,media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+330,"Read 'The Lion, The Witch, and the Wardrobe' on Audiobook.",media,media_play,5,length>=6; length>=9; conjunction/multi-entity; boundary_media_play_search_control
+318,Play the latest episode of 'The NPR Newsroom' on Spotify.,media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+314,Play the latest episode of 'Stand up Comedy' on Spotify.,media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+310,Play the latest episode of 'Let's be Real' on Spotify.,media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+306,"Play the latest episode of ""A Little Something Extra""",media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+315,Play the latest episode of 'Stuff You Should Know'.,media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+309,Play the latest episode of 'Joe Rogan' on Spotify.,media,media_play,5,length>=6; length>=9; polysemous_verb; boundary_media_play_search_control
+261,Play 'Carol and Ava Detectives' on Audiobook.,media,media_play,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_media_play_search_control
+273,Play 'Me and Bobby McGee' by Janis Joplin.,media,media_play,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_media_play_search_control
+276,Play 'Stay with Me' by Sam Smith.,media,media_play,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_media_play_search_control
+319,Play the latest episode of 'This American Life'.,media,media_play,4,length>=6; polysemous_verb; boundary_media_play_search_control
+221,"Please send this text: ""Hi, exclamation point. What time will you be home, question mark. Thanks, exclamation point.""",communication,messages_manage,5,length>=6; length>=9; polysemous_verb; boundary_comm_channels
+822,Open Gmail to send a message to Layne Banks.,communication,messages_manage,5,length>=6; length>=9; polysemous_verb; boundary_comm_channels
+220,"Please send this email: ""Dear customer service, comma. I am writing about the status of order number 384972, period. Do you have a tracking update, question mark. Thank you, period.""",communication,email_manage,4,length>=6; length>=9; boundary_comm_channels
+844,Send a message to Hayri & Amador Teague.,communication,messages_manage,3,length>=6; boundary_comm_channels
+855,Send an email to UPS Customer Service.,communication,email_manage,3,length>=6; boundary_comm_channels
+122,Did I miss any emails from yesterday?,communication,email_manage,3,length>=6; boundary_comm_channels
+849,Send an email to Jasmine Witherspoon.,communication,email_manage,3,length>=6; boundary_comm_channels
+219,Please send this email to the group.,communication,email_manage,3,length>=6; boundary_comm_channels
+843,Send a message to Felicitas Sinagra.,communication,messages_manage,3,length>=6; boundary_comm_channels
+846,Send a message to The Mounce Family.,communication,messages_manage,3,length>=6; boundary_comm_channels
+988,"Add meat for grilling, pre-cut vegetables, teriyaki sauce, and bamboo skewers to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+984,"Add ingredients for chili, pizza dough, shredded mozzarella, and heel balm to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+999,"Add vanilla mousse, mussels, non-fat Greek yogurt, and triple A batteries to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+981,"Add frozen strawberries, blueberries, a case of paper towels, and cereal to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+986,"Add laundry detergent, toothpaste, aluminum foil, and cranberry juice to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+1000,"Add whole pecans, eye drops, leeks, and 2 cartons of half-and-half to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+996,"Add spaghetti, frozen cauliflower, bananas, and 3 jars of salsa to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+967,"Add 3 pairs of socks, pears, apples, and carrots to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+998,"Add sugar, flour, flower seeds, and fertilizer to the shopping list.",notes_memory,lists_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+1107,Remember that I left my wallet and car keys on the counter.,notes_memory,memory_note_manage,5,length>=6; length>=9; conjunction/multi-entity; boundary_memory_list_note
+134,How many refills are left on my clindamycin risperidone?,health,health_refill_query,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+175,Set a reminder to take simvastatin at dinner time.,health,health_medication_reminder,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+168,Set a reminder to take amoxicillin with lunch.,health,health_medication_reminder,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_health_vs_schedule
+170,Set a reminder to take furosemide at bed time.,health,health_medication_reminder,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+176,Set a reminder to take Spironolactone at 9 PM.,health,health_medication_reminder,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+172,Set a reminder to take ibuprofen at 11:30 AM.,health,health_medication_reminder,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+171,Set a reminder to take glipizide at 6:30 PM.,health,health_medication_reminder,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+173,Set a reminder to take pantoprazole at 6 AM.,health,health_medication_reminder,5,length>=6; length>=9; polysemous_verb; boundary_health_vs_schedule
+1304,"How far is West Orange, New Jersey from here?",maps_places,maps_route,5,length>=6; length>=9; polysemous_verb; boundary_route_place_reservation
+564,"When is Bed, Bath and Beyond open until?",maps_places,places_search,5,length>=6; conjunction/multi-entity; polysemous_verb; boundary_route_place_reservation
+383,"How far is Brattleboro, Vermont from Montreal, Canada?",maps_places,maps_route,4,length>=6; polysemous_verb; boundary_route_place_reservation
+1247,Book a table for 2 at 3 Arts Club Café at RH Chicago.,maps_places,reservations_manage,4,length>=6; length>=9; boundary_route_place_reservation
+450,Map a route to the closest car charging station.,maps_places,maps_route,4,length>=6; length>=9; boundary_route_place_reservation
+1255,Book a table for 5 at Dry Dock Waterfront Grill.,maps_places,reservations_manage,4,length>=6; length>=9; boundary_route_place_reservation
+1308,"How much is a round-trip flight to Manchester, New Hampshire?",transport,transit_lookup,5,length>=6; length>=9; polysemous_verb; boundary_transit_rideshare
+1293,"Find non-stop flights to New York, New York on Jet Blue.",transport,transit_lookup,5,length>=6; length>=9; polysemous_verb; boundary_transit_rideshare
+1287,"Find non-stop flights to Dublin, Ireland on Air Canada.",transport,transit_lookup,5,length>=6; length>=9; polysemous_verb; boundary_transit_rideshare
+1292,Find non-stop flights to New York on American Airlines.,transport,transit_lookup,5,length>=6; length>=9; polysemous_verb; boundary_transit_rideshare

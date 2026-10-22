@@ -1,0 +1,51 @@
+id,prompt,domain,intent,slots_json,notes
+650,How many calories does 15 baby carrots and a scoop of hummus have?,general_qa,qa_search,"{""query"": ""how many calories does 15 baby carrots and a scoop of hummus have""}",Unanimous frontier agreement
+658,How many calories does a pint of Ben and Jerry's ice cream have?,general_qa,qa_search,"{""query"": ""how many calories does a pint of ben and jerry's ice cream have""}",Unanimous frontier agreement
+652,How many calories does 3 teaspoons of brown sugar have?,general_qa,qa_search,"{""query"": ""how many calories does 3 teaspoons of brown sugar have""}",Unanimous frontier agreement
+656,How many calories does a glass of orange juice have?,general_qa,qa_search,"{""query"": ""how many calories does a glass of orange juice have""}",Unanimous frontier agreement
+657,How many calories does a grilled cheese sandwich have?,general_qa,qa_search,"{""query"": ""how many calories does a grilled cheese sandwich have""}",Unanimous frontier agreement
+653,How many calories does 4 graham crackers have?,general_qa,qa_search,"{""query"": ""how many calories does 4 graham crackers have""}",Unanimous frontier agreement
+655,How many calories does a frosted donut have?,general_qa,qa_search,"{""query"": ""how many calories does a frosted donut have""}",Unanimous frontier agreement
+728,Show me movies with Denzel Washington.,media,media_search,"{""media_type"": ""movie"", ""person"": ""denzel washington""}",Unanimous frontier agreement
+734,Show me movies with Sandra Bullock.,media,media_search,"{""media_type"": ""movie"", ""person"": ""sandra bullock""}",Unanimous frontier agreement
+730,Show me movies with Harrison Ford.,media,media_search,"{""media_type"": ""movie"", ""person"": ""harrison ford""}",Unanimous frontier agreement
+732,Show me movies with Morgan Freeman.,media,media_search,"{""media_type"": ""movie"", ""person"": ""morgan freeman""}",Unanimous frontier agreement
+729,Show me movies with George Clooney.,media,media_search,"{""media_type"": ""movie"", ""person"": ""george clooney""}",Unanimous frontier agreement
+735,Show me movies with Steve Carell.,media,media_search,"{""media_type"": ""movie"", ""person"": ""steve carell""}",Unanimous frontier agreement
+736,Show me movies with Tom Cruise.,media,media_search,"{""media_type"": ""movie"", ""person"": ""tom cruise""}",Unanimous frontier agreement
+737,Show me movies with Tom Hanks.,media,media_search,"{""media_type"": ""movie"", ""person"": ""tom hanks""}",Unanimous frontier agreement
+731,Show me movies with Julia Roberts.,media,media_search,"{""media_type"": ""movie"", ""person"": ""julia roberts""}",Unanimous frontier agreement
+733,Show me movies with Robin Williams.,media,media_search,"{""media_type"": ""movie"", ""person"": ""robin williams""}",Unanimous frontier agreement
+498,What's the Dow Jones at right now?,general_qa,qa_search,"{""query"": ""what's the dow jones at right now""}",Unanimous frontier agreement
+1022,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sanjiv lynne"", ""time"": ""2:30 pm"", ""date"": ""tuesday the 9th""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1032,"Cancel my meeting with Vincente and Lin at 1:45 PM, Tuesday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""vincente and lin"", ""time"": ""1:45 pm"", ""date"": ""tuesday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1180,Set a timer for chocolate chip and walnut cookies for 12 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""12 minutes""}",Unanimous frontier agreement
+1177,Set a timer for baked chicken for 2 and a half hours.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""2 and a half hours""}",Unanimous frontier agreement
+1023,"Cancel my meeting with Sib and Gertrud at 9:30 AM, Sunday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sib and gertrud"", ""time"": ""9:30 am"", ""date"": ""sunday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1186,Set an alarm for 3:45 PM on Thursday and Friday.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""3:45 pm"", ""date"": ""thursday and friday""}",Adjudicated (Rule E): Omit general_frequency when no explicit recurrence token exists
+1187,Set an alarm for 5:15 PM on Monday and Tuesday.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:15 pm"", ""date"": ""monday and tuesday""}",Adjudicated (Rule E): Omit general_frequency when no explicit recurrence token exists
+1188,Set an alarm for 6:15 PM on Friday and Saturday.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:15 pm"", ""date"": ""friday and saturday""}",Adjudicated (Rule E): Omit general_frequency when no explicit recurrence token exists
+1126,"Reschedule my meeting with Catherine Isabella at 8:30 AM, Monday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""catherine isabella"", ""time"": ""8:30 am"", ""date"": ""monday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1133,"Reschedule my meeting with Kevin Valerio at 4:30 PM, Friday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""kevin valerio"", ""time"": ""4:30 pm"", ""date"": ""friday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1025,"Cancel my meeting with Stefania Lora at 4:30 PM, Thursday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""stefania lora"", ""time"": ""4:30 pm"", ""date"": ""thursday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1131,"Reschedule my meeting with Janina Oona at 1:30 PM, Thursday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""janina oona"", ""time"": ""1:30 pm"", ""date"": ""thursday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1130,"Reschedule my meeting with Fred Placid at 11:30 AM, Friday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""fred placid"", ""time"": ""11:30 am"", ""date"": ""friday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1132,"Reschedule my meeting with Jesse Jay at 10 AM, Wednesday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""jesse jay"", ""time"": ""10 am"", ""date"": ""wednesday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1024,"Cancel my meeting with Simonas Anke at 12:45, Friday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""simonas anke"", ""time"": ""12:45"", ""date"": ""friday""}",Adjudicated (Rule D): Retain title: meeting for generic calendar events
+1178,Set a timer for boiling an egg for 4 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""4 minutes""}",Unanimous frontier agreement
+934,Turn down the temperature 2 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""down"", ""value"": ""2 degrees""}",Unanimous frontier agreement
+936,Turn up the temperature 2 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""up"", ""value"": ""2 degrees""}",Unanimous frontier agreement
+937,Turn up the temperature 3 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""up"", ""value"": ""3 degrees""}",Unanimous frontier agreement
+935,Turn down the temperature 3 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""down"", ""value"": ""3 degrees""}",Unanimous frontier agreement
+925,Set the thermostat to 72 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""72 degrees""}",Unanimous frontier agreement
+926,Set the thermostat to 74 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""74 degrees""}",Unanimous frontier agreement
+927,Set the thermostat to 75 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""75 degrees""}",Unanimous frontier agreement
+928,Set the thermostat to 76 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""76 degrees""}",Unanimous frontier agreement
+929,Set the thermostat to 77 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""77 degrees""}",Unanimous frontier agreement
+930,Set the thermostat to 78 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""78 degrees""}",Unanimous frontier agreement
+931,Set the thermostat to 80 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""80 degrees""}",Unanimous frontier agreement
+932,Set the thermostat to 81 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""81 degrees""}",Unanimous frontier agreement
+933,Set the thermostat to 82 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""82 degrees""}",Unanimous frontier agreement
+924,Set the thermostat to 71 degrees.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""71 degrees""}",Unanimous frontier agreement
+279,Play 'The White Album' by the Beatles on Spotify.,media,media_play,"{""media_type"": ""music"", ""title"": ""the white album"", ""artist"": ""the beatles"", ""service"": ""spotify""}",Unanimous frontier agreement
+283,Play 'Transformers' on Netflix.,media,media_play,"{""media_type"": ""movie"", ""title"": ""transformers"", ""service"": ""netflix""}",Unanimous frontier agreement

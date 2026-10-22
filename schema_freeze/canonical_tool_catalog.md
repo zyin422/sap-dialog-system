@@ -41,6 +41,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 | `title` | `media_play`<br>`schedule_manage` | Media track/album/show title, or event/meeting/task description (e.g. `"blinding lights"`, `"dentist appointment"`, `"take out the trash"`, `"kerstin's recital"`). |
 | `artist` | `media_play` | Musician, band, or podcast creator (e.g. `"taylor swift"`, `"the beatles"`, `"ray charles"`). |
 | `destination` | `maps_route`<br>`rideshare_book`<br>`transit_lookup` | Target geographic location, city, street, or venue (e.g. `"chicago"`, `"home"`, `"walgreens"`, `"airport"`). |
+| `origin` | `maps_route` | Starting geographic location or departure point (e.g. `"montreal, canada"`, `"home"`). |
 | `recipient_name` | `call_make` | Recipient person or business being called (e.g. `"caleb neville"`, `"walgreens"`). |
 | `recipient` | `messages_manage`<br>`email_manage` | Recipient contact name or email address (e.g. `"mom"`, `"malachi janowski"`, `"dr smith"`). |
 | `person` | `schedule_manage` | Meeting attendee or participant name (e.g. `"sarah"`, `"nelida ausra"`, `"fred placid"`). |
@@ -243,15 +244,18 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 * **Description:** Request driving directions, navigation, route distance, or commute traffic conditions.
 * **Slots:**
   * `destination` (**Extractive Span**, required): Target destination (*"chicago"*, *"home"*, *"nearest hospital"*)
+  * `origin` (**Extractive Span**, optional): Starting location or departure point (*"montreal, canada"*, *"home"*)
   * `query_type` (**Categorical Enum**, optional): `["directions", "distance", "traffic"]` *(Phrases like "navigate to..." or "map a route" normalize to `"directions"`)*
 * **Examples:**
   * *"Give me directions to Chicago."* $\rightarrow$ `{"destination": "chicago", "query_type": "directions"}`
   * *"Navigate to Walgreens."* $\rightarrow$ `{"destination": "walgreens", "query_type": "directions"}`
   * *"How far is Virginia?"* $\rightarrow$ `{"destination": "virginia", "query_type": "distance"}`
+  * *"How far is Brattleboro, Vermont from Montreal, Canada?"* $\rightarrow$ `{"destination": "brattleboro, vermont", "origin": "montreal, canada", "query_type": "distance"}`
   * *"How is traffic on I-80?"* $\rightarrow$ `{"destination": "i-80", "query_type": "traffic"}`
 
 #### 17. `places_search`
-* **Description:** Search for nearby physical venues, stores, restaurants, or business hours.
+* **Description:** Search for nearby physical venues, stores, restaurants, or business hours and operating metadata.
+* **Inclusion:** Inquiries about whether a business is open or closing times (e.g. *"When is Bed, Bath and Beyond open until?"*) belong to `places_search`, not `qa_search`.
 * **Slots:**
   * `business_name` (**Extractive Span**, optional): Store name (*"starbucks"*, *"walgreens"*)
   * `business_type` (**Extractive Span**, optional): Category (*"pharmacy"*, *"italian restaurant"*)
@@ -397,10 +401,11 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 #### 29. `transit_lookup`
 * **Description:** Check schedules or book tickets for public transit, trains, buses, subways, and flights.
 * **Slots:**
-  * `transit_type` (**Extractive Span**, optional): Transit mode (*"bus"*, *"train"*, *"flight"*)
-  * `destination` (**Extractive Span**, optional): Arrival city/stop (*"chicago"*)
-  * `route_or_station` (**Extractive Span**, optional): Line or station (*"red line"*, *"penn station"*)
-  * `time` (**Extractive Span**, optional): Departure time
+  * `transit_type` (**Categorical Enum**, optional): `["train", "bus", "flight"]`
+  * `destination` (**Extractive Span**, optional): Arrival city/stop (*"chicago"*, *"new york"*)
+  * `route_or_station` (**Extractive Span**, optional): Public transit line, train station, or commercial airline carrier (*"red line"*, *"penn station"*, *"southwest airlines"*, *"jet blue"*)
+  * `time` (**Extractive Span**, optional): Departure time or clock time (*"7 am"*, *"noon"*). *(Note: flight modifiers like "non-stop" or "round-trip" are not times and must NOT be extracted into `time`)*
 * **Examples:**
   * *"When does the next train to Chicago leave?"* $\rightarrow$ `{"transit_type": "train", "destination": "chicago"}`
   * *"Check the schedule for the Red Line."* $\rightarrow$ `{"route_or_station": "red line"}`
+  * *"Find non-stop flights to New York, New York on Jet Blue."* $\rightarrow$ `{"transit_type": "flight", "destination": "new york, new york", "route_or_station": "jet blue"}`

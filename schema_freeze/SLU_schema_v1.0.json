@@ -145,7 +145,7 @@
               "weekly",
               "monthly"
             ],
-            "description": "Alarm recurrence frequency"
+            "description": "Alarm recurrence frequency (populated only when explicit recurrence tokens like daily, weekdays, or every... are uttered)"
           }
         },
         "required": [
@@ -172,7 +172,7 @@
           },
           "title": {
             "type": "string",
-            "description": "Event title, appointment name, or reminder task description"
+            "description": "Event title, appointment name, generic event noun (e.g. meeting, call, appointment), or reminder task description"
           },
           "date": {
             "type": "string",

@@ -75,16 +75,7 @@ Every parameter belongs strictly to one of two mutually exclusive types:
 
 #### Type A: Extractive Spans (Verbatim Substrings)
 * **Verbatim Substring:** Exact literal substring from the transcript in lowercase.
-* **Rule A (BaseNP & Possessive Stripping):** Exclude governing prepositions (`at`, `to`, `in`, `for`, `with`, `on`), articles (`a`, `an`, `the`), AND possessive pronouns (`my`, `our`, `your`, `his`, `her`). E.g., *"Map a route to our hotel"* $\rightarrow$ `destination: "hotel"`; *"Delete my reminders"* $\rightarrow$ `title: "reminders"`.
-* **Rule B (Carrier Phrase Stripping in `qa_search`):** Strip conversational carrier prefixes (*"can you look up"*, *"tell me"*, *"search google for"*), capturing only the core query. Preserve verbatim syntax (e.g., *"Did the Clemson Tigers win?"* $\rightarrow$ `query: "did the clemson tigers win"`).
-* **Rule C (Declarative vs. Keyed Memory in `memory_note_manage`):**
-  * **Associative Attributes ($X$ is $Y$):** Extract `key` and `value` (e.g. *"Our parking space is green"* $\rightarrow$ `key: "parking space"`, `value: "green"`).
-  * **Declarative Clauses (Unkeyed):** If the statement is a freeform clause, do NOT fracture it into an artificial key. Store the full clause in `value` and leave `key` empty (e.g. *"Remember that we're out of batteries"* $\rightarrow$ `action: "store"`, `value: "we're out of batteries"`).
-* **Rule D (Generic Event Noun Preservation in `schedule_manage`):** When an utterance specifies a generic event noun (*"meeting"*, *"call"*, *"appointment"*, *"reminder"*) without an explicit custom topic (e.g., *"Cancel my meeting with Sanjiv Lynne"*, *"Reschedule my meeting with Fred Placid"*), extract the event noun into `title` (e.g., `title: "meeting"`). Retain it because it contains inherent event category information required for calendar matching.
-* **Rule E (Alarm Recurrence Token Constraint in `alarm_manage`):** The `general_frequency` enum (`daily`, `weekdays`, `weekends`, `weekly`, `monthly`) must ONLY be populated when an explicit recurrence token or frequency adverb is uttered (e.g., *"daily"*, *"weekdays"*, *"every Thursday"*). Coordinated multi-day targets without explicit recurrence markers (e.g., *"on Thursday and Friday"*) belong strictly in the `date` slot (`date: "thursday and friday"`), leaving `general_frequency` unpopulated.
-* **Rule F (Business Hours & Metadata in `places_search`):** Spoken inquiries regarding commercial venue opening hours, closing times, or operational status (e.g., *"When is Bed, Bath and Beyond open until?"*) map to `maps_places.places_search` with `business_name`, NOT `general_qa.qa_search`. Business operating metadata is an attribute of a local place entity.
-* **Rule G (Transit Carriers & Modifiers in `transit_lookup`):** Spoken commercial airlines, flight carriers, or public transit lines (e.g., *"Southwest Airlines"*, *"Jet Blue"*, *"Air Canada"*, *"Red Line"*) extract into `route_or_station`. General flight modifiers such as *"non-stop"* or *"round-trip"* are Outside (O) tokens and must NOT be forced into `time` (which is reserved for timestamps like *"7 am"* or *"noon"*).
-* **Rule H (Origin and Destination in `maps_route`):** When navigation or point-to-point distance queries specify both a starting point and a target (e.g., *"How far is Brattleboro, Vermont from Montreal, Canada?"*), extract the departure point into `origin` (`origin: "montreal, canada"`) and the target into `destination` (`destination: "brattleboro, vermont"`).
+* **BaseNP & Possessive Stripping:** Exclude governing prepositions (`at`, `to`, `in`, `for`, `with`, `on`), articles (`a`, `an`, `the`), AND possessive pronouns (`my`, `our`, `your`, `his`, `her`). E.g., *"Map a route to our hotel"* $\rightarrow$ `destination: "hotel"`; *"Delete my reminders"* $\rightarrow$ `title: "reminders"`.
 * **Strict No-Hallucination:** Only extract entities explicitly uttered. Never invent unuttered keys or default values (e.g., in *"Where did I park?"*, leave slots as `{"action": "recall"}`; do NOT invent `key: "parking_space"`).
 * **Dysarthric Speech Handling:** Strip repeated stutter words (e.g., *"the the living room"* $\rightarrow$ `"living room"`). Preserve literal phonetic transcriptions without spelling corrections (e.g., *"recipe with cliantro"* $\rightarrow$ `query: "recipe with cliantro"`).
 
@@ -92,11 +83,20 @@ Every parameter belongs strictly to one of two mutually exclusive types:
 * **Closed Set:** Select strictly from the allowed string literals in [`canonical_tool_catalog.md`](file:///Users/zixuan/agy2-projects/sap-dialog-system/schema_freeze/canonical_tool_catalog.md). Never invent new enum strings.
 * **Normalize Synonyms:** Normalize spoken synonyms to the canonical enum literal (e.g., *"crank up volume"* $\rightarrow$ `action: "up"`; *"kill the lamp"* $\rightarrow$ `state: "off"`).
 
-#### Zero-Argument Invariance:
-* If a command has no parameters, `slots` MUST be an empty object `{}`.
+#### Universal Parameter Invariants:
+* **Zero-Argument Invariance:** If a command has no parameters, `slots` MUST be an empty object `{}`.
+* **Outside (O) Wake Words:** Wake words (`"Alexa"`, `"Hey Siri"`, `"Hey Google"`) are Outside tokens. Never extract wake words into any slot!
+* **Outside (O) Flight Modifiers:** Adjectival qualifiers like *"non-stop"* or *"round-trip"* are Outside tokens and must never be forced into `time`.
 
-#### Outside (O) Wake Words:
-* Wake words (`"Alexa"`, `"Hey Siri"`, `"Hey Google"`) are Outside tokens. Never extract wake words into any slot!
+#### Tool-Specific Slot Semantics:
+Rather than relying on disconnected global rules, all domain- and intent-specific extraction constraints are embedded directly within each tool definition in the [Canonical Tool Catalog](file:///Users/zixuan/agy2-projects/sap-dialog-system/schema_freeze/canonical_tool_catalog.md) and OpenAPI Schema. Key boundaries calibrated during the 100-sample pilot include:
+* **`schedule_manage` (`title`):** Generic event nouns (*"meeting"*, *"call"*, *"appointment"*, *"reminder"*) are retained in `title` when uttered without a custom topic (e.g., *"Cancel my meeting with Sanjiv"* $\rightarrow$ `title: "meeting"`, `person: "sanjiv"`).
+* **`alarm_manage` (`general_frequency`):** Requires an explicit recurrence token (*"daily"*, *"weekdays"*, *"every Thursday"*). Coordinated days (*"Thursday and Friday"*) remain strictly in `date`.
+* **`places_search` vs. `qa_search`:** Commercial business opening hours and operational status (*"When is Bed, Bath and Beyond open until?"*) belong to `places_search`, not `qa_search`.
+* **`transit_lookup` (`route_or_station`):** Captures commercial airlines (*"southwest airlines"*, *"jet blue"*) alongside rail lines and transit stations.
+* **`maps_route` (`origin` vs. `destination`):** Point-to-point distance and routing queries separate the departure point (`origin`) from the target (`destination`).
+* **`memory_note_manage` (`key` vs. `value`):** Freeform declarative clauses (*"Remember that we're out of batteries"*) store the entire statement in `value` with empty `key`, stripping carrier prefixes (*"remember that"*).
+* **`qa_search` (`query`):** Strips conversational carrier prefixes (*"can you look up"*, *"tell me"*), preserving the core question syntax.
 
 ---
 

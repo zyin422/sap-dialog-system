@@ -104,10 +104,12 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 * **Slots:**
   * `action` (**Categorical Enum**, required): `["set", "cancel", "query", "snooze"]`
   * `time` (**Extractive Span**, optional): Clock time or duration (*"seven thirty a m"*, *"ten minutes"*)
-  * `date` (**Extractive Span**, optional): Date (*"tomorrow"*)
-  * `general_frequency` (**Categorical Enum**, optional): `["daily", "weekdays", "weekends"]`
+  * `date` (**Extractive Span**, optional): Date (*"tomorrow"*, *"thursday and friday"*). *(Note: Coordinated multi-day targets without explicit recurrence adverbs belong in `date`; do not infer frequency).*
+  * `general_frequency` (**Categorical Enum**, optional): `["daily", "weekdays", "weekends", "weekly", "monthly"]`. *(Constraint: Populate ONLY when an explicit recurrence token is uttered like "daily", "weekdays", "every Tuesday").*
 * **Examples:**
   * *"Wake me up tomorrow at 7 AM."* $\rightarrow$ `{"action": "set", "time": "7 am", "date": "tomorrow"}`
+  * *"Set an alarm for 3:45 PM on Thursday and Friday."* $\rightarrow$ `{"action": "set", "time": "3:45 pm", "date": "thursday and friday"}`
+  * *"Set an alarm for 6:30 PM Daily."* $\rightarrow$ `{"action": "set", "time": "6:30 pm", "general_frequency": "daily"}`
   * *"Set a timer for 15 minutes."* $\rightarrow$ `{"action": "set", "time": "15 minutes"}`
   * *"Snooze."* $\rightarrow$ `{"action": "snooze"}`
 
@@ -116,12 +118,13 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 * **Inclusion:** Events, meetings, appointments, deadlines, and to-do reminders anchored to a date or time.
 * **Slots:**
   * `action` (**Categorical Enum**, required): `["create", "delete", "query", "update"]`
-  * `title` (**Extractive Span**, optional): Event title, appointment name, or reminder task description (*"dentist appointment"*, *"lunch with sarah"*, *"take out the trash"*, *"call mom"*)
+  * `title` (**Extractive Span**, optional): Event title, appointment name, reminder task description, or generic event noun (*"dentist appointment"*, *"meeting"*, *"call"*, *"appointment"*, *"take out the trash"*). *(Constraint: When an utterance specifies a generic event type without a custom topic, e.g. "Cancel my meeting with Sanjiv", retain "meeting" in `title`).*
   * `date` (**Extractive Span**, optional): Date (*"friday"*, *"october 20th"*, *"tomorrow"*)
   * `time` (**Extractive Span**, optional): Time (*"two o'clock"*, *"2 pm"*, *"tonight"*, *"noon"*)
   * `person` (**Extractive Span**, optional): Attendee or participant name (*"sarah"*, *"fred placid"*, *"nelida ausra"*)
 * **Examples:**
   * *"Add dentist appointment on Friday at 2 PM."* $\rightarrow$ `{"action": "create", "title": "dentist appointment", "date": "friday", "time": "2 pm"}`
+  * *"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th."* $\rightarrow$ `{"action": "delete", "title": "meeting", "person": "sanjiv lynne", "time": "2:30 pm", "date": "tuesday the 9th"}`
   * *"Remind me to take out the trash tonight."* $\rightarrow$ `{"action": "create", "title": "take out the trash", "time": "tonight"}`
   * *"What is on my calendar today?"* $\rightarrow$ `{"action": "query", "date": "today"}`
   * *"Delete my reminders for tomorrow."* $\rightarrow$ `{"action": "delete", "date": "tomorrow"}`
@@ -338,13 +341,17 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 
 #### 24. `memory_note_manage`
 * **Description:** Store or recall user personal notes, memos, and facts that **lack a specific trigger date or time**.
-* **Span Extraction Rule:** `key` and `value` must be literal substrings from the command. Never hallucinate an unmentioned key (e.g. for *"Where did I park?"*, do NOT invent `key: "parking_space"`; leave slots as `{"action": "recall"}`).
+* **Span Extraction Rules:**
+  * `key` and `value` must be literal substrings from the command. Never hallucinate an unmentioned key (e.g. for *"Where did I park?"*, leave slots as `{"action": "recall"}`).
+  * **Associative Attributes ($X$ is $Y$):** Extract both `key` and `value` (e.g. *"Our parking space is green"* $\rightarrow$ `key: "parking space"`, `value: "green"`).
+  * **Declarative Clauses (Unkeyed):** For freeform clauses, do NOT fracture the phrase into an artificial key. Strip carrier prefixes (*"remember that"*) and store the entire statement in `value`, leaving `key` empty (e.g. *"Remember that we're out of batteries"* $\rightarrow$ `{"action": "store", "value": "we're out of batteries"}`).
 * **Slots:**
   * `action` (**Categorical Enum**, required): `["store", "recall"]`
   * `key` (**Extractive Span**, optional): Verbatim subject/key of note (*"locker combination"*, *"parking space"*)
-  * `value` (**Extractive Span**, optional): Verbatim content of note (*"4412"*, *"orange"*, *"level four"*)
+  * `value` (**Extractive Span**, optional): Verbatim content of note or full declarative clause (*"4412"*, *"we're out of batteries"*)
 * **Examples:**
   * *"Remember that my locker combination is 4412."* $\rightarrow$ `{"action": "store", "key": "locker combination", "value": "4412"}`
+  * *"Remember that I left my wallet and car keys on the counter."* $\rightarrow$ `{"action": "store", "value": "i left my wallet and car keys on the counter"}`
   * *"What is my locker combination?"* $\rightarrow$ `{"action": "recall", "key": "locker combination"}`
   * *"Where did I park?"* $\rightarrow$ `{"action": "recall"}`
 

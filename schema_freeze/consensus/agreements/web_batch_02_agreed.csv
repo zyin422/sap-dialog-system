@@ -1,0 +1,175 @@
+id,prompt,domain,intent,slots_json,consensus_status,notes
+SAP-CMD-0329,Remind me to take a break in 25 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""25 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0330,Remind me to take a break in 30 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""30 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0331,Remind me to take a break in 45 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""45 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0332,Remind me to take a break in 50 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""50 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0333,Request a taxi ride.,transport,rideshare_book,{},AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0334,Scan a QR code.,general_qa,qa_search,"{""query"": ""scan a qr code""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0336,Set a reminder for my dentist appointment.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""dentist appointment""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0337,Set a reminder for my wedding anniversary.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""wedding anniversary""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0338,Set a reminder for our dinner reservation on Friday.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""dinner reservation"", ""date"": ""friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0339,Set a reminder for the day spring training starts.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""day spring training starts""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0340,Set a reminder for the next partial lunar eclipse.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""next partial lunar eclipse""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0341,Set a reminder for the twins' birthday party.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""twins' birthday party""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0342,Set a timer for 1 hour minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""1 hour minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0343,Set a timer for 10 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""10 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0344,Set a timer for 15 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""15 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0345,Set a timer for 40 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""40 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0346,Set a timer for 45 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""45 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0347,Set a timer for 5 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0348,Set a timer for 60 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""60 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0349,Set a timer for 90 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""90 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0350,Set an alarm for 11:45 AM.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""11:45 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0351,Set an alarm for 3:45 PM on Thursday and Friday .,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""3:45 pm"", ""date"": ""thursday and friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0352,Set an alarm for 5:30 AM on Thursday.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:30 am"", ""date"": ""thursday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0353,Set an alarm for 6:30 PM Daily.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:30 pm"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0354,Set an alarm for 7 AM on Thanksgiving.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""7 am"", ""date"": ""thanksgiving""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0355,Set an alarm for 7:00 AM.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""7:00 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0357,Set an alarm for quarter to 10 AM.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""quarter to 10 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0358,Set an alarm in 10 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""10 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0359,Set an alarm in 15 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""15 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0360,Set an alarm in 20 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""20 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0361,Set an alarm in 30 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""30 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0362,Set an alarm in 40 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""40 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0363,Set an alarm in 45 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""45 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0364,Set an alarm in 5 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0365,Set an alarm in 60 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""60 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0366,Set an alarm in 90 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""90 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0367,Set the air conditioning to 70.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""70""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0368,Set the air conditioning to 72.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""72""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0369,Set the air conditioning to 74.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""74""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0370,Set the air conditioning to 76.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""76""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0371,Set the air conditioning to 78.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""78""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0372,Set the heat to 62.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""62""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0373,Set the heat to 66.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""66""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0374,Set the heat to 68.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""68""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0375,Set the heat to 70.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""70""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0376,Set the heat to 72.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""72""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0377,Set the volume to 1.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""1""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0378,Set the volume to 10.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""10""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0379,Set the volume to 2.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0380,Set the volume to 3.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""3""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0381,Set the volume to 6.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0382,Set the volume to 7.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""7""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0383,Set the volume to 8.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""8""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0384,Set the volume to 9.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""9""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0385,Show me movies with Jack Nicholson.,media,media_search,"{""media_type"": ""movie"", ""person"": ""jack nicholson""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0386,Show me my alarms.,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0398,Skip backward 1 minute.,media,media_control,"{""action"": ""rewind"", ""duration"": ""1 minute""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0408,Skip this track.,media,media_control,"{""action"": ""next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0409,Skip to the next chapter.,media,media_control,"{""action"": ""next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0410,Snooze the alarm.,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0411,Snooze.,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0431,Turn down the volume.,media,media_volume,"{""action"": ""down""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0432,Turn off all switches.,smart_home,iot_device_power,"{""device_type"": ""all switches"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0433,Turn off cooling.,smart_home,iot_device_power,"{""device_type"": ""cooling"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0434,Turn off the basement light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""basement""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0435,Turn off the closet light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""closet""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0436,Turn off the den light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""den""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0437,Turn off the dining room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""dining room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0438,Turn off the family room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""family room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0439,Turn off the lights in the den.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""den""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0440,Turn off the lights in the dining room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""dining room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0441,Turn off the lights in the family room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""family room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0442,Turn off the lights in the guestroom.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""guestroom""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0443,Turn off the lights in the hall closet.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""hall closet""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0444,Turn off the lights in the kids' room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""kids' room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0445,Turn off the lights in the kitchen.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""kitchen""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0446,Turn off the lights in the living room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0447,Turn off the living room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0448,Turn off the office light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""office""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0449,Turn off the porch light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""porch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0450,Turn on heat.,smart_home,iot_device_power,"{""device_type"": ""heat"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0451,Turn on my TV.,smart_home,iot_device_power,"{""device_type"": ""tv"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0452,Turn on the basement light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""basement""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0453,Turn on the closet light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""closet""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0454,Turn on the den light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""den""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0455,Turn on the dining room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""dining room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0456,Turn on the family room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""family room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0457,Turn on the kitchen light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""kitchen""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0458,Turn on the living room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0459,Turn on the porch light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""porch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0460,Turn on the TV.,smart_home,iot_device_power,"{""device_type"": ""tv"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0469,Turn up the sound.,media,media_volume,"{""action"": ""up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0475,Unlock the front door.,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0476,Video call 1-800-642-7676.,communication,call_make,"{""phone_number"": ""1-800-642-7676""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0477,Video call 1-800-692-7753.,communication,call_make,"{""phone_number"": ""1-800-692-7753""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0478,Video call 217-244-1176.,communication,call_make,"{""phone_number"": ""217-244-1176""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0480,Video call Lennart Vass.,communication,call_make,"{""recipient_name"": ""lennart vass""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0481,Video call Leo Rodrigues.,communication,call_make,"{""recipient_name"": ""leo rodrigues""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0482,Video call Mike Castelo.,communication,call_make,"{""recipient_name"": ""mike castelo""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0484,Wake me up at 5:15 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:15 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0485,Wake me up at 5:30 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:30 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0486,Wake me up at 6 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0489,Wake me up at 6:30 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:30 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0491,Wake me up at 6:45 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:45 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0492,Wake me up at 7 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""7 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0495,Wake me up at 8 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""8 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0497,Wake me up at 8:20 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""8:20 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0499,What alarms are set?,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0500,What are my reminders?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""reminders""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0511,What does my day look like?,calendar_alarm,schedule_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0530,What's on my agenda for today?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""today""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0531,What's on my to-do list?,notes_memory,lists_manage,"{""action"": ""query"", ""list_name"": ""to-do list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0550,What's the temperature outside?,general_qa,weather_query,"{""weather_aspect"": ""temperature""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0552,What's the thermostat set to?,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature"", ""device_type"": ""thermostat""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0554,When does the next train arrive?,transport,transit_lookup,"{""transit_type"": ""train""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0555,When is AMC Theater open until?,maps_places,places_search,"{""business_name"": ""amc theater""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0556,When is Buffalo Wild Wings open until?,maps_places,places_search,"{""business_name"": ""buffalo wild wings""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0558,When is Macy's open until?,maps_places,places_search,"{""business_name"": ""macy's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0559,When is my next alarm?,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0560,When is Shake Shack open until?,maps_places,places_search,"{""business_name"": ""shake shack""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0561,When is Shell open until?,maps_places,places_search,"{""business_name"": ""shell""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0563,When is Trader Joe's open until?,maps_places,places_search,"{""business_name"": ""trader joe's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0564,When is Walmart open until?,maps_places,places_search,"{""business_name"": ""walmart""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0565,When's my first meeting today?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""meeting"", ""date"": ""today""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0568,Where is my next meeting?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""meeting""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0585,Wikipedia COVID-19 pandemic.,general_qa,qa_search,"{""query"": ""covid-19 pandemic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0586,Wikipedia Game of Thrones.,general_qa,qa_search,"{""query"": ""game of thrones""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0587,Wikipedia Muhammad Ali.,general_qa,qa_search,"{""query"": ""muhammad ali""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0588,Wikipedia Random Page.,general_qa,qa_search,"{""query"": ""random page""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0593,Add eye drops and triple A batteries to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""eye drops and triple a batteries"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0594,Add ingredients for chili to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""ingredients for chili"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0595,Add laundry detergent and toothpaste to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""laundry detergent and toothpaste"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0596,Add meat and vegetables for grilling to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""meat and vegetables for grilling"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0597,Add paper towels and cereal to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""paper towels and cereal"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0598,Add pears and carrots to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""pears and carrots"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0599,Add sugar and flour to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""sugar and flour"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0600,"Benny Seef, Friday at 6:30",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""benny seef"", ""date"": ""friday"", ""time"": ""6:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0601,Book a table for 2 at Chili's.,maps_places,reservations_manage,"{""business_name"": ""chili's"", ""party_size"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0602,Book a table for 2 at the Arts Club Café.,maps_places,reservations_manage,"{""business_name"": ""arts club café"", ""party_size"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0603,Book a table for 4 at Al's Pizza Chicago.,maps_places,reservations_manage,"{""business_name"": ""al's pizza chicago"", ""party_size"": ""4""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0604,Book a table for 5 at Dry Dock Grill.,maps_places,reservations_manage,"{""business_name"": ""dry dock grill"", ""party_size"": ""5""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0605,Book a table for 6 at Belle Vista.,maps_places,reservations_manage,"{""business_name"": ""belle vista"", ""party_size"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0606,Book a table for 6 at Silverlake.,maps_places,reservations_manage,"{""business_name"": ""silverlake"", ""party_size"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0608,Call Aliz Kinsley.,communication,call_make,"{""recipient_name"": ""aliz kinsley""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0609,Call Caleb Neville.,communication,call_make,"{""recipient_name"": ""caleb neville""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0610,Call Dan Barker.,communication,call_make,"{""recipient_name"": ""dan barker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0611,Call Denise Chavez.,communication,call_make,"{""recipient_name"": ""denise chavez""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0612,Call Flo Giannopoulos.,communication,call_make,"{""recipient_name"": ""flo giannopoulos""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0613,Call Goodwin Alma.,communication,call_make,"{""recipient_name"": ""goodwin alma""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0614,Call Herman Gutierrez.,communication,call_make,"{""recipient_name"": ""herman gutierrez""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0615,Call Lynn Banks.,communication,call_make,"{""recipient_name"": ""lynn banks""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0616,Call Noreen Sanad.a,communication,call_make,"{""recipient_name"": ""noreen sanad.a""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0617,Call Shawna Brock.,communication,call_make,"{""recipient_name"": ""shawna brock""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0618,Cancel my meeting with Jim Thomas.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""jim thomas""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0619,Cancel my meeting with Kelley Jenkins.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""kelley jenkins""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0620,Cancel my meeting with Nelly Ash.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""nelly ash""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0621,Cancel my meeting with Nova Ray.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""nova ray""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0622,Cancel my meeting with Sib and Gil.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sib and gil""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0623,Cancel my meeting with Sonya Lee.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sonya lee""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0624,Cancel my meeting with Sunny Inaz.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sunny inaz""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0625,Cancel my meeting with Val Sylvia.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""val sylvia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0626,Cancel my meeting with Vincent & Lin.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""vincent & lin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0627,"Cathy Izzo, Monday at 8:30.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""cathy izzo"", ""date"": ""monday"", ""time"": ""8:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0628,"Chanelle Key, Friday at noon.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""chanelle key"", ""date"": ""friday"", ""time"": ""noon""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0629,Create a Dollar General shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""dollar general shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0639,"Demetri Lin, Friday at 9AM.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""demetri lin"", ""date"": ""friday"", ""time"": ""9am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0645,Email Hilton Hotels.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""hilton hotels""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0646,Email Jasmine Windsor.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""jasmine windsor""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0647,Email Maria.Sarah@help.org.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""maria.sarah@help.org""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0648,Email Mel Laska.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""mel laska""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0649,Email reservations@CozyCottage.com.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""reservations@cozycottage.com""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0650,Email Ruben Ruiz.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ruben ruiz""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0651,Email SabrinaK@west.edu.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""sabrinak@west.edu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0652,Email UPS Customer Service.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ups customer service""}",AGREED,Unanimous dual-frontier agreement

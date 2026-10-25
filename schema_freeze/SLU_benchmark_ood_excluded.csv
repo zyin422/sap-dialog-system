@@ -1,0 +1,36 @@
+id,prompt,exclusion_reason,raw_domain,raw_intent
+SAP-CMD-0002,Alexa.,Standalone wake word without tool intent,general_qa,qa_search
+SAP-CMD-0005,Cortana.,Standalone wake word without tool intent,general_qa,qa_search
+SAP-CMD-0009,Hey Facebook.,Standalone wake word without tool intent,general_qa,qa_search
+SAP-CMD-0010,Hey Google.,Standalone wake word without tool intent,general_qa,qa_search
+SAP-CMD-0011,Hey Siri.,Standalone wake word without tool intent,general_qa,qa_search
+SAP-CMD-0056,Broadcast '10 minutes until bedtime.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0057,Broadcast 'I'm home.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0058,Broadcast 'It's movie time.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0059,Broadcast 'It's time for breakfast.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0060,Broadcast 'It's time to take your pills.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0061,Broadcast 'It's time to wake up.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0062,Broadcast 'The coffee's ready.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0063,Broadcast 'The football game is about to start.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0064,Broadcast 'We're leaving in 15 minutes.',Intercom / broadcast message (no home intercom tool in schema),communication,messages_manage
+SAP-CMD-0065,Buy tickets at 11 AM.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0066,Buy tickets at 2:45 PM.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0067,Buy tickets at 5:30 PM.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0068,Buy tickets at 6:15 PM.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0069,Buy tickets at 7:00 PM.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0070,Buy tickets at 8 PM.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0071,Buy tickets at half-past noon.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0072,Buy tickets at Noon.,Event/movie ticket e-commerce purchasing (out of dialog scope),maps_places,reservations_manage
+SAP-CMD-0263,Open Atlas Obscura.,Third-party desktop/mobile app launch without conversational tool,general_qa,qa_search
+SAP-CMD-0264,Open Candy Crush Saga.,Third-party desktop/mobile app launch without conversational tool,general_qa,qa_search
+SAP-CMD-0266,Open Duolingo.,Third-party desktop/mobile app launch without conversational tool,general_qa,qa_search
+SAP-CMD-0269,Open Grammarly.,Third-party desktop/mobile app launch without conversational tool,general_qa,qa_search
+SAP-CMD-0271,Open Microsoft Word.,Third-party desktop/mobile app launch without conversational tool,general_qa,qa_search
+SAP-CMD-0277,Open Yelp.,Third-party mobile app launch without conversational tool (Rule K),maps_places,places_search
+SAP-CMD-0322,Read this page.,Assistive screen-reader / TTS reading command outside canonical 29 tools (Rule K),general_qa,qa_search
+SAP-CMD-0334,Scan a QR code.,Camera scanner utility command outside canonical 29 tools (Rule K),general_qa,qa_search
+SAP-CMD-0630,"Dear customer service, comma.",Isolated speech-to-text dictation punctuation fragment from continuous reading calibration (Rule K),communication,email_manage
+SAP-CMD-0674,"Hi, exclamation point.",Isolated speech-to-text dictation punctuation fragment from continuous reading calibration (Rule K),communication,messages_manage
+SAP-CMD-0820,Thank you. Period.,Punctuation test dictation fragment,communication,messages_manage
+SAP-CMD-0821,"Thanks, exclamation point",Isolated speech-to-text dictation punctuation fragment from continuous reading calibration (Rule K),communication,messages_manage
+SAP-CMD-0862,"What time will you be home, question mark.",Isolated speech-to-text dictation punctuation fragment from continuous reading calibration (Rule K),communication,messages_manage

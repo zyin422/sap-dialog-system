@@ -4,6 +4,46 @@ This document tracks the formal evolutionary changelog of the Spoken Language Un
 
 ---
 
+## Version 1.3 — Full-Dataset Consensus Finalization & OOD Partition (October 25, 2026)
+
+### 1. Benchmark Gold Finalization (N=1,274 Evaluated Commands, N=35 OOD Excluded)
+* **Dataset:** Complete audit and adjudication across all 1,309 master commands from `sap_commands_master.csv` (100% evaluated).
+* **Consensus Performance:** 91.4% Domain Agreement, 91.1% Intent Agreement, 65.3% Unanimous Full Slot EM (855 commands auto-accepted into gold). All remaining triage items resolved under codified rules, second-pass curation, and user adjudication.
+* **Strict Schema Validation:** All 1,274 canonical benchmark commands in `SLU_benchmark_gold_1309.csv` pass OpenAPI / JSON Schema validation with **zero errors, zero hallucinated slots, and zero invalid enums**.
+
+### 2. Out-Of-Domain (OOD) Exclusion Policy (Rule K)
+* **Rationale:** As established in project adjudication, non-task commands and utility requests targeting capabilities outside the 29 canonical tools lack conversational tool goals and must not be forced into arbitrary tools.
+* **Excluded Partition ($N=35$):** Standalone wake words (*"Alexa."*, *"Hey Siri."*), intercom broadcasts (*"Broadcast '...' "*), event/movie ticket e-commerce (*"Buy tickets at 11 AM."*), third-party desktop OS app launches (*"Open Duolingo."*, *"Open Candy Crush Saga."*, *"Open Yelp."*), screen-reader / camera scanning utilities (*"Read this page."*, *"Scan a QR code."*), and isolated dictation calibration fragments (*"Thank you. Period."*, *"Dear customer service, comma."*, *"Hi, exclamation point."*, *"Thanks, exclamation point"*, *"What time will you be home, question mark."*) isolated into `SLU_benchmark_ood_excluded.csv`.
+
+### 3. Codified Guideline Additions (Rules I, J, K)
+* **Rule I (Nearby Distance Sorting in `places_search`):** Spoken inquiries searching for *"nearby"* commercial entities (*"Show me nearby cafes"*, *"nearby shopping malls"*) require `sort_by: "distance"`.
+* **Rule J (Streaming Service Launches in `media_play`):** Spoken launches of video/music streaming platforms (*"Open Hulu"*, *"Open Disney Plus"*, *"Open Netflix"*) route to `media.media_play` with the service populated in `service`.
+* **Rule K (Task-Oriented Scope Boundary):** Only task-oriented assistant commands targeting the 29 canonical tools are included in benchmark evaluation.
+
+### 4. Intent-Specific Rule Localization in Schema Definitions
+* **Architectural Rationale:** Rather than relying on monolithic global prompt instructions (which induce cross-tool prompt bleed, such as over-stripping dictation text or notes), intent-specific constraints (Rules B through J) are localized directly into parameter descriptions within `SLU_schema_v1.0.json` and `canonical_tool_catalog.md`.
+* **Inlined Constraints:**
+  * `qa_search.query`: Explicit carrier phrase stripping instruction (Rule B).
+  * `places_search.sort_by` & `description`: Distance ranking requirement for "nearby" inquiries (Rule I) and commercial venue hours routing (Rule F).
+  * `maps_route.origin` & `destination`: Starting location decoupling for point-to-point queries (Rule H).
+  * `media_play.service` & `description`: Streaming app launch platform routing (Rule J).
+  * `transit_lookup.route_or_station` & `time`: Commercial airline carrier retention and flight modifier exclusion from time (Rule G).
+  * `memory_note_manage.key` & `value`: Declarative clause vs. keyed memory separation (Rule C).
+  * `alarm_manage.general_frequency` & `date`: Explicit recurrence adverb constraint (Rule E).
+  * `schedule_manage.title`: Generic event noun retention constraint (Rule D).
+  * `rideshare_book.destination`: Aligned destination as optional to support destination-less taxi hails (e.g. *"Request a taxi ride"*).
+
+### 5. Benchmark Refinements & Semantic Curation
+* **Slot Disambiguation in `schedule_manage`:**
+  * Cleaned `title` and `person` boundaries: In `SAP-CMD-0328` (*"Remind me to take a break in 15 minutes"*), set `title: "take a break"` and eliminated spurious reflexive `person: "me"` to harmonize with `0329`–`0332`.
+  * Preserved full event noun phrases in `title` for `SAP-CMD-0800` (`title: "kristin's recital"`) and `SAP-CMD-0801` (`title: "shak's holiday party"`), eliminating misclassified attendee entities.
+* **Extractive Substring Compliance:**
+  * Cleaned `SAP-CMD-1127` (*"Play a Beatles song on Amazon music."*) to extract literal substring `artist: "beatles"`, stripping unuttered hallucinated article *"the"*.
+* **OOD Partition Expansion ($N=35$):**
+  * Transferred 7 non-task / out-of-scope utterances (`SAP-CMD-0277`, `0322`, `0334`, `0630`, `0674`, `0821`, `0862`) to `SLU_benchmark_ood_excluded.csv`.
+
+---
+
 ## Version 1.2 — Dual-Frontier Stress-Test & Schema Freeze (October 22, 2026)
 
 ### 1. Empirical Dual-Frontier Calibration (Claude 3.5 Sonnet vs. GPT-6 Instant)

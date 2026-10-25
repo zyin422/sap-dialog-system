@@ -1,0 +1,226 @@
+id,prompt,domain,intent,slots_json,consensus_status,notes
+SAP-CMD-0983,Define 'conundrum'.,general_qa,qa_search,"{""query"": ""conundrum""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0984,Define 'cynical'.,general_qa,qa_search,"{""query"": ""cynical""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0985,Define 'integrity'.,general_qa,qa_search,"{""query"": ""integrity""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0986,Define 'pretentious'.,general_qa,qa_search,"{""query"": ""pretentious""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0987,Define 'ubiquitous'.,general_qa,qa_search,"{""query"": ""ubiquitous""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0988,Did the Fighting Illini win?,general_qa,qa_search,"{""query"": ""did the fighting illini win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0989,Did the Manchester United win?,general_qa,qa_search,"{""query"": ""did the manchester united win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0990,Did the Penn State win?,general_qa,qa_search,"{""query"": ""did the penn state win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0991,Did the Seattle Mariners win?,general_qa,qa_search,"{""query"": ""did the seattle mariners win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0992,Did the Wolverines win?,general_qa,qa_search,"{""query"": ""did the wolverines win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1023,How did the Chicago Bears game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the chicago bears game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1024,How did the Connecticut Sun game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the connecticut sun game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1025,How did the Miami Dolphins game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the miami dolphins game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1026,How did the Minnesota Timberwolves game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the minnesota timberwolves game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1027,How did the New England Patriots game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the new england patriots game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1028,How did the Pittsburgh Pirates game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the pittsburgh pirates game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1029,How did the Portland Timbers game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the portland timbers game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1030,How did the Toronto Maple Leafs game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the toronto maple leafs game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1031,How do I make a crocheted scarf?,general_qa,qa_search,"{""query"": ""how do i make a crocheted scarf""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1032,How do I make an origami swan?,general_qa,qa_search,"{""query"": ""how do i make an origami swan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1033,How do I make brisket on the smoker?,general_qa,qa_search,"{""query"": ""how do i make brisket on the smoker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1034,How do I make chocolate souffle?,general_qa,qa_search,"{""query"": ""how do i make chocolate souffle""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1035,How do you say 'How far is the hotel?' in Portuguese?,general_qa,qa_search,"{""query"": ""how do you say 'how far is the hotel?' in portuguese""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1036,How do you say 'I want a small coffee' in Korean?,general_qa,qa_search,"{""query"": ""how do you say 'i want a small coffee' in korean""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1037,How do you spell 'pharaoh'?,general_qa,qa_search,"{""query"": ""how do you spell 'pharaoh'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1046,How many calories does 15 baby carrots and a scoop of hummus have?,general_qa,qa_search,"{""query"": ""how many calories does 15 baby carrots and a scoop of hummus have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1047,How many calories does a pint of Ben and Jerry's ice cream have?,general_qa,qa_search,"{""query"": ""how many calories does a pint of ben and jerry's ice cream have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1048,How many refills are left on my abilify?,health,health_refill_query,"{""medication"": ""abilify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1049,How many refills are left on my adderall?,health,health_refill_query,"{""medication"": ""adderall""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1050,How many refills are left on my albuterol?,health,health_refill_query,"{""medication"": ""albuterol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1051,How many refills are left on my allegra?,health,health_refill_query,"{""medication"": ""allegra""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1052,How many refills are left on my allopurinol?,health,health_refill_query,"{""medication"": ""allopurinol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1053,How many refills are left on my aricept?,health,health_refill_query,"{""medication"": ""aricept""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1054,How many refills are left on my baclofen?,health,health_refill_query,"{""medication"": ""baclofen""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1055,How many refills are left on my citalopram?,health,health_refill_query,"{""medication"": ""citalopram""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1056,How many refills are left on my clindamycin risperidone?,health,health_refill_query,"{""medication"": ""clindamycin risperidone""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1057,How many refills are left on my clindamycin?,health,health_refill_query,"{""medication"": ""clindamycin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1058,How many refills are left on my clonidine?,health,health_refill_query,"{""medication"": ""clonidine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1059,How many refills are left on my Coumadin?,health,health_refill_query,"{""medication"": ""coumadin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1060,How many refills are left on my Cozaar?,health,health_refill_query,"{""medication"": ""cozaar""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1061,How many refills are left on my Diazepam?,health,health_refill_query,"{""medication"": ""diazepam""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1062,How many refills are left on my Diovan?,health,health_refill_query,"{""medication"": ""diovan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1063,How many refills are left on my estradiol?,health,health_refill_query,"{""medication"": ""estradiol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1064,How many refills are left on my Lisinopril?,health,health_refill_query,"{""medication"": ""lisinopril""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1065,How many refills are left on my Loprin?,health,health_refill_query,"{""medication"": ""loprin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1066,How many refills are left on my lorazepam?,health,health_refill_query,"{""medication"": ""lorazepam""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1067,How many refills are left on my nitroglycerin?,health,health_refill_query,"{""medication"": ""nitroglycerin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1068,How many refills are left on my omeprazole?,health,health_refill_query,"{""medication"": ""omeprazole""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1069,How many refills are left on my Plavix?,health,health_refill_query,"{""medication"": ""plavix""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1070,How many refills are left on my propanolol?,health,health_refill_query,"{""medication"": ""propanolol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1071,How many refills are left on my risperidone?,health,health_refill_query,"{""medication"": ""risperidone""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1072,How many refills are left on my Valium?,health,health_refill_query,"{""medication"": ""valium""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1073,How many refills are left on my warfarin?,health,health_refill_query,"{""medication"": ""warfarin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1077,How tall is Peppa Pig?,general_qa,qa_search,"{""query"": ""how tall is peppa pig""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1078,How tall is the Eiffel Tower?,general_qa,qa_search,"{""query"": ""how tall is the eiffel tower""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1079,How tall is the tallest building in the world?,general_qa,qa_search,"{""query"": ""how tall is the tallest building in the world""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1080,How tall is the tallest person who ever lived ?,general_qa,qa_search,"{""query"": ""how tall is the tallest person who ever lived""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1081,"How's the traffic to Mount Washington, New Hampshire?",maps_places,maps_route,"{""destination"": ""mount washington, new hampshire"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1082,I parked on level 1.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 1""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1083,I parked on level 2.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1084,I parked on level 3.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 3""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1085,I parked on level 4.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 4""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1086,I parked on level 5.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 5""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1087,Is Buca di Beppo open today?,maps_places,places_search,"{""business_name"": ""buca di beppo""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1089,"Is my order shipped, question mark.",general_qa,order_manage,"{""action"": ""status""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1091,Is Ruth's Chris Steak House open today?,maps_places,places_search,"{""business_name"": ""ruth's chris steak house""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1099,Make me a reservation at Archibald's.,maps_places,reservations_manage,"{""business_name"": ""archibald's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1100,Make me a reservation at Bayern Brewery.,maps_places,reservations_manage,"{""business_name"": ""bayern brewery""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1101,Make me a reservation at Cantler's Riverside Inn.,maps_places,reservations_manage,"{""business_name"": ""cantler's riverside inn""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1102,Make me a reservation at Diaz Café.,maps_places,reservations_manage,"{""business_name"": ""diaz café""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1103,Make me a reservation at Guilford Lobster Pound.,maps_places,reservations_manage,"{""business_name"": ""guilford lobster pound""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1104,Make me a reservation at Kroll's Diner.,maps_places,reservations_manage,"{""business_name"": ""kroll's diner""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1105,Map a route to Dallas Fortworth International Airport.,maps_places,maps_route,"{""destination"": ""dallas fortworth international airport"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1111,Open Facebook Messenger to send a message to Dyson Bunker.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""dyson bunker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1113,Play 'Frasier' on Peacock.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""frasier"", ""service"": ""peacock""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1114,Play 'Free Fallin' by Tom Petty.,media,media_play,"{""media_type"": ""music"", ""title"": ""free fallin'"", ""artist"": ""tom petty""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1118,Play 'Indiana Jones and the Raiders of the Lost Ark' on Paramount Plus.,media,media_play,"{""media_type"": ""movie"", ""title"": ""indiana jones and the raiders of the lost ark"", ""service"": ""paramount plus""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1119,Play 'Jeopardy' on Hulu.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""jeopardy"", ""service"": ""hulu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1122,Play 'Star Wars: Episode Five - The Empire Strikes Back' on Hulu.,media,media_play,"{""media_type"": ""movie"", ""title"": ""star wars: episode five - the empire strikes back"", ""service"": ""hulu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1123,Play 'The Lord of the Rings: The Two Towers'.,media,media_play,"{""media_type"": ""movie"", ""title"": ""the lord of the rings: the two towers""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1124,Play 'The Shawshank Redemption' on HBO Max.,media,media_play,"{""media_type"": ""movie"", ""title"": ""the shawshank redemption"", ""service"": ""hbo max""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1133,Please call Amalia Adamson.,communication,call_make,"{""recipient_name"": ""amalia adamson""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1134,Please call Carola Fulton.,communication,call_make,"{""recipient_name"": ""carola fulton""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1135,Please call Penn Reiter.,communication,call_make,"{""recipient_name"": ""penn reiter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1136,Please call Santander Bank.,communication,call_make,"{""recipient_name"": ""santander bank""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1137,Please call Vikram Salva.,communication,call_make,"{""recipient_name"": ""vikram salva""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1138,"Please send this email: ""Dear customer service, comma. I am writing about the status of order number 384972, period. Do you have a tracking update, question mark. Thank you, period.""",communication,email_manage,"{""action"": ""send"", ""message_body"": ""dear customer service, comma. i am writing about the status of order number 384972, period. do you have a tracking update, question mark. thank you, period.""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1139,"Please send this text: ""Hi, exclamation point. What time will you be home, question mark. Thanks, exclamation point.""",communication,messages_manage,"{""action"": ""send"", ""message_body"": ""hi, exclamation point. what time will you be home, question mark. thanks, exclamation point.""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1148,"Recipe with cilantro, chicken, and garlic.",general_qa,qa_search,"{""query"": ""recipe with cilantro, chicken, and garlic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1149,Remember that I left my wallet and car keys on the counter.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i left my wallet and car keys on the counter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1150,Remember that I need to fuel the car before we head north.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i need to fuel the car before we head north""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1151,Remember that Oliver needs his heartworm medication refilled.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""oliver needs his heartworm medication refilled""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1152,Remember that we're out of stamps.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""we're out of stamps""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1153,"Reschedule my meeting with Barrett Sipho at 6:30 PM, April 4th, 2023.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""barrett sipho"", ""time"": ""6:30 pm"", ""date"": ""april 4th, 2023""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1154,"Reschedule my meeting with Catherine Isabella at 8:30 AM, Monday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""catherine isabella"", ""time"": ""8:30 am"", ""date"": ""monday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1155,"Reschedule my meeting with Chanelle Kellen at noon, May 1st, Friday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""chanelle kellen"", ""time"": ""noon"", ""date"": ""may 1st, friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1156,"Reschedule my meeting with Demetri Lucien at 9, Friday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""demetri lucien"", ""time"": ""9"", ""date"": ""friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1157,"Reschedule my meeting with Fred Placid at 11:30, September 18th.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""fred placid"", ""time"": ""11:30"", ""date"": ""september 18th""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1158,"Reschedule my meeting with Irene Anand at 4:15, Tuesday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""irene anand"", ""time"": ""4:15"", ""date"": ""tuesday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1159,"Reschedule my meeting with Valeria Berengere at 11 O'clock, Sunday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""valeria berengere"", ""time"": ""11 o'clock"", ""date"": ""sunday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1160,"Reschedule my meeting with Virginia Daniel at 7, Saturday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""virginia daniel"", ""time"": ""7"", ""date"": ""saturday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1161,Schedule a refill for my amantadine prescription.,health,health_refill_query,"{""medication"": ""amantadine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1162,Schedule a refill for my clonazepam prescription.,health,health_refill_query,"{""medication"": ""clonazepam""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1163,Schedule a refill for my furosemide prescription.,health,health_refill_query,"{""medication"": ""furosemide""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1164,Schedule a refill for my levodopa prescription.,health,health_refill_query,"{""medication"": ""levodopa""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1165,Schedule a refill for my loratadine prescription.,health,health_refill_query,"{""medication"": ""loratadine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1166,Schedule a refill for my pantoprazole prescription.,health,health_refill_query,"{""medication"": ""pantoprazole""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1167,Schedule a refill for my pravastatin prescription.,health,health_refill_query,"{""medication"": ""pravastatin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1168,Schedule a refill for my tramadol prescription.,health,health_refill_query,"{""medication"": ""tramadol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1169,Schedule a refill for my zolpidem prescription.,health,health_refill_query,"{""medication"": ""zolpidem""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1170,Send a message to Ellinor Shehu.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""ellinor shehu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1171,Send a message to Felicitas Sinagra.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""felicitas sinagra""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1172,Send a message to Hayri & Amador Teague.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""hayri & amador teague""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1173,Send a message to Krasimir Gregory.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""krasimir gregory""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1176,Send an email to Hilton Hotels.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""hilton hotels""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1177,Send an email to Jasmine Witherspoon.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""jasmine witherspoon""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1178,Send an email to Malachi Janowski.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""malachi janowski""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1179,Send an email to Maria.Sari@wildernessnet.org.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""maria.sari@wildernessnet.org""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1180,Send an email to reservations@QuaintCozyCottages.com.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""reservations@quaintcozycottages.com""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1181,Send an email to Ruben Ruiz.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ruben ruiz""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1182,Send an email to SabinaK@westerly.edu.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""sabinak@westerly.edu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1183,Send an email to UPS Customer Service.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ups customer service""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1184,Set a reminder for Kerstin's recital.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""kerstin's recital""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1185,Set a reminder for Shakir's holiday party.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""shakir's holiday party""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1186,Set a reminder to take acetaminophen at 1PM.,health,health_medication_reminder,"{""medication"": ""acetaminophen"", ""time"": ""1pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1187,Set a reminder to take amoxicillin with lunch.,health,health_medication_reminder,"{""medication"": ""amoxicillin"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1188,Set a reminder to take citalopram at 8 AM.,health,health_medication_reminder,"{""medication"": ""citalopram"", ""time"": ""8 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1189,Set a reminder to take furosemide at bed time.,health,health_medication_reminder,"{""medication"": ""furosemide"", ""time"": ""bed time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1190,Set a reminder to take glipizide at 6:30 PM.,health,health_medication_reminder,"{""medication"": ""glipizide"", ""time"": ""6:30 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1191,Set a reminder to take ibuprofen at 11:30 AM.,health,health_medication_reminder,"{""medication"": ""ibuprofen"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1192,Set a reminder to take pantoprazole at 6 AM.,health,health_medication_reminder,"{""medication"": ""pantoprazole"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1193,Set a reminder to take Potassium at 2 PM.,health,health_medication_reminder,"{""medication"": ""potassium"", ""time"": ""2 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1194,Set a reminder to take simvastatin at dinner time.,health,health_medication_reminder,"{""medication"": ""simvastatin"", ""time"": ""dinner time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1195,Set a reminder to take Spironolactone at 9 PM.,health,health_medication_reminder,"{""medication"": ""spironolactone"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1212,Show me movies with Benicio Del Toro.,media,media_search,"{""media_type"": ""movie"", ""person"": ""benicio del toro""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1213,Show me movies with Catherine Zeta-Jones.,media,media_search,"{""media_type"": ""movie"", ""person"": ""catherine zeta-jones""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1214,Show me movies with Daniel Day-Lewis.,media,media_search,"{""media_type"": ""movie"", ""person"": ""daniel day-lewis""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1215,Show me movies with Denzel Washington.,media,media_search,"{""media_type"": ""movie"", ""person"": ""denzel washington""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1216,Show me movies with Julianne Moore.,media,media_search,"{""media_type"": ""movie"", ""person"": ""julianne moore""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1217,Show me movies with Troy Kotsur.,media,media_search,"{""media_type"": ""movie"", ""person"": ""troy kotsur""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1218,Show me movies with Viola Davis.,media,media_search,"{""media_type"": ""movie"", ""person"": ""viola davis""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1221,Take aspirin at 8 AM.,health,health_medication_reminder,"{""medication"": ""aspirin"", ""time"": ""8 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1222,Take depakote at 1 PM.,health,health_medication_reminder,"{""medication"": ""depakote"", ""time"": ""1 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1223,Take Diastat at 6 AM.,health,health_medication_reminder,"{""medication"": ""diastat"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1224,Take enalapril with lunch.,health,health_medication_reminder,"{""medication"": ""enalapril"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1225,Take escitalopram at 8 AM.,health,health_medication_reminder,"{""medication"": ""escitalopram"", ""time"": ""8 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1226,Take focalin at 11:30 AM.,health,health_medication_reminder,"{""medication"": ""focalin"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1227,Take Guanfacine at 6 AM.,health,health_medication_reminder,"{""medication"": ""guanfacine"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1228,Take intuniv at 2 PM.,health,health_medication_reminder,"{""medication"": ""intuniv"", ""time"": ""2 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1229,Take lactalose at 9 PM.,health,health_medication_reminder,"{""medication"": ""lactalose"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1230,Take Lopressor with lunch.,health,health_medication_reminder,"{""medication"": ""lopressor"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1231,Take Pradaxa at 9 PM.,health,health_medication_reminder,"{""medication"": ""pradaxa"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1232,Take Toprol at 11:30 AM.,health,health_medication_reminder,"{""medication"": ""toprol"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1233,Take Vasoprin at 2 PM.,health,health_medication_reminder,"{""medication"": ""vasoprin"", ""time"": ""2 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1234,Take Warfarin at 1 PM.,health,health_medication_reminder,"{""medication"": ""warfarin"", ""time"": ""1 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1235,Video call Martin Starosta.,communication,call_make,"{""recipient_name"": ""martin starosta""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1236,Video call Pat Etienne.,communication,call_make,"{""recipient_name"": ""pat etienne""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1237,What are the side effects of atorvastatin?,health,health_info_query,"{""medication"": ""atorvastatin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1238,What are the side effects of fluoxetine?,health,health_info_query,"{""medication"": ""fluoxetine"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1239,What are the side effects of gabapentin?,health,health_info_query,"{""medication"": ""gabapentin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1240,What are the side effects of levothyroxine?,health,health_info_query,"{""medication"": ""levothyroxine"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1241,What are the side effects of lisinopril?,health,health_info_query,"{""medication"": ""lisinopril"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1242,What are the side effects of losartan?,health,health_info_query,"{""medication"": ""losartan"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1243,What are the side effects of metformin?,health,health_info_query,"{""medication"": ""metformin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1244,What are the side effects of omeprazole?,health,health_info_query,"{""medication"": ""omeprazole"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1245,What are the side effects of Singulair?,health,health_info_query,"{""medication"": ""singulair"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1246,What are the side effects of singular?,health,health_info_query,"{""medication"": ""singular"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1247,"What time is it in Boulder City, Nevada?",general_qa,qa_search,"{""query"": ""what time is it in boulder city, nevada""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1248,"What time is it in Bridgeport, California?",general_qa,qa_search,"{""query"": ""what time is it in bridgeport, california""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1249,"What time is it in Emmaus, Pennsylvania?",general_qa,qa_search,"{""query"": ""what time is it in emmaus, pennsylvania""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1250,"What time is it in Fairbanks, Alaska?",general_qa,qa_search,"{""query"": ""what time is it in fairbanks, alaska""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1251,"What time is it in Kittery, Maine?",general_qa,qa_search,"{""query"": ""what time is it in kittery, maine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1252,"What time is it in Manhattan, New York City?",general_qa,qa_search,"{""query"": ""what time is it in manhattan, new york city""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1253,"What time is it in Toyko, Japan?",general_qa,qa_search,"{""query"": ""what time is it in toyko, japan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1254,What was the score for the last D.C. United game?,general_qa,qa_search,"{""query"": ""what was the score for the last d.c. united game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1255,What was the score for the last Indiana Fever game?,general_qa,qa_search,"{""query"": ""what was the score for the last indiana fever game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1256,What was the score for the last Kansas City Current game?,general_qa,qa_search,"{""query"": ""what was the score for the last kansas city current game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1257,What was the score for the last LSU Tigers game?,general_qa,qa_search,"{""query"": ""what was the score for the last lsu tigers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1258,What was the score for the last Nebraska Cornhuskers game?,general_qa,qa_search,"{""query"": ""what was the score for the last nebraska cornhuskers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1259,What was the score for the last New Orleans Pelicans game?,general_qa,qa_search,"{""query"": ""what was the score for the last new orleans pelicans game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1260,What was the score for the last New York Islanders game?,general_qa,qa_search,"{""query"": ""what was the score for the last new york islanders game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1261,What was the score for the last Texas Rangers game?,general_qa,qa_search,"{""query"": ""what was the score for the last texas rangers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1262,What's the conversion of 16 ounces to liters?,general_qa,qa_search,"{""query"": ""what's the conversion of 16 ounces to liters""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1263,What's the conversion of 24 ounces to grams?,general_qa,qa_search,"{""query"": ""what's the conversion of 24 ounces to grams""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1264,What's the conversion of 32 ounces to cups?,general_qa,qa_search,"{""query"": ""what's the conversion of 32 ounces to cups""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1265,What's the conversion of 48 ounces to pounds?,general_qa,qa_search,"{""query"": ""what's the conversion of 48 ounces to pounds""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1266,What's the conversion of 60 ounces to quarts?,general_qa,qa_search,"{""query"": ""what's the conversion of 60 ounces to quarts""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1267,"What's the distance to Beppu, Japan?",maps_places,maps_route,"{""destination"": ""beppu, japan"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1268,"What's the distance to Fairfax, Virginia?",maps_places,maps_route,"{""destination"": ""fairfax, virginia"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1269,"What's the distance to Hibbing, Minnesota?",maps_places,maps_route,"{""destination"": ""hibbing, minnesota"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1270,"What's the distance to Munich, Germany?",maps_places,maps_route,"{""destination"": ""munich, germany"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1271,"What's the distance to Pluckley, England?",maps_places,maps_route,"{""destination"": ""pluckley, england"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1272,"What's the distance to Rockville, Maryland?",maps_places,maps_route,"{""destination"": ""rockville, maryland"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1273,"What's the distance to Round Spring, Missouri?",maps_places,maps_route,"{""destination"": ""round spring, missouri"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1274,"What's the distance to Salem, Massachusetts?",maps_places,maps_route,"{""destination"": ""salem, massachusetts"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1275,What's the latest in science and technology?,general_qa,qa_search,"{""query"": ""what's the latest in science and technology""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1276,What's the weather like in Australia?,general_qa,weather_query,"{""place_name"": ""australia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1277,What's the weather like in Boston?,general_qa,weather_query,"{""place_name"": ""boston""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1278,What's the weather like in Chicago?,general_qa,weather_query,"{""place_name"": ""chicago""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1279,What's the weather like in Florida?,general_qa,weather_query,"{""place_name"": ""florida""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1280,What's the weather like in New York?,general_qa,weather_query,"{""place_name"": ""new york""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1281,What's the weather like in North Carolina?,general_qa,weather_query,"{""place_name"": ""north carolina""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1282,What's the weather like in Paris?,general_qa,weather_query,"{""place_name"": ""paris""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1283,What's the weather like in Spain?,general_qa,weather_query,"{""place_name"": ""spain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1284,When are the Boston Red Sox playing next?,general_qa,qa_search,"{""query"": ""when are the boston red sox playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1285,When are the Cleveland Cavaliers playing next?,general_qa,qa_search,"{""query"": ""when are the cleveland cavaliers playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1286,When are the Detroit Red Wings playing next?,general_qa,qa_search,"{""query"": ""when are the detroit red wings playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1287,When are the LA Galaxy playing next?,general_qa,qa_search,"{""query"": ""when are the la galaxy playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1288,When are the Nashville Predators playing next?,general_qa,qa_search,"{""query"": ""when are the nashville predators playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1289,When are the Philadelphia Phillies playing next?,general_qa,qa_search,"{""query"": ""when are the philadelphia phillies playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1290,When are the Pittsburgh Steelers playing next?,general_qa,qa_search,"{""query"": ""when are the pittsburgh steelers playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1291,When are the San Franscisco Giants playing next?,general_qa,qa_search,"{""query"": ""when are the san franscisco giants playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1293,Who is the lead character in '2001: A Space Odyssey'?,general_qa,qa_search,"{""query"": ""who is the lead character in '2001: a space odyssey'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1294,Who is the lead character in 'Citizen Kane'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'citizen kane'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1295,Who is the lead character in 'Harry Potter'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'harry potter'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1296,Who is the lead character in 'Les Miserables'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'les miserables'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1297,Who is the lead character in 'Mamma Mia'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'mamma mia'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1298,Who is the lead character in 'Star Wars'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'star wars'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1299,Who is the lead character in 'West Side Story'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'west side story'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1300,Who is the lead character in the 'Nutcracker'?,general_qa,qa_search,"{""query"": ""who is the lead character in the 'nutcracker'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1301,Who is the main character in Little Mermaid?,general_qa,qa_search,"{""query"": ""who is the main character in little mermaid""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1302,Who is the main charcter in Little Mermaid?,general_qa,qa_search,"{""query"": ""who is the main charcter in little mermaid""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1303,Who played third base for the Pittsburgh Pirates in 1960?,general_qa,qa_search,"{""query"": ""who played third base for the pittsburgh pirates in 1960""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1304,Who won the gold medal in men's figure skating in the 1952 Winter Olympics?,general_qa,qa_search,"{""query"": ""who won the gold medal in men's figure skating in the 1952 winter olympics""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1305,Who's winning between the Packers and the Chicago Bears?,general_qa,qa_search,"{""query"": ""who's winning between the packers and the chicago bears""}",AGREED,Unanimous dual-frontier agreement

@@ -302,13 +302,13 @@
     {
       "name": "qa_search",
       "domain": "general_qa",
-      "description": "Open-domain factual web queries, encyclopedia knowledge, recipes, news briefings, stock prices, and math calculations.",
+      "description": "Open-domain factual web queries, encyclopedia knowledge, recipes, news briefings, stock prices, and math calculations (excluding commercial business hours which route to places_search).",
       "parameters": {
         "type": "object",
         "properties": {
           "query": {
             "type": "string",
-            "description": "Verbatim factual search query, stripped of conversational carrier phrases"
+            "description": "Core factual search query, stripped of conversational carrier prefixes (e.g. 'can you look up', 'tell me', 'show me if', 'search google for')"
           }
         },
         "required": [
@@ -449,11 +449,11 @@
         "properties": {
           "destination": {
             "type": "string",
-            "description": "Target geographic destination (BaseNP stripped)"
+            "description": "Target geographic destination or arrival point (BaseNP stripped)"
           },
           "origin": {
             "type": "string",
-            "description": "Starting geographic departure point (BaseNP stripped)"
+            "description": "Starting geographic departure point for point-to-point queries (BaseNP stripped, e.g. in 'distance from Montreal to Brattleboro', origin is 'montreal, canada')"
           },
           "query_type": {
             "type": "string",
@@ -462,7 +462,7 @@
               "distance",
               "traffic"
             ],
-            "description": "Navigation query category"
+            "description": "Navigation query category (phrases like 'navigate to...' normalize to 'directions')"
           }
         },
         "required": [
@@ -473,7 +473,7 @@
     {
       "name": "places_search",
       "domain": "maps_places",
-      "description": "Search local commercial venues, stores, operating hours, and restaurants.",
+      "description": "Search local commercial venues, stores, operating hours/status (e.g. 'When is Bed, Bath and Beyond open until?'), and restaurants.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -492,7 +492,7 @@
               "distance",
               "relevance"
             ],
-            "description": "Result ranking preference"
+            "description": "Result ranking preference. Spoken inquiries for 'nearby' venues (e.g. 'nearby cafes', 'closest starbucks') require 'distance'"
           }
         }
       }
@@ -529,7 +529,7 @@
     {
       "name": "media_play",
       "domain": "media",
-      "description": "Initiate playback of music tracks, albums, podcasts, radio stations, audiobooks, movies, or video streaming platforms.",
+      "description": "Initiate playback of music tracks, albums, podcasts, radio stations, audiobooks, movies, or video streaming platforms (e.g. 'Open Hulu').",
       "parameters": {
         "type": "object",
         "properties": {
@@ -555,7 +555,7 @@
           },
           "service": {
             "type": "string",
-            "description": "Streaming app or platform (e.g. hulu, paramount plus, spotify)"
+            "description": "Streaming app or platform (e.g. hulu, paramount plus, spotify, netflix)"
           },
           "house_place": {
             "type": "string",
@@ -705,11 +705,11 @@
           },
           "key": {
             "type": "string",
-            "description": "Associative subject/key (omitted for unkeyed declarative clauses)"
+            "description": "Associative subject/attribute key for X-is-Y relations (e.g. 'parking space', 'locker combination'). Omitted for unkeyed declarative clauses."
           },
           "value": {
             "type": "string",
-            "description": "Verbatim fact content or associated value"
+            "description": "Verbatim fact content or full unkeyed declarative clause (e.g. '4412', 'we\\'re out of batteries')"
           }
         },
         "required": [
@@ -821,10 +821,7 @@
             "type": "string",
             "description": "Drop-off location (BaseNP stripped)"
           }
-        },
-        "required": [
-          "destination"
-        ]
+        }
       }
     },
     {
@@ -849,11 +846,11 @@
           },
           "route_or_station": {
             "type": "string",
-            "description": "Line name, station, or airline"
+            "description": "Public transit line name, station, or commercial airline carrier (e.g. 'red line', 'penn station', 'southwest airlines', 'jet blue')"
           },
           "time": {
             "type": "string",
-            "description": "Departure or arrival timestamp"
+            "description": "Departure or arrival timestamp (clock time only, e.g. '7 am', 'noon'; flight modifiers like 'non-stop' or 'round-trip' are outside tokens and must NOT be put here)"
           }
         }
       }

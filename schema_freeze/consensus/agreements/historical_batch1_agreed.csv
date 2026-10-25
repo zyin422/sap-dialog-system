@@ -1,0 +1,38 @@
+id,prompt,domain,intent,slots_json,consensus_status,notes
+SAP-CMD-0279,Play 'Stranger Things' on Netflix.,media,media_play,"{""media_type"": ""music"", ""title"": ""the white album"", ""artist"": ""the beatles"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0283,Play Channel 35 on Sirius XM.,media,media_play,"{""media_type"": ""movie"", ""title"": ""transformers"", ""service"": ""netflix""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0498,Wake me up at 9 o'clock Thursday.,general_qa,qa_search,"{""query"": ""what's the dow jones at right now""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0650,Email Ruben Ruiz.,general_qa,qa_search,"{""query"": ""how many calories does 15 baby carrots and a scoop of hummus have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0652,Email UPS Customer Service.,general_qa,qa_search,"{""query"": ""how many calories does 3 teaspoons of brown sugar have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0653,Find a soup recipie.,general_qa,qa_search,"{""query"": ""how many calories does 4 graham crackers have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0655,Find me a drink recipe.,general_qa,qa_search,"{""query"": ""how many calories does a frosted donut have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0656,Find me a gluten-free pancake recipe.,general_qa,qa_search,"{""query"": ""how many calories does a glass of orange juice have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0657,Find me a homemade yogurt recipe.,general_qa,qa_search,"{""query"": ""how many calories does a grilled cheese sandwich have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0658,Find me a pasta recipe.,general_qa,qa_search,"{""query"": ""how many calories does a pint of ben and jerry's ice cream have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0728,Make me a reservation at Kevin's Diner.,media,media_search,"{""media_type"": ""movie"", ""person"": ""denzel washington""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0729,Map a route to Dulles Airport.,media,media_search,"{""media_type"": ""movie"", ""person"": ""george clooney""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0730,Message Elle Shu.,media,media_search,"{""media_type"": ""movie"", ""person"": ""harrison ford""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0731,Message Frank Smith.,media,media_search,"{""media_type"": ""movie"", ""person"": ""julia roberts""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0732,Message Harry & Amanda Turner.,media,media_search,"{""media_type"": ""movie"", ""person"": ""morgan freeman""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0733,Message Kramer Gray.,media,media_search,"{""media_type"": ""movie"", ""person"": ""robin williams""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0734,Message The Miller Family.,media,media_search,"{""media_type"": ""movie"", ""person"": ""sandra bullock""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0735,Message The Zen Family.,media,media_search,"{""media_type"": ""movie"", ""person"": ""steve carell""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0736,Open Gmail.,media,media_search,"{""media_type"": ""movie"", ""person"": ""tom cruise""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0737,Our parking space is blue.,media,media_search,"{""media_type"": ""movie"", ""person"": ""tom hanks""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0924,Who won the Chicago Bears game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""71 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0925,Who won the Dolphins game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""72 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0926,Who won the Nuggets game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""74 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0927,Who won the Patriots game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""75 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0928,Who won the Pirates game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""76 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0929,Who won the Portland game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""77 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0930,Who won the Sundevils game yesterday?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""78 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0931,Who's winning between the Packers and the Bears?,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""80 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0932,Wikipedia David Beckham.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""81 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0933,Wikipedia list of most popular movies.,smart_home,iot_device_adjust,"{""device_type"": ""thermostat"", ""setting"": ""temperature"", ""value"": ""82 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0934,Wikipedia list of presidents.,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""down"", ""value"": ""2 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0935,Wikipedia Meghan Markle.,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""down"", ""value"": ""3 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0936,Utterance SAP-CMD-0936,smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""up"", ""value"": ""2 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0937,"Add a 1,500 piece jigsaw puzzle for Janella to my gift list.",smart_home,iot_device_adjust,"{""device_type"": ""temperature"", ""setting"": ""temperature"", ""direction"": ""up"", ""value"": ""3 degrees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1177,Utterance SAP-CMD-1177,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""2 and a half hours""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1178,Utterance SAP-CMD-1178,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""4 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1180,Send an email to reservations@QuaintCozyCottages.com.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""12 minutes""}",AGREED,Unanimous dual-frontier agreement

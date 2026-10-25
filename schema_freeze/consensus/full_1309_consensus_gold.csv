@@ -1,0 +1,856 @@
+id,prompt,domain,intent,slots_json,consensus_status,notes
+SAP-CMD-0001,Add this music to favorites.,media,media_control,"{""action"": ""like""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0003,Answer the call.,communication,call_manage,"{""action"": ""answer""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0004,Call area code 053-621-4879.,communication,call_make,"{""phone_number"": ""053-621-4879""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0007,Find my phone.,general_qa,device_find,"{""device_type"": ""phone""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0008,Hang up.,communication,call_manage,"{""action"": ""hang_up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0014,Make the text larger.,accessibility,accessibility_ui_scale,"{""direction"": ""up"", ""ui_element"": ""text_size""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0015,Open reminders.,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""reminders""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0016,Skip this song.,media,media_control,"{""action"": ""next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0019,Stop the call.,communication,call_manage,"{""action"": ""hang_up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0020,Tell me the news.,general_qa,qa_search,"{""query"": ""the news""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0021,Turn off heat.,smart_home,iot_device_power,"{""device_type"": ""heat"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0022,Turn off the TV.,smart_home,iot_device_power,"{""device_type"": ""tv"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0024,Turn on cooling.,smart_home,iot_device_power,"{""device_type"": ""cooling"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0025,What restaurants are nearby?,maps_places,places_search,"{""business_type"": ""restaurants"", ""sort_by"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0026,What's on my calendar tomorrow?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""tomorrow""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0027,What's on my shopping list?,notes_memory,lists_manage,"{""action"": ""query"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0028,What's the temperature in the living room?,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature"", ""room"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0033,Please send this text.,communication,messages_manage,"{""action"": ""send""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0034,Reschedule my meeting.,calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0035,Send a message.,communication,messages_manage,"{""action"": ""send""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0036,Add a compact air fryer for Sara to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""compact air fryer for sara"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0037,Add a meeting to my calendar.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""meeting""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0038,Add a t-shirt for Joe to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""t-shirt for joe"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0039,Add a weighted blanket for Abigail to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""weighted blanket for abigail"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0040,Add gold hoop earrings for mom to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""gold hoop earrings for mom"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0041,Add rechargeable hand warmers for Robert to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""rechargeable hand warmers for robert"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0045,Boil the kettle.,smart_home,iot_device_power,"{""device_type"": ""kettle"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0046,Book a table for 3 at Atlantic Fish.,maps_places,reservations_manage,"{""business_name"": ""atlantic fish"", ""party_size"": ""3""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0047,Book a table for 8 at Coastal Fish Company.,maps_places,reservations_manage,"{""business_name"": ""coastal fish company"", ""party_size"": ""8""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0073,Call the nearest coffee shop.,communication,call_make,"{""recipient_name"": ""nearest coffee shop""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0074,Cancel alarm for 10.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""10""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0075,Cancel alarm for 11.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""11""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0076,Cancel alarm for 4:30.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""4:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0077,Cancel alarm for 5:15.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""5:15""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0078,Cancel alarm for 6:00 PM.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""6:00 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0079,Cancel alarm for 7:30.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""7:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0080,Cancel alarm for 8.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""8""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0081,Cancel alarm for 9 PM.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0082,Cancel alarm for noon.,calendar_alarm,alarm_manage,"{""action"": ""cancel"", ""time"": ""noon""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0083,"Cortana, play music.",media,media_play,"{""media_type"": ""music""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0085,Create a Costco shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""costco shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0086,Create a grocery shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""grocery shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0087,Create a Kroger shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""kroger shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0088,Create a Sam's Club shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""sam's club shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0089,Create a Target shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""target shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0090,Create a Walmart shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""walmart shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0091,Create a Whole Foods shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""whole foods shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0093,Decrease the volume.,media,media_volume,"{""action"": ""down""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0094,Delete my reminders for tomorrow.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""reminders"", ""date"": ""tomorrow""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0096,Did the Columbus Blue Jackets win?,general_qa,qa_search,"{""query"": ""did the columbus blue jackets win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0097,Did the Longhorns win?,general_qa,qa_search,"{""query"": ""did the longhorns win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0098,Did the Utah Jazz win?,general_qa,qa_search,"{""query"": ""did the utah jazz win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0105,Dim the nightlight to 80%.,smart_home,iot_device_adjust,"{""device_type"": ""nightlight"", ""setting"": ""brightness"", ""direction"": ""down"", ""value"": ""80%""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0108,Dislike this song.,media,media_control,"{""action"": ""dislike""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0109,Do I have any alarms set?,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0110,Do I have anything scheduled for Friday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0111,Do I have anything scheduled for Monday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""monday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0112,Do I have anything scheduled for Saturday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""saturday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0113,Do I have anything scheduled for Sunday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""sunday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0114,Do I have anything scheduled for Thursday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""thursday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0115,Do I have anything scheduled for today?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""today""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0116,Do I have anything scheduled for Tuesday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""tuesday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0117,Do I have anything scheduled for Wednesday?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""wednesday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0118,Do I need an umbrella today?,general_qa,weather_query,"{""date"": ""today"", ""weather_aspect"": ""umbrella""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0119,Fast forward 1 minute.,media,media_control,"{""action"": ""fast_forward"", ""duration"": ""1 minute""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0120,Fast forward 2 minutes.,media,media_control,"{""action"": ""fast_forward"", ""duration"": ""2 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0121,Fast forward 3 minutes.,media,media_control,"{""action"": ""fast_forward"", ""duration"": ""3 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0122,Fast forward 4 minutes.,media,media_control,"{""action"": ""fast_forward"", ""duration"": ""4 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0123,Fast forward 5 minutes.,media,media_control,"{""action"": ""fast_forward"", ""duration"": ""5 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0124,Flip a coin.,general_qa,qa_search,"{""query"": ""flip a coin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0125,Get help.,general_qa,qa_search,"{""query"": ""get help""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0127,Help me relax.,general_qa,qa_search,"{""query"": ""help me relax""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0128,"Hey Facebook, resume.",media,media_control,"{""action"": ""resume""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0132,"Hey Siri, pause the music.",media,media_control,"{""action"": ""pause""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0133,"Hey Siri, turn up the volume.",media,media_volume,"{""action"": ""up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0134,How do I make a 13 pound turkey?,general_qa,qa_search,"{""query"": ""how do i make a 13 pound turkey""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0135,How do I make a 3 course dinner for 24 people?,general_qa,qa_search,"{""query"": ""how do i make a 3 course dinner for 24 people""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0136,How do I make a tie-dyed sweatshirt?,general_qa,qa_search,"{""query"": ""how do i make a tie-dyed sweatshirt""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0137,How do I make chicken soup?,general_qa,qa_search,"{""query"": ""how do i make chicken soup""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0138,How do you say 'dinner' in Spanish?,general_qa,qa_search,"{""query"": ""how do you say 'dinner' in spanish""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0139,How do you say 'good morning' in Polish?,general_qa,qa_search,"{""query"": ""how do you say 'good morning' in polish""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0140,How do you say 'help me' in Mandarin Chinese?,general_qa,qa_search,"{""query"": ""how do you say 'help me' in mandarin chinese""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0141,How do you say 'please' in Icelandic?,general_qa,qa_search,"{""query"": ""how do you say 'please' in icelandic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0142,How do you say 'restroom' in French?,general_qa,qa_search,"{""query"": ""how do you say 'restroom' in french""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0143,How do you say 'thank you' in Japanese?,general_qa,qa_search,"{""query"": ""how do you say 'thank you' in japanese""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0144,How do you spell 'confident'?,general_qa,qa_search,"{""query"": ""how do you spell 'confident'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0145,How do you spell 'corona virus'?,general_qa,qa_search,"{""query"": ""how do you spell 'corona virus'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0146,How do you spell 'definitely'?,general_qa,qa_search,"{""query"": ""how do you spell 'definitely'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0147,How do you spell 'government'?,general_qa,qa_search,"{""query"": ""how do you spell 'government'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0148,How do you spell 'multiplication'?,general_qa,qa_search,"{""query"": ""how do you spell 'multiplication'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0149,How do you spell 'quarantine'?,general_qa,qa_search,"{""query"": ""how do you spell 'quarantine'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0150,How do you spell 'separate'?,general_qa,qa_search,"{""query"": ""how do you spell 'separate'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0151,How do you spell 'succeed'?,general_qa,qa_search,"{""query"": ""how do you spell 'succeed'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0152,"How far is Boulder City, Nevada from here?",maps_places,maps_route,"{""destination"": ""boulder city, nevada"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0153,"How far is Bridgeport, California from here?",maps_places,maps_route,"{""destination"": ""bridgeport, california"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0154,How far is Cabela's from here?,maps_places,maps_route,"{""destination"": ""cabela's"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0155,How far is Costco from here?,maps_places,maps_route,"{""destination"": ""costco"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0156,How far is Disney World from Universal Studios?,maps_places,maps_route,"{""destination"": ""disney world"", ""origin"": ""universal studios"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0157,"How far is Fairbanks, Alaska from here?",maps_places,maps_route,"{""destination"": ""fairbanks, alaska"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0158,How far is home from Vietnam?,maps_places,maps_route,"{""destination"": ""home"", ""origin"": ""vietnam"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0159,How far is Iceland from Greenland?,maps_places,maps_route,"{""destination"": ""iceland"", ""origin"": ""greenland"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0160,How far is IKEA from here?,maps_places,maps_route,"{""destination"": ""ikea"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0161,How far is Kroger from here?,maps_places,maps_route,"{""destination"": ""kroger"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0162,"How far is Manhattan, NYC from here?",maps_places,maps_route,"{""destination"": ""manhattan, nyc"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0163,"How far is Musk, Australia from here?",maps_places,maps_route,"{""destination"": ""musk, australia"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0164,How far is Target from here?,maps_places,maps_route,"{""destination"": ""target"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0165,How far is the Lego Store from here?,maps_places,maps_route,"{""destination"": ""lego store"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0166,How far is Walmart from here?,maps_places,maps_route,"{""destination"": ""walmart"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0167,"How far is West Orange, New Jersey from here?",maps_places,maps_route,"{""destination"": ""west orange, new jersey"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0169,How many calories does 3 teaspoons of brown sugar have?,general_qa,qa_search,"{""query"": ""how many calories does 3 teaspoons of brown sugar have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0170,How many calories does a Big Mac have?,general_qa,qa_search,"{""query"": ""how many calories does a big mac have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0171,How many calories does a boiled egg have?,general_qa,qa_search,"{""query"": ""how many calories does a boiled egg have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0172,How many calories does a cup of blueberries have?,general_qa,qa_search,"{""query"": ""how many calories does a cup of blueberries have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0173,How many calories does a piece of grilled salmon have?,general_qa,qa_search,"{""query"": ""how many calories does a piece of grilled salmon have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0174,How many calories does a slice of sausage pizza have?,general_qa,qa_search,"{""query"": ""how many calories does a slice of sausage pizza have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0175,How many calories does a Snickers bar have?,general_qa,qa_search,"{""query"": ""how many calories does a snickers bar have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0176,How much is $1 in euros?,general_qa,qa_search,"{""query"": ""how much is $1 in euros""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0177,How much is $10 in euros?,general_qa,qa_search,"{""query"": ""how much is $10 in euros""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0178,How much is $100 in euros?,general_qa,qa_search,"{""query"": ""how much is $100 in euros""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0179,How much is $150 in euros?,general_qa,qa_search,"{""query"": ""how much is $150 in euros""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0180,How much is $5 in euros?,general_qa,qa_search,"{""query"": ""how much is $5 in euros""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0186,How tall is Mount Everest ?,general_qa,qa_search,"{""query"": ""how tall is mount everest""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0187,How tall is Mount Rushmore?,general_qa,qa_search,"{""query"": ""how tall is mount rushmore""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0188,How tall is the Statue of Liberty ?,general_qa,qa_search,"{""query"": ""how tall is the statue of liberty""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0189,How tall is the tallest basketball player?,general_qa,qa_search,"{""query"": ""how tall is the tallest basketball player""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0190,How's the traffic to Acadia National Park?,maps_places,maps_route,"{""destination"": ""acadia national park"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0191,How's the traffic to Dodger's Stadium?,maps_places,maps_route,"{""destination"": ""dodger's stadium"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0192,How's the traffic to Home?,maps_places,maps_route,"{""destination"": ""home"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0193,How's the traffic to Hoover Dam?,maps_places,maps_route,"{""destination"": ""hoover dam"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0194,"How's the traffic to Orlando, Florida?",maps_places,maps_route,"{""destination"": ""orlando, florida"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0195,How's the traffic to the St. Louis Arch?,maps_places,maps_route,"{""destination"": ""st. louis arch"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0196,How's the traffic to Waikiki Beach?,maps_places,maps_route,"{""destination"": ""waikiki beach"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0197,Increase the volume.,media,media_volume,"{""action"": ""up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0199,Is ALDI open today?,maps_places,places_search,"{""business_name"": ""aldi""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0200,Is Barnes & Noble open today?,maps_places,places_search,"{""business_name"": ""barnes & noble""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0201,Is Best Buy open today?,maps_places,places_search,"{""business_name"": ""best buy""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0204,Is Starbucks open today?,maps_places,places_search,"{""business_name"": ""starbucks""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0205,Is Target open today?,maps_places,places_search,"{""business_name"": ""target""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0206,Is the closest library ADA compliant?,maps_places,places_search,"{""business_type"": ""library"", ""sort_by"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0209,Is the front door locked?,smart_home,iot_sensor_query,"{""sensor_type"": ""lock"", ""device_type"": ""front door""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0211,Is the nearest bank wheelchair accessible?,maps_places,places_search,"{""business_type"": ""bank"", ""sort_by"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0212,Is the nearest movie theater ADA compliant?,maps_places,places_search,"{""business_type"": ""movie theater"", ""sort_by"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0213,Is the nearest subway station ADA compliant?,maps_places,places_search,"{""business_type"": ""subway station"", ""sort_by"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0215,Is there a chance of rain in the morning?,general_qa,weather_query,"{""date"": ""morning"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0216,Is there a chance of rain on Monday?,general_qa,weather_query,"{""date"": ""monday"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0217,Is there a chance of rain on the 13th?,general_qa,weather_query,"{""date"": ""13th"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0218,Is there a chance of rain on the 16th?,general_qa,weather_query,"{""date"": ""16th"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0219,Is there a chance of rain on the 20th?,general_qa,weather_query,"{""date"": ""20th"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0220,Is there a chance of rain on Tuesday?,general_qa,weather_query,"{""date"": ""tuesday"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0221,Is there a chance of rain this afternoon?,general_qa,weather_query,"{""date"": ""this afternoon"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0222,Is there a chance of rain tomorrow?,general_qa,weather_query,"{""date"": ""tomorrow"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0223,Is there a chance of rain tonight?,general_qa,weather_query,"{""date"": ""tonight"", ""weather_aspect"": ""rain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0225,Like this song.,media,media_control,"{""action"": ""like""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0226,Listen to Bloomberg.,media,media_play,"{""media_type"": ""radio"", ""title"": ""bloomberg""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0227,Listen to CBS.,media,media_play,"{""media_type"": ""radio"", ""title"": ""cbs""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0228,Listen to CNN.,media,media_play,"{""media_type"": ""radio"", ""title"": ""cnn""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0229,Listen to ESPN sports.,media,media_play,"{""media_type"": ""radio"", ""title"": ""espn sports""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0230,Listen to FOX.,media,media_play,"{""media_type"": ""radio"", ""title"": ""fox""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0231,Listen to MSNBC.,media,media_play,"{""media_type"": ""radio"", ""title"": ""msnbc""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0232,Listen to NPR.,media,media_play,"{""media_type"": ""radio"", ""title"": ""npr""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0234,Lock the front door.,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0242,Make me a reservation at 801 Chophouse.,maps_places,reservations_manage,"{""business_name"": ""801 chophouse""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0243,Make me a reservation at Polly's Pancake Parlor.,maps_places,reservations_manage,"{""business_name"": ""polly's pancake parlor""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0244,Map a route to 30th Street Station.,maps_places,maps_route,"{""destination"": ""30th street station"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0245,Map a route to John F. Kennedy Airport.,maps_places,maps_route,"{""destination"": ""john f. kennedy airport"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0246,Map a route to our hotel.,maps_places,maps_route,"{""destination"": ""hotel"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0247,Map a route to Port Authority.,maps_places,maps_route,"{""destination"": ""port authority"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0248,"Map a route to Scottsdale, Arizona.",maps_places,maps_route,"{""destination"": ""scottsdale, arizona"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0249,Map a route to the Airbnb.,maps_places,maps_route,"{""destination"": ""airbnb"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0250,Map a route to the airport's cell phone lot.,maps_places,maps_route,"{""destination"": ""airport's cell phone lot"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0251,Map a route to the closest car charging station.,maps_places,maps_route,"{""destination"": ""closest car charging station"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0252,Navigate to CVS.,maps_places,maps_route,"{""destination"": ""cvs"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0253,"Navigate to Dallas, TX.",maps_places,maps_route,"{""destination"": ""dallas, tx"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0254,Navigate to Denver International Airport.,maps_places,maps_route,"{""destination"": ""denver international airport"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0255,Navigate to home.,maps_places,maps_route,"{""destination"": ""home"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0256,Navigate to Los Angeles Union Station.,maps_places,maps_route,"{""destination"": ""los angeles union station"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0257,Navigate to Lowe's.,maps_places,maps_route,"{""destination"": ""lowe's"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0258,Navigate to mom's house.,maps_places,maps_route,"{""destination"": ""mom's house"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0259,Navigate to O'Hare Airport.,maps_places,maps_route,"{""destination"": ""o'hare airport"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0260,Navigate to Target.,maps_places,maps_route,"{""destination"": ""target"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0261,Navigate to Walgreens.,maps_places,maps_route,"{""destination"": ""walgreens"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0279,Play 'Stranger Things' on Netflix.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""stranger things"", ""service"": ""netflix""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0280,Play 'The Dear Evan Hansen Soundtrack'.,media,media_play,"{""media_type"": ""music"", ""title"": ""the dear evan hansen soundtrack""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0281,Play 'The Godfather' on Prime Video.,media,media_play,"{""media_type"": ""movie"", ""title"": ""the godfather"", ""service"": ""prime video""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0282,Play Billboard's Top 40 on Pandora.,media,media_play,"{""media_type"": ""music"", ""title"": ""billboard's top 40"", ""service"": ""pandora""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0283,Play Channel 35 on Sirius XM.,media,media_play,"{""media_type"": ""radio"", ""title"": ""channel 35"", ""service"": ""sirius xm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0284,Play Classical music on Spotify.,media,media_play,"{""media_type"": ""music"", ""title"": ""classical music"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0285,Play hip hop music on Apple music.,media,media_play,"{""media_type"": ""music"", ""title"": ""hip hop music"", ""service"": ""apple music""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0295,Play my dance playlist.,media,media_play,"{""media_type"": ""music"", ""title"": ""dance playlist""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0296,Play my evening jazz playlist on Spotify.,media,media_play,"{""media_type"": ""music"", ""title"": ""evening jazz playlist"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0297,Play the latest episode of 'Crime Junkie'.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""crime junkie""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0298,Play the latest episode of 'Stuff You Should Know'.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""stuff you should know""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0299,Play the latest episode of 'The Daily' podcast.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""the daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0300,Play the latest episode of 'This American Life'.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""this american life""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0301,Please call 555-244-2922.,communication,call_make,"{""phone_number"": ""555-244-2922""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0302,Please call area code 555-333-1000.,communication,call_make,"{""phone_number"": ""555-333-1000""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0303,Please call CVS Pharmacy.,communication,call_make,"{""recipient_name"": ""cvs pharmacy""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0304,Please call Kathy Bianco.,communication,call_make,"{""recipient_name"": ""kathy bianco""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0319,Read my book.,media,media_play,"{""media_type"": ""audiobook""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0320,Read my messages.,communication,messages_manage,"{""action"": ""read""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0321,Read my new email.,communication,email_manage,"{""action"": ""read""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0323,Redial.,communication,call_manage,"{""action"": ""redial""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0324,Remember that I need to refill my prescription.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i need to refill my prescription""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0329,Remind me to take a break in 25 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""25 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0330,Remind me to take a break in 30 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""30 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0331,Remind me to take a break in 45 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""45 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0332,Remind me to take a break in 50 minutes.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""take a break"", ""time"": ""50 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0333,Request a taxi ride.,transport,rideshare_book,{},AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0334,Scan a QR code.,general_qa,qa_search,"{""query"": ""scan a qr code""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0336,Set a reminder for my dentist appointment.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""dentist appointment""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0337,Set a reminder for my wedding anniversary.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""wedding anniversary""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0338,Set a reminder for our dinner reservation on Friday.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""dinner reservation"", ""date"": ""friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0339,Set a reminder for the day spring training starts.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""day spring training starts""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0340,Set a reminder for the next partial lunar eclipse.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""next partial lunar eclipse""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0341,Set a reminder for the twins' birthday party.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""twins' birthday party""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0342,Set a timer for 1 hour minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""1 hour minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0343,Set a timer for 10 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""10 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0344,Set a timer for 15 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""15 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0345,Set a timer for 40 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""40 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0346,Set a timer for 45 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""45 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0347,Set a timer for 5 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0348,Set a timer for 60 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""60 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0349,Set a timer for 90 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""90 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0350,Set an alarm for 11:45 AM.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""11:45 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0351,Set an alarm for 3:45 PM on Thursday and Friday .,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""3:45 pm"", ""date"": ""thursday and friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0352,Set an alarm for 5:30 AM on Thursday.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:30 am"", ""date"": ""thursday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0353,Set an alarm for 6:30 PM Daily.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:30 pm"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0354,Set an alarm for 7 AM on Thanksgiving.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""7 am"", ""date"": ""thanksgiving""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0355,Set an alarm for 7:00 AM.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""7:00 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0357,Set an alarm for quarter to 10 AM.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""quarter to 10 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0358,Set an alarm in 10 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""10 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0359,Set an alarm in 15 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""15 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0360,Set an alarm in 20 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""20 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0361,Set an alarm in 30 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""30 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0362,Set an alarm in 40 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""40 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0363,Set an alarm in 45 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""45 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0364,Set an alarm in 5 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0365,Set an alarm in 60 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""60 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0366,Set an alarm in 90 minutes.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""90 minutes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0367,Set the air conditioning to 70.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""70""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0368,Set the air conditioning to 72.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""72""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0369,Set the air conditioning to 74.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""74""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0370,Set the air conditioning to 76.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""76""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0371,Set the air conditioning to 78.,smart_home,iot_device_adjust,"{""device_type"": ""air conditioning"", ""setting"": ""temperature"", ""value"": ""78""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0372,Set the heat to 62.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""62""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0373,Set the heat to 66.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""66""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0374,Set the heat to 68.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""68""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0375,Set the heat to 70.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""70""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0376,Set the heat to 72.,smart_home,iot_device_adjust,"{""device_type"": ""heat"", ""setting"": ""temperature"", ""value"": ""72""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0377,Set the volume to 1.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""1""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0378,Set the volume to 10.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""10""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0379,Set the volume to 2.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0380,Set the volume to 3.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""3""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0381,Set the volume to 6.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0382,Set the volume to 7.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""7""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0383,Set the volume to 8.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""8""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0384,Set the volume to 9.,media,media_volume,"{""action"": ""set"", ""change_amount"": ""9""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0385,Show me movies with Jack Nicholson.,media,media_search,"{""media_type"": ""movie"", ""person"": ""jack nicholson""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0386,Show me my alarms.,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0398,Skip backward 1 minute.,media,media_control,"{""action"": ""rewind"", ""duration"": ""1 minute""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0408,Skip this track.,media,media_control,"{""action"": ""next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0409,Skip to the next chapter.,media,media_control,"{""action"": ""next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0410,Snooze the alarm.,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0411,Snooze.,calendar_alarm,alarm_manage,"{""action"": ""snooze""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0431,Turn down the volume.,media,media_volume,"{""action"": ""down""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0432,Turn off all switches.,smart_home,iot_device_power,"{""device_type"": ""all switches"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0433,Turn off cooling.,smart_home,iot_device_power,"{""device_type"": ""cooling"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0434,Turn off the basement light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""basement""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0435,Turn off the closet light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""closet""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0436,Turn off the den light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""den""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0437,Turn off the dining room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""dining room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0438,Turn off the family room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""family room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0439,Turn off the lights in the den.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""den""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0440,Turn off the lights in the dining room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""dining room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0441,Turn off the lights in the family room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""family room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0442,Turn off the lights in the guestroom.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""guestroom""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0443,Turn off the lights in the hall closet.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""hall closet""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0444,Turn off the lights in the kids' room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""kids' room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0445,Turn off the lights in the kitchen.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""kitchen""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0446,Turn off the lights in the living room.,smart_home,iot_device_power,"{""device_type"": ""lights"", ""state"": ""off"", ""house_place"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0447,Turn off the living room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0448,Turn off the office light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""office""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0449,Turn off the porch light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""off"", ""house_place"": ""porch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0450,Turn on heat.,smart_home,iot_device_power,"{""device_type"": ""heat"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0451,Turn on my TV.,smart_home,iot_device_power,"{""device_type"": ""tv"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0452,Turn on the basement light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""basement""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0453,Turn on the closet light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""closet""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0454,Turn on the den light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""den""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0455,Turn on the dining room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""dining room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0456,Turn on the family room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""family room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0457,Turn on the kitchen light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""kitchen""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0458,Turn on the living room light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""living room""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0459,Turn on the porch light.,smart_home,iot_device_power,"{""device_type"": ""light"", ""state"": ""on"", ""house_place"": ""porch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0460,Turn on the TV.,smart_home,iot_device_power,"{""device_type"": ""tv"", ""state"": ""on""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0469,Turn up the sound.,media,media_volume,"{""action"": ""up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0475,Unlock the front door.,smart_home,iot_device_power,"{""device_type"": ""front door"", ""state"": ""off""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0476,Video call 1-800-642-7676.,communication,call_make,"{""phone_number"": ""1-800-642-7676""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0477,Video call 1-800-692-7753.,communication,call_make,"{""phone_number"": ""1-800-692-7753""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0478,Video call 217-244-1176.,communication,call_make,"{""phone_number"": ""217-244-1176""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0480,Video call Lennart Vass.,communication,call_make,"{""recipient_name"": ""lennart vass""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0481,Video call Leo Rodrigues.,communication,call_make,"{""recipient_name"": ""leo rodrigues""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0482,Video call Mike Castelo.,communication,call_make,"{""recipient_name"": ""mike castelo""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0484,Wake me up at 5:15 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:15 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0485,Wake me up at 5:30 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""5:30 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0486,Wake me up at 6 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0489,Wake me up at 6:30 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:30 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0491,Wake me up at 6:45 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""6:45 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0492,Wake me up at 7 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""7 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0495,Wake me up at 8 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""8 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0497,Wake me up at 8:20 AM every day.,calendar_alarm,alarm_manage,"{""action"": ""set"", ""time"": ""8:20 am"", ""general_frequency"": ""daily""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0499,What alarms are set?,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0500,What are my reminders?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""reminders""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0511,What does my day look like?,calendar_alarm,schedule_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0530,What's on my agenda for today?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""date"": ""today""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0531,What's on my to-do list?,notes_memory,lists_manage,"{""action"": ""query"", ""list_name"": ""to-do list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0550,What's the temperature outside?,general_qa,weather_query,"{""weather_aspect"": ""temperature""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0552,What's the thermostat set to?,smart_home,iot_sensor_query,"{""sensor_type"": ""temperature"", ""device_type"": ""thermostat""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0554,When does the next train arrive?,transport,transit_lookup,"{""transit_type"": ""train""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0555,When is AMC Theater open until?,maps_places,places_search,"{""business_name"": ""amc theater""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0556,When is Buffalo Wild Wings open until?,maps_places,places_search,"{""business_name"": ""buffalo wild wings""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0558,When is Macy's open until?,maps_places,places_search,"{""business_name"": ""macy's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0559,When is my next alarm?,calendar_alarm,alarm_manage,"{""action"": ""query""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0560,When is Shake Shack open until?,maps_places,places_search,"{""business_name"": ""shake shack""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0561,When is Shell open until?,maps_places,places_search,"{""business_name"": ""shell""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0563,When is Trader Joe's open until?,maps_places,places_search,"{""business_name"": ""trader joe's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0564,When is Walmart open until?,maps_places,places_search,"{""business_name"": ""walmart""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0565,When's my first meeting today?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""meeting"", ""date"": ""today""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0568,Where is my next meeting?,calendar_alarm,schedule_manage,"{""action"": ""query"", ""title"": ""meeting""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0585,Wikipedia COVID-19 pandemic.,general_qa,qa_search,"{""query"": ""covid-19 pandemic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0586,Wikipedia Game of Thrones.,general_qa,qa_search,"{""query"": ""game of thrones""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0587,Wikipedia Muhammad Ali.,general_qa,qa_search,"{""query"": ""muhammad ali""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0588,Wikipedia Random Page.,general_qa,qa_search,"{""query"": ""random page""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0593,Add eye drops and triple A batteries to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""eye drops and triple a batteries"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0594,Add ingredients for chili to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""ingredients for chili"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0595,Add laundry detergent and toothpaste to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""laundry detergent and toothpaste"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0596,Add meat and vegetables for grilling to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""meat and vegetables for grilling"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0597,Add paper towels and cereal to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""paper towels and cereal"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0598,Add pears and carrots to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""pears and carrots"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0599,Add sugar and flour to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""sugar and flour"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0600,"Benny Seef, Friday at 6:30",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""benny seef"", ""date"": ""friday"", ""time"": ""6:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0601,Book a table for 2 at Chili's.,maps_places,reservations_manage,"{""business_name"": ""chili's"", ""party_size"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0602,Book a table for 2 at the Arts Club Café.,maps_places,reservations_manage,"{""business_name"": ""arts club café"", ""party_size"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0603,Book a table for 4 at Al's Pizza Chicago.,maps_places,reservations_manage,"{""business_name"": ""al's pizza chicago"", ""party_size"": ""4""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0604,Book a table for 5 at Dry Dock Grill.,maps_places,reservations_manage,"{""business_name"": ""dry dock grill"", ""party_size"": ""5""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0605,Book a table for 6 at Belle Vista.,maps_places,reservations_manage,"{""business_name"": ""belle vista"", ""party_size"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0606,Book a table for 6 at Silverlake.,maps_places,reservations_manage,"{""business_name"": ""silverlake"", ""party_size"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0608,Call Aliz Kinsley.,communication,call_make,"{""recipient_name"": ""aliz kinsley""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0609,Call Caleb Neville.,communication,call_make,"{""recipient_name"": ""caleb neville""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0610,Call Dan Barker.,communication,call_make,"{""recipient_name"": ""dan barker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0611,Call Denise Chavez.,communication,call_make,"{""recipient_name"": ""denise chavez""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0612,Call Flo Giannopoulos.,communication,call_make,"{""recipient_name"": ""flo giannopoulos""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0613,Call Goodwin Alma.,communication,call_make,"{""recipient_name"": ""goodwin alma""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0614,Call Herman Gutierrez.,communication,call_make,"{""recipient_name"": ""herman gutierrez""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0615,Call Lynn Banks.,communication,call_make,"{""recipient_name"": ""lynn banks""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0616,Call Noreen Sanad.a,communication,call_make,"{""recipient_name"": ""noreen sanad.a""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0617,Call Shawna Brock.,communication,call_make,"{""recipient_name"": ""shawna brock""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0618,Cancel my meeting with Jim Thomas.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""jim thomas""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0619,Cancel my meeting with Kelley Jenkins.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""kelley jenkins""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0620,Cancel my meeting with Nelly Ash.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""nelly ash""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0621,Cancel my meeting with Nova Ray.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""nova ray""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0622,Cancel my meeting with Sib and Gil.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sib and gil""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0623,Cancel my meeting with Sonya Lee.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sonya lee""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0624,Cancel my meeting with Sunny Inaz.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sunny inaz""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0625,Cancel my meeting with Val Sylvia.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""val sylvia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0626,Cancel my meeting with Vincent & Lin.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""vincent & lin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0627,"Cathy Izzo, Monday at 8:30.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""cathy izzo"", ""date"": ""monday"", ""time"": ""8:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0628,"Chanelle Key, Friday at noon.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""chanelle key"", ""date"": ""friday"", ""time"": ""noon""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0629,Create a Dollar General shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""dollar general shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0639,"Demetri Lin, Friday at 9AM.",calendar_alarm,schedule_manage,"{""action"": ""create"", ""person"": ""demetri lin"", ""date"": ""friday"", ""time"": ""9am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0645,Email Hilton Hotels.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""hilton hotels""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0646,Email Jasmine Windsor.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""jasmine windsor""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0647,Email Maria.Sarah@help.org.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""maria.sarah@help.org""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0648,Email Mel Laska.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""mel laska""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0649,Email reservations@CozyCottage.com.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""reservations@cozycottage.com""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0650,Email Ruben Ruiz.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ruben ruiz""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0651,Email SabrinaK@west.edu.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""sabrinak@west.edu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0652,Email UPS Customer Service.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ups customer service""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0656,Find me a gluten-free pancake recipe.,general_qa,qa_search,"{""query"": ""gluten-free pancake recipe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0657,Find me a homemade yogurt recipe.,general_qa,qa_search,"{""query"": ""homemade yogurt recipe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0658,Find me a pasta recipe.,general_qa,qa_search,"{""query"": ""pasta recipe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0659,Find me a rice recipe.,general_qa,qa_search,"{""query"": ""rice recipe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0660,Find me a smoothie recipie.,general_qa,qa_search,"{""query"": ""smoothie recipie""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0661,Find me a soup recipe.,general_qa,qa_search,"{""query"": ""soup recipe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0662,Find me a vegetarian stew recipe.,general_qa,qa_search,"{""query"": ""vegetarian stew recipe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0663,Find me things to do in Berlin.,general_qa,qa_search,"{""query"": ""things to do in berlin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0664,Find me things to do in Boston.,general_qa,qa_search,"{""query"": ""things to do in boston""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0665,"Find me things to do in Detroit, Michigan.",general_qa,qa_search,"{""query"": ""things to do in detroit, michigan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0666,"Find me things to do in Kansas City, Kansas.",general_qa,qa_search,"{""query"": ""things to do in kansas city, kansas""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0667,"Find me things to do in Madrid, Spain.",general_qa,qa_search,"{""query"": ""things to do in madrid, spain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0668,Find me things to do in Nepal.,general_qa,qa_search,"{""query"": ""things to do in nepal""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0669,"Find me things to do in Newport News, Virginia.",general_qa,qa_search,"{""query"": ""things to do in newport news, virginia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0670,Find me things to do in San Francisco.,general_qa,qa_search,"{""query"": ""things to do in san francisco""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0671,"Find me things to do in Tampa, Florida.",general_qa,qa_search,"{""query"": ""things to do in tampa, florida""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0675,How do I make a paper swan?,general_qa,qa_search,"{""query"": ""how do i make a paper swan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0676,How do I make a Tiktok video?,general_qa,qa_search,"{""query"": ""how do i make a tiktok video""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0677,How do I make brisket?,general_qa,qa_search,"{""query"": ""how do i make brisket""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0678,How do I make chocolate pudding?,general_qa,qa_search,"{""query"": ""how do i make chocolate pudding""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0679,How do you say 'I want coffee' in Korean?,general_qa,qa_search,"{""query"": ""how do you say 'i want coffee' in korean""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0680,How do you say 'Where is the hotel?' in Portuguese?,general_qa,qa_search,"{""query"": ""how do you say 'where is the hotel?' in portuguese""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0681,How do you spell 'paraoh'?,general_qa,qa_search,"{""query"": ""how do you spell 'paraoh'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0682,How far is Home Depot from here?,maps_places,maps_route,"{""destination"": ""home depot"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0683,How far is home from Chicago?,maps_places,maps_route,"{""destination"": ""home"", ""origin"": ""chicago"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0684,"How far is Naples, Italy from Rome?",maps_places,maps_route,"{""destination"": ""naples, italy"", ""origin"": ""rome"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0685,"How far is Pittsburgh, Pennsylvania from here?",maps_places,maps_route,"{""destination"": ""pittsburgh, pennsylvania"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0686,How far is Scotland from home?,maps_places,maps_route,"{""destination"": ""scotland"", ""origin"": ""home"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0687,"How far is Toyko, Japan from here?",maps_places,maps_route,"{""destination"": ""toyko, japan"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0688,How far is Vermont from Canada?,maps_places,maps_route,"{""destination"": ""vermont"", ""origin"": ""canada"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0689,"How far is Wuhan, China from Beijing?",maps_places,maps_route,"{""destination"": ""wuhan, china"", ""origin"": ""beijing"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0690,How many calories does 15 baby carrots have?,general_qa,qa_search,"{""query"": ""how many calories does 15 baby carrots have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0691,How many calories does a pint of Ice cream have?,general_qa,qa_search,"{""query"": ""how many calories does a pint of ice cream have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0692,How many languages are spoken in Europe?,general_qa,qa_search,"{""query"": ""how many languages are spoken in europe""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0693,How many languages are spoken in India?,general_qa,qa_search,"{""query"": ""how many languages are spoken in india""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0694,"How many people live in Beijing, China?",general_qa,qa_search,"{""query"": ""how many people live in beijing, china""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0695,"How many people live in Lorton, Virginia?",general_qa,qa_search,"{""query"": ""how many people live in lorton, virginia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0696,How many people live in Maryland?,general_qa,qa_search,"{""query"": ""how many people live in maryland""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0697,How many refills are left on my buspar?,health,health_refill_query,"{""medication"": ""buspar""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0698,How many refills are left on my concerta?,health,health_refill_query,"{""medication"": ""concerta""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0702,How tall is Peppa Pig ?,general_qa,qa_search,"{""query"": ""how tall is peppa pig""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0703,How tall is the Eiffel Tower ?,general_qa,qa_search,"{""query"": ""how tall is the eiffel tower""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0704,How tall is the tallest building?,general_qa,qa_search,"{""query"": ""how tall is the tallest building""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0705,How tall is the tallest person?,general_qa,qa_search,"{""query"": ""how tall is the tallest person""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0706,"How's the traffic to Mount Washington, New Hamshire?",maps_places,maps_route,"{""destination"": ""mount washington, new hamshire"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0707,I need to cancel my order.,general_qa,order_manage,"{""action"": ""cancel""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0708,I need to return this item.,general_qa,order_manage,"{""action"": ""return""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0712,"Is my order shipped, quesiton mark.",general_qa,order_manage,"{""action"": ""status""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0713,Is Olive Garden open today?,maps_places,places_search,"{""business_name"": ""olive garden""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0715,Is Red Lobster open today?,maps_places,places_search,"{""business_name"": ""red lobster""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0723,Make me a reservation at Arch's.,maps_places,reservations_manage,"{""business_name"": ""arch's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0724,Make me a reservation at Baytown Brewery.,maps_places,reservations_manage,"{""business_name"": ""baytown brewery""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0725,Make me a reservation at Carter's Riverside Inn.,maps_places,reservations_manage,"{""business_name"": ""carter's riverside inn""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0726,Make me a reservation at Dia Café.,maps_places,reservations_manage,"{""business_name"": ""dia café""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0727,Make me a reservation at Global Lobster House.,maps_places,reservations_manage,"{""business_name"": ""global lobster house""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0728,Make me a reservation at Kevin's Diner.,maps_places,reservations_manage,"{""business_name"": ""kevin's diner""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0729,Map a route to Dulles Airport.,maps_places,maps_route,"{""destination"": ""dulles airport"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0730,Message Elle Shu.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""elle shu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0731,Message Frank Smith.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""frank smith""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0732,Message Harry & Amanda Turner.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""harry & amanda turner""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0733,Message Kramer Gray.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""kramer gray""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0734,Message The Miller Family.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""miller family""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0735,Message The Zen Family.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""zen family""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0737,Our parking space is blue.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""blue""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0738,Our parking space is green.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""green""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0739,Our parking space is orange.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""orange""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0740,Our parking space is purple.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""purple""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0741,Our parking space is red.,notes_memory,memory_note_manage,"{""action"": ""store"", ""key"": ""parking space"", ""value"": ""red""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0742,Play 'As it Was' by Harry Styles.,media,media_play,"{""media_type"": ""music"", ""title"": ""as it was"", ""artist"": ""harry styles""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0743,"Play 'Blinding Lights"" by the Weekend.",media,media_play,"{""media_type"": ""music"", ""title"": ""blinding lights"", ""artist"": ""the weekend""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0744,Play 'Cake Wars' on Hulu.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""cake wars"", ""service"": ""hulu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0746,Play 'Cruel Summer' by Taylor Swift.,media,media_play,"{""media_type"": ""music"", ""title"": ""cruel summer"", ""artist"": ""taylor swift""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0747,Play 'Fast Car' by Luke Combs.,media,media_play,"{""media_type"": ""music"", ""title"": ""fast car"", ""artist"": ""luke combs""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0748,Play 'Flowers' by Miley Cyrus.,media,media_play,"{""media_type"": ""music"", ""title"": ""flowers"", ""artist"": ""miley cyrus""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0750,Play 'Stay with Me' by Sam Smith.,media,media_play,"{""media_type"": ""music"", ""title"": ""stay with me"", ""artist"": ""sam smith""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0751,Play 'The Bear' on Hulu.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""the bear"", ""service"": ""hulu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0752,Play 'Tiktok' by Kesha.,media,media_play,"{""media_type"": ""music"", ""title"": ""tiktok"", ""artist"": ""kesha""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0753,Play 'Transformers' on Paramount Plus.,media,media_play,"{""media_type"": ""movie"", ""title"": ""transformers"", ""service"": ""paramount plus""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0754,Play 'Vampire' by Olivia Rodrigo.,media,media_play,"{""media_type"": ""music"", ""title"": ""vampire"", ""artist"": ""olivia rodrigo""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0755,Play a Taylor Swift song on Amazon music.,media,media_play,"{""media_type"": ""music"", ""artist"": ""taylor swift"", ""service"": ""amazon music""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0756,Play Riverdale on Netflix.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""riverdale"", ""service"": ""netflix""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0758,Play the latest episode of 'Joe Rogan' on Spotify.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""joe rogan"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0759,Play the latest episode of 'Let's be Real' on Spotify.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""let's be real"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0760,Play the latest episode of 'Planet Money'.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""planet money""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0761,Play the latest episode of 'Stand up Comedy' on Spotify.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""stand up comedy"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0762,Play Yellowstone' on Peacock.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""yellowstone"", ""service"": ""peacock""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0763,Please call Amelia Adamson.,communication,call_make,"{""recipient_name"": ""amelia adamson""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0764,Please call Carol Fulton.,communication,call_make,"{""recipient_name"": ""carol fulton""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0765,Please call Park Bank.,communication,call_make,"{""recipient_name"": ""park bank""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0766,Please call Penn Ritter.,communication,call_make,"{""recipient_name"": ""penn ritter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0767,Please call Vik Salva.,communication,call_make,"{""recipient_name"": ""vik salva""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0768,Please respond to my text.,communication,messages_manage,"{""action"": ""reply""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0769,Please send this email to the group.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""group""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0777,Recipe with 2% milk.,general_qa,qa_search,"{""query"": ""recipe with 2% milk""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0778,Recipe with avocados and tomatoes.,general_qa,qa_search,"{""query"": ""recipe with avocados and tomatoes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0779,Recipe with buttermilk and coconut.,general_qa,qa_search,"{""query"": ""recipe with buttermilk and coconut""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0780,Recipe with carrots and potatoes.,general_qa,qa_search,"{""query"": ""recipe with carrots and potatoes""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0781,"Recipe with cliantro, chicken, and garlic.",general_qa,qa_search,"{""query"": ""recipe with cliantro, chicken, and garlic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0782,Recipe with cranberry and gin.,general_qa,qa_search,"{""query"": ""recipe with cranberry and gin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0783,Recipe with garlic and lentils.,general_qa,qa_search,"{""query"": ""recipe with garlic and lentils""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0784,"Recipe with pineapple, bananas, and orange juice.",general_qa,qa_search,"{""query"": ""recipe with pineapple, bananas, and orange juice""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0785,"Recipe with sriracha, noodles, and cabbage.",general_qa,qa_search,"{""query"": ""recipe with sriracha, noodles, and cabbage""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0786,"Recipe with tomatoes, rice, and celery.",general_qa,qa_search,"{""query"": ""recipe with tomatoes, rice, and celery""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0787,Remember that I left my wallet and keys on the counter.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i left my wallet and keys on the counter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0788,Remember that I need to charge my airpods.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i need to charge my airpods""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0789,Remember that Max needs his heartworm medication.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""max needs his heartworm medication""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0790,Remember that we're out of batteries.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""we're out of batteries""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0791,Schedule a refill for my levathroxine prescription.,health,health_refill_query,"{""medication"": ""levathroxine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0792,Schedule a refill for my levoxyl prescription.,health,health_refill_query,"{""medication"": ""levoxyl""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0793,Schedule a refill for my lexapro prescription.,health,health_refill_query,"{""medication"": ""lexapro""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0794,Schedule a refill for my multivitamin prescription.,health,health_refill_query,"{""medication"": ""multivitamin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0795,Schedule a refill for my nasonex prescription.,health,health_refill_query,"{""medication"": ""nasonex""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0796,Schedule a refill for my omeprazole prescription.,health,health_refill_query,"{""medication"": ""omeprazole""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0797,Schedule a refill for my Prilosec prescription.,health,health_refill_query,"{""medication"": ""prilosec""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0798,Schedule a refill for my prozac prescription.,health,health_refill_query,"{""medication"": ""prozac""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0799,Schedule a refill for my pulmacort prescription.,health,health_refill_query,"{""medication"": ""pulmacort""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0802,Show me a photo of baby animals.,general_qa,qa_search,"{""query"": ""photo of baby animals""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0803,Show me a photo of business meetings.,general_qa,qa_search,"{""query"": ""photo of business meetings""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0804,Show me a photo of deciduous trees.,general_qa,qa_search,"{""query"": ""photo of deciduous trees""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0805,Show me a photo of fluffy dogs.,general_qa,qa_search,"{""query"": ""photo of fluffy dogs""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0806,Show me a photo of house plants.,general_qa,qa_search,"{""query"": ""photo of house plants""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0807,Show me a photo of man's first steps on the moon in 1969.,general_qa,qa_search,"{""query"": ""photo of man's first steps on the moon in 1969""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0808,Show me a photo of spring flowers.,general_qa,qa_search,"{""query"": ""photo of spring flowers""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0809,Show me a photo of the Earth.,general_qa,qa_search,"{""query"": ""photo of the earth""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0810,Show me movies with Blake Lively.,media,media_search,"{""media_type"": ""movie"", ""person"": ""blake lively""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0811,Show me movies with Emily Blunt.,media,media_search,"{""media_type"": ""movie"", ""person"": ""emily blunt""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0812,Show me movies with Miley Cyrus.,media,media_search,"{""media_type"": ""movie"", ""person"": ""miley cyrus""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0813,Show me movies with Ryan Gosling.,media,media_search,"{""media_type"": ""movie"", ""person"": ""ryan gosling""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0814,Show me movies with Ryan Reynolds.,media,media_search,"{""media_type"": ""movie"", ""person"": ""ryan reynolds""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0815,Show me movies with Tom Cruise.,media,media_search,"{""media_type"": ""movie"", ""person"": ""tom cruise""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0816,Show me movies with Will Ferrell.,media,media_search,"{""media_type"": ""movie"", ""person"": ""will ferrell""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0817,Take fish oil at bedtime.,health,health_medication_reminder,"{""medication"": ""fish oil"", ""time"": ""bedtime""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0818,Take flonase at 6:30 PM.,health,health_medication_reminder,"{""medication"": ""flonase"", ""time"": ""6:30 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0819,Take insulin at dinner time.,health,health_medication_reminder,"{""medication"": ""insulin"", ""time"": ""dinner time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0831,Video call Martin Star.,communication,call_make,"{""recipient_name"": ""martin star""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0832,Video call Pat Eaton.,communication,call_make,"{""recipient_name"": ""pat eaton""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0838,What are the side effects of Qvar?,health,health_info_query,"{""medication"": ""qvar"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0839,What are the side effects of ranitidine?,health,health_info_query,"{""medication"": ""ranitidine"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0840,What are the side effects of ritalin?,health,health_info_query,"{""medication"": ""ritalin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0841,What are the side effects of Strattera?,health,health_info_query,"{""medication"": ""strattera"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0842,What are the side effects of Synthroid?,health,health_info_query,"{""medication"": ""synthroid"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0843,What are the side effects of Vitamin D?,health,health_info_query,"{""medication"": ""vitamin d"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0844,What are the side effects of Xopanex?,health,health_info_query,"{""medication"": ""xopanex"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0845,What celebrities are from New Mexico?,general_qa,qa_search,"{""query"": ""what celebrities are from new mexico""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0846,What famous actors are from Portugal?,general_qa,qa_search,"{""query"": ""what famous actors are from portugal""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0847,"What is the population of Cedar Rapids, Iowa?",general_qa,qa_search,"{""query"": ""what is the population of cedar rapids, iowa""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0855,What time is it in Alaska?,general_qa,qa_search,"{""query"": ""what time is it in alaska""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0856,What time is it in California?,general_qa,qa_search,"{""query"": ""what time is it in california""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0857,What time is it in Japan?,general_qa,qa_search,"{""query"": ""what time is it in japan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0858,What time is it in Maine?,general_qa,qa_search,"{""query"": ""what time is it in maine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0859,What time is it in Nevada?,general_qa,qa_search,"{""query"": ""what time is it in nevada""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0860,What time is it in New York City?,general_qa,qa_search,"{""query"": ""what time is it in new york city""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0861,What time is it in Pennsylvania?,general_qa,qa_search,"{""query"": ""what time is it in pennsylvania""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0863,What was the score for the Chiefs game?,general_qa,qa_search,"{""query"": ""what was the score for the chiefs game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0864,What was the score for the D.C. United game?,general_qa,qa_search,"{""query"": ""what was the score for the d.c. united game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0865,What was the score for the Indiana game?,general_qa,qa_search,"{""query"": ""what was the score for the indiana game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0866,What was the score for the LSU game?,general_qa,qa_search,"{""query"": ""what was the score for the lsu game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0867,What was the score for the Mets game?,general_qa,qa_search,"{""query"": ""what was the score for the mets game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0868,What was the score for the Nebraska game?,general_qa,qa_search,"{""query"": ""what was the score for the nebraska game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0869,What was the score for the Pelicans game?,general_qa,qa_search,"{""query"": ""what was the score for the pelicans game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0870,What was the score for the Rangers game?,general_qa,qa_search,"{""query"": ""what was the score for the rangers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0876,What's the distance to Arkansas?,maps_places,maps_route,"{""destination"": ""arkansas"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0877,What's the distance to Germany?,maps_places,maps_route,"{""destination"": ""germany"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0878,What's the distance to Japan?,maps_places,maps_route,"{""destination"": ""japan"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0879,What's the distance to Maryland?,maps_places,maps_route,"{""destination"": ""maryland"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0880,What's the distance to Minnesota?,maps_places,maps_route,"{""destination"": ""minnesota"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0881,What's the distance to Missouri?,maps_places,maps_route,"{""destination"": ""missouri"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0882,What's the distance to Salem?,maps_places,maps_route,"{""destination"": ""salem"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0883,What's the distance to Virginia?,maps_places,maps_route,"{""destination"": ""virginia"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0884,What's the latest in technology?,general_qa,qa_search,"{""query"": ""what's the latest in technology""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0885,What's the weather in Australia?,general_qa,weather_query,"{""place_name"": ""australia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0886,What's the weather in Boston?,general_qa,weather_query,"{""place_name"": ""boston""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0887,What's the weather in Chicago?,general_qa,weather_query,"{""place_name"": ""chicago""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0888,What's the weather in Florida?,general_qa,weather_query,"{""place_name"": ""florida""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0889,What's the weather in New York?,general_qa,weather_query,"{""place_name"": ""new york""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0890,What's the weather in North Carolina?,general_qa,weather_query,"{""place_name"": ""north carolina""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0891,What's the weather in Paris?,general_qa,weather_query,"{""place_name"": ""paris""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0892,What's the weather in Spain?,general_qa,weather_query,"{""place_name"": ""spain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0893,What's the weather next week?,general_qa,weather_query,"{""date"": ""next week""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0894,What's the weather on Christmas?,general_qa,weather_query,"{""date"": ""christmas""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0895,What's the weather on December 6th?,general_qa,weather_query,"{""date"": ""december 6th""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0896,What's the weather on February 1st?,general_qa,weather_query,"{""date"": ""february 1st""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0897,What's the weather on Halloween?,general_qa,weather_query,"{""date"": ""halloween""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0898,What's the weather on Labor Day?,general_qa,weather_query,"{""date"": ""labor day""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0899,What's the weather on Memorial Day?,general_qa,weather_query,"{""date"": ""memorial day""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0901,What's the weather on New Year's Eve?,general_qa,weather_query,"{""date"": ""new year's eve""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0902,What's the weather on September 22nd?,general_qa,weather_query,"{""date"": ""september 22nd""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0903,When are the Braves playing?,general_qa,qa_search,"{""query"": ""when are the braves playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0904,When are the Cavs playing?,general_qa,qa_search,"{""query"": ""when are the cavs playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0905,When are the Ducks playing?,general_qa,qa_search,"{""query"": ""when are the ducks playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0906,When are the Giants playing?,general_qa,qa_search,"{""query"": ""when are the giants playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0907,When are the Lakers playing?,general_qa,qa_search,"{""query"": ""when are the lakers playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0908,When are the Red Sox playing?,general_qa,qa_search,"{""query"": ""when are the red sox playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0909,When are the Red Wings playing?,general_qa,qa_search,"{""query"": ""when are the red wings playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0910,When are the Steelers playing?,general_qa,qa_search,"{""query"": ""when are the steelers playing""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0911,When did Florida become a state?,general_qa,qa_search,"{""query"": ""when did florida become a state""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0912,When is DSW open until?,maps_places,places_search,"{""business_name"": ""dsw""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0914,Who is the main character in Barbie?,general_qa,qa_search,"{""query"": ""who is the main character in barbie""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0915,Who is the main character in Harry Potter?,general_qa,qa_search,"{""query"": ""who is the main character in harry potter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0916,Who is the main character in Mamma Mia?,general_qa,qa_search,"{""query"": ""who is the main character in mamma mia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0917,Who is the main character in Peter Pan?,general_qa,qa_search,"{""query"": ""who is the main character in peter pan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0918,Who is the main character in Spider Man?,general_qa,qa_search,"{""query"": ""who is the main character in spider man""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0919,Who is the main character in Star Wars?,general_qa,qa_search,"{""query"": ""who is the main character in star wars""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0920,Who is the main character in the Nutcracker?,general_qa,qa_search,"{""query"": ""who is the main character in the nutcracker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0921,Who plays third base for the Pirates?,general_qa,qa_search,"{""query"": ""who plays third base for the pirates""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0922,Who won gold in men's figure skating in the last Olympics?,general_qa,qa_search,"{""query"": ""who won gold in men's figure skating in the last olympics""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0923,Who won the Blue Jays game yesterday?,general_qa,qa_search,"{""query"": ""who won the blue jays game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0924,Who won the Chicago Bears game yesterday?,general_qa,qa_search,"{""query"": ""who won the chicago bears game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0925,Who won the Dolphins game yesterday?,general_qa,qa_search,"{""query"": ""who won the dolphins game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0926,Who won the Nuggets game yesterday?,general_qa,qa_search,"{""query"": ""who won the nuggets game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0927,Who won the Patriots game yesterday?,general_qa,qa_search,"{""query"": ""who won the patriots game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0928,Who won the Pirates game yesterday?,general_qa,qa_search,"{""query"": ""who won the pirates game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0929,Who won the Portland game yesterday?,general_qa,qa_search,"{""query"": ""who won the portland game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0930,Who won the Sundevils game yesterday?,general_qa,qa_search,"{""query"": ""who won the sundevils game yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0931,Who's winning between the Packers and the Bears?,general_qa,qa_search,"{""query"": ""who's winning between the packers and the bears""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0936,"Add 3 pairs of socks, pears, apples, and carrots to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""3 pairs of socks, pears, apples, and carrots"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0937,"Add a 1,500 piece jigsaw puzzle for Janella to my gift list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""1,500 piece jigsaw puzzle for janella"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0938,Add a Fidget toy pen for Gowri to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""fidget toy pen for gowri"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0939,Add a hair dryer brush for Nessa to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""hair dryer brush for nessa"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0940,Add a mini pocket projector for Kanti to my gift list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""mini pocket projector for kanti"", ""list_name"": ""gift list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0941,"Add frozen strawberries, blueberries, a case of paper towels, and cereal to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""frozen strawberries, blueberries, a case of paper towels, and cereal"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0942,"Add ingredients for chili, pizza dough, shredded mozzarella, and heel balm to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""ingredients for chili, pizza dough, shredded mozzarella, and heel balm"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0943,"Add laundry detergent, toothpaste, aluminum foil, and cranberry juice to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""laundry detergent, toothpaste, aluminum foil, and cranberry juice"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0944,"Add meat for grilling, pre-cut vegetables, teriyaki sauce, and bamboo skewers to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""meat for grilling, pre-cut vegetables, teriyaki sauce, and bamboo skewers"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0945,Add non-fat greek yogurt and pecan to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""non-fat greek yogurt and pecan"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0946,Add non-fat Greek yogurt and pecans to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""non-fat greek yogurt and pecans"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0947,Add spagehtti and bananas to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""spagehtti and bananas"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0948,Add spaghetti and bananas to shopping list.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""spaghetti and bananas"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0949,"Add spaghetti, frozen cauliflower, bananas, and 3 jars of salsa to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""spaghetti, frozen cauliflower, bananas, and 3 jars of salsa"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0950,"Add sugar, flour, flower seeds, and fertilizer to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""sugar, flour, flower seeds, and fertilizer"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0951,"Add vanilla mousse, mussels, non-fat Greek yogurt, and triple A batteries to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""vanilla mousse, mussels, non-fat greek yogurt, and triple a batteries"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0952,"Add whole pecans, eye drops, leeks, and 2 cartons of half-and-half to the shopping list.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""whole pecans, eye drops, leeks, and 2 cartons of half-and-half"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0953,Book a table for 2 at 3 Arts Club Café at RH Chicago.,maps_places,reservations_manage,"{""business_name"": ""3 arts club café at rh chicago"", ""party_size"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0954,Book a table for 2 at Campiello.,maps_places,reservations_manage,"{""business_name"": ""campiello"", ""party_size"": ""2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0955,Book a table for 4 at Al Biernat's Oak Lawn.,maps_places,reservations_manage,"{""business_name"": ""al biernat's oak lawn"", ""party_size"": ""4""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0956,Book a table for 5 at Dry Dock Waterfront Grill.,maps_places,reservations_manage,"{""business_name"": ""dry dock waterfront grill"", ""party_size"": ""5""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0957,Book a table for 6 at Bacari Silverlake.,maps_places,reservations_manage,"{""business_name"": ""bacari silverlake"", ""party_size"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0958,Book a table for 6 at Baldamar.,maps_places,reservations_manage,"{""business_name"": ""baldamar"", ""party_size"": ""6""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0967,Brighten the living room light.,smart_home,iot_device_adjust,"{""device_type"": ""living room light"", ""setting"": ""brightness"", ""direction"": ""up""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0968,"Call Noreen Sanada,",communication,call_make,"{""recipient_name"": ""noreen sanada""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0969,Call Noreen Sanada.,communication,call_make,"{""recipient_name"": ""noreen sanada""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0970,"Cancel my meeting with Jiro Thomas at 9 PM, Saturday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""jiro thomas"", ""time"": ""9 pm"", ""date"": ""saturday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0971,"Cancel my meeting with Kiley Jokin at 9 AM on July 14th, 2023.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""kiley jokin"", ""time"": ""9 am"", ""date"": ""july 14th, 2023""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0973,Cancel my meeting with Nova Rawda at 12:30.,calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""nova rawda"", ""time"": ""12:30""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0974,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sanjiv lynne"", ""time"": ""2:30 pm"", ""date"": ""tuesday the 9th""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0975,"Cancel my meeting with Sib and Gertrud at 9:30 AM, Sunday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""sib and gertrud"", ""time"": ""9:30 am"", ""date"": ""sunday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0976,"Cancel my meeting with Soren Ignaz at 8:15 AM, Thursday the 30th.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""soren ignaz"", ""time"": ""8:15 am"", ""date"": ""thursday the 30th""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0977,"Cancel my meeting with Valli Sylvia at 1:15, 8/15/2023.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""valli sylvia"", ""time"": ""1:15"", ""date"": ""8/15/2023""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0978,"Cancel my meeting with Vincente & Lin at 1:45 PM, Tuesday.",calendar_alarm,schedule_manage,"{""action"": ""delete"", ""title"": ""meeting"", ""person"": ""vincente & lin"", ""time"": ""1:45 pm"", ""date"": ""tuesday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0979,Create a Meijer shopping list.,notes_memory,lists_manage,"{""action"": ""create"", ""list_name"": ""meijer shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0980,Define 'albeit'.,general_qa,qa_search,"{""query"": ""define 'albeit'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0981,Define 'ambiguous'.,general_qa,qa_search,"{""query"": ""define 'ambiguous'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0982,Define 'apathetic'.,general_qa,qa_search,"{""query"": ""define 'apathetic'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0983,Define 'conundrum'.,general_qa,qa_search,"{""query"": ""conundrum""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0984,Define 'cynical'.,general_qa,qa_search,"{""query"": ""cynical""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0985,Define 'integrity'.,general_qa,qa_search,"{""query"": ""integrity""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0986,Define 'pretentious'.,general_qa,qa_search,"{""query"": ""pretentious""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0987,Define 'ubiquitous'.,general_qa,qa_search,"{""query"": ""ubiquitous""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0988,Did the Fighting Illini win?,general_qa,qa_search,"{""query"": ""did the fighting illini win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0989,Did the Manchester United win?,general_qa,qa_search,"{""query"": ""did the manchester united win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0990,Did the Penn State win?,general_qa,qa_search,"{""query"": ""did the penn state win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0991,Did the Seattle Mariners win?,general_qa,qa_search,"{""query"": ""did the seattle mariners win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0992,Did the Wolverines win?,general_qa,qa_search,"{""query"": ""did the wolverines win""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1023,How did the Chicago Bears game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the chicago bears game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1024,How did the Connecticut Sun game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the connecticut sun game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1025,How did the Miami Dolphins game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the miami dolphins game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1026,How did the Minnesota Timberwolves game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the minnesota timberwolves game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1027,How did the New England Patriots game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the new england patriots game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1028,How did the Pittsburgh Pirates game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the pittsburgh pirates game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1029,How did the Portland Timbers game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the portland timbers game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1030,How did the Toronto Maple Leafs game turn out yesterday?,general_qa,qa_search,"{""query"": ""how did the toronto maple leafs game turn out yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1031,How do I make a crocheted scarf?,general_qa,qa_search,"{""query"": ""how do i make a crocheted scarf""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1032,How do I make an origami swan?,general_qa,qa_search,"{""query"": ""how do i make an origami swan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1033,How do I make brisket on the smoker?,general_qa,qa_search,"{""query"": ""how do i make brisket on the smoker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1034,How do I make chocolate souffle?,general_qa,qa_search,"{""query"": ""how do i make chocolate souffle""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1035,How do you say 'How far is the hotel?' in Portuguese?,general_qa,qa_search,"{""query"": ""how do you say 'how far is the hotel?' in portuguese""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1036,How do you say 'I want a small coffee' in Korean?,general_qa,qa_search,"{""query"": ""how do you say 'i want a small coffee' in korean""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1037,How do you spell 'pharaoh'?,general_qa,qa_search,"{""query"": ""how do you spell 'pharaoh'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1046,How many calories does 15 baby carrots and a scoop of hummus have?,general_qa,qa_search,"{""query"": ""how many calories does 15 baby carrots and a scoop of hummus have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1047,How many calories does a pint of Ben and Jerry's ice cream have?,general_qa,qa_search,"{""query"": ""how many calories does a pint of ben and jerry's ice cream have""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1048,How many refills are left on my abilify?,health,health_refill_query,"{""medication"": ""abilify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1049,How many refills are left on my adderall?,health,health_refill_query,"{""medication"": ""adderall""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1050,How many refills are left on my albuterol?,health,health_refill_query,"{""medication"": ""albuterol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1051,How many refills are left on my allegra?,health,health_refill_query,"{""medication"": ""allegra""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1052,How many refills are left on my allopurinol?,health,health_refill_query,"{""medication"": ""allopurinol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1053,How many refills are left on my aricept?,health,health_refill_query,"{""medication"": ""aricept""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1054,How many refills are left on my baclofen?,health,health_refill_query,"{""medication"": ""baclofen""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1055,How many refills are left on my citalopram?,health,health_refill_query,"{""medication"": ""citalopram""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1056,How many refills are left on my clindamycin risperidone?,health,health_refill_query,"{""medication"": ""clindamycin risperidone""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1057,How many refills are left on my clindamycin?,health,health_refill_query,"{""medication"": ""clindamycin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1058,How many refills are left on my clonidine?,health,health_refill_query,"{""medication"": ""clonidine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1059,How many refills are left on my Coumadin?,health,health_refill_query,"{""medication"": ""coumadin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1060,How many refills are left on my Cozaar?,health,health_refill_query,"{""medication"": ""cozaar""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1061,How many refills are left on my Diazepam?,health,health_refill_query,"{""medication"": ""diazepam""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1062,How many refills are left on my Diovan?,health,health_refill_query,"{""medication"": ""diovan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1063,How many refills are left on my estradiol?,health,health_refill_query,"{""medication"": ""estradiol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1064,How many refills are left on my Lisinopril?,health,health_refill_query,"{""medication"": ""lisinopril""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1065,How many refills are left on my Loprin?,health,health_refill_query,"{""medication"": ""loprin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1066,How many refills are left on my lorazepam?,health,health_refill_query,"{""medication"": ""lorazepam""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1067,How many refills are left on my nitroglycerin?,health,health_refill_query,"{""medication"": ""nitroglycerin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1068,How many refills are left on my omeprazole?,health,health_refill_query,"{""medication"": ""omeprazole""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1069,How many refills are left on my Plavix?,health,health_refill_query,"{""medication"": ""plavix""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1070,How many refills are left on my propanolol?,health,health_refill_query,"{""medication"": ""propanolol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1071,How many refills are left on my risperidone?,health,health_refill_query,"{""medication"": ""risperidone""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1072,How many refills are left on my Valium?,health,health_refill_query,"{""medication"": ""valium""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1073,How many refills are left on my warfarin?,health,health_refill_query,"{""medication"": ""warfarin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1077,How tall is Peppa Pig?,general_qa,qa_search,"{""query"": ""how tall is peppa pig""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1078,How tall is the Eiffel Tower?,general_qa,qa_search,"{""query"": ""how tall is the eiffel tower""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1079,How tall is the tallest building in the world?,general_qa,qa_search,"{""query"": ""how tall is the tallest building in the world""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1080,How tall is the tallest person who ever lived ?,general_qa,qa_search,"{""query"": ""how tall is the tallest person who ever lived""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1081,"How's the traffic to Mount Washington, New Hampshire?",maps_places,maps_route,"{""destination"": ""mount washington, new hampshire"", ""query_type"": ""traffic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1082,I parked on level 1.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 1""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1083,I parked on level 2.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 2""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1084,I parked on level 3.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 3""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1085,I parked on level 4.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 4""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1086,I parked on level 5.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i parked on level 5""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1087,Is Buca di Beppo open today?,maps_places,places_search,"{""business_name"": ""buca di beppo""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1089,"Is my order shipped, question mark.",general_qa,order_manage,"{""action"": ""status""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1091,Is Ruth's Chris Steak House open today?,maps_places,places_search,"{""business_name"": ""ruth's chris steak house""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1099,Make me a reservation at Archibald's.,maps_places,reservations_manage,"{""business_name"": ""archibald's""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1100,Make me a reservation at Bayern Brewery.,maps_places,reservations_manage,"{""business_name"": ""bayern brewery""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1101,Make me a reservation at Cantler's Riverside Inn.,maps_places,reservations_manage,"{""business_name"": ""cantler's riverside inn""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1102,Make me a reservation at Diaz Café.,maps_places,reservations_manage,"{""business_name"": ""diaz café""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1103,Make me a reservation at Guilford Lobster Pound.,maps_places,reservations_manage,"{""business_name"": ""guilford lobster pound""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1104,Make me a reservation at Kroll's Diner.,maps_places,reservations_manage,"{""business_name"": ""kroll's diner""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1105,Map a route to Dallas Fortworth International Airport.,maps_places,maps_route,"{""destination"": ""dallas fortworth international airport"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1111,Open Facebook Messenger to send a message to Dyson Bunker.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""dyson bunker""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1113,Play 'Frasier' on Peacock.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""frasier"", ""service"": ""peacock""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1114,Play 'Free Fallin' by Tom Petty.,media,media_play,"{""media_type"": ""music"", ""title"": ""free fallin'"", ""artist"": ""tom petty""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1118,Play 'Indiana Jones and the Raiders of the Lost Ark' on Paramount Plus.,media,media_play,"{""media_type"": ""movie"", ""title"": ""indiana jones and the raiders of the lost ark"", ""service"": ""paramount plus""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1119,Play 'Jeopardy' on Hulu.,media,media_play,"{""media_type"": ""tv_show"", ""title"": ""jeopardy"", ""service"": ""hulu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1122,Play 'Star Wars: Episode Five - The Empire Strikes Back' on Hulu.,media,media_play,"{""media_type"": ""movie"", ""title"": ""star wars: episode five - the empire strikes back"", ""service"": ""hulu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1123,Play 'The Lord of the Rings: The Two Towers'.,media,media_play,"{""media_type"": ""movie"", ""title"": ""the lord of the rings: the two towers""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1124,Play 'The Shawshank Redemption' on HBO Max.,media,media_play,"{""media_type"": ""movie"", ""title"": ""the shawshank redemption"", ""service"": ""hbo max""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1133,Please call Amalia Adamson.,communication,call_make,"{""recipient_name"": ""amalia adamson""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1134,Please call Carola Fulton.,communication,call_make,"{""recipient_name"": ""carola fulton""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1135,Please call Penn Reiter.,communication,call_make,"{""recipient_name"": ""penn reiter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1136,Please call Santander Bank.,communication,call_make,"{""recipient_name"": ""santander bank""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1137,Please call Vikram Salva.,communication,call_make,"{""recipient_name"": ""vikram salva""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1138,"Please send this email: ""Dear customer service, comma. I am writing about the status of order number 384972, period. Do you have a tracking update, question mark. Thank you, period.""",communication,email_manage,"{""action"": ""send"", ""message_body"": ""dear customer service, comma. i am writing about the status of order number 384972, period. do you have a tracking update, question mark. thank you, period.""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1139,"Please send this text: ""Hi, exclamation point. What time will you be home, question mark. Thanks, exclamation point.""",communication,messages_manage,"{""action"": ""send"", ""message_body"": ""hi, exclamation point. what time will you be home, question mark. thanks, exclamation point.""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1148,"Recipe with cilantro, chicken, and garlic.",general_qa,qa_search,"{""query"": ""recipe with cilantro, chicken, and garlic""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1149,Remember that I left my wallet and car keys on the counter.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i left my wallet and car keys on the counter""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1150,Remember that I need to fuel the car before we head north.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""i need to fuel the car before we head north""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1151,Remember that Oliver needs his heartworm medication refilled.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""oliver needs his heartworm medication refilled""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1152,Remember that we're out of stamps.,notes_memory,memory_note_manage,"{""action"": ""store"", ""value"": ""we're out of stamps""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1153,"Reschedule my meeting with Barrett Sipho at 6:30 PM, April 4th, 2023.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""barrett sipho"", ""time"": ""6:30 pm"", ""date"": ""april 4th, 2023""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1154,"Reschedule my meeting with Catherine Isabella at 8:30 AM, Monday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""catherine isabella"", ""time"": ""8:30 am"", ""date"": ""monday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1155,"Reschedule my meeting with Chanelle Kellen at noon, May 1st, Friday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""chanelle kellen"", ""time"": ""noon"", ""date"": ""may 1st, friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1156,"Reschedule my meeting with Demetri Lucien at 9, Friday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""demetri lucien"", ""time"": ""9"", ""date"": ""friday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1157,"Reschedule my meeting with Fred Placid at 11:30, September 18th.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""fred placid"", ""time"": ""11:30"", ""date"": ""september 18th""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1158,"Reschedule my meeting with Irene Anand at 4:15, Tuesday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""irene anand"", ""time"": ""4:15"", ""date"": ""tuesday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1159,"Reschedule my meeting with Valeria Berengere at 11 O'clock, Sunday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""valeria berengere"", ""time"": ""11 o'clock"", ""date"": ""sunday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1160,"Reschedule my meeting with Virginia Daniel at 7, Saturday.",calendar_alarm,schedule_manage,"{""action"": ""update"", ""title"": ""meeting"", ""person"": ""virginia daniel"", ""time"": ""7"", ""date"": ""saturday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1161,Schedule a refill for my amantadine prescription.,health,health_refill_query,"{""medication"": ""amantadine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1162,Schedule a refill for my clonazepam prescription.,health,health_refill_query,"{""medication"": ""clonazepam""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1163,Schedule a refill for my furosemide prescription.,health,health_refill_query,"{""medication"": ""furosemide""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1164,Schedule a refill for my levodopa prescription.,health,health_refill_query,"{""medication"": ""levodopa""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1165,Schedule a refill for my loratadine prescription.,health,health_refill_query,"{""medication"": ""loratadine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1166,Schedule a refill for my pantoprazole prescription.,health,health_refill_query,"{""medication"": ""pantoprazole""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1167,Schedule a refill for my pravastatin prescription.,health,health_refill_query,"{""medication"": ""pravastatin""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1168,Schedule a refill for my tramadol prescription.,health,health_refill_query,"{""medication"": ""tramadol""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1169,Schedule a refill for my zolpidem prescription.,health,health_refill_query,"{""medication"": ""zolpidem""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1170,Send a message to Ellinor Shehu.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""ellinor shehu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1171,Send a message to Felicitas Sinagra.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""felicitas sinagra""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1172,Send a message to Hayri & Amador Teague.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""hayri & amador teague""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1173,Send a message to Krasimir Gregory.,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""krasimir gregory""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1176,Send an email to Hilton Hotels.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""hilton hotels""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1177,Send an email to Jasmine Witherspoon.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""jasmine witherspoon""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1178,Send an email to Malachi Janowski.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""malachi janowski""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1179,Send an email to Maria.Sari@wildernessnet.org.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""maria.sari@wildernessnet.org""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1180,Send an email to reservations@QuaintCozyCottages.com.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""reservations@quaintcozycottages.com""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1181,Send an email to Ruben Ruiz.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ruben ruiz""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1182,Send an email to SabinaK@westerly.edu.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""sabinak@westerly.edu""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1183,Send an email to UPS Customer Service.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ups customer service""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1184,Set a reminder for Kerstin's recital.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""kerstin's recital""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1185,Set a reminder for Shakir's holiday party.,calendar_alarm,schedule_manage,"{""action"": ""create"", ""title"": ""shakir's holiday party""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1186,Set a reminder to take acetaminophen at 1PM.,health,health_medication_reminder,"{""medication"": ""acetaminophen"", ""time"": ""1pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1187,Set a reminder to take amoxicillin with lunch.,health,health_medication_reminder,"{""medication"": ""amoxicillin"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1188,Set a reminder to take citalopram at 8 AM.,health,health_medication_reminder,"{""medication"": ""citalopram"", ""time"": ""8 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1189,Set a reminder to take furosemide at bed time.,health,health_medication_reminder,"{""medication"": ""furosemide"", ""time"": ""bed time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1190,Set a reminder to take glipizide at 6:30 PM.,health,health_medication_reminder,"{""medication"": ""glipizide"", ""time"": ""6:30 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1191,Set a reminder to take ibuprofen at 11:30 AM.,health,health_medication_reminder,"{""medication"": ""ibuprofen"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1192,Set a reminder to take pantoprazole at 6 AM.,health,health_medication_reminder,"{""medication"": ""pantoprazole"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1193,Set a reminder to take Potassium at 2 PM.,health,health_medication_reminder,"{""medication"": ""potassium"", ""time"": ""2 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1194,Set a reminder to take simvastatin at dinner time.,health,health_medication_reminder,"{""medication"": ""simvastatin"", ""time"": ""dinner time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1195,Set a reminder to take Spironolactone at 9 PM.,health,health_medication_reminder,"{""medication"": ""spironolactone"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1212,Show me movies with Benicio Del Toro.,media,media_search,"{""media_type"": ""movie"", ""person"": ""benicio del toro""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1213,Show me movies with Catherine Zeta-Jones.,media,media_search,"{""media_type"": ""movie"", ""person"": ""catherine zeta-jones""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1214,Show me movies with Daniel Day-Lewis.,media,media_search,"{""media_type"": ""movie"", ""person"": ""daniel day-lewis""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1215,Show me movies with Denzel Washington.,media,media_search,"{""media_type"": ""movie"", ""person"": ""denzel washington""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1216,Show me movies with Julianne Moore.,media,media_search,"{""media_type"": ""movie"", ""person"": ""julianne moore""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1217,Show me movies with Troy Kotsur.,media,media_search,"{""media_type"": ""movie"", ""person"": ""troy kotsur""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1218,Show me movies with Viola Davis.,media,media_search,"{""media_type"": ""movie"", ""person"": ""viola davis""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1221,Take aspirin at 8 AM.,health,health_medication_reminder,"{""medication"": ""aspirin"", ""time"": ""8 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1222,Take depakote at 1 PM.,health,health_medication_reminder,"{""medication"": ""depakote"", ""time"": ""1 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1223,Take Diastat at 6 AM.,health,health_medication_reminder,"{""medication"": ""diastat"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1224,Take enalapril with lunch.,health,health_medication_reminder,"{""medication"": ""enalapril"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1225,Take escitalopram at 8 AM.,health,health_medication_reminder,"{""medication"": ""escitalopram"", ""time"": ""8 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1226,Take focalin at 11:30 AM.,health,health_medication_reminder,"{""medication"": ""focalin"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1227,Take Guanfacine at 6 AM.,health,health_medication_reminder,"{""medication"": ""guanfacine"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1228,Take intuniv at 2 PM.,health,health_medication_reminder,"{""medication"": ""intuniv"", ""time"": ""2 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1229,Take lactalose at 9 PM.,health,health_medication_reminder,"{""medication"": ""lactalose"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1230,Take Lopressor with lunch.,health,health_medication_reminder,"{""medication"": ""lopressor"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1231,Take Pradaxa at 9 PM.,health,health_medication_reminder,"{""medication"": ""pradaxa"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1232,Take Toprol at 11:30 AM.,health,health_medication_reminder,"{""medication"": ""toprol"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1233,Take Vasoprin at 2 PM.,health,health_medication_reminder,"{""medication"": ""vasoprin"", ""time"": ""2 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1234,Take Warfarin at 1 PM.,health,health_medication_reminder,"{""medication"": ""warfarin"", ""time"": ""1 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1235,Video call Martin Starosta.,communication,call_make,"{""recipient_name"": ""martin starosta""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1236,Video call Pat Etienne.,communication,call_make,"{""recipient_name"": ""pat etienne""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1237,What are the side effects of atorvastatin?,health,health_info_query,"{""medication"": ""atorvastatin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1238,What are the side effects of fluoxetine?,health,health_info_query,"{""medication"": ""fluoxetine"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1239,What are the side effects of gabapentin?,health,health_info_query,"{""medication"": ""gabapentin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1240,What are the side effects of levothyroxine?,health,health_info_query,"{""medication"": ""levothyroxine"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1241,What are the side effects of lisinopril?,health,health_info_query,"{""medication"": ""lisinopril"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1242,What are the side effects of losartan?,health,health_info_query,"{""medication"": ""losartan"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1243,What are the side effects of metformin?,health,health_info_query,"{""medication"": ""metformin"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1244,What are the side effects of omeprazole?,health,health_info_query,"{""medication"": ""omeprazole"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1245,What are the side effects of Singulair?,health,health_info_query,"{""medication"": ""singulair"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1246,What are the side effects of singular?,health,health_info_query,"{""medication"": ""singular"", ""info_type"": ""side_effects""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1247,"What time is it in Boulder City, Nevada?",general_qa,qa_search,"{""query"": ""what time is it in boulder city, nevada""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1248,"What time is it in Bridgeport, California?",general_qa,qa_search,"{""query"": ""what time is it in bridgeport, california""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1249,"What time is it in Emmaus, Pennsylvania?",general_qa,qa_search,"{""query"": ""what time is it in emmaus, pennsylvania""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1250,"What time is it in Fairbanks, Alaska?",general_qa,qa_search,"{""query"": ""what time is it in fairbanks, alaska""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1251,"What time is it in Kittery, Maine?",general_qa,qa_search,"{""query"": ""what time is it in kittery, maine""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1252,"What time is it in Manhattan, New York City?",general_qa,qa_search,"{""query"": ""what time is it in manhattan, new york city""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1253,"What time is it in Toyko, Japan?",general_qa,qa_search,"{""query"": ""what time is it in toyko, japan""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1254,What was the score for the last D.C. United game?,general_qa,qa_search,"{""query"": ""what was the score for the last d.c. united game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1255,What was the score for the last Indiana Fever game?,general_qa,qa_search,"{""query"": ""what was the score for the last indiana fever game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1256,What was the score for the last Kansas City Current game?,general_qa,qa_search,"{""query"": ""what was the score for the last kansas city current game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1257,What was the score for the last LSU Tigers game?,general_qa,qa_search,"{""query"": ""what was the score for the last lsu tigers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1258,What was the score for the last Nebraska Cornhuskers game?,general_qa,qa_search,"{""query"": ""what was the score for the last nebraska cornhuskers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1259,What was the score for the last New Orleans Pelicans game?,general_qa,qa_search,"{""query"": ""what was the score for the last new orleans pelicans game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1260,What was the score for the last New York Islanders game?,general_qa,qa_search,"{""query"": ""what was the score for the last new york islanders game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1261,What was the score for the last Texas Rangers game?,general_qa,qa_search,"{""query"": ""what was the score for the last texas rangers game""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1262,What's the conversion of 16 ounces to liters?,general_qa,qa_search,"{""query"": ""what's the conversion of 16 ounces to liters""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1263,What's the conversion of 24 ounces to grams?,general_qa,qa_search,"{""query"": ""what's the conversion of 24 ounces to grams""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1264,What's the conversion of 32 ounces to cups?,general_qa,qa_search,"{""query"": ""what's the conversion of 32 ounces to cups""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1265,What's the conversion of 48 ounces to pounds?,general_qa,qa_search,"{""query"": ""what's the conversion of 48 ounces to pounds""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1266,What's the conversion of 60 ounces to quarts?,general_qa,qa_search,"{""query"": ""what's the conversion of 60 ounces to quarts""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1267,"What's the distance to Beppu, Japan?",maps_places,maps_route,"{""destination"": ""beppu, japan"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1268,"What's the distance to Fairfax, Virginia?",maps_places,maps_route,"{""destination"": ""fairfax, virginia"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1269,"What's the distance to Hibbing, Minnesota?",maps_places,maps_route,"{""destination"": ""hibbing, minnesota"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1270,"What's the distance to Munich, Germany?",maps_places,maps_route,"{""destination"": ""munich, germany"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1271,"What's the distance to Pluckley, England?",maps_places,maps_route,"{""destination"": ""pluckley, england"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1272,"What's the distance to Rockville, Maryland?",maps_places,maps_route,"{""destination"": ""rockville, maryland"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1273,"What's the distance to Round Spring, Missouri?",maps_places,maps_route,"{""destination"": ""round spring, missouri"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1274,"What's the distance to Salem, Massachusetts?",maps_places,maps_route,"{""destination"": ""salem, massachusetts"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1275,What's the latest in science and technology?,general_qa,qa_search,"{""query"": ""what's the latest in science and technology""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1276,What's the weather like in Australia?,general_qa,weather_query,"{""place_name"": ""australia""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1277,What's the weather like in Boston?,general_qa,weather_query,"{""place_name"": ""boston""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1278,What's the weather like in Chicago?,general_qa,weather_query,"{""place_name"": ""chicago""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1279,What's the weather like in Florida?,general_qa,weather_query,"{""place_name"": ""florida""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1280,What's the weather like in New York?,general_qa,weather_query,"{""place_name"": ""new york""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1281,What's the weather like in North Carolina?,general_qa,weather_query,"{""place_name"": ""north carolina""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1282,What's the weather like in Paris?,general_qa,weather_query,"{""place_name"": ""paris""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1283,What's the weather like in Spain?,general_qa,weather_query,"{""place_name"": ""spain""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1284,When are the Boston Red Sox playing next?,general_qa,qa_search,"{""query"": ""when are the boston red sox playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1285,When are the Cleveland Cavaliers playing next?,general_qa,qa_search,"{""query"": ""when are the cleveland cavaliers playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1286,When are the Detroit Red Wings playing next?,general_qa,qa_search,"{""query"": ""when are the detroit red wings playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1287,When are the LA Galaxy playing next?,general_qa,qa_search,"{""query"": ""when are the la galaxy playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1288,When are the Nashville Predators playing next?,general_qa,qa_search,"{""query"": ""when are the nashville predators playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1289,When are the Philadelphia Phillies playing next?,general_qa,qa_search,"{""query"": ""when are the philadelphia phillies playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1290,When are the Pittsburgh Steelers playing next?,general_qa,qa_search,"{""query"": ""when are the pittsburgh steelers playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1291,When are the San Franscisco Giants playing next?,general_qa,qa_search,"{""query"": ""when are the san franscisco giants playing next""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1293,Who is the lead character in '2001: A Space Odyssey'?,general_qa,qa_search,"{""query"": ""who is the lead character in '2001: a space odyssey'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1294,Who is the lead character in 'Citizen Kane'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'citizen kane'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1295,Who is the lead character in 'Harry Potter'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'harry potter'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1296,Who is the lead character in 'Les Miserables'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'les miserables'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1297,Who is the lead character in 'Mamma Mia'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'mamma mia'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1298,Who is the lead character in 'Star Wars'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'star wars'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1299,Who is the lead character in 'West Side Story'?,general_qa,qa_search,"{""query"": ""who is the lead character in 'west side story'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1300,Who is the lead character in the 'Nutcracker'?,general_qa,qa_search,"{""query"": ""who is the lead character in the 'nutcracker'""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1301,Who is the main character in Little Mermaid?,general_qa,qa_search,"{""query"": ""who is the main character in little mermaid""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1302,Who is the main charcter in Little Mermaid?,general_qa,qa_search,"{""query"": ""who is the main charcter in little mermaid""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1303,Who played third base for the Pittsburgh Pirates in 1960?,general_qa,qa_search,"{""query"": ""who played third base for the pittsburgh pirates in 1960""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1304,Who won the gold medal in men's figure skating in the 1952 Winter Olympics?,general_qa,qa_search,"{""query"": ""who won the gold medal in men's figure skating in the 1952 winter olympics""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1305,Who's winning between the Packers and the Chicago Bears?,general_qa,qa_search,"{""query"": ""who's winning between the packers and the chicago bears""}",AGREED,Unanimous dual-frontier agreement

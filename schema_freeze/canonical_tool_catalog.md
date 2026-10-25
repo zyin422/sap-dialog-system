@@ -179,12 +179,13 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 
 #### 9. `qa_search`
 * **Description:** Open-domain factual web queries, encyclopedia knowledge, recipes, news briefings, stock prices, and math calculations.
-* **Exclusion:** Local store searches route to `places_search`; driving route directions route to `maps_route`; weather queries route to `weather_query`.
+* **Exclusion:** Local store searches and commercial venue operating hours route to `places_search`; driving route directions route to `maps_route`; weather queries route to `weather_query`.
 * **Slots:**
-  * `query` (**Extractive Span**, required): Full verbatim query string.
+  * `query` (**Extractive Span**, required): Core factual search query. *(Rule B Constraint: Strip polite conversational carrier prefixes such as "can you look up", "tell me", "show me if", "search google for", while preserving verbatim question syntax without hallucinating artificial slots).*
 * **Examples:**
   * *"Who was the 16th president of the United States?"* $\rightarrow$ `{"query": "who was the 16th president of the united states"}`
-  * *"How many grams in an ounce?"* $\rightarrow$ `{"query": "how many grams in an ounce"}`
+  * *"Can you look up how many grams in an ounce?"* $\rightarrow$ `{"query": "how many grams in an ounce"}`
+  * *"Show me if the Clemson Tigers won."* $\rightarrow$ `{"query": "did the clemson tigers win"}`
   * *"How do I bake lasagna?"* $\rightarrow$ `{"query": "how do i bake lasagna"}`
 
 #### 10. `weather_query`
@@ -246,8 +247,8 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 #### 16. `maps_route`
 * **Description:** Request driving directions, navigation, route distance, or commute traffic conditions.
 * **Slots:**
-  * `destination` (**Extractive Span**, required): Target destination (*"chicago"*, *"home"*, *"nearest hospital"*)
-  * `origin` (**Extractive Span**, optional): Starting location or departure point (*"montreal, canada"*, *"home"*)
+  * `destination` (**Extractive Span**, required): Target destination (*"chicago"*, *"home"*, *"nearest hospital"*). Apply BaseNP stripping.
+  * `origin` (**Extractive Span**, optional): Starting location or departure point (*"montreal, canada"*, *"home"*). *(Rule H Constraint: When both starting point and target destination are uttered in point-to-point queries, decouple them into `origin` and `destination`).*
   * `query_type` (**Categorical Enum**, optional): `["directions", "distance", "traffic"]` *(Phrases like "navigate to..." or "map a route" normalize to `"directions"`)*
 * **Examples:**
   * *"Give me directions to Chicago."* $\rightarrow$ `{"destination": "chicago", "query_type": "directions"}`
@@ -262,10 +263,11 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 * **Slots:**
   * `business_name` (**Extractive Span**, optional): Store name (*"starbucks"*, *"walgreens"*)
   * `business_type` (**Extractive Span**, optional): Category (*"pharmacy"*, *"italian restaurant"*)
-  * `sort_by` (**Categorical Enum**, optional): `["rating", "distance", "relevance"]`
+  * `sort_by` (**Categorical Enum**, optional): `["rating", "distance", "relevance"]`. *(Rule I Constraint: Inquiries searching for "nearby" commercial entities or facilities require `sort_by: "distance"`).*
 * **Examples:**
   * *"Find a pharmacy near me."* $\rightarrow$ `{"business_type": "pharmacy"}`
   * *"Where is the closest Starbucks?"* $\rightarrow$ `{"business_name": "starbucks", "sort_by": "distance"}`
+  * *"Show me nearby cafes."* $\rightarrow$ `{"business_type": "cafes", "sort_by": "distance"}`
 
 #### 18. `reservations_manage`
 * **Description:** Book or inspect dining table reservations at restaurants or venues.
@@ -283,11 +285,12 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
 
 #### 19. `media_play`
 * **Description:** Initiate playback of music, podcasts, radio stations, audiobooks, movies, or video streaming services.
+* **Inclusion:** Commands to launch video/music streaming apps (e.g. *"Open Hulu"*) route here with the platform in `service` (Rule J).
 * **Slots:**
   * `media_type` (**Categorical Enum**, optional): `["music", "podcast", "radio", "audiobook", "movie", "tv_show"]`
   * `title` (**Extractive Span**, optional): Track, album, movie, or episode title (*"billboard top 40"*, *"the daily"*, *"transformers"*)
   * `artist` (**Extractive Span**, optional): Musician or host (*"taylor swift"*, *"the beatles"*)
-  * `service` (**Extractive Span**, optional): Streaming app or platform (*"hulu"*, *"paramount plus"*, *"spotify"*)
+  * `service` (**Extractive Span**, optional): Streaming app or platform (*"hulu"*, *"paramount plus"*, *"spotify"*, *"netflix"*)
   * `house_place` (**Extractive Span**, optional): Room (*"living room"*)
 * **Examples:**
   * *"Play music by The Beatles."* $\rightarrow$ `{"media_type": "music", "artist": "beatles"}`
@@ -404,6 +407,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
   * `destination` (**Extractive Span**, optional): Arrival point (*"downtown"*, *"airport"*)
 * **Examples:**
   * *"Call me an Uber to the airport."* $\rightarrow$ `{"destination": "airport"}`
+  * *"Request a taxi ride."* $\rightarrow$ `{}`
 
 #### 29. `transit_lookup`
 * **Description:** Check schedules or book tickets for public transit, trains, buses, subways, and flights.
@@ -411,7 +415,7 @@ Every parameter in the SAP benchmark belongs strictly to one of two mutually exc
   * `transit_type` (**Categorical Enum**, optional): `["train", "bus", "flight"]`
   * `destination` (**Extractive Span**, optional): Arrival city/stop (*"chicago"*, *"new york"*)
   * `route_or_station` (**Extractive Span**, optional): Public transit line, train station, or commercial airline carrier (*"red line"*, *"penn station"*, *"southwest airlines"*, *"jet blue"*)
-  * `time` (**Extractive Span**, optional): Departure time or clock time (*"7 am"*, *"noon"*). *(Note: flight modifiers like "non-stop" or "round-trip" are not times and must NOT be extracted into `time`)*
+  * `time` (**Extractive Span**, optional): Departure time or clock time (*"7 am"*, *"noon"*). *(Rule G Constraint: Flight modifiers like "non-stop" or "round-trip" are Outside tokens and must NOT be extracted into `time`).*
 * **Examples:**
   * *"When does the next train to Chicago leave?"* $\rightarrow$ `{"transit_type": "train", "destination": "chicago"}`
   * *"Check the schedule for the Red Line."* $\rightarrow$ `{"route_or_station": "red line"}`

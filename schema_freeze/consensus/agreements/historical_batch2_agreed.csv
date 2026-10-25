@@ -1,0 +1,36 @@
+id,prompt,domain,intent,slots_json,consensus_status,notes
+SAP-CMD-0122,Fast forward 4 minutes.,communication,email_manage,"{""action"": ""read"", ""date"": ""yesterday""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0134,How do I make a 13 pound turkey?,health,health_refill_query,"{""medication"": ""clindamycin risperidone""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0168,How long is left on the timer?,health,health_medication_reminder,"{""medication"": ""amoxicillin"", ""time"": ""lunch""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0170,How many calories does a Big Mac have?,health,health_medication_reminder,"{""medication"": ""furosemide"", ""time"": ""bed time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0171,How many calories does a boiled egg have?,health,health_medication_reminder,"{""medication"": ""glipizide"", ""time"": ""6:30 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0172,How many calories does a cup of blueberries have?,health,health_medication_reminder,"{""medication"": ""ibuprofen"", ""time"": ""11:30 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0173,How many calories does a piece of grilled salmon have?,health,health_medication_reminder,"{""medication"": ""pantoprazole"", ""time"": ""6 am""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0175,How many calories does a Snickers bar have?,health,health_medication_reminder,"{""medication"": ""simvastatin"", ""time"": ""dinner time""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0176,How much is $1 in euros?,health,health_medication_reminder,"{""medication"": ""spironolactone"", ""time"": ""9 pm""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0276,Open What's App.,media,media_play,"{""media_type"": ""music"", ""title"": ""stay with me"", ""artist"": ""sam smith""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0306,Preheat the oven to 225 degrees.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""a little something extra""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0308,Preheat the oven to 275 degrees.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""if books could kill"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0309,Preheat the oven to 300 degrees.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""joe rogan"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0310,Preheat the oven to 350 degrees.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""let's be real"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0314,Raise the temperature 2 degrees.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""stand up comedy"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0315,Raise the temperature 3 degrees.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""stuff you should know""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0318,Raise the temperature.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""the npr newsroom"", ""service"": ""spotify""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0319,Read my book.,media,media_play,"{""media_type"": ""podcast"", ""title"": ""this american life""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0450,Turn on heat.,maps_places,maps_route,"{""destination"": ""closest car charging station"", ""query_type"": ""directions""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0822,Timer for bread.,communication,email_manage,"{""action"": ""send"", ""recipient"": ""layne banks""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0843,What are the side effects of Vitamin D?,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""felicitas sinagra""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0844,What are the side effects of Xopanex?,communication,messages_manage,"{""action"": ""send"", ""recipient"": ""hayri & amador teague""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0849,"What libraries are in Hanover, Pennsylvania?",communication,email_manage,"{""action"": ""send"", ""recipient"": ""jasmine witherspoon""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0855,What time is it in Alaska?,communication,email_manage,"{""action"": ""send"", ""recipient"": ""ups customer service""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0967,Brighten the living room light.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""3 pairs of socks, pears, apples, and carrots"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0981,Define 'ambiguous'.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""frozen strawberries, blueberries, a case of paper towels, and cereal"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0984,Define 'cynical'.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""ingredients for chili, pizza dough, shredded mozzarella, and heel balm"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0986,Define 'pretentious'.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""laundry detergent, toothpaste, aluminum foil, and cranberry juice"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0988,Did the Fighting Illini win?,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""meat for grilling, pre-cut vegetables, teriyaki sauce, and bamboo skewers"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0996,"Find me a Cook's Illustrated recipe with sriracha, noodles, and cabbage.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""spaghetti, frozen cauliflower, bananas, and 3 jars of salsa"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0998,"Find me a gluten-free pancake recipe with buttermilk, coconut, and cinnamon.",notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""sugar, flour, flower seeds, and fertilizer"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-0999,Find me a gluten-free pancake recipie.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""vanilla mousse, mussels, non-fat greek yogurt, and triple a batteries"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1000,Find me a holiday cocktail recipe with cranberry juice and gin.,notes_memory,lists_manage,"{""action"": ""add"", ""item"": ""whole pecans, eye drops, leeks, and 2 cartons of half-and-half"", ""list_name"": ""shopping list""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1255,What was the score for the last Indiana Fever game?,maps_places,reservations_manage,"{""business_name"": ""dry dock waterfront grill"", ""party_size"": ""5""}",AGREED,Unanimous dual-frontier agreement
+SAP-CMD-1304,Who won the gold medal in men's figure skating in the 1952 Winter Olympics?,maps_places,maps_route,"{""destination"": ""west orange, new jersey"", ""query_type"": ""distance""}",AGREED,Unanimous dual-frontier agreement

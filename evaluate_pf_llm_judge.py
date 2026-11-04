@@ -75,12 +75,32 @@ class SemanticLLMJudge:
     def __init__(self, model_id_or_path: str, device: str = "auto", torch_dtype=torch.bfloat16):
         print(f"[Judge Init] Loading model and tokenizer from: {model_id_or_path}")
         self.tokenizer = AutoTokenizer.from_pretrained(model_id_or_path, trust_remote_code=True)
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_id_or_path,
-            torch_dtype=torch_dtype,
-            device_map=device,
-            trust_remote_code=True
-        )
+        try:
+            self.model = AutoModelForCausalLM.from_pretrained(
+                model_id_or_path,
+                dtype=torch_dtype,
+                device_map=device,
+                trust_remote_code=True
+            )
+        except Exception as e:
+            print(f"[Judge Init] AutoModelForCausalLM load failed ({e}), trying AutoModelForImageTextToText...")
+            try:
+                from transformers import AutoModelForImageTextToText
+                self.model = AutoModelForImageTextToText.from_pretrained(
+                    model_id_or_path,
+                    dtype=torch_dtype,
+                    device_map=device,
+                    trust_remote_code=True
+                )
+            except Exception as e2:
+                print(f"[Judge Init] AutoModelForImageTextToText load failed ({e2}), falling back to AutoModel...")
+                from transformers import AutoModel
+                self.model = AutoModel.from_pretrained(
+                    model_id_or_path,
+                    dtype=torch_dtype,
+                    device_map=device,
+                    trust_remote_code=True
+                )
         self.model.eval()
         print(f"[Judge Init] Model loaded on devices: {self.model.hf_device_map if hasattr(self.model, 'hf_device_map') else self.model.device}")
 

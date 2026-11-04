@@ -73,8 +73,9 @@ def parse_json_safely(val: Any) -> Dict[str, Any]:
 
 class SemanticLLMJudge:
     def __init__(self, model_id_or_path: str, device: str = "auto", torch_dtype=torch.bfloat16):
-        print(f"[Judge Init] Loading model and tokenizer from: {model_id_or_path}")
+        print(f"[Judge Init] Loading model and tokenizer from: {model_id_or_path}", flush=True)
         self.tokenizer = AutoTokenizer.from_pretrained(model_id_or_path, trust_remote_code=True)
+        self.cache: Dict[Tuple, Tuple[bool, str]] = {}
         try:
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_id_or_path,
@@ -83,7 +84,7 @@ class SemanticLLMJudge:
                 trust_remote_code=True
             )
         except Exception as e:
-            print(f"[Judge Init] AutoModelForCausalLM load failed ({e}), trying AutoModelForImageTextToText...")
+            print(f"[Judge Init] AutoModelForCausalLM load failed ({e}), trying AutoModelForImageTextToText...", flush=True)
             try:
                 from transformers import AutoModelForImageTextToText
                 self.model = AutoModelForImageTextToText.from_pretrained(
@@ -93,7 +94,7 @@ class SemanticLLMJudge:
                     trust_remote_code=True
                 )
             except Exception as e2:
-                print(f"[Judge Init] AutoModelForImageTextToText load failed ({e2}), falling back to AutoModel...")
+                print(f"[Judge Init] AutoModelForImageTextToText load failed ({e2}), falling back to AutoModel...", flush=True)
                 from transformers import AutoModel
                 self.model = AutoModel.from_pretrained(
                     model_id_or_path,
@@ -102,10 +103,17 @@ class SemanticLLMJudge:
                     trust_remote_code=True
                 )
         self.model.eval()
-        print(f"[Judge Init] Model loaded on devices: {self.model.hf_device_map if hasattr(self.model, 'hf_device_map') else self.model.device}")
+        print(f"[Judge Init] Model loaded on devices: {self.model.hf_device_map if hasattr(self.model, 'hf_device_map') else self.model.device}", flush=True)
 
     def evaluate_item(self, eval_type: str, utterance: str, tool: str, slot_key: str,
                       gold_val: Optional[str] = None, pred_val: Optional[str] = None) -> Tuple[bool, str]:
+        # Cache lookup
+        norm_gold = normalize_text(gold_val) if gold_val else ""
+        norm_pred = normalize_text(pred_val) if pred_val else ""
+        cache_key = (eval_type, utterance.strip().lower(), tool.strip().lower(), slot_key.strip().lower(), norm_gold, norm_pred)
+        if cache_key in self.cache:
+            return self.cache[cache_key]
+
         if eval_type == "recall":
             user_content = (
                 f"EVALUATE RECALL:\n"
@@ -137,8 +145,7 @@ class SemanticLLMJudge:
         with torch.no_grad():
             output_ids = self.model.generate(
                 **inputs,
-                max_new_tokens=128,
-                temperature=0.01,
+                max_new_tokens=48,
                 do_sample=False,
                 pad_token_id=self.tokenizer.eos_token_id
             )
@@ -157,10 +164,11 @@ class SemanticLLMJudge:
                 if "true" in raw_output.lower() and "false" not in raw_output.lower():
                     verdict = True
         except Exception as e:
-            print(f"[Judge Warning] JSON parse failure on output: {raw_output} ({e})")
+            print(f"[Judge Warning] JSON parse failure on output: {raw_output} ({e})", flush=True)
             if "true" in raw_output.lower() and "false" not in raw_output.lower():
                 verdict = True
 
+        self.cache[cache_key] = (verdict, reasoning)
         return verdict, reasoning
 
 def evaluate_condition_pf(df: pd.DataFrame, judge: SemanticLLMJudge,
@@ -196,6 +204,7 @@ def evaluate_condition_pf(df: pd.DataFrame, judge: SemanticLLMJudge,
         intent_match = (g_intent == p_intent)
 
         # 1. EVALUATE RECALL (Gold slots coverage)
+        recall_decisions = {}
         for k, g_val in g_slots.items():
             g_val_str = str(g_val).strip()
             if not intent_match:
@@ -208,6 +217,7 @@ def evaluate_condition_pf(df: pd.DataFrame, judge: SemanticLLMJudge,
                 if normalize_text(g_val_str) == normalize_text(p_val_str):
                     exact_rec_hits += 1
                     semantic_rec_hits += 1
+                    recall_decisions[k] = (True, "exact_match")
                 else:
                     # Semantic Boundary / Discrepancy -> Invoke LLM Judge
                     judge_recall_calls += 1
@@ -221,6 +231,7 @@ def evaluate_condition_pf(df: pd.DataFrame, judge: SemanticLLMJudge,
                     )
                     if verdict:
                         semantic_rec_hits += 1
+                    recall_decisions[k] = (verdict, reasoning)
                     audit_log.append({
                         "row_id": row.get("gold_id", idx),
                         "eval_type": "recall",
@@ -245,10 +256,24 @@ def evaluate_condition_pf(df: pd.DataFrame, judge: SemanticLLMJudge,
 
             if k in g_slots:
                 g_val_str = str(g_slots[k]).strip()
-                # Fast path: Exact match with gold
+                # Fast path 1: Exact match with gold
                 if normalize_text(p_val_str) == normalize_text(g_val_str):
                     exact_prec_hits += 1
                     semantic_prec_hits += 1
+                elif k in recall_decisions and recall_decisions[k][0]:
+                    # Short-circuit: already judged as preserving gold referent in this utterance
+                    semantic_prec_hits += 1
+                    audit_log.append({
+                        "row_id": row.get("gold_id", idx),
+                        "eval_type": "precision_inherited_recall",
+                        "utterance": utt,
+                        "tool": g_intent,
+                        "slot": k,
+                        "gold": g_val_str,
+                        "pred": p_val_str,
+                        "verdict": True,
+                        "reasoning": f"Inherited from semantic recall pass: {recall_decisions[k][1]}"
+                    })
                 else:
                     # Evaluated by semantic recall previously: does it preserve referent?
                     judge_precision_calls += 1
@@ -295,6 +320,9 @@ def evaluate_condition_pf(df: pd.DataFrame, judge: SemanticLLMJudge,
                     "verdict": verdict,
                     "reasoning": reasoning
                 })
+
+        if (idx + 1) % 50 == 0 or (idx + 1) == len(df):
+            print(f"[{intent_col.split('_')[0].upper()}] Row {idx + 1}/{len(df)} | ExactRec: {exact_rec_hits} | SemRec: {semantic_rec_hits} | ExactPrec: {exact_prec_hits} | SemPrec: {semantic_prec_hits} | Calls(Rec/Prec): {judge_recall_calls}/{judge_precision_calls}", flush=True)
 
     # Compute Metrics
     exact_rec = (exact_rec_hits / gold_total_slots) * 100.0 if gold_total_slots > 0 else 0.0
@@ -364,12 +392,12 @@ def main():
 
     for cond in args.conditions:
         if cond not in condition_specs:
-            print(f"[Warning] Unknown condition: {cond}, skipping.")
+            print(f"[Warning] Unknown condition: {cond}, skipping.", flush=True)
             continue
         spec = condition_specs[cond]
-        print(f"\n==========================================")
-        print(f"EVALUATING CONDITION: {cond.upper()}")
-        print(f"==========================================")
+        print(f"\n==========================================", flush=True)
+        print(f"EVALUATING CONDITION: {cond.upper()}", flush=True)
+        print(f"==========================================", flush=True)
         res = evaluate_condition_pf(
             df=df,
             judge=judge,
@@ -383,19 +411,18 @@ def main():
             all_audits.append(a)
 
         full_results[cond] = res
-        print(f"[{cond.upper()} Exact] Rec: {res['exact_recall']:.2f}% | Prec: {res['exact_precision']:.2f}% | F1: {res['exact_f1']:.2f}%")
-        print(f"[{cond.upper()} Sem  ] Rec: {res['semantic_recall']:.2f}% | Prec: {res['semantic_precision']:.2f}% | F1: {res['semantic_f1']:.2f}%")
-        print(f"[{cond.upper()} Calls] Recall Calls: {res['judge_recall_calls']} | Prec Calls: {res['judge_precision_calls']}")
+        print(f"[{cond.upper()} Exact] Rec: {res['exact_recall']:.2f}% | Prec: {res['exact_precision']:.2f}% | F1: {res['exact_f1']:.2f}%", flush=True)
+        print(f"[{cond.upper()} Sem  ] Rec: {res['semantic_recall']:.2f}% | Prec: {res['semantic_precision']:.2f}% | F1: {res['semantic_f1']:.2f}%", flush=True)
+        print(f"[{cond.upper()} Calls] Recall Calls: {res['judge_recall_calls']} | Prec Calls: {res['judge_precision_calls']}", flush=True)
 
-    os.makedirs(os.path.dirname(os.path.abspath(args.output_json)), exist_ok=True)
-    with open(args.output_json, "w") as f:
-        json.dump(full_results, f, indent=2)
-    print(f"\nWrote summary metrics to {args.output_json}")
-
-    if args.audit_csv and all_audits:
-        os.makedirs(os.path.dirname(os.path.abspath(args.audit_csv)), exist_ok=True)
-        pd.DataFrame(all_audits).to_csv(args.audit_csv, index=False)
-        print(f"Wrote {len(all_audits)} judge decision audits to {args.audit_csv}")
+        # Save checkpoint after each condition
+        os.makedirs(os.path.dirname(os.path.abspath(args.output_json)), exist_ok=True)
+        with open(args.output_json, "w") as f:
+            json.dump(full_results, f, indent=2)
+        if args.audit_csv and all_audits:
+            os.makedirs(os.path.dirname(os.path.abspath(args.audit_csv)), exist_ok=True)
+            pd.DataFrame(all_audits).to_csv(args.audit_csv, index=False)
+        print(f"[Checkpoint] Saved {cond.upper()} progress ({len(all_audits)} audits) to disk.", flush=True)
 
 if __name__ == "__main__":
     main()

@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=qwen38-judge
 #SBATCH --account=bjas-delta-gpu
-#SBATCH --partition=gpuA100x4-interactive
+#SBATCH --partition=gpuA100x4
 #SBATCH --nodes=1
 #SBATCH --gpus=2
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=64g
-#SBATCH --time=00:45:00
+#SBATCH --time=02:00:00
 #SBATCH --output=/work/hdd/bedl/zyin2/benchmark_phase2/run_qwen38_judge.log
 #SBATCH --error=/work/hdd/bedl/zyin2/benchmark_phase2/run_qwen38_judge.log
 
@@ -16,6 +16,7 @@ conda activate /u/zyin2/.conda/envs/nemo
 export HF_HOME=/work/hdd/bedl/zyin2/cache/huggingface
 export TRANSFORMERS_CACHE=/work/hdd/bedl/zyin2/cache/huggingface
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export PYTHONUNBUFFERED=1
 
 cd /work/hdd/bedl/zyin2/benchmark_phase2
 

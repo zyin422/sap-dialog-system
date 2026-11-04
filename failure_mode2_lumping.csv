@@ -1,0 +1,33 @@
+intent,type,prompt,gold_slots,pred_slots
+schedule_manage,Person into Title,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.","{'action': 'delete', 'title': 'meeting', 'person': 'sanjiv lynne', 'time': '2:30 pm', 'date': 'tuesday the 9th'}","{'action': 'delete', 'title': 'meeting with Sanjiv Lynne', 'date': 'Tuesday the 9th', 'time': '2:30 PM'}"
+schedule_manage,Person into Title,Cancel my meeting with Sonya Lee.,"{'action': 'delete', 'title': 'meeting', 'person': 'sonya lee'}","{'action': 'delete', 'title': 'meeting with Sonya Lee'}"
+schedule_manage,Person into Title,Cancel my meeting with Vincent & Lin.,"{'action': 'delete', 'title': 'meeting', 'person': 'vincent & lin'}","{'action': 'delete', 'title': 'meeting with Vincent & Lin'}"
+media_volume,Missing: ['change_amount'],Decrease volume to minimum.,"{'action': 'set', 'change_amount': 'minimum'}",{'action': 'mute'}
+schedule_manage,Missing: ['title'],Delete my reminders for tomorrow.,"{'action': 'delete', 'title': 'reminders', 'date': 'tomorrow'}","{'action': 'delete', 'date': 'tomorrow'}"
+iot_device_adjust,Missing: ['direction'],Dim the porch lights to 70%.,"{'device_type': 'porch lights', 'setting': 'brightness', 'direction': 'down', 'value': '70%'}","{'device_type': 'porch lights', 'setting': 'brightness', 'value': '70%'}"
+media_play,Missing: ['title'],Listen to CBS.,"{'media_type': 'radio', 'title': 'cbs'}","{'media_type': 'radio', 'service': 'CBS'}"
+maps_route,Missing: ['query_type'],Map a route to Dallas Fortworth International Airport.,"{'destination': 'dallas fortworth international airport', 'query_type': 'directions'}",{'destination': 'Dallas Fortworth International Airport'}
+maps_route,Missing: ['query_type'],Map a route to Dulles Airport.,"{'destination': 'dulles airport', 'query_type': 'directions'}",{'destination': 'Dulles Airport'}
+maps_route,Missing: ['query_type'],Map a route to John F. Kennedy Airport.,"{'destination': 'john f. kennedy airport', 'query_type': 'directions'}",{'destination': 'John F. Kennedy Airport'}
+schedule_manage,Missing: ['title'],Reschedule my meeting.,"{'action': 'update', 'title': 'meeting'}",{'action': 'update'}
+schedule_manage,Person into Title,"Reschedule my meeting with Virginia Daniel at 7, Saturday.","{'action': 'update', 'title': 'meeting', 'person': 'virginia daniel', 'time': '7', 'date': 'saturday'}","{'action': 'update', 'title': 'meeting with Virginia Daniel', 'date': 'Saturday', 'time': '7'}"
+alarm_manage,Missing: ['date'],Set an alarm for every Sunday at 8 PM.,"{'action': 'set', 'time': '8 pm', 'date': 'sunday', 'general_frequency': 'weekly'}","{'action': 'set', 'time': '8 PM', 'general_frequency': 'weekly'}"
+media_search,Missing: ['media_type'],Show me movies with Tom Cruise.,"{'media_type': 'movie', 'person': 'tom cruise'}",{'person': 'Tom Cruise'}
+media_search,Missing: ['media_type'],Show me movies with Troy Kotsur.,"{'media_type': 'movie', 'person': 'troy kotsur'}",{'person': 'Troy Kotsur'}
+places_search,Missing: ['sort_by'],Show me nearby cafes.,"{'business_type': 'cafes', 'sort_by': 'distance'}",{'business_type': 'cafe'}
+places_search,Missing: ['sort_by'],Show me nearby restaurants.,"{'business_type': 'restaurants', 'sort_by': 'distance'}",{'business_type': 'restaurant'}
+places_search,Missing: ['sort_by'],Show me nearby shopping malls.,"{'business_type': 'shopping malls', 'sort_by': 'distance'}",{'business_type': 'shopping mall'}
+iot_device_power,Location into Device,Turn off the closet light.,"{'device_type': 'light', 'state': 'off', 'house_place': 'closet'}","{'device_type': 'closet light', 'state': 'off'}"
+iot_device_power,Location into Device,Turn on the porch light.,"{'device_type': 'light', 'state': 'on', 'house_place': 'porch'}","{'device_type': 'porch light', 'state': 'on'}"
+media_play,Missing: ['title'],Turn the TV to CBS.,"{'media_type': 'tv_show', 'title': 'cbs'}","{'media_type': 'tv_show', 'service': 'CBS'}"
+memory_note_manage,Missing: ['action'],We parked on level 4.,"{'action': 'store', 'value': 'we parked on level 4'}","{'key': 'parked_level', 'value': 'level 4'}"
+schedule_manage,Missing: ['title'],What are my reminders?,"{'action': 'query', 'title': 'reminders'}",{'action': 'query'}
+places_search,Missing: ['sort_by'],What restaurants are nearby?,"{'business_type': 'restaurants', 'sort_by': 'distance'}",{'business_type': 'restaurant'}
+schedule_manage,Missing: ['date'],What's on my agenda for today?,"{'action': 'query', 'date': 'today'}",{'action': 'query'}
+lists_manage,Missing: ['list_name'],What's on my shopping list?,"{'action': 'query', 'list_name': 'shopping list'}",{'action': 'query'}
+lists_manage,Missing: ['list_name'],What's on my to-do list?,"{'action': 'query', 'list_name': 'to-do list'}",{'action': 'query'}
+weather_query,Missing: ['weather_aspect'],What's the temperature outside?,{'weather_aspect': 'temperature'},{'place_name': 'outside'}
+schedule_manage,Missing: ['title'],When's my first meeting today?,"{'action': 'query', 'title': 'meeting', 'date': 'today'}","{'action': 'query', 'date': 'today'}"
+schedule_manage,Missing: ['title'],Where is my first event tomorrow?,"{'action': 'query', 'title': 'event', 'date': 'tomorrow'}","{'action': 'query', 'date': 'tomorrow'}"
+schedule_manage,Missing: ['title'],Where is my next meeting?,"{'action': 'query', 'title': 'meeting'}",{'action': 'query'}
+places_search,Missing: ['sort_by'],Where is the nearest bus stop?,"{'business_type': 'bus stop', 'sort_by': 'distance'}",{'business_type': 'bus stop'}

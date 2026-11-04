@@ -1,0 +1,31 @@
+idx,prompt,intent,slots,response,wc,wc_ok,clean_ok
+0,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.",schedule_manage,"{'action': 'delete', 'title': 'meeting', 'date': 'Tuesday the 9th', 'time': '2:30 PM'}",Canceling meeting with Sanjiv Lynne at 2:30 PM.,8,True,True
+1,Cancel my meeting with Sonya Lee.,schedule_manage,"{'action': 'delete', 'title': 'meeting', 'person': 'Sonya Lee'}",Canceling meeting with Sonya Lee.,5,True,True
+2,Delete my reminders for tomorrow.,schedule_manage,"{'action': 'delete', 'title': 'reminders', 'date': 'tomorrow'}",Deleting your reminders for tomorrow.,5,True,True
+3,"Find me a vegetarian stew recipe with smoked paprika, fresh garlic, and lentils.",qa_search,"{'query': 'Find me a vegetarian stew recipe with smoked paprika, fresh garlic, and lentils.'}","Searching for vegetarian stew recipe with smoked paprika, garlic, and lentils.",11,True,True
+4,How many calories does a Big Mac have?,qa_search,{'query': 'How many calories does a Big Mac have?'},Querying calories in a Big Mac.,6,True,True
+5,How many people live in Maryland?,qa_search,{'query': 'How many people live in Maryland?'},Querying population of Maryland.,4,True,True
+6,How tall is the tallest person?,qa_search,{'query': 'How tall is the tallest person?'},Finding height of the tallest person.,6,True,True
+7,Is the pharmacy open?,places_search,{'business_type': 'pharmacy'},Finding nearby pharmacies and their hours.,6,True,True
+8,Map a route to Dallas Fortworth International Airport.,maps_route,"{'destination': 'Dallas Fortworth International Airport', 'query_type': 'directions'}",Mapping route to Dallas Fortworth International Airport.,7,True,True
+9,Map a route to Dulles Airport.,maps_route,"{'destination': 'Dulles Airport', 'query_type': 'directions'}",Mapping a route to Dulles Airport.,6,True,True
+10,Recipe with avocados and tomatoes.,qa_search,{'query': 'Recipe with avocados and tomatoes.'},Searching for recipe with avocados and tomatoes.,7,True,True
+11,Recipe with buttermilk and coconut.,qa_search,{'query': 'Recipe with buttermilk and coconut.'},Searching for recipe with buttermilk and coconut.,7,True,True
+12,Remind me to take a break in 15 minutes.,schedule_manage,"{'action': 'create', 'title': 'take a break', 'date': 'in 15 minutes'}",Reminder set for break in 15 minutes.,7,True,True
+13,Reschedule my meeting.,schedule_manage,"{'action': 'update', 'title': 'meeting'}",Rescheduling your meeting. Please provide details.,6,True,True
+14,"Reschedule my meeting with Virginia Daniel at 7, Saturday.",schedule_manage,"{'action': 'update', 'title': 'meeting', 'date': 'Saturday', 'time': '7', 'person': 'Virginia Daniel'}",Rescheduling meeting with Virginia Daniel at 7 Saturday.,8,True,True
+15,Set a reminder for Molly's vet appointment.,schedule_manage,"{'action': 'create', 'title': 'vet appointment', 'person': 'Molly'}",Setting reminder for Molly's vet appointment.,6,True,True
+16,Set a reminder for our dinner reservation on Friday.,schedule_manage,"{'action': 'create', 'title': 'dinner reservation', 'date': 'Friday'}",Setting reminder for dinner reservation on Friday.,7,True,True
+17,Show me movies with Tom Cruise.,places_search,"{'media_type': 'movie', 'person': 'Tom Cruise'}",Finding movies with Tom Cruise.,5,True,True
+18,Show me nearby cafes.,places_search,"{'business_type': 'cafes', 'sort_by': 'distance'}",Finding nearby cafes for you.,5,True,True
+19,Show me nearby restaurants.,places_search,"{'business_type': 'restaurants', 'sort_by': 'distance'}",Finding nearby restaurants for you.,5,True,True
+20,Show me nearby shopping malls.,places_search,"{'business_type': 'shopping malls', 'sort_by': 'distance'}",Finding nearby shopping malls for you.,6,True,True
+21,Turn off the closet light.,iot_device_power,"{'device_type': 'closet light', 'state': 'off', 'house_place': 'closet'}",Closet light turned off.,4,True,True
+22,Turn on the porch light.,iot_device_power,"{'device_type': 'porch light', 'state': 'on', 'house_place': 'porch'}",Turning on the porch light.,5,True,True
+23,What are my reminders?,schedule_manage,{'action': 'query'},Checking your calendar reminders.,4,True,True
+24,What time is it?,qa_search,{'query': 'What time is it?'},What time is it?,4,True,True
+25,What time is it in Alaska?,qa_search,{'query': 'What time is it in Alaska?'},Checking current time in Alaska.,5,True,True
+26,What's Apple trading at?,qa_search,"{'query': ""What's Apple trading at?""}",Looking up Apple stock price.,5,True,True
+27,What's the conversion of 16 ounces to liters?,qa_search,{'query': 'conversion of 16 ounces to liters'},Converting 16 ounces to liters now.,6,True,True
+28,What's the latest in science and technology?,qa_search,{'query': 'latest in science and technology'},I'll find the latest updates in science and technology.,9,True,True
+29,When are the Giants playing?,alarm_manage,"{'action': 'query', 'general_frequency': 'daily'}",Querying Giants game schedule.,4,True,True

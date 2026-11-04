@@ -115,43 +115,49 @@ class SemanticLLMJudge:
             return self.cache[cache_key]
 
         if eval_type == "recall":
-            user_content = (
-                f"EVALUATE RECALL:\n"
-                f"Utterance: \"{utterance}\"\n"
-                f"Tool: {tool}\n"
-                f"Slot Key: {slot_key}\n"
+            slot_info = (
                 f"Gold Value: \"{gold_val}\"\n"
-                f"Candidate Predicted Value: \"{pred_val}\"\n"
-                f"Does candidate predicted value capture the referent of the gold value?"
+                f"Predicted Value: \"{pred_val}\"\n"
+                f"Does predicted value capture the referent of the gold value in the utterance?"
             )
         else:
-            user_content = (
-                f"EVALUATE PRECISION:\n"
-                f"Utterance: \"{utterance}\"\n"
-                f"Tool: {tool}\n"
-                f"Slot Key: {slot_key}\n"
-                f"Candidate Predicted Value: \"{pred_val}\"\n"
-                f"Is candidate predicted value explicitly grounded in the utterance tokens and unhallucinated?"
+            slot_info = (
+                f"Predicted Value: \"{pred_val}\"\n"
+                f"Is predicted value explicitly grounded in the spoken utterance?"
             )
 
+        content = (
+            f"You are an expert scientific evaluator for Spoken Language Understanding (SLU).\n"
+            f"Evaluate whether the predicted parameter slot value matches the user's spoken utterance.\n\n"
+            f"Output MUST be a valid JSON object starting with {{ and ending with }}:\n"
+            f"{{\n"
+            f"  \"verdict\": true,\n"
+            f"  \"reasoning\": \"<concise explanation>\"\n"
+            f"}}\n\n"
+            f"EVALUATION TYPE: {eval_type.upper()}\n"
+            f"Utterance: \"{utterance}\"\n"
+            f"Tool: {tool}\n"
+            f"Slot: {slot_key}\n"
+            f"{slot_info}\n"
+        )
+
         messages = [
-            {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
-            {"role": "user", "content": user_content}
+            {"role": "user", "content": content}
         ]
 
-        text = self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        text = self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         inputs = self.tokenizer([text], return_tensors="pt").to(self.model.device)
 
         with torch.no_grad():
             output_ids = self.model.generate(
                 **inputs,
-                max_new_tokens=48,
+                max_new_tokens=80,
                 do_sample=False,
                 pad_token_id=self.tokenizer.eos_token_id
             )
         raw_output = self.tokenizer.decode(output_ids[0][inputs.input_ids.shape[1]:], skip_special_tokens=True).strip()
 
-        # Parse JSON output
+        # Parse JSON output and fallback regex
         verdict = False
         reasoning = raw_output
         try:
@@ -161,11 +167,16 @@ class SemanticLLMJudge:
                 verdict = bool(data.get("verdict", False))
                 reasoning = data.get("reasoning", raw_output)
             else:
-                if "true" in raw_output.lower() and "false" not in raw_output.lower():
+                m_verdict = re.search(r'"verdict":\s*(true|false)', raw_output, re.IGNORECASE)
+                if m_verdict:
+                    verdict = (m_verdict.group(1).lower() == "true")
+                elif "true" in raw_output.lower() and "false" not in raw_output.lower():
                     verdict = True
         except Exception as e:
-            print(f"[Judge Warning] JSON parse failure on output: {raw_output} ({e})", flush=True)
-            if "true" in raw_output.lower() and "false" not in raw_output.lower():
+            m_verdict = re.search(r'"verdict":\s*(true|false)', raw_output, re.IGNORECASE)
+            if m_verdict:
+                verdict = (m_verdict.group(1).lower() == "true")
+            elif "true" in raw_output.lower() and "false" not in raw_output.lower():
                 verdict = True
 
         self.cache[cache_key] = (verdict, reasoning)

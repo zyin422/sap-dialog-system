@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=qwen38-judge
 #SBATCH --account=bjas-delta-gpu
-#SBATCH --partition=gpuA100x4
+#SBATCH --partition=gpuA100x4-interactive
 #SBATCH --nodes=1
 #SBATCH --gpus=2
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=64g
-#SBATCH --time=02:00:00
+#SBATCH --time=01:00:00
 #SBATCH --output=/work/hdd/bedl/zyin2/benchmark_phase2/run_qwen38_judge.log
 #SBATCH --error=/work/hdd/bedl/zyin2/benchmark_phase2/run_qwen38_judge.log
 

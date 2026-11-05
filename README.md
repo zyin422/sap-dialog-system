@@ -42,7 +42,7 @@ We evaluate a strictly decoupled cascaded system isolating acoustic transcriptio
 
 ## 3. Assistive SLU Catalog & SAP Corpus
 
-* **Corpus Scale:** 124 speakers with dysarthria, 34,577 recordings, evaluated across $N = 1,108$ push-to-talk benchmark turns.
+* **Corpus Scale:** 124 speakers with dysarthria, 34,577 recordings, evaluated across the curated **Clean Balanced Benchmark ($N = 1,200$)** spanning 122 speakers, 328 unique prompts, and exactly 240 instances across each of 5 motor speech etiologies (ALS, Cerebral Palsy, Down Syndrome, Parkinson's Disease, Stroke).
 * **SLU Schema:** 10 functional assistive domains and 29 parameterized tools derived and filtered from Amazon MASSIVE:
   * **Accessibility:** `accessibility_dictation_toggle`, `accessibility_ui_scale`
   * **Calendar:** `alarm_manage`, `schedule_manage`
@@ -57,20 +57,34 @@ We evaluate a strictly decoupled cascaded system isolating acoustic transcriptio
 
 ---
 
-## 4. Benchmark Results ($N = 1,200$ Clean Balanced Audio Instances)
+## 4. Benchmark Results ($N = 1,200$ Balanced Audio Instances)
 
-*Evaluated on NCSA Delta GPU cluster (NVIDIA A100-SXM4-80GB, 3,600 model evaluations) using `Qwen/Qwen3-8B` at greedy $T = 0$.*
+*Evaluated on NCSA Delta GPU cluster (NVIDIA A100-SXM4-80GB, 3,600 model evaluations) using `Qwen/Qwen3-8B` (greedy $T = 0$), coupled in conjunction with publication-grade semantic parameter auditing via `Qwen/Qwen3.8-27B` LLM-as-a-Judge.*
 
 ### End-to-End Tool Calling & Spoken Affirmation Performance
 
 | Evaluation Condition | Acoustic WER (%) | Tool Selection TS (%) | Struct Validity TCS (%) | Parameter Filling PF (%) | Command Frame Accuracy (%) | NLG Length ($\le 12$ Words) | Clean Speech Tokens (%) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Condition 1: Oracle Ceiling** | 0.00% | **93.50%** (1,122/1,200) | **100.0%** (1,200/1,200) | **88.14%** (1,672/1,897) | **82.83%** (994/1,200) | **99.75%** | **100.0%** |
-| **Condition 2: Base Parakeet ASR** | 28.15% | 71.58% (859/1,200) | 98.92% (1,187/1,200) | 51.40% (975/1,897) | **42.17%** (506/1,200) | 99.25% | 100.0% |
+| **Condition 1: Oracle Ceiling (Exact Lexical)** | 0.00% | **93.50%** (1,122/1,200) | **100.0%** (1,200/1,200) | 88.14% (1,672/1,897) | 82.83% (994/1,200) | **99.75%** | **100.0%** |
+| **Condition 1: Oracle Ceiling (Semantic LLM Judge)** | 0.00% | **93.50%** (1,122/1,200) | **100.0%** (1,200/1,200) | **90.56%** (1,718/1,897) | **89.83%** (1,078/1,200) | **99.75%** | **100.0%** |
+| **Condition 2: Base Parakeet ASR** | 28.15% | 71.58% (859/1,200) | 98.92% (1,187/1,200) | 51.40% (975/1,897) | 42.17% (506/1,200) | 99.25% | 100.0% |
 | **Condition 3: Fine-Tuned ASR** | **10.70%** | **90.25%** (1,083/1,200) | **99.92%** (1,199/1,200) | **78.39%** (1,487/1,897) | **69.67%** (836/1,200) | **99.92%** | **100.0%** |
-| **Acoustic Adaptation Gain ($\Delta$)** | **-17.45%** | **+18.67%** | **+1.00%** | **+26.99%** | **+27.50%** | **+0.67%** | **0.00%** |
+| **Acoustic Adaptation Gain ($\Delta_{\text{FT}-\text{Base}}$)** | **-17.45%** | **+18.67%** | **+1.00%** | **+26.99%** | **+27.50%** | **+0.67%** | **0.00%** |
 
 $$\text{Adaptation Recovery Rate (ARR)} = \frac{\text{Frame}_{\text{FT}} - \text{Frame}_{\text{Base}}}{\text{Frame}_{\text{Oracle}} - \text{Frame}_{\text{Base}}} = \frac{69.67\% - 42.17\%}{82.83\% - 42.17\%} = \frac{27.50\%}{40.66\%} = \mathbf{67.63\%}$$
+
+*(Under the Semantic Oracle Frame Ceiling of $89.83\%$, ARR remains a robust $57.70\%$, recovering over half of the semantic potential).*
+
+### Semantic LLM-as-a-Judge Parameter Audit Triad (`Qwen3.8-27B` vs. Exact Lexical Overlap)
+
+Evaluates semantic recall (coverage of gold parameters) and precision (rigorous audit of hallucinations vs. unannotated spoken context) across all 1,897 gold slots and 2,133 predicted slots:
+
+| Metric Dimension | Exact Lexical Overlap (Char-F1 $\ge 0.85$) | Semantic LLM Judge (`Qwen3.8-27B`) | Net Gain ($\Delta$) | Systematic Semantic Mechanism |
+| :--- | :---: | :---: | :---: | :--- |
+| **Parameter Recall** | 86.14% (1,634 / 1,897) | **90.56%** (1,718 / 1,897) | **+4.42%** | Resolves valid compound noun / descriptive expansions (+84 slots recovered) |
+| **Parameter Precision** | 76.61% (1,634 / 2,133) | **84.72%** (1,807 / 2,133) | **+8.11%** | Distinguishes spoken context arguments from true hallucinations (+173 slots validated) |
+| **Parameter F1** | 81.09% | **87.54%** | **+6.45%** | Balanced harmonic mean across all candidate parameters |
+| **Rescued Command Frames** | 82.83% (994 / 1,200) | **89.83%** (1,078 / 1,200) | **+7.00%** | **+84 complete command frames** rescued from lexical string boundary penalties |
 
 ### Clinical Etiology Breakdown (Command Frame Accuracy)
 
@@ -82,21 +96,12 @@ $$\text{Adaptation Recovery Rate (ARR)} = \frac{\text{Frame}_{\text{FT}} - \text
 | **Cerebral Palsy** | 240 | 80.00% | 29.58% | 65.83% | **+36.25%** |
 | **Down Syndrome** | 240 | 82.92% | 32.08% | 68.33% | **+36.25%** |
 
-### Publication-Grade Semantic LLM-as-a-Judge Parameter Evaluation (`Qwen3.8-27B`)
-
-Evaluates semantic recall and precision across all 1,897 gold slots and 2,133 predicted slots, distinguishing valid descriptive noun expansions (e.g. *"porch light"* for *"light"*) from unuttered hallucinations:
-
-| Evaluation Metric | Exact Lexical Overlap (Char-F1 $\ge 0.85$) | Semantic LLM Judge (`Qwen3.8-27B`) | Semantic Net Gain ($\Delta$) |
-| :--- | :---: | :---: | :---: |
-| **Parameter Recall** | 86.14% (1,634 / 1,897) | **90.56%** (1,718 / 1,897) | **+4.42%** (+84 slots recovered) |
-| **Parameter Precision** | 76.61% (1,634 / 2,133) | **84.72%** (1,807 / 2,133) | **+8.11%** (+173 slots validated) |
-| **Parameter F1** | 81.09% | **87.54%** | **+6.45%** |
-
 ### Key Research Findings
 1. **The Downstream Failure Bottleneck is in the Parameters:** Unadapted ASR causes end-to-end Command Frame Accuracy to drop from **82.83% down to 42.17%** (a $-40.66\%$ collapse). While high-level intent routing (Tool Selection) achieves $71.58\%$, Parameter Filling collapses by **$-36.74\%$** ($88.14\% \to 51.40\%$).
 2. **Acoustic Adaptation Recovers Over Two-Thirds of Task Success:** Fine-tuning the streaming ASR restores **+27.50% absolute Command Frame Accuracy** ($42.17\% \to 69.67\%$, $+330$ net frames restored), translating to an **ARR of 67.63%**.
 3. **Severe Etiologies Benefit Most:** For dysarthria with high acoustic disfluency (Cerebral Palsy and Down Syndrome), acoustic adaptation delivers a massive **+36.25% absolute command frame recovery**.
-4. **Conversational Grounding Preserves Tool Integrity:** Spoken affirmations achieve **99.92% length compliance** ($\le 12$ words) and **100.0% clean speech tokens** without degrading tool-calling accuracy (paired McNemar test $p > 0.11$).
+4. **Semantic LLM-as-a-Judge Resolves Exact Lexical Artifacts:** Under strict string matching (Char-F1 $\ge 0.85$), exact parameter recall is $86.14\%$ and precision is $76.61\%$. The `Qwen3.8-27B` semantic judge reveals that **+84 gold slots** were actually satisfied by valid descriptive noun phrases (e.g., *"porch light"* for *"light"*) and **+173 predicted slots** were valid spoken context rather than hallucinations, elevating true Oracle Command Frame Accuracy to **89.83%** (+84 complete frames rescued).
+5. **Conversational Grounding Preserves Tool Integrity:** Spoken affirmations achieve **99.92% length compliance** ($\le 12$ words) and **100.0% clean speech tokens** without degrading tool-calling accuracy (paired McNemar test $p > 0.11$).
 
 ---
 

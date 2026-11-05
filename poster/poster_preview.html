@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond WER: Quantifying ASR Error Propagation in Spoken Language Understanding for Dysarthric Speech</title>
+  
+  <style>
+    /* =============================================================
+       TRUE PHYSICAL POSTER SCALE (48" x 36" Landscape)
+       Official UIUC Siebel / Grainger Research Standards:
+       - Title: 76-84 pt
+       - Section Headings: 38-44 pt
+       - Body Text: 24-28 pt (strictly readable from 4-6 feet)
+       - Captions/Tables: 18-22 pt
+       ============================================================= */
+    :root {
+      --uiuc-blue: #13294B;
+      --uiuc-blue-dark: #0A1628;
+      --uiuc-orange: #E84A27;
+      --border-gray: #CBD5E1;
+      --border-light: #E2E8F0;
+      --text-main: #0F172A;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      
+      /* Actual Physical Typographic Hierarchy */
+      --fs-title: 74pt;
+      --fs-venue: 24pt;
+      --fs-authors: 32pt;
+      --fs-affil: 22pt;
+      --fs-h2: 38pt;
+      --fs-h3: 28pt;
+      --fs-body: 24pt;
+      --fs-caption: 19pt;
+      --fs-table: 21pt;
+      
+      --poster-scale: 0.28;
+    }
+
+    @page {
+      size: 48in 36in landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #1E293B;
+      font-family: var(--font-family);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      overflow-y: auto;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: #0F172A;
+      border-bottom: 1px solid #334155;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #E2E8F0;
+      font-size: 14px;
+    }
+
+    #toolbar .controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #toolbar button {
+      background: #334155;
+      color: #FFFFFF;
+      border: 1px solid #475569;
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #toolbar button:hover {
+      background: #475569;
+    }
+
+    #toolbar button.btn-primary {
+      background: var(--uiuc-orange);
+      border-color: var(--uiuc-orange);
+    }
+    #toolbar button.btn-primary:hover {
+      background: #D13816;
+    }
+
+    #viewport-container {
+      padding: 20px 0 60px 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .poster-scaler {
+      width: calc(48in * var(--poster-scale));
+      height: calc(36in * var(--poster-scale));
+      position: relative;
+      margin: 0 auto;
+      background: #FFFFFF;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .poster-canvas {
+      width: 48in;
+      height: 36in;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scale(var(--poster-scale));
+      transform-origin: top left;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* HEADER BANNER */
+    .poster-header {
+      background: var(--uiuc-blue);
+      color: #FFFFFF;
+      padding: 0.65in 1.2in 0.55in 1.2in;
+      border-bottom: 0.12in solid var(--uiuc-orange);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .header-main {
+      flex: 1;
+    }
+
+    .header-venue {
+      font-size: var(--fs-venue);
+      font-weight: 700;
+      color: #FDBA74;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .header-title {
+      font-size: var(--fs-title);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-authors {
+      font-size: var(--fs-authors);
+      font-weight: 600;
+      color: #F8FAFC;
+      margin-bottom: 10px;
+    }
+
+    .header-authors .presenter {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      color: #FFFFFF;
+    }
+
+    .header-affil {
+      font-size: var(--fs-affil);
+      color: #CBD5E1;
+      line-height: 1.35;
+    }
+
+    .header-logos {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+      padding-left: 0.8in;
+    }
+
+    .logo-badge {
+      border: 4px solid #FFFFFF;
+      background: var(--uiuc-orange);
+      color: #FFFFFF;
+      font-size: 64pt;
+      font-weight: 900;
+      font-family: serif;
+      width: 1.3in;
+      height: 1.6in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .header-meta {
+      font-size: 16pt;
+      color: #E2E8F0;
+      text-align: right;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    /* 3-COLUMN CONTENT GRID */
+    .poster-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.55in;
+      padding: 0.55in 1.1in 0.45in 1.1in;
+      background: #FFFFFF;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38in;
+      height: 100%;
+    }
+
+    .section-box {
+      background: #FFFFFF;
+      border: 2px solid var(--border-gray);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .section-box.flex-auto {
+      flex: 1;
+    }
+
+    .section-header {
+      background: var(--uiuc-blue);
+      border-bottom: 3.5px solid var(--uiuc-orange);
+      padding: 14px 26px;
+    }
+
+    .section-header h2 {
+      font-size: var(--fs-h2);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.2px;
+      margin: 0;
+    }
+
+    .section-content {
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-size: var(--fs-body);
+      line-height: 1.42;
+      color: var(--text-secondary);
+    }
+
+    p {
+      margin: 0;
+      font-size: var(--fs-body);
+      line-height: 1.42;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    ul {
+      margin-left: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    li {
+      font-size: var(--fs-body);
+      line-height: 1.4;
+    }
+
+    /* Scientific Tables */
+    .academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: var(--fs-table);
+    }
+
+    .academic-table thead tr {
+      border-top: 3px solid #0F172A;
+      border-bottom: 2px solid #0F172A;
+      background: #F8FAFC;
+    }
+
+    .academic-table th {
+      padding: 10px 14px;
+      font-weight: 700;
+      text-align: left;
+      color: #0F172A;
+      font-size: var(--fs-table);
+    }
+
+    .academic-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #1E293B;
+    }
+
+    .academic-table tbody tr:last-child {
+      border-bottom: 3px solid #0F172A;
+    }
+
+    .academic-table tr.highlight {
+      background: #FEF9C3;
+      font-weight: 700;
+    }
+
+    .academic-table tr.gain-row {
+      background: #ECFDF5;
+      font-weight: 700;
+    }
+
+    .academic-table .num {
+      font-family: var(--font-mono);
+      font-size: 20pt;
+    }
+
+    .caption {
+      font-size: var(--fs-caption);
+      color: var(--text-muted);
+      line-height: 1.35;
+      margin-top: 6px;
+      font-style: italic;
+    }
+    .caption strong {
+      font-style: normal;
+      color: #0F172A;
+    }
+
+    .formula-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-gray);
+      border-left: 6px solid var(--uiuc-blue);
+      padding: 14px 20px;
+      margin: 6px 0;
+      font-size: 22pt;
+      line-height: 1.4;
+    }
+
+    .math-display {
+      font-family: "Latin Modern Math", "Cambria Math", "DejaVu Serif", serif;
+      font-size: 24pt;
+      text-align: center;
+      margin: 8px 0;
+      color: #0F172A;
+      font-weight: 600;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .case-box {
+      border: 1.5px solid var(--border-gray);
+      background: #F8FAFC;
+      padding: 14px 16px;
+      border-radius: 4px;
+      font-size: 19pt;
+      line-height: 1.4;
+    }
+
+    .case-box.error {
+      border-left: 5px solid #DC2626;
+    }
+
+    .case-box.repaired {
+      border-left: 5px solid #059669;
+    }
+
+    .case-title {
+      font-size: 17pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .case-box.error .case-title { color: #B91C1C; }
+    .case-box.repaired .case-title { color: #047857; }
+
+    /* Footer */
+    .poster-footer {
+      background: #F1F5F9;
+      border-top: 2px solid var(--border-gray);
+      padding: 0.3in 1.2in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      font-size: 18pt;
+      color: var(--text-muted);
+    }
+
+    .footer-ack {
+      line-height: 1.45;
+    }
+
+    .footer-qr {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-qr img {
+      width: 1.2in;
+      height: 1.2in;
+      border: 1px solid var(--border-gray);
+      background: #FFFFFF;
+      padding: 4px;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      #toolbar {
+        display: none !important;
+      }
+      #viewport-container {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .poster-scaler {
+        width: 48in !important;
+        height: 36in !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+      }
+      .poster-canvas {
+        position: static !important;
+        transform: none !important;
+        width: 48in !important;
+        height: 36in !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toolbar">
+    <div style="font-weight: 600;">
+      Beyond WER — UIUC CS STARS "Trick or Research" Poster (48" × 36")
+    </div>
+    <div class="controls">
+      <label>
+        Scale: <input type="range" id="zoomSlider" min="15" max="65" value="28" step="1">
+        <span id="zoomLabel" style="min-width: 40px;">28%</span>
+      </label>
+      <button onclick="fitPoster()">Fit Width</button>
+      <button onclick="setPosterScale(0.40)">40%</button>
+      <button class="btn-primary" onclick="window.print()">Print / Save 48"×36" PDF</button>
+    </div>
+  </div>
+
+  <div id="viewport-container">
+    <div class="poster-scaler" id="posterScaler">
+      <div class="poster-canvas" id="posterCanvas">
+
+        <header class="poster-header">
+          <div class="header-main">
+            <div class="header-venue">Trick or Research 2026 · CS STARS Research Symposium · Thomas M. Siebel Center</div>
+            <h1 class="header-title">
+              Beyond WER: Quantifying ASR Error Propagation in Spoken Language Understanding for Dysarthric Speech
+            </h1>
+            <div class="header-authors">
+              <span class="presenter">Zixuan Yin</span><sup>1</sup>, 
+              Xiuwen Zheng<sup>1</sup>, 
+              Haolong Zheng<sup>1</sup>, 
+              Kush Bhardwaj<sup>1</sup>, 
+              Mark Hasegawa-Johnson<sup>1</sup>
+            </div>
+            <div class="header-affil">
+              <sup>1</sup>Department of Electrical & Computer Engineering and Siebel School of Computing & Data Science<br>
+              Speech Accessibility Project (SAP), Beckman Institute for Advanced Science and Technology, UIUC
+            </div>
+          </div>
+
+          <div class="header-logos">
+            <div class="logo-badge">I</div>
+            <div class="header-meta">
+              ACCESS CIS250149<br>
+              NCSA Delta Compute
+            </div>
+          </div>
+        </header>
+
+        <main class="poster-body">
+
+          <!-- COLUMN 1 -->
+          <div class="col">
+            <div class="section-box">
+              <div class="section-header">
+                <h2>1. Introduction & Clinical Motivation</h2>
+              </div>
+              <div class="section-content">
+                <p>
+                  Motor speech disorders (dysarthria) affect over <strong>100 million individuals globally</strong> resulting from Cerebral Palsy, ALS, Parkinson’s disease, and stroke. While voice interfaces offer vital accessibility for individuals with physical motor impairments, commercial systems fail drastically.
+                </p>
+                <ul>
+                  <li><strong>Acoustic Degradation:</strong> Dysarthric speech exhibits hypernasality, prolonged phonemes, atypical pitch contours, and variable speech rate. Commercial ASR models (Siri, Google, Alexa) yield <strong>Word Error Rates (WER) of 30%–50%+</strong>.</li>
+                  <li><strong>Turn-Taking Truncation:</strong> Involuntary mid-sentence pauses trigger standard Voice Activity Detection (VAD) energy cutoffs, prematurely terminating user commands.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section-box">
+              <div class="section-header">
+                <h2>2. The "Beyond WER" Problem</h2>
+              </div>
+              <div class="section-content">
+                <p>
+                  Speech benchmarks universally prioritize minimizing transcription WER. However, downstream task completion demonstrates starkly non-linear sensitivity to acoustic errors:
+                </p>
+                <ul>
+                  <li><strong>Benign Disfluencies:</strong> Dropped function words (<em>"the", "a"</em>), repetitions, and fillers (<em>"uh", "um"</em>) are readily absorbed by downstream LLM contextual priors.</li>
+                  <li><strong>Catastrophic Entity Corruptions:</strong> Phonetic mutations in <strong>action slots and named entities</strong> (e.g., <em>"call mom" &rarr; "call tom"</em>; <em>"5mg" &rarr; "50mg"</em>) trigger unrecoverable downstream failures or hazardous actions.</li>
+                </ul>
+                <div class="formula-box">
+                  <strong>Research Question (RQ):</strong> <em>What quantitative gains does dysarthria-specific acoustic adaptation yield at the level of downstream spoken language understanding (SLU) and tool invocation, beyond transcript WER?</em>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-box flex-auto">
+              <div class="section-header">
+                <h2>3. Audited SLU Benchmark (Schema v1.3)</h2>
+              </div>
+              <div class="section-content">
+                <p>
+                  Evaluation audio is sourced from the <strong>Speech Accessibility Project (SAP)</strong> at UIUC Beckman Institute. To quantify downstream task execution, we formulated an audited SLU benchmark grounded in OpenAPI 3.0 tool schemas:
+                </p>
+                <ul>
+                  <li><strong>1,274 Canonical Gold Commands:</strong> Multi-model consensus (Claude 3.5 Sonnet & GPT-4o) adjudicated with human verification. 100% compliant with strict typing, explicit enum constraints, and slot validation rules.</li>
+                  <li><strong>35 Out-of-Domain (OOD) Items:</strong> Standalone wake phrases, OS system utility invocations, and dictation fragments partitioned out to prevent metric distortion.</li>
+                  <li><strong>10 Real-World Domains (29 Tools):</strong> Health (`health_log`), Communication (`messages_send`, `calls_dial`), Calendar/Alarm (`alarm_create`), Smart Home, Media, Places, QA, Notes, Accessibility, and Transport.</li>
+                  <li><strong>Speaker-Disjoint Protocol:</strong> Evaluation audio is strictly disjoint from acoustic training splits to measure true generalized adaptation.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 2 -->
+          <div class="col">
+            <div class="section-box">
+              <div class="section-header">
+                <h2>4. Decoupled System Architecture</h2>
+              </div>
+              <div class="section-content">
+                <p>
+                  Rather than evaluating an uninspectable end-to-end black box, we implement a <strong>strictly decoupled cascaded architecture</strong>. This design isolates acoustic recognition errors from LLM reasoning failures:
+                </p>
+
+                <!-- Scaled Vector Architecture SVG -->
+                <div style="background: #F8FAFC; border: 1.5px solid var(--border-gray); border-radius: 4px; padding: 16px; margin: 6px 0;">
+                  <svg viewBox="0 0 680 250" width="100%" height="auto" style="display: block; font-family: var(--font-family);">
+                    <rect x="10" y="20" width="130" height="75" rx="4" fill="#FFFFFF" stroke="#334155" stroke-width="2" />
+                    <text x="75" y="52" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">SAP Audio</text>
+                    <text x="75" y="74" font-size="12" fill="#475569" text-anchor="middle">16 kHz Dysarthric</text>
+
+                    <line x1="140" y1="57" x2="175" y2="57" stroke="#0F172A" stroke-width="2.5" marker-end="url(#arr)" />
+
+                    <rect x="180" y="20" width="140" height="75" rx="4" fill="#FFFFFF" stroke="#334155" stroke-width="2" />
+                    <text x="250" y="52" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Turn Control</text>
+                    <text x="250" y="74" font-size="12" fill="#475569" text-anchor="middle">Push-to-Talk (No VAD)</text>
+
+                    <line x1="320" y1="57" x2="355" y2="57" stroke="#0F172A" stroke-width="2.5" marker-end="url(#arr)" />
+
+                    <rect x="360" y="10" width="155" height="95" rx="4" fill="#FFFFFF" stroke="#13294B" stroke-width="2.5" />
+                    <rect x="360" y="10" width="155" height="26" fill="#13294B" />
+                    <text x="437" y="28" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">STREAMING ASR</text>
+                    <text x="437" y="56" font-size="13" font-weight="700" fill="#0F172A" text-anchor="middle">Parakeet-TDT 0.6B</text>
+                    <text x="437" y="76" font-size="11.5" fill="#475569" text-anchor="middle">Base vs. Fine-Tuned</text>
+                    <text x="437" y="94" font-size="11" fill="#1E3A8A" font-weight="700" text-anchor="middle">12.5 Hz / 80ms chunks</text>
+
+                    <line x1="515" y1="57" x2="545" y2="57" stroke="#0F172A" stroke-width="2.5" marker-end="url(#arr)" />
+
+                    <rect x="550" y="10" width="125" height="95" rx="4" fill="#FFFFFF" stroke="#E84A27" stroke-width="2.5" />
+                    <rect x="550" y="10" width="125" height="26" fill="#E84A27" />
+                    <text x="612" y="28" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">FROZEN LLM</text>
+                    <text x="612" y="56" font-size="13" font-weight="700" fill="#0F172A" text-anchor="middle">Qwen 2.5 72B</text>
+                    <text x="612" y="76" font-size="11.5" fill="#475569" text-anchor="middle">Greedy (T=0.0)</text>
+                    <text x="612" y="94" font-size="11" fill="#9A3412" font-weight="700" text-anchor="middle">OpenAPI 3.0 Tools</text>
+
+                    <line x1="612" y1="105" x2="612" y2="140" stroke="#0F172A" stroke-width="2.5" marker-end="url(#arr)" />
+
+                    <rect x="180" y="145" width="495" height="85" rx="4" fill="#F1F5F9" stroke="#475569" stroke-width="2" />
+                    <text x="427" y="174" font-size="14" font-weight="700" fill="#0F172A" text-anchor="middle">Automated SLU Evaluation Harness</text>
+                    <text x="427" y="196" font-size="12" fill="#334155" text-anchor="middle">Tool Selection (TS) &bull; Structural Validity (TCS) &bull; Parameter Filling (PF) &bull; Frame Accuracy</text>
+                    <text x="427" y="216" font-size="11.5" fill="#475569" text-anchor="middle">Exact Match &amp; Semantic Error Correction Rate (SECR)</text>
+
+                    <defs>
+                      <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 1 L 8 5 L 0 9 z" fill="#0F172A" />
+                      </marker>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="caption">
+                  <strong>Figure 1:</strong> Decoupled cascaded SLU architecture isolating acoustic transcription errors from LLM intent and argument extraction.
+                </div>
+              </div>
+            </div>
+
+            <div class="section-box flex-auto">
+              <div class="section-header">
+                <h2>5. Controlled Evaluation Protocol</h2>
+              </div>
+              <div class="section-content">
+                <p>
+                  To strictly attribute downstream performance shifts, the downstream LLM agent prompt, OpenAPI tool definitions, and decoding temperature ($T=0.0$) are held <strong>100% identical</strong> across three experimental conditions:
+                </p>
+                <ul>
+                  <li><strong>Condition 1 (Oracle Ceiling):</strong> Pristine human ground-truth transcripts provided to the agent. Quantifies the LLM's intrinsic semantic reasoning ceiling.</li>
+                  <li><strong>Condition 2 (Base ASR Baseline):</strong> Unadapted zero-shot NVIDIA Parakeet-TDT 0.6B (Acoustic WER: <strong>28.15%</strong>).</li>
+                  <li><strong>Condition 3 (Fine-Tuned ASR):</strong> Parakeet-TDT fine-tuned on speaker-disjoint SAP dysarthric audio (Acoustic WER: <strong>10.70%</strong>).</li>
+                </ul>
+
+                <p style="margin-top: 4px;"><strong>Metric Decompositions &amp; Formulations:</strong></p>
+                <ul>
+                  <li><strong>Tool Selection (TS):</strong> Exact match of the target API function.</li>
+                  <li><strong>Parameter Filling (PF):</strong> Strict exact match of all ground-truth slot keys and argument values.</li>
+                  <li><strong>Command Frame Accuracy:</strong> Strict end-to-end task completion ($\text{TS} = 1 \land \text{PF} = 1$).</li>
+                </ul>
+
+                <div class="formula-box">
+                  <div style="font-weight: 700; margin-bottom: 4px;">Core Analytical Metrics:</div>
+                  <div class="math-display">
+                    \[\text{ARR} = \frac{\text{Acc}_{\text{FT}} - \text{Acc}_{\text{Base}}}{\text{Acc}_{\text{Oracle}} - \text{Acc}_{\text{Base}}} \times 100\% \quad \Big( = \mathbf{71.44\%} \Big)\]
+                  </div>
+                  <div class="math-display" style="font-size: 20pt; margin-top: 6px;">
+                    \[\text{SECR} = \frac{\text{Slots}_{\text{Repaired}}}{\text{Slots}_{\text{Eligible}}} \times 100\% \quad \Big( = \mathbf{35.07\%} \Big)\]
+                  </div>
+                </div>
+
+                <p style="font-size: 21pt; color: var(--text-muted); margin-top: 2px;">
+                  <em>Strict Constant Control:</em> All downstream prompts, OpenAPI tool parameter schemas, and decoding parameters are frozen at greedy $T=0.0$.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 3 -->
+          <div class="col">
+            <div class="section-box">
+              <div class="section-header">
+                <h2>6. Empirical Evaluation (Pilot Dev N=291)</h2>
+              </div>
+              <div class="section-content">
+                <p>
+                  Evaluation executed across 291 benchmark dev utterances on NCSA Delta GPUs:
+                </p>
+
+                <table class="academic-table">
+                  <thead>
+                    <tr>
+                      <th>Condition</th>
+                      <th>WER (%)</th>
+                      <th>TS (%)</th>
+                      <th>PF (%)</th>
+                      <th>Frame Acc (%)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1. Oracle Ceiling</td>
+                      <td class="num">0.00</td>
+                      <td class="num">88.32</td>
+                      <td class="num">66.67</td>
+                      <td class="num"><strong>59.45</strong></td>
+                    </tr>
+                    <tr>
+                      <td>2. Base Parakeet</td>
+                      <td class="num">28.15</td>
+                      <td class="num">74.23</td>
+                      <td class="num">40.34</td>
+                      <td class="num">28.18</td>
+                    </tr>
+                    <tr class="highlight">
+                      <td>3. Fine-Tuned ASR</td>
+                      <td class="num"><strong>10.70</strong></td>
+                      <td class="num"><strong>86.60</strong></td>
+                      <td class="num"><strong>58.70</strong></td>
+                      <td class="num"><strong>50.52</strong></td>
+                    </tr>
+                    <tr class="gain-row">
+                      <td><strong>Net Gain / Recovery</strong></td>
+                      <td class="num"><strong>-17.45</strong></td>
+                      <td class="num"><strong>+12.37</strong></td>
+                      <td class="num"><strong>+18.36</strong></td>
+                      <td class="num"><strong>+22.34 (ARR 71.4%)</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="caption">
+                  <strong>Table 1:</strong> End-to-end SLU performance across 291 benchmark utterances. Acoustic domain adaptation recovers <strong>71.44%</strong> of the downstream task failure gap.
+                </div>
+
+                <!-- PUBLICATION-GRADE GROUPED HORIZONTAL BAR PLOT -->
+                <div style="background: #F8FAFC; border: 1.5px solid var(--border-gray); border-radius: 4px; padding: 14px 18px; margin-top: 8px;">
+                  <div style="font-size: 16pt; font-weight: 700; color: #0F172A; margin-bottom: 8px; display: flex; justify-content: space-between;">
+                    <span>Downstream Command Frame Accuracy by Domain</span>
+                    <span style="font-size: 12pt; font-weight: 600; color: #64748B;">N=291</span>
+                  </div>
+                  <svg viewBox="0 0 540 180" width="100%" height="auto" style="display: block; font-family: var(--font-family);">
+                    <!-- Legend at top -->
+                    <rect x="300" y="4" width="14" height="10" fill="#94A3B8" />
+                    <text x="320" y="13" font-size="11.5" fill="#475569" font-weight="600">Base ASR (28.2% WER)</text>
+                    <rect x="440" y="4" width="14" height="10" fill="#13294B" />
+                    <text x="460" y="13" font-size="11.5" fill="#13294B" font-weight="700">Fine-Tuned ASR (10.7%)</text>
+
+                    <!-- Axis grid line & ticks -->
+                    <line x1="160" y1="22" x2="480" y2="22" stroke="#CBD5E1" stroke-width="1" />
+                    <line x1="160" y1="155" x2="480" y2="155" stroke="#CBD5E1" stroke-width="1" />
+                    <text x="160" y="168" font-size="10.5" fill="#94A3B8" text-anchor="middle">0%</text>
+                    <text x="240" y="168" font-size="10.5" fill="#94A3B8" text-anchor="middle">25%</text>
+                    <text x="320" y="168" font-size="10.5" fill="#94A3B8" text-anchor="middle">50%</text>
+                    <text x="400" y="168" font-size="10.5" fill="#94A3B8" text-anchor="middle">75%</text>
+                    <text x="480" y="168" font-size="10.5" fill="#94A3B8" text-anchor="middle">100%</text>
+
+                    <!-- Domain 1: Health -->
+                    <text x="10" y="42" font-size="13" font-weight="700" fill="#0F172A">Health (N=42)</text>
+                    <rect x="160" y="28" width="45.7" height="11" fill="#94A3B8" rx="1" />
+                    <text x="211" y="38" font-size="10.5" fill="#64748B">14.3%</text>
+                    <rect x="160" y="42" width="259.0" height="13" fill="#13294B" rx="1" />
+                    <text x="424" y="53" font-size="11" fill="#13294B" font-weight="700">81.0% (+66.7%)</text>
+
+                    <!-- Domain 2: Communication -->
+                    <text x="10" y="74" font-size="13" font-weight="700" fill="#0F172A">Comm. (N=33)</text>
+                    <rect x="160" y="60" width="77.6" height="11" fill="#94A3B8" rx="1" />
+                    <text x="243" y="70" font-size="10.5" fill="#64748B">24.2%</text>
+                    <rect x="160" y="74" width="232.7" height="13" fill="#13294B" rx="1" />
+                    <text x="398" y="85" font-size="11" fill="#13294B" font-weight="700">72.7% (+48.5%)</text>
+
+                    <!-- Domain 3: Calendar / Alarm -->
+                    <text x="10" y="106" font-size="13" font-weight="700" fill="#0F172A">Calendar (N=23)</text>
+                    <rect x="160" y="92" width="69.6" height="11" fill="#94A3B8" rx="1" />
+                    <text x="235" y="102" font-size="10.5" fill="#64748B">21.7%</text>
+                    <rect x="160" y="106" width="125.2" height="13" fill="#13294B" rx="1" />
+                    <text x="290" y="117" font-size="11" fill="#13294B" font-weight="700">39.1% (+17.4%)</text>
+
+                    <!-- Domain 4: General QA -->
+                    <text x="10" y="138" font-size="13" font-weight="700" fill="#0F172A">General QA (N=90)</text>
+                    <rect x="160" y="124" width="113.8" height="11" fill="#94A3B8" rx="1" />
+                    <text x="279" y="134" font-size="10.5" fill="#64748B">35.6%</text>
+                    <rect x="160" y="138" width="156.4" height="13" fill="#13294B" rx="1" />
+                    <text x="322" y="149" font-size="11" fill="#13294B" font-weight="700">48.9% (+13.3%)</text>
+                  </svg>
+                </div>
+                <div class="caption">
+                  <strong>Figure 2:</strong> Grouped performance comparison by domain. Acoustic fine-tuning disproportionately rescues entity-critical domains (Health &amp; Communication) over keyword search.
+                </div>
+              </div>
+            </div>
+
+            <div class="section-box flex-auto">
+              <div class="section-header">
+                <h2>7. Error Analysis & Full-Duplex Roadmap</h2>
+              </div>
+              <div class="section-content">
+                <div class="case-grid">
+                  <div class="case-box error">
+                    <div class="case-title">Failure: Slot Mutation</div>
+                    <strong>Prompt:</strong> "Set alarm for 7:30 am"<br>
+                    <strong>Base ASR:</strong> <em>"set alarm for several thirty"</em><br>
+                    <strong>Execution:</strong> <code>alarm_create(time="several:30")</code> &rarr; <strong>Type Error (Crash)</strong>
+                  </div>
+                  <div class="case-box repaired">
+                    <div class="case-title">Recovery: Fine-Tuned ASR</div>
+                    <strong>Prompt:</strong> "Set alarm for 7:30 am"<br>
+                    <strong>FT ASR:</strong> <em>"set alarm for 7:30 a.m."</em><br>
+                    <strong>Execution:</strong> <code>alarm_create(time="07:30")</code> &rarr; <strong>Task Success</strong>
+                  </div>
+                </div>
+
+                <p style="margin-top: 4px;">
+                  <strong>Semantic Error Correction (SECR):</strong> In <strong>35.07%</strong> of eligible corrupted slots, the LLM successfully inferred ground-truth arguments using phonetic and sentence context (e.g., <em>"call doctor house agar" &rarr; "Dr. Hasegawa"</em>).
+                </p>
+
+                <p style="margin-top: 2px;"><strong>Immediate Research Roadmap:</strong></p>
+                <ul>
+                  <li><strong>Corpus Scaling:</strong> Scale inference across all 1,274 audited gold utterances on NCSA Delta GPUs.</li>
+                  <li><strong>Phonetic Tolerance:</strong> Incorporate Double Metaphone / Soundex distance metrics into parameter grading to avoid penalizing near-miss phonetic spellings.</li>
+                  <li><strong>Full-Duplex Turn-Taking:</strong> Develop pause-tolerant atypical VAD models to replace push-to-talk, preventing cutoff during prolonged phonations.</li>
+                  <li><strong>Edge Assistant:</strong> Quantize fine-tuned streaming ASR for on-device deployment in accessible hardware.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </main>
+
+        <footer class="poster-footer">
+          <div class="footer-ack">
+            <strong>Speech Accessibility Project (SAP)</strong> · Beckman Institute for Advanced Science and Technology · University of Illinois Urbana-Champaign<br>
+            Supported by the SAP Consortium and ACCESS Project Allocation <code>CIS250149</code> on NCSA Delta GPU cluster.
+          </div>
+
+          <div class="footer-qr">
+            <div style="text-align: right;">
+              <div style="font-weight: 700; color: #0F172A; font-size: 18pt;">Code &amp; Benchmark Explorer:</div>
+              <div style="font-size: 15pt; color: #475569;">github.com/zyin422/sap-dialog-system</div>
+            </div>
+            <img src="qr_code.svg" alt="Repository QR Code">
+          </div>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('zoomSlider');
+    const zoomLabel = document.getElementById('zoomLabel');
+
+    function setPosterScale(scale) {
+      document.documentElement.style.setProperty('--poster-scale', scale);
+      const pct = Math.round(scale * 100);
+      zoomLabel.textContent = pct + '%';
+      slider.value = pct;
+    }
+
+    slider.addEventListener('input', (e) => {
+      setPosterScale(e.target.value / 100);
+    });
+
+    function fitPoster() {
+      const pad = 30;
+      const availW = Math.max(300, window.innerWidth - pad * 2);
+      const posterW = 48 * 96; // 4608px
+      const fitScale = Math.min(availW / posterW, 0.70);
+      setPosterScale(Math.max(0.18, fitScale));
+    }
+
+    window.addEventListener('DOMContentLoaded', fitPoster);
+    window.addEventListener('resize', fitPoster);
+  </script>
+</body>
+</html>

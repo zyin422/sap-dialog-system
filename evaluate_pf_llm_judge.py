@@ -105,6 +105,29 @@ class SemanticLLMJudge:
         self.model.eval()
         print(f"[Judge Init] Model loaded on devices: {self.model.hf_device_map if hasattr(self.model, 'hf_device_map') else self.model.device}", flush=True)
 
+    def preload_cache(self, audit_csv_path: str):
+        if not audit_csv_path or not os.path.exists(audit_csv_path):
+            return
+        try:
+            df = pd.read_csv(audit_csv_path)
+            loaded = 0
+            for _, row in df.iterrows():
+                eval_type = str(row.get("eval_type", "")).strip().lower()
+                eval_key = "recall" if "recall" in eval_type else "precision"
+                utt = str(row.get("utterance", "")).strip().lower()
+                tool = str(row.get("tool", "")).strip().lower()
+                slot = str(row.get("slot", "")).strip().lower()
+                gold = normalize_text(str(row.get("gold", ""))) if pd.notna(row.get("gold")) else ""
+                pred = normalize_text(str(row.get("pred", ""))) if pd.notna(row.get("pred")) else ""
+                verdict = bool(row.get("verdict", False))
+                reasoning = str(row.get("reasoning", ""))
+                cache_key = (eval_key, utt, tool, slot, gold, pred)
+                self.cache[cache_key] = (verdict, reasoning)
+                loaded += 1
+            print(f"[Judge Init] Preloaded {loaded} cached decisions ({len(self.cache)} unique keys) from {audit_csv_path}", flush=True)
+        except Exception as e:
+            print(f"[Judge Init] Warning: failed to preload cache from {audit_csv_path}: {e}", flush=True)
+
     def evaluate_item(self, eval_type: str, utterance: str, tool: str, slot_key: str,
                       gold_val: Optional[str] = None, pred_val: Optional[str] = None) -> Tuple[bool, str]:
         # Cache lookup
@@ -372,6 +395,8 @@ def main():
     parser.add_argument("--torch_dtype", type=str, default="bfloat16", choices=["bfloat16", "float16", "auto"])
     parser.add_argument("--conditions", nargs="+", default=["oracle", "base_asr", "ft_asr"],
                         help="List of conditions to evaluate (default: oracle base_asr ft_asr)")
+    parser.add_argument("--preload_cache", type=str, default=None,
+                        help="Optional path to existing audit decisions CSV to preload evaluation cache")
     args = parser.parse_args()
 
     dtype = torch.bfloat16 if args.torch_dtype == "bfloat16" else (torch.float16 if args.torch_dtype == "float16" else "auto")
@@ -379,6 +404,8 @@ def main():
     print(f"Loaded {len(df)} benchmark instances from {args.csv_path}")
 
     judge = SemanticLLMJudge(args.model_id, device=args.device, torch_dtype=dtype)
+    if args.preload_cache:
+        judge.preload_cache(args.preload_cache)
 
     condition_specs = {
         "oracle": {
@@ -426,13 +453,32 @@ def main():
         print(f"[{cond.upper()} Sem  ] Rec: {res['semantic_recall']:.2f}% | Prec: {res['semantic_precision']:.2f}% | F1: {res['semantic_f1']:.2f}%", flush=True)
         print(f"[{cond.upper()} Calls] Recall Calls: {res['judge_recall_calls']} | Prec Calls: {res['judge_precision_calls']}", flush=True)
 
-        # Save checkpoint after each condition
+        # Save checkpoint after each condition, preserving existing keys in json
         os.makedirs(os.path.dirname(os.path.abspath(args.output_json)), exist_ok=True)
+        disk_results = {}
+        if os.path.exists(args.output_json):
+            try:
+                with open(args.output_json, "r") as f:
+                    disk_results = json.load(f)
+            except Exception:
+                disk_results = {}
+        disk_results.update(full_results)
         with open(args.output_json, "w") as f:
-            json.dump(full_results, f, indent=2)
+            json.dump(disk_results, f, indent=2)
+
         if args.audit_csv and all_audits:
             os.makedirs(os.path.dirname(os.path.abspath(args.audit_csv)), exist_ok=True)
-            pd.DataFrame(all_audits).to_csv(args.audit_csv, index=False)
+            new_df = pd.DataFrame(all_audits)
+            if os.path.exists(args.audit_csv):
+                try:
+                    old_df = pd.read_csv(args.audit_csv)
+                    combined_df = pd.concat([old_df, new_df], ignore_index=True)
+                    combined_df.drop_duplicates(subset=["row_id", "eval_type", "utterance", "tool", "slot", "gold", "pred", "condition"], inplace=True)
+                    combined_df.to_csv(args.audit_csv, index=False)
+                except Exception:
+                    new_df.to_csv(args.audit_csv, index=False)
+            else:
+                new_df.to_csv(args.audit_csv, index=False)
         print(f"[Checkpoint] Saved {cond.upper()} progress ({len(all_audits)} audits) to disk.", flush=True)
 
 if __name__ == "__main__":

@@ -30,7 +30,8 @@ python3 evaluate_pf_llm_judge.py \
     --model_id /work/hdd/bedl/zyin2/models/Qwen3.8-27B \
     --device auto \
     --torch_dtype bfloat16 \
-    --conditions oracle base_asr ft_asr \
+    --conditions base_asr ft_asr \
+    --preload_cache /work/hdd/bedl/zyin2/benchmark_phase2/semantic_judge_1200_audit_decisions.csv \
     --output_json /work/hdd/bedl/zyin2/benchmark_phase2/semantic_judge_1200_summary.json \
     --audit_csv /work/hdd/bedl/zyin2/benchmark_phase2/semantic_judge_1200_audit_decisions.csv
 

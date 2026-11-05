@@ -1,0 +1,1306 @@
+id,set,prompt,etiology,block_set,massive_domain,massive_intent,massive_slots,match
+1,shared,Add this music to favorites.,PD;DS;CP;Stroke,b1&10,music,music_likeness,,partial
+2,shared,"Alexa, play more like this.",PD;DS;CP;Stroke,b2-9,play,play_music,,partial
+3,shared,"Alexa, what's this album?",PD;DS;CP;Stroke,b2-9,music,music_query,,partial
+4,shared,"Cortana, play music.",PD;DS;CP;Stroke,b2-9,play,play_music,,exact
+5,shared,"Cortana, what's playing?",PD;DS;CP;Stroke,b2-9,music,music_query,,exact
+6,shared,Decrease volume to minimum.,PD;DS;CP;Stroke,b1&10,audio,audio_volume_down,change_amount=minimum,exact
+7,shared,Dislike this song.,PD;DS;CP;Stroke,b2-9,music,music_dislikeness,,exact
+8,shared,Help me relax.,PD;DS;CP;Stroke,b2-9,general,general_quirky,,partial
+9,shared,"Hey Facebook, resume.",PD;DS;CP;Stroke,b2-9,music,music_settings,player_setting=resume,partial
+10,shared,"Hey Facebook, turn down the sound.",PD;DS;CP;Stroke,b2-9,audio,audio_volume_down,,exact
+11,shared,"Hey Google, sing me a song.",PD;DS;CP;Stroke,b2-9,play,play_music,,partial
+12,shared,"Hey Google, what's this song?",PD;DS;CP;Stroke,b2-9,music,music_query,,exact
+13,shared,"Hey Siri, pause the music.",PD;DS;CP;Stroke,b2-9,music,music_settings,player_setting=pause,exact
+14,shared,"Hey Siri, turn up the volume.",PD;DS;CP;Stroke,b2-9,audio,audio_volume_up,,exact
+15,shared,Increase volume to maximum.,PD;DS;CP;Stroke,b1&10,audio,audio_volume_up,change_amount=maximum,exact
+16,shared,Like this song.,PD;DS;CP;Stroke,b2-9,music,music_likeness,,exact
+17,shared,Read my book.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,,partial
+18,shared,Skip this song.,PD;DS;CP;Stroke,b1&10,music,music_settings,player_setting=Skip,partial
+19,shared,Skip this track.,PD;DS;CP;Stroke,b2-9,music,music_settings,player_setting=Skip,partial
+20,shared,Skip to the next chapter.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip,partial
+21,shared,Turn down the volume.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_down,,exact
+22,shared,Turn on my TV.,PD;DS;CP;Stroke,b2-9,iot,iot_wemo_on,device_type=TV,partial
+23,shared,Turn on the TV.,PD;DS;CP;Stroke,b2-9,iot,iot_wemo_on,device_type=TV,partial
+24,shared,Turn up the sound.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_up,,exact
+25,shared,What song is this?,PD;DS;CP;Stroke,b2-9,music,music_query,,exact
+26,shared,When did this song come out?,PD;DS;CP;Stroke,b2-9,music,music_query,,partial
+27,shared,Do I need an umbrella today?,PD;DS;CP;Stroke,b2-9,weather,weather_query,date=today;weather_descriptor=umbrella,partial
+29,shared,Start listening. What's the weather for the weekend?,PD,b2-9,weather,weather_query,date=the weekend,partial
+30,shared,Start listening. What's today's news?,PD,b2-9,news,news_query,date=today,partial
+31,shared,Tell me the news.,PD;DS;CP;Stroke,b1&10,news,news_query,,exact
+32,shared,What movies came out last week?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_movies,date=last week,partial
+33,shared,What's it like outside?,PD;DS;CP;Stroke,b2-9,weather,weather_query,,exact
+34,shared,What's the temperature outside?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=temperature,exact
+35,shared,What's the weather like today?,PD;DS;CP;Stroke,b1&10,weather,weather_query,date=today,exact
+36,shared,What's the weather next week?,DS;CP;Stroke,b2-9,weather,weather_query,date=next week,exact
+37,shared,What's the weather on Christmas?,DS;CP;Stroke,b2-9,weather,weather_query,date=Christmas,exact
+38,shared,What's the weather on December 6th?,DS;CP;Stroke,b2-9,weather,weather_query,date=December 6th,exact
+39,shared,What's the weather on February 1st?,DS;CP;Stroke,b2-9,weather,weather_query,date=February 1st,exact
+40,shared,What's the weather on Halloween?,DS;CP;Stroke,b2-9,weather,weather_query,date=Halloween,exact
+41,shared,What's the weather on Labor Day?,DS;CP;Stroke,b2-9,weather,weather_query,date=Labor Day,exact
+42,shared,What's the weather on Memorial Day?,DS;CP;Stroke,b2-9,weather,weather_query,date=Memorial Day,exact
+43,shared,What's the weather on my birthday?,DS;CP;Stroke,b2-9,weather,weather_query,date=my birthday,exact
+44,shared,What's the weather on New Year's Eve?,DS;CP;Stroke,b2-9,weather,weather_query,date=New Year's Eve,exact
+45,shared,What's the weather on September 22nd?,DS;CP;Stroke,b2-9,weather,weather_query,date=September 22nd,exact
+46,shared,When does the next train arrive?,PD;DS;CP;Stroke,b2-9,transport,transport_query,transport_type=train,partial
+47,shared,When is it going to rain?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain,exact
+48,shared,When is Thanksgiving this year?,PD;DS;CP;Stroke,b2-9,datetime,datetime_query,event_name=Thanksgiving;date=this year,partial
+49,shared,Where is the nearest bus stop?,PD;DS;CP;Stroke,b2-9,transport,transport_query,transport_type=bus stop,partial
+50,shared,Flip a coin.,PD;DS;CP;Stroke,b2-9,general,general_quirky,,partial
+51,shared,Give me a motivational quote.,PD;DS;CP;Stroke,b2-9,general,general_quirky,,partial
+52,shared,Is the pharmacy open?,DS;CP;Stroke,b1&10,recommendation,recommendation_locations,business_type=pharmacy,partial
+53,shared,Show me nearby cafes.,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=cafes,exact
+54,shared,Show me nearby restaurants.,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=restaurants,exact
+55,shared,Show me nearby shopping malls.,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=shopping malls,exact
+56,shared,Tell me a poem.,PD;DS;CP;Stroke,b2-9,general,general_quirky,,partial
+57,shared,What film won the Oscar for best picture in 1949?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+58,shared,What restaurants are nearby?,PD;DS;CP;Stroke,b1&10,recommendation,recommendation_locations,business_type=restaurants,exact
+59,shared,What team won the World Series in 1938?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+60,shared,What's playing in the theaters near me?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_movies,,partial
+61,shared,Who played third base for the Pittsburgh Pirates in 1960?,PD,b2-9,qa,qa_factoid,,exact
+62,shared,Who plays third base for the Pirates?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+63,shared,Who won gold in men's figure skating in the last Olympics?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+64,shared,Who won the gold medal in men's figure skating in the 1952 Winter Olympics?,PD,b2-9,qa,qa_factoid,,exact
+65,shared,Answer the call.,PD;DS;CP;Stroke,b1&10,none,none,,none
+66,shared,Brighten the screen.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,,partial
+67,shared,Call Aliz Kinsley.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Aliz Kinsley,exact
+68,shared,Call area code 053-621-4879.,PD;DS;CP;Stroke,b1&10,email,email_querycontact,personal_info=053-621-4879,partial
+69,shared,Call Caleb Neville.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Caleb Neville,exact
+70,shared,Call Dan Barker.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Dan Barker,exact
+71,shared,Call Denise Chavez.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Denise Chavez,exact
+72,shared,Call Flo Giannopoulos.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Flo Giannopoulos,exact
+73,shared,Call Goodwin Alma.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Goodwin Alma,exact
+74,shared,Call Herman Gutierrez.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Herman Gutierrez,exact
+75,shared,Call Lynn Banks.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Lynn Banks,exact
+76,shared,Call Noreen Sanad.a,DS;CP;Stroke,b2-9,email,email_querycontact,person=Noreen Sanad.a,exact
+78,shared,Call Noreen Sanada.,Stroke,b2-9,email,email_querycontact,person=Noreen Sanada,exact
+79,shared,Call Shawna Brock.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Shawna Brock,exact
+80,shared,Call the nearest coffee shop.,PD;DS;CP;Stroke,b2-9,none,none,,none
+81,shared,Darken the screen.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,,partial
+82,shared,Decrease the volume.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_down,,exact
+83,shared,Find my phone.,PD;DS;CP;Stroke,b1&10,none,none,,none
+84,shared,Get help.,PD;DS;CP;Stroke,b2-9,none,none,,none
+85,shared,Hang up.,PD;DS;CP;Stroke,b1&10,none,none,,none
+86,shared,How long is left on the timer?,PD;DS;CP;Stroke,b2-9,datetime,datetime_query,,partial
+87,shared,Increase the volume.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_up,,exact
+88,shared,Make the screen brighter.,DS;CP;Stroke,b1&10,iot,iot_hue_lightup,,partial
+89,shared,Make the text larger.,PD;DS;CP;Stroke,b1&10,none,none,,none
+90,shared,Open email.,PD;DS;CP;Stroke,b2-9,email,email_query,,partial
+91,shared,Please send this text.,DS;CP;Stroke,b1&10,email,email_sendemail,,partial
+92,shared,Read my messages.,PD;DS;CP;Stroke,b2-9,email,email_query,,partial
+93,shared,Read my new email.,PD;DS;CP;Stroke,b2-9,email,email_query,,exact
+94,shared,Read this page.,PD;DS;CP;Stroke,b2-9,none,none,,none
+95,shared,Redial.,PD;DS;CP;Stroke,b2-9,none,none,,none
+96,shared,Request a taxi ride.,PD;DS;CP;Stroke,b2-9,transport,transport_taxi,,exact
+97,shared,Scan a QR code.,PD;DS;CP;Stroke,b2-9,none,none,,none
+98,shared,Send a message.,DS;CP;Stroke,b1&10,email,email_sendemail,,partial
+99,shared,Snooze.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,,partial
+100,shared,Stop the call.,PD;DS;CP;Stroke,b1&10,none,none,,none
+101,shared,Answer the door.,PD;DS;CP;Stroke,b2-9,none,none,,none
+102,shared,Boil the kettle.,PD;DS;CP;Stroke,b2-9,none,none,,none
+103,shared,Is the front door locked?,PD;DS;CP;Stroke,b2-9,none,none,,none
+104,shared,Lock the front door.,PD;DS;CP;Stroke,b2-9,none,none,,none
+105,shared,Lower the temperature.,PD;DS;CP;Stroke,b1&10,none,none,,none
+106,shared,Make it cooler.,PD;DS;CP;Stroke,b2-9,none,none,,none
+107,shared,Make it warmer.,PD;DS;CP;Stroke,b2-9,none,none,,none
+108,shared,Raise the temperature.,PD;DS;CP;Stroke,b2-9,none,none,,none
+109,shared,Turn off all switches.,PD;DS;CP;Stroke,b2-9,iot,iot_wemo_off,device_type=switches,partial
+110,shared,Turn off cooling.,PD;DS;CP;Stroke,b2-9,none,none,,none
+111,shared,Turn off heat.,PD;DS;CP;Stroke,b1&10,none,none,,none
+112,shared,Turn off the TV.,PD;DS;CP;Stroke,b1&10,iot,iot_wemo_off,device_type=TV,partial
+113,shared,Turn on all switches.,PD;DS;CP;Stroke,b1&10,iot,iot_wemo_on,device_type=switches,partial
+114,shared,Turn on cooling.,PD;DS;CP;Stroke,b1&10,none,none,,none
+115,shared,Turn on heat.,PD;DS;CP;Stroke,b2-9,none,none,,none
+116,shared,Unlock the front door.,PD;DS;CP;Stroke,b2-9,none,none,,none
+117,shared,What's the temperature in the living room?,PD;DS;CP;Stroke,b1&10,weather,weather_query,weather_descriptor=temperature,partial
+118,shared,What's the temperature inside?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=temperature,partial
+119,shared,What's the thermostat set to?,PD;DS;CP;Stroke,b2-9,none,none,,none
+120,shared,Add a meeting to my calendar.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=meeting,exact
+121,shared,Delete my reminders for tomorrow.,PD;DS;CP;Stroke,b2-9,calendar,calendar_remove,date=tomorrow,partial
+122,shared,Did I miss any emails from yesterday?,PD;DS;CP;Stroke,b2-9,email,email_query,date=yesterday,partial
+123,shared,Do I have any alarms set?,PD;DS;CP;Stroke,b2-9,alarm,alarm_query,,exact
+124,shared,How many refills are left on my abilify?,DS;CP,b2-9,none,none,,none
+125,shared,How many refills are left on my adderall?,DS;CP,b2-9,none,none,,none
+126,shared,How many refills are left on my albuterol?,DS;CP,b2-9,none,none,,none
+127,shared,How many refills are left on my allegra?,DS;CP,b2-9,none,none,,none
+128,shared,How many refills are left on my allopurinol?,PD,b2-9,none,none,,none
+129,shared,How many refills are left on my aricept?,DS;CP,b2-9,none,none,,none
+130,shared,How many refills are left on my baclofen?,PD,b2-9,none,none,,none
+131,shared,How many refills are left on my buspar?,CP;DS;Stroke,b2-9,none,none,,none
+133,shared,How many refills are left on my citalopram?,DS;CP,b2-9,none,none,,none
+134,shared,How many refills are left on my clindamycin risperidone?,PD,b2-9,none,none,,none
+135,shared,How many refills are left on my clindamycin?,DS;CP,b2-9,none,none,,none
+136,shared,How many refills are left on my clonidine?,DS;CP,b2-9,none,none,,none
+137,shared,How many refills are left on my concerta?,CP;DS;Stroke,b2-9,none,none,,none
+139,shared,How many refills are left on my Coumadin?,Stroke,b2-9,none,none,,none
+140,shared,How many refills are left on my Cozaar?,Stroke,b2-9,none,none,,none
+141,shared,How many refills are left on my Diazepam?,Stroke,b2-9,none,none,,none
+142,shared,How many refills are left on my Diovan?,Stroke,b2-9,none,none,,none
+143,shared,How many refills are left on my estradiol?,PD,b2-9,none,none,,none
+144,shared,How many refills are left on my Lisinopril?,Stroke,b2-9,none,none,,none
+145,shared,How many refills are left on my Loprin?,Stroke,b2-9,none,none,,none
+146,shared,How many refills are left on my lorazepam?,PD,b2-9,none,none,,none
+147,shared,How many refills are left on my nitroglycerin?,PD,b2-9,none,none,,none
+148,shared,How many refills are left on my omeprazole?,PD,b2-9,none,none,,none
+149,shared,How many refills are left on my Plavix?,Stroke,b2-9,none,none,,none
+150,shared,How many refills are left on my propanolol?,PD,b2-9,none,none,,none
+151,shared,How many refills are left on my risperidone?,PD,b2-9,none,none,,none
+152,shared,How many refills are left on my Valium?,Stroke,b2-9,none,none,,none
+153,shared,How many refills are left on my warfarin?,PD,b2-9,none,none,,none
+154,shared,Open reminders.,PD;DS;CP;Stroke,b1&10,calendar,calendar_query,,partial
+155,shared,Recipe with 2% milk.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=2% milk,exact
+156,shared,Recipe with avocados and tomatoes.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=avocados;ingredient=tomatoes,exact
+157,shared,Recipe with buttermilk and coconut.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=buttermilk;ingredient=coconut,exact
+158,shared,Recipe with carrots and potatoes.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=carrots;ingredient=potatoes,exact
+159,shared,"Recipe with cilantro, chicken, and garlic.",Stroke,b2-9,cooking,cooking_recipe,ingredient=cilantro;ingredient=chicken;ingredient=garlic,exact
+160,shared,"Recipe with cliantro, chicken, and garlic.",DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=cliantro;ingredient=chicken;ingredient=garlic,exact
+161,shared,Recipe with cranberry and gin.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=cranberry;ingredient=gin,exact
+162,shared,Recipe with garlic and lentils.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=garlic;ingredient=lentils,exact
+163,shared,"Recipe with pineapple, bananas, and orange juice.",DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=pineapple;ingredient=bananas;ingredient=orange juice,exact
+164,shared,"Recipe with sriracha, noodles, and cabbage.",DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=sriracha;ingredient=noodles;ingredient=cabbage,exact
+165,shared,"Recipe with tomatoes, rice, and celery.",DS;CP;Stroke,b2-9,cooking,cooking_recipe,ingredient=tomatoes;ingredient=rice;ingredient=celery,exact
+166,shared,Reschedule my meeting.,DS;CP;Stroke,b1&10,calendar,calendar_set,event_name=meeting,partial
+167,shared,Set a reminder to take acetaminophen at 1PM.,PD,b2-9,calendar,calendar_set,event_name=acetaminophen;time=1PM,partial
+168,shared,Set a reminder to take amoxicillin with lunch.,PD,b2-9,calendar,calendar_set,event_name=amoxicillin;time=with lunch,partial
+169,shared,Set a reminder to take citalopram at 8 AM.,PD,b2-9,calendar,calendar_set,event_name=citalopram;time=8 AM,partial
+170,shared,Set a reminder to take furosemide at bed time.,PD,b2-9,calendar,calendar_set,event_name=furosemide;time=bed time,partial
+171,shared,Set a reminder to take glipizide at 6:30 PM.,PD,b2-9,calendar,calendar_set,event_name=glipizide;time=6:30 PM,partial
+172,shared,Set a reminder to take ibuprofen at 11:30 AM.,PD,b2-9,calendar,calendar_set,event_name=ibuprofen;time=11:30 AM,partial
+173,shared,Set a reminder to take pantoprazole at 6 AM.,PD,b2-9,calendar,calendar_set,event_name=pantoprazole;time=6 AM,partial
+174,shared,Set a reminder to take Potassium at 2 PM.,PD,b2-9,calendar,calendar_set,event_name=Potassium;time=2 PM,partial
+175,shared,Set a reminder to take simvastatin at dinner time.,PD,b2-9,calendar,calendar_set,event_name=simvastatin;time=dinner time,partial
+176,shared,Set a reminder to take Spironolactone at 9 PM.,PD,b2-9,calendar,calendar_set,event_name=Spironolactone;time=9 PM,partial
+177,shared,Show me my alarms.,PD;DS;CP;Stroke,b2-9,alarm,alarm_query,,exact
+178,shared,Snooze the alarm.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,,partial
+179,shared,Take aspirin at 8 AM.,Stroke,b2-9,calendar,calendar_set,event_name=aspirin;time=8 AM,partial
+180,shared,Take depakote at 1 PM.,DS;CP,b2-9,calendar,calendar_set,event_name=depakote;time=1 PM,partial
+181,shared,Take Diastat at 6 AM.,Stroke,b2-9,calendar,calendar_set,event_name=Diastat;time=6 AM,partial
+182,shared,Take enalapril with lunch.,DS;CP,b2-9,calendar,calendar_set,event_name=enalapril;time=with lunch,partial
+183,shared,Take escitalopram at 8 AM.,DS;CP,b2-9,calendar,calendar_set,event_name=escitalopram;time=8 AM,partial
+184,shared,Take fish oil at bedtime.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=fish oil;time=bedtime,partial
+185,shared,Take flonase at 6:30 PM.,CP;DS;Stroke,b2-9,calendar,calendar_set,event_name=flonase;time=6:30 PM,partial
+187,shared,Take focalin at 11:30 AM.,DS;CP,b2-9,calendar,calendar_set,event_name=focalin;time=11:30 AM,partial
+188,shared,Take Guanfacine at 6 AM.,DS;CP,b2-9,calendar,calendar_set,event_name=Guanfacine;time=6 AM,partial
+189,shared,Take insulin at dinner time.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=insulin;time=dinner time,partial
+190,shared,Take intuniv at 2 PM.,DS;CP,b2-9,calendar,calendar_set,event_name=intuniv;time=2 PM,partial
+191,shared,Take lactalose at 9 PM.,DS;CP,b2-9,calendar,calendar_set,event_name=lactalose;time=9 PM,partial
+192,shared,Take Lopressor with lunch.,Stroke,b2-9,calendar,calendar_set,event_name=Lopressor;time=with lunch,partial
+193,shared,Take Pradaxa at 9 PM.,Stroke,b2-9,calendar,calendar_set,event_name=Pradaxa;time=9 PM,partial
+194,shared,Take Toprol at 11:30 AM.,Stroke,b2-9,calendar,calendar_set,event_name=Toprol;time=11:30 AM,partial
+195,shared,Take Vasoprin at 2 PM.,Stroke,b2-9,calendar,calendar_set,event_name=Vasoprin;time=2 PM,partial
+196,shared,Take Warfarin at 1 PM.,Stroke,b2-9,calendar,calendar_set,event_name=Warfarin;time=1 PM,partial
+197,shared,What alarms are set?,PD;DS;CP;Stroke,b2-9,alarm,alarm_query,,exact
+198,shared,What are my reminders?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,,partial
+199,shared,What does my day look like?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,,exact
+200,shared,What time is it?,PD;DS;CP;Stroke,b2-9,datetime,datetime_query,,exact
+201,shared,What's on my agenda for today?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=today,exact
+202,shared,What's on my calendar tomorrow?,PD;DS;CP;Stroke,b1&10,calendar,calendar_query,date=tomorrow,exact
+203,shared,What's on my shopping list?,PD;DS;CP;Stroke,b1&10,lists,lists_query,list_name=shopping,exact
+204,shared,What's on my to-do list?,PD;DS;CP;Stroke,b2-9,lists,lists_query,list_name=to-do,exact
+205,shared,What's the time?,PD;DS;CP;Stroke,b1&10,datetime,datetime_query,,exact
+206,shared,When is my next alarm?,PD;DS;CP;Stroke,b2-9,alarm,alarm_query,,exact
+207,shared,When's my first meeting today?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=today,partial
+208,shared,Where did I park?,PD;DS;CP;Stroke,b2-9,none,none,,none
+209,shared,Where is my first event tomorrow?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=tomorrow,partial
+210,shared,Where is my next meeting?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,,partial
+211,shared,"Dear customer service, comma.",DS;CP;Stroke,b2-9,none,none,,none
+212,shared,"Hi, exclamation point.",DS;CP;Stroke,b2-9,none,none,,none
+213,shared,I need to cancel my order.,DS;CP;Stroke,b2-9,none,none,,none
+214,shared,I need to return this item.,DS;CP;Stroke,b2-9,none,none,,none
+215,shared,I received a wrong item.,DS;CP;Stroke,b2-9,none,none,,none
+216,shared,"Is my order shipped, quesiton mark.",DS;CP;Stroke,b2-9,none,none,,none
+217,shared,"Is my order shipped, question mark.",Stroke,b2-9,none,none,,none
+218,shared,Please respond to my text.,DS;CP;Stroke,b2-9,email,email_sendemail,,partial
+219,shared,Please send this email to the group.,DS;CP;Stroke,b2-9,email,email_sendemail,,partial
+220,shared,"Please send this email: ""Dear customer service, comma. I am writing about the status of order number 384972, period. Do you have a tracking update, question mark. Thank you, period.""",PD,b2-9,email,email_sendemail,,exact
+221,shared,"Please send this text: ""Hi, exclamation point. What time will you be home, question mark. Thanks, exclamation point.""",PD,b2-9,email,email_sendemail,,partial
+222,shared,Thank you. Period.,DS;CP;Stroke,b2-9,none,none,,none
+223,shared,"Thanks, exclamation point",DS;CP;Stroke,b2-9,none,none,,none
+224,shared,"What time will you be home, question mark.",DS;CP;Stroke,b2-9,none,none,,none
+225,shared,"When is my item arriving, question mark.",DS;CP;Stroke,b2-9,none,none,,none
+226,shared,Is my flight on time?,PD;DS;CP;Stroke,b2-9,transport,transport_query,transport_type=flight,partial
+227,shared,What are some great vacation ideas?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,,partial
+228,shared,Alexa.,PD;DS;CP;Stroke,b1&10;b2-9,none,none,,none
+229,shared,Cortana.,PD;DS;CP;Stroke,b1&10;b2-9,none,none,,none
+230,shared,Hey Facebook.,PD;DS;CP;Stroke,b1&10;b2-9,none,none,,none
+231,shared,Hey Google.,PD;DS;CP;Stroke,b1&10;b2-9,none,none,,none
+232,shared,Hey Siri.,PD;DS;CP;Stroke,b1&10;b2-9,none,none,,none
+233,shared,Start listening.,CP;DS;PD;Stroke,b1&10;b2-9,none,none,,none
+235,shared,Stop listening.,CP;DS;PD;Stroke,b1&10,none,none,,none
+236,nonshared,Broadcast '10 minutes until bedtime.',PD;DS;CP;Stroke,b2-9,none,none,,none
+237,nonshared,Broadcast 'I'm home.',PD;DS;CP;Stroke,b2-9,none,none,,none
+238,nonshared,Broadcast 'It's movie time.',PD;DS;CP;Stroke,b2-9,none,none,,none
+239,nonshared,Broadcast 'It's time for breakfast.',PD;DS;CP;Stroke,b2-9,none,none,,none
+240,nonshared,Broadcast 'It's time to take your pills.',PD;DS;CP;Stroke,b2-9,none,none,,none
+241,nonshared,Broadcast 'It's time to wake up.',PD;DS;CP;Stroke,b2-9,none,none,,none
+242,nonshared,Broadcast 'The coffee's ready.',PD;DS;CP;Stroke,b2-9,none,none,,none
+243,nonshared,Broadcast 'The football game is about to start.',PD;DS;CP;Stroke,b2-9,none,none,,none
+244,nonshared,Broadcast 'We're leaving in 15 minutes.',PD;DS;CP;Stroke,b2-9,none,none,,none
+245,nonshared,Fast forward 1 minute.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Fast forward;time=1 minute,partial
+246,nonshared,Fast forward 2 minutes.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Fast forward;time=2 minutes,partial
+247,nonshared,Fast forward 3 minutes.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Fast forward;time=3 minutes,partial
+248,nonshared,Fast forward 4 minutes.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Fast forward;time=4 minutes,partial
+249,nonshared,Fast forward 5 minutes.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Fast forward;time=5 minutes,partial
+250,nonshared,Open Apple TV.,PD;DS;CP;Stroke,b2-9,none,none,,none
+251,nonshared,Open Disney Plus.,PD;DS;CP;Stroke,b2-9,none,none,,none
+252,nonshared,Open Hulu.,PD;DS;CP;Stroke,b2-9,none,none,,none
+253,nonshared,Open my Outlook Calendar.,PD;DS;CP;Stroke,b2-9,none,none,,none
+254,nonshared,Open Netflix.,PD;DS;CP;Stroke,b2-9,none,none,,none
+255,nonshared,Open Paramount Plus.,PD;DS;CP;Stroke,b2-9,none,none,,none
+256,nonshared,Open Peacock.,PD;DS;CP;Stroke,b2-9,none,none,,none
+257,nonshared,Open YouTube.,PD;DS;CP;Stroke,b2-9,none,none,,none
+258,nonshared,Play 'As it Was' by Harry Styles.,DS;CP;Stroke,b2-9,play,play_music,song_name=As it Was;artist_name=Harry Styles,exact
+259,nonshared,"Play 'Blinding Lights"" by the Weekend.",DS;CP;Stroke,b2-9,play,play_music,song_name=Blinding Lights;artist_name=the Weekend,exact
+260,nonshared,Play 'Cake Wars' on Hulu.,DS;CP;Stroke,b2-9,play,play_music,movie_name=Cake Wars;app_name=Hulu,partial
+261,nonshared,Play 'Carol and Ava Detectives' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=Carol and Ava Detectives;media_type=Audiobook,partial
+262,nonshared,Play 'Cruel Summer' by Taylor Swift.,DS;CP;Stroke,b2-9,play,play_music,song_name=Cruel Summer;artist_name=Taylor Swift,exact
+263,nonshared,Play 'Fast Car' by Luke Combs.,DS;CP;Stroke,b2-9,play,play_music,song_name=Fast Car;artist_name=Luke Combs,exact
+264,nonshared,Play 'Flowers' by Miley Cyrus.,DS;CP;Stroke,b2-9,play,play_music,song_name=Flowers;artist_name=Miley Cyrus,exact
+265,nonshared,Play 'Frasier' on Peacock.,PD,b2-9,play,play_music,movie_name=Frasier;app_name=Peacock,partial
+266,nonshared,Play 'Free Fallin' by Tom Petty.,PD,b2-9,play,play_music,song_name=Free Fallin;artist_name=Tom Petty,exact
+267,nonshared,Play 'Georgia on My Mind' by Ray Charles.,PD,b2-9,play,play_music,song_name=Georgia on My Mind;artist_name=Ray Charles,exact
+268,nonshared,Play 'Go Your Own Way' by Fleetwood Mac.,PD,b2-9,play,play_music,song_name=Go Your Own Way;artist_name=Fleetwood Mac,exact
+269,nonshared,Play 'Harry Potter'.,DS;CP;Stroke,b2-9,play,play_music,movie_name=Harry Potter,partial
+270,nonshared,Play 'Help' by The Beatles.,PD,b2-9,play,play_music,song_name=Help;artist_name=The Beatles,exact
+271,nonshared,Play 'Indiana Jones and the Raiders of the Lost Ark' on Paramount Plus.,PD,b2-9,play,play_music,movie_name=Indiana Jones and the Raiders of the Lost Ark;app_name=Paramount Plus,partial
+272,nonshared,Play 'Jeopardy' on Hulu.,PD,b2-9,play,play_music,movie_name=Jeopardy;app_name=Hulu,partial
+273,nonshared,Play 'Me and Bobby McGee' by Janis Joplin.,PD,b2-9,play,play_music,song_name=Me and Bobby McGee;artist_name=Janis Joplin,exact
+274,nonshared,Play 'More than a Feeling' by Boston.,PD,b2-9,play,play_music,song_name=More than a Feeling;artist_name=Boston,exact
+275,nonshared,Play 'Star Wars: Episode Five - The Empire Strikes Back' on Hulu.,PD,b2-9,play,play_music,movie_name=Star Wars: Episode Five - The Empire Strikes Back;app_name=Hulu,partial
+276,nonshared,Play 'Stay with Me' by Sam Smith.,DS;CP;Stroke,b2-9,play,play_music,song_name=Stay with Me;artist_name=Sam Smith,exact
+277,nonshared,Play 'Stranger Things' on Netflix.,PD;DS;CP;Stroke,b2-9,play,play_music,movie_name=Stranger Things;app_name=Netflix,partial
+278,nonshared,Play 'The Bear' on Hulu.,DS;CP;Stroke,b2-9,play,play_music,movie_name=The Bear;app_name=Hulu,partial
+279,nonshared,Play 'The Dear Evan Hansen Soundtrack'.,PD;DS;CP;Stroke,b2-9,play,play_music,music_album=The Dear Evan Hansen Soundtrack,partial
+280,nonshared,Play 'The Godfather' on Prime Video.,PD;DS;CP;Stroke,b2-9,play,play_music,movie_name=The Godfather;app_name=Prime Video,partial
+281,nonshared,Play 'The Lord of the Rings: The Two Towers'.,PD,b2-9,play,play_music,movie_name=The Lord of the Rings: The Two Towers,partial
+282,nonshared,Play 'The Shawshank Redemption' on HBO Max.,PD,b2-9,play,play_music,movie_name=The Shawshank Redemption;app_name=HBO Max,partial
+283,nonshared,Play 'The Tears of a Clown' by Smokey Robinson and the Miracles.,PD,b2-9,play,play_music,song_name=The Tears of a Clown;artist_name=Smokey Robinson and the Miracles,exact
+284,nonshared,Play 'Tiktok' by Kesha.,DS;CP;Stroke,b2-9,play,play_music,song_name=Tiktok;artist_name=Kesha,exact
+285,nonshared,Play 'Time of the Season' by The Zombies.,PD,b2-9,play,play_music,song_name=Time of the Season;artist_name=The Zombies,exact
+286,nonshared,Play 'Transformers' on Paramount Plus.,DS;CP;Stroke,b2-9,play,play_music,movie_name=Transformers;app_name=Paramount Plus,partial
+287,nonshared,Play 'Vampire' by Olivia Rodrigo.,DS;CP;Stroke,b2-9,play,play_music,song_name=Vampire;artist_name=Olivia Rodrigo,exact
+288,nonshared,Play a Beatles song on Amazon music.,PD,b2-9,play,play_music,artist_name=Beatles;app_name=Amazon music,exact
+289,nonshared,Play a Taylor Swift song on Amazon music.,DS;CP;Stroke,b2-9,play,play_music,artist_name=Taylor Swift;app_name=Amazon music,exact
+290,nonshared,Play Billboard's Top 40 on Pandora.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=Billboard's Top 40;app_name=Pandora,partial
+291,nonshared,Play Channel 35 on Sirius XM.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=Channel 35;app_name=Sirius XM,exact
+292,nonshared,Play Classical music on Spotify.,PD;DS;CP;Stroke,b2-9,play,play_music,music_genre=Classical;app_name=Spotify,exact
+293,nonshared,Play hip hop music on Apple music.,PD;DS;CP;Stroke,b2-9,play,play_music,music_genre=hip hop;app_name=Apple music,exact
+294,nonshared,Play music on bathroom speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=bathroom speakers,exact
+295,nonshared,Play music on bedroom speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=bedroom speakers,exact
+296,nonshared,Play music on dining room speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=dining room speakers,exact
+297,nonshared,Play music on garage speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=garage speakers,exact
+298,nonshared,Play music on guest room speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=guest room speakers,exact
+299,nonshared,Play music on kitchen speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=kitchen speakers,exact
+300,nonshared,Play music on living room speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=living room speakers,exact
+301,nonshared,Play music on office speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=office speakers,exact
+302,nonshared,Play music on playroom speakers.,PD;DS;CP;Stroke,b2-9,play,play_music,device_type=playroom speakers,exact
+303,nonshared,Play my dance playlist.,PD;DS;CP;Stroke,b2-9,play,play_music,playlist_name=dance playlist,exact
+304,nonshared,Play my evening jazz playlist on Spotify.,PD;DS;CP;Stroke,b2-9,play,play_music,playlist_name=evening jazz playlist;app_name=Spotify,exact
+305,nonshared,Play Riverdale on Netflix.,DS;CP;Stroke,b2-9,play,play_music,movie_name=Riverdale;app_name=Netflix,partial
+306,nonshared,"Play the latest episode of ""A Little Something Extra""",DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=A Little Something Extra,exact
+307,nonshared,Play the latest episode of 'Crime Junkie'.,PD;DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=Crime Junkie,exact
+308,nonshared,Play the latest episode of 'If Books Could Kill' on Spotify.,PD,b2-9,play,play_podcasts,podcast_name=If Books Could Kill;media_type=Spotify,exact
+309,nonshared,Play the latest episode of 'Joe Rogan' on Spotify.,DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=Joe Rogan;media_type=Spotify,exact
+310,nonshared,Play the latest episode of 'Let's be Real' on Spotify.,DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=Let's be Real;media_type=Spotify,exact
+311,nonshared,Play the latest episode of 'Ologies'.,PD,b2-9,play,play_podcasts,podcast_name=Ologies,exact
+312,nonshared,Play the latest episode of 'Planet Money'.,DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=Planet Money,exact
+313,nonshared,Play the latest episode of 'Scamfluencers'.,PD,b2-9,play,play_podcasts,podcast_name=Scamfluencers,exact
+314,nonshared,Play the latest episode of 'Stand up Comedy' on Spotify.,DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=Stand up Comedy;media_type=Spotify,exact
+315,nonshared,Play the latest episode of 'Stuff You Should Know'.,PD;DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=Stuff You Should Know,exact
+316,nonshared,Play the latest episode of 'Ten Percent Happier' with Dan Harris on Spotify.,PD,b2-9,play,play_podcasts,podcast_name=Ten Percent Happier;media_type=Spotify,exact
+317,nonshared,Play the latest episode of 'The Daily' podcast.,PD;DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=The Daily,exact
+318,nonshared,Play the latest episode of 'The NPR Newsroom' on Spotify.,PD,b2-9,play,play_podcasts,podcast_name=The NPR Newsroom;media_type=Spotify,exact
+319,nonshared,Play the latest episode of 'This American Life'.,PD;DS;CP;Stroke,b2-9,play,play_podcasts,podcast_name=This American Life,exact
+320,nonshared,Play Yellowstone' on Peacock.,DS;CP;Stroke,b2-9,play,play_music,movie_name=Yellowstone;app_name=Peacock,partial
+321,nonshared,Read 'A Series of Unfortunate Events' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=A Series of Unfortunate Events;media_type=Audiobook,exact
+322,nonshared,Read 'For Whom the Bell Tolls' on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=For Whom the Bell Tolls;media_type=Audiobook,exact
+323,nonshared,Read 'Judy Moody' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=Judy Moody;media_type=Audiobook,exact
+324,nonshared,Read 'Nancy Drew Mystery' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=Nancy Drew Mystery;media_type=Audiobook,exact
+325,nonshared,Read 'One Hundred Years' of Solitude on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=One Hundred Years' of Solitude;media_type=Audiobook,exact
+326,nonshared,Read 'Percy Jackson Book 1' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=Percy Jackson Book 1;media_type=Audiobook,exact
+327,nonshared,Read 'The Catcher in the Rye' on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=The Catcher in the Rye;media_type=Audiobook,exact
+328,nonshared,Read 'The Great Gatsby' on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=The Great Gatsby;media_type=Audiobook,exact
+329,nonshared,Read 'The Handmaid's Tale' on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=The Handmaid's Tale;media_type=Audiobook,exact
+330,nonshared,"Read 'The Lion, The Witch, and the Wardrobe' on Audiobook.",PD,b2-9,play,play_audiobook,"audiobook_name=The Lion, The Witch, and the Wardrobe;media_type=Audiobook",exact
+331,nonshared,Read 'The One and Only Bob' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=The One and Only Bob;media_type=Audiobook,exact
+332,nonshared,Read 'The One and Only Ivan' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=The One and Only Ivan;media_type=Audiobook,exact
+333,nonshared,Read 'Their Eyes Were Watching God' on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=Their Eyes Were Watching God;media_type=Audiobook,exact
+334,nonshared,Read 'To Kill A Mockingbird' on Audiobook.,PD,b2-9,play,play_audiobook,audiobook_name=To Kill A Mockingbird;media_type=Audiobook,exact
+335,nonshared,Read 'Wish' on Audiobook.,DS;CP;Stroke,b2-9,play,play_audiobook,audiobook_name=Wish;media_type=Audiobook,exact
+336,nonshared,Set the volume to 1.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=1,exact
+337,nonshared,Set the volume to 10.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=10,exact
+338,nonshared,Set the volume to 2.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=2,exact
+339,nonshared,Set the volume to 3.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=3,exact
+340,nonshared,Set the volume to 6.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=6,exact
+341,nonshared,Set the volume to 7.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=7,exact
+342,nonshared,Set the volume to 8.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=8,exact
+343,nonshared,Set the volume to 9.,PD;DS;CP;Stroke,b2-9,audio,audio_volume_other,change_amount=9,exact
+344,nonshared,Skip backward 1 minute.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip backward;time=1 minute,partial
+345,nonshared,Skip backward 10 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip backward;time=10 seconds,partial
+346,nonshared,Skip backward 15 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip backward;time=15 seconds,partial
+347,nonshared,Skip backward 2 minutes.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip backward;time=2 minutes,partial
+348,nonshared,Skip backward 30 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip backward;time=30 seconds,partial
+349,nonshared,Skip forward 10 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip forward;time=10 seconds,partial
+350,nonshared,Skip forward 15 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip forward;time=15 seconds,partial
+351,nonshared,Skip forward 30 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip forward;time=30 seconds,partial
+352,nonshared,Skip forward 45 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip forward;time=45 seconds,partial
+353,nonshared,Skip forward 5 seconds.,PD;DS;CP;Stroke,b2-9,play,play_audiobook,player_setting=Skip forward;time=5 seconds,partial
+354,nonshared,Turn the TV to ABC.,PD;DS;CP;Stroke,b2-9,none,none,,none
+355,nonshared,Turn the TV to BBC.,PD;DS;CP;Stroke,b2-9,none,none,,none
+356,nonshared,Turn the TV to CBS.,PD;DS;CP;Stroke,b2-9,none,none,,none
+357,nonshared,Turn the TV to CNN.,PD;DS;CP;Stroke,b2-9,none,none,,none
+358,nonshared,Turn the TV to ESPN.,PD;DS;CP;Stroke,b2-9,none,none,,none
+359,nonshared,Turn the TV to NBC.,PD;DS;CP;Stroke,b2-9,none,none,,none
+360,nonshared,Turn the TV to the Animal Planet.,PD;DS;CP;Stroke,b2-9,none,none,,none
+361,nonshared,Turn the TV to the Cartoon Network.,PD;DS;CP;Stroke,b2-9,none,none,,none
+362,nonshared,Did Manchester United win?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Manchester United,partial
+363,nonshared,Did Penn State win?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Penn State,partial
+364,nonshared,Did the Clemson Tigers win?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Clemson Tigers,partial
+365,nonshared,Did the Columbus Blue Jackets win?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Columbus Blue Jackets,partial
+366,nonshared,Did the Eagles win?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Eagles,partial
+367,nonshared,Did the Fighting Illini win?,PD,b2-9,qa,qa_factoid,event_name=Fighting Illini,partial
+368,nonshared,Did the Longhorns win?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Longhorns,partial
+369,nonshared,Did the Manchester United win?,PD,b2-9,qa,qa_factoid,event_name=Manchester United,partial
+370,nonshared,Did the Penn State win?,PD,b2-9,qa,qa_factoid,event_name=Penn State,partial
+371,nonshared,Did the Seattle Mariners win?,PD,b2-9,qa,qa_factoid,event_name=Seattle Mariners,partial
+372,nonshared,Did the Seattle Seahawks win?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Seattle Seahawks,partial
+373,nonshared,Did the Utah Jazz win?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Utah Jazz,partial
+374,nonshared,Did the Wolverines win?,PD,b2-9,qa,qa_factoid,event_name=Wolverines,partial
+375,nonshared,How did the Chicago Bears game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Chicago Bears game;date=yesterday,partial
+376,nonshared,How did the Connecticut Sun game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Connecticut Sun game;date=yesterday,partial
+377,nonshared,How did the Miami Dolphins game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Miami Dolphins game;date=yesterday,partial
+378,nonshared,How did the Minnesota Timberwolves game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Minnesota Timberwolves game;date=yesterday,partial
+379,nonshared,How did the New England Patriots game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=New England Patriots game;date=yesterday,partial
+380,nonshared,How did the Pittsburgh Pirates game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Pittsburgh Pirates game;date=yesterday,partial
+381,nonshared,How did the Portland Timbers game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Portland Timbers game;date=yesterday,partial
+382,nonshared,How did the Toronto Maple Leafs game turn out yesterday?,PD,b2-9,qa,qa_factoid,event_name=Toronto Maple Leafs game;date=yesterday,partial
+383,nonshared,"How far is Brattleboro, Vermont from Montreal, Canada?",PD,b2-9,qa,qa_factoid,,partial
+384,nonshared,How far is Cabela's from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+385,nonshared,How far is Costco from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+386,nonshared,How far is Disney World from Universal Studios?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+387,nonshared,How far is Home Depot from here?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+388,nonshared,How far is home from Chicago?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+389,nonshared,"How far is home from South Elgin, Illinois?",PD,b2-9,qa,qa_factoid,,partial
+390,nonshared,How far is home from Vietnam?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+391,nonshared,How far is Iceland from Greenland?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+392,nonshared,How far is IKEA from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+393,nonshared,How far is Kroger from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+394,nonshared,"How far is Naples, Italy from Rome?",DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+395,nonshared,"How far is Pisa, Italy from Rome, Italy?",PD,b2-9,qa,qa_factoid,,partial
+396,nonshared,"How far is Sandhead, Scotland from home?",PD,b2-9,qa,qa_factoid,,partial
+397,nonshared,How far is Scotland from home?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+398,nonshared,"How far is Shanghai, China from Beijing, China?",PD,b2-9,qa,qa_factoid,,partial
+399,nonshared,How far is Target from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+400,nonshared,How far is the Home Depot from here?,PD,b2-9,qa,qa_factoid,,partial
+401,nonshared,How far is the Lego Store from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+402,nonshared,How far is Vermont from Canada?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+403,nonshared,How far is Walmart from here?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+404,nonshared,"How far is Wuhan, China from Beijing?",DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+405,nonshared,How's the traffic to Acadia National Park?,PD;DS;CP;Stroke,b2-9,transport,transport_traffic,place_name=Acadia National Park,exact
+406,nonshared,How's the traffic to Dodger's Stadium?,PD;DS;CP;Stroke,b2-9,transport,transport_traffic,place_name=Dodger's Stadium,exact
+407,nonshared,How's the traffic to Home?,PD;DS;CP;Stroke,b2-9,transport,transport_traffic,place_name=Home,exact
+408,nonshared,How's the traffic to Hoover Dam?,PD;DS;CP;Stroke,b2-9,transport,transport_traffic,place_name=Hoover Dam,exact
+409,nonshared,"How's the traffic to Mount Washington, New Hampshire?",Stroke,b2-9,transport,transport_traffic,"place_name=Mount Washington, New Hampshire",exact
+410,nonshared,"How's the traffic to Mount Washington, New Hamshire?",PD;DS;CP,b2-9,transport,transport_traffic,"place_name=Mount Washington, New Hamshire",exact
+411,nonshared,"How's the traffic to Orlando, Florida?",PD;DS;CP;Stroke,b2-9,transport,transport_traffic,"place_name=Orlando, Florida",exact
+412,nonshared,How's the traffic to the St. Louis Arch?,PD;DS;CP;Stroke,b2-9,transport,transport_traffic,place_name=the St. Louis Arch,exact
+413,nonshared,How's the traffic to Waikiki Beach?,PD;DS;CP;Stroke,b2-9,transport,transport_traffic,place_name=Waikiki Beach,exact
+414,nonshared,Is ALDI open today?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=ALDI;date=today,partial
+415,nonshared,Is Barnes & Noble open today?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Barnes & Noble;date=today,partial
+416,nonshared,Is Best Buy open today?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Best Buy;date=today,partial
+417,nonshared,Is Buca di Beppo open today?,PD,b2-9,recommendation,recommendation_locations,business_name=Buca di Beppo;date=today,partial
+418,nonshared,Is Olive Garden open today?,DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Olive Garden;date=today,partial
+419,nonshared,Is Red Lobster open today?,DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Red Lobster;date=today,partial
+420,nonshared,Is Ruth's Chris Steak House open today?,PD,b2-9,recommendation,recommendation_locations,business_name=Ruth's Chris Steak House;date=today,partial
+421,nonshared,Is Starbucks open today?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Starbucks;date=today,partial
+422,nonshared,Is Target open today?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Target;date=today,partial
+423,nonshared,Is the library open today?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=library;date=today,partial
+424,nonshared,Is there a chance of rain in the morning?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=in the morning,partial
+425,nonshared,Is there a chance of rain on Monday?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=Monday,partial
+426,nonshared,Is there a chance of rain on the 13th?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=the 13th,partial
+427,nonshared,Is there a chance of rain on the 16th?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=the 16th,partial
+428,nonshared,Is there a chance of rain on the 20th?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=the 20th,partial
+429,nonshared,Is there a chance of rain on Tuesday?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=Tuesday,partial
+430,nonshared,Is there a chance of rain this afternoon?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=this afternoon,partial
+431,nonshared,Is there a chance of rain tomorrow?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=tomorrow,partial
+432,nonshared,Is there a chance of rain tonight?,PD;DS;CP;Stroke,b2-9,weather,weather_query,weather_descriptor=rain;date=tonight,partial
+433,nonshared,Listen to Bloomberg.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=Bloomberg,partial
+434,nonshared,Listen to CBS.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=CBS,partial
+435,nonshared,Listen to CNN.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=CNN,partial
+436,nonshared,Listen to ESPN sports.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=ESPN sports,partial
+437,nonshared,Listen to FOX.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=FOX,partial
+438,nonshared,Listen to MSNBC.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=MSNBC,partial
+439,nonshared,Listen to NPR.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=NPR,partial
+440,nonshared,Listen to The Weather Channel.,PD;DS;CP;Stroke,b2-9,play,play_radio,radio_name=The Weather Channel,partial
+441,nonshared,Map a route to 30th Street Station.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=30th Street Station,partial
+442,nonshared,Map a route to Dallas Fortworth International Airport.,PD,b2-9,transport,transport_query,place_name=Dallas Fortworth International Airport,partial
+443,nonshared,Map a route to Dulles Airport.,DS;CP;Stroke,b2-9,transport,transport_query,place_name=Dulles Airport,partial
+444,nonshared,Map a route to John F. Kennedy Airport.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=John F. Kennedy Airport,partial
+445,nonshared,Map a route to our hotel.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=our hotel,partial
+446,nonshared,Map a route to Port Authority.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=Port Authority,partial
+447,nonshared,"Map a route to Scottsdale, Arizona.",PD;DS;CP;Stroke,b2-9,transport,transport_query,"place_name=Scottsdale, Arizona",partial
+448,nonshared,Map a route to the Airbnb.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=the Airbnb,partial
+449,nonshared,Map a route to the airport's cell phone lot.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=the airport's cell phone lot,partial
+450,nonshared,Map a route to the closest car charging station.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=the closest car charging station,partial
+451,nonshared,Navigate to CVS.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=CVS,partial
+452,nonshared,"Navigate to Dallas, TX.",PD;DS;CP;Stroke,b2-9,transport,transport_query,"place_name=Dallas, TX",partial
+453,nonshared,Navigate to Denver International Airport.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=Denver International Airport,partial
+454,nonshared,Navigate to home.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=home,partial
+455,nonshared,Navigate to Los Angeles Union Station.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=Los Angeles Union Station,partial
+456,nonshared,Navigate to Lowe's.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=Lowe's,partial
+457,nonshared,Navigate to mom's house.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=mom's house,partial
+458,nonshared,Navigate to O'Hare Airport.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=O'Hare Airport,partial
+459,nonshared,Navigate to Target.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=Target,partial
+460,nonshared,Navigate to Walgreens.,PD;DS;CP;Stroke,b2-9,transport,transport_query,place_name=Walgreens,partial
+461,nonshared,Tell me about Manchester United.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+462,nonshared,Tell me about Seattle Sounders FC.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+463,nonshared,Tell me about the Golden State Warriors.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+464,nonshared,Tell me about the Green Bay Packers.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+465,nonshared,Tell me about the LA Lakers.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+466,nonshared,Tell me news from ABC.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=ABC,partial
+467,nonshared,Tell me news from Bloomberg.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=Bloomberg,partial
+468,nonshared,Tell me news from CBS.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=CBS,partial
+469,nonshared,Tell me news from CNN.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=CNN,partial
+470,nonshared,Tell me news from FOX.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=FOX,partial
+471,nonshared,Tell me news from MSNBC.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=MSNBC,partial
+472,nonshared,Tell me news from NPR.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=NPR,partial
+473,nonshared,Tell me news from The Weather Channel.,PD;DS;CP;Stroke,b2-9,news,news_query,media_type=The Weather Channel,partial
+474,nonshared,What was the score for the Chiefs game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Chiefs game,partial
+475,nonshared,What was the score for the D.C. United game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=D.C. United game,partial
+476,nonshared,What was the score for the Indiana game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Indiana game,partial
+477,nonshared,What was the score for the last D.C. United game?,PD,b2-9,qa,qa_factoid,event_name=last D.C. United game,partial
+478,nonshared,What was the score for the last Indiana Fever game?,PD,b2-9,qa,qa_factoid,event_name=last Indiana Fever game,partial
+479,nonshared,What was the score for the last Kansas City Current game?,PD,b2-9,qa,qa_factoid,event_name=last Kansas City Current game,partial
+480,nonshared,What was the score for the last LSU Tigers game?,PD,b2-9,qa,qa_factoid,event_name=last LSU Tigers game,partial
+481,nonshared,What was the score for the last Nebraska Cornhuskers game?,PD,b2-9,qa,qa_factoid,event_name=last Nebraska Cornhuskers game,partial
+482,nonshared,What was the score for the last New Orleans Pelicans game?,PD,b2-9,qa,qa_factoid,event_name=last New Orleans Pelicans game,partial
+483,nonshared,What was the score for the last New York Islanders game?,PD,b2-9,qa,qa_factoid,event_name=last New York Islanders game,partial
+484,nonshared,What was the score for the last Texas Rangers game?,PD,b2-9,qa,qa_factoid,event_name=last Texas Rangers game,partial
+485,nonshared,What was the score for the LSU game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=LSU game,partial
+486,nonshared,What was the score for the Mets game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Mets game,partial
+487,nonshared,What was the score for the Nebraska game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Nebraska game,partial
+488,nonshared,What was the score for the Pelicans game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Pelicans game,partial
+489,nonshared,What was the score for the Rangers game?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Rangers game,partial
+490,nonshared,What's Apple trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Apple,exact
+491,nonshared,What's Disney trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Disney,exact
+492,nonshared,What's Google trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Google,exact
+493,nonshared,What's Meta trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Meta,exact
+494,nonshared,What's Microsoft trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Microsoft,exact
+495,nonshared,What's Netflix trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Netflix,exact
+496,nonshared,What's Samsung trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Samsung,exact
+497,nonshared,What's Tesla trading at?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Tesla,exact
+498,nonshared,What's the Amazon stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Amazon,exact
+499,nonshared,What's the Apple stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Apple,exact
+500,nonshared,What's the distance to Arkansas?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Arkansas,partial
+501,nonshared,"What's the distance to Beppu, Japan?",PD,b2-9,qa,qa_factoid,"place_name=Beppu, Japan",partial
+502,nonshared,"What's the distance to Fairfax, Virginia?",PD,b2-9,qa,qa_factoid,"place_name=Fairfax, Virginia",partial
+503,nonshared,What's the distance to Germany?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Germany,partial
+504,nonshared,"What's the distance to Hibbing, Minnesota?",PD,b2-9,qa,qa_factoid,"place_name=Hibbing, Minnesota",partial
+505,nonshared,What's the distance to Japan?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Japan,partial
+506,nonshared,What's the distance to Maryland?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Maryland,partial
+507,nonshared,What's the distance to Minnesota?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Minnesota,partial
+508,nonshared,What's the distance to Missouri?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Missouri,partial
+509,nonshared,"What's the distance to Munich, Germany?",PD,b2-9,qa,qa_factoid,"place_name=Munich, Germany",partial
+510,nonshared,"What's the distance to Pluckley, England?",PD,b2-9,qa,qa_factoid,"place_name=Pluckley, England",partial
+511,nonshared,"What's the distance to Rockville, Maryland?",PD,b2-9,qa,qa_factoid,"place_name=Rockville, Maryland",partial
+512,nonshared,"What's the distance to Round Spring, Missouri?",PD,b2-9,qa,qa_factoid,"place_name=Round Spring, Missouri",partial
+513,nonshared,"What's the distance to Salem, Massachusetts?",PD,b2-9,qa,qa_factoid,"place_name=Salem, Massachusetts",partial
+514,nonshared,What's the distance to Salem?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Salem,partial
+515,nonshared,What's the distance to Virginia?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Virginia,partial
+516,nonshared,What's the Google stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Google,exact
+517,nonshared,What's the latest in local news?,PD;DS;CP;Stroke,b2-9,news,news_query,news_topic=local,exact
+518,nonshared,What's the latest in my Facebook notifications?,PD;DS;CP;Stroke,b2-9,social,social_query,,partial
+519,nonshared,What's the latest in science and technology?,PD,b2-9,news,news_query,news_topic=science and technology,exact
+520,nonshared,What's the latest in technology?,DS;CP;Stroke,b2-9,news,news_query,news_topic=technology,exact
+521,nonshared,What's the latest in the election?,PD;DS;CP;Stroke,b2-9,news,news_query,news_topic=the election,exact
+522,nonshared,What's the latest in the NFL?,PD;DS;CP;Stroke,b2-9,news,news_query,news_topic=the NFL,exact
+523,nonshared,What's the latest in the stock market?,PD;DS;CP;Stroke,b2-9,news,news_query,news_topic=the stock market,exact
+524,nonshared,What's the latest in the World Cup?,PD;DS;CP;Stroke,b2-9,news,news_query,news_topic=the World Cup,exact
+525,nonshared,What's the latest in world news?,PD;DS;CP;Stroke,b2-9,news,news_query,news_topic=world news,exact
+526,nonshared,What's the Meta stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Meta,exact
+527,nonshared,What's the Microsoft stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Microsoft,exact
+528,nonshared,What's the Netflix stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Netflix,exact
+529,nonshared,What's the Samsung stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Samsung,exact
+530,nonshared,What's the Tesla stock price?,PD;DS;CP;Stroke,b2-9,qa,qa_stock,business_name=Tesla,exact
+531,nonshared,What's the weather in Australia?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=Australia,exact
+532,nonshared,What's the weather in Boston?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=Boston,exact
+533,nonshared,What's the weather in Chicago?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=Chicago,exact
+534,nonshared,What's the weather in Florida?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=Florida,exact
+535,nonshared,What's the weather in New York?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=New York,exact
+536,nonshared,What's the weather in North Carolina?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=North Carolina,exact
+537,nonshared,What's the weather in Paris?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=Paris,exact
+538,nonshared,What's the weather in Spain?,DS;CP;Stroke,b2-9,weather,weather_query,place_name=Spain,exact
+539,nonshared,What's the weather like in Australia?,PD,b2-9,weather,weather_query,place_name=Australia,exact
+540,nonshared,What's the weather like in Boston?,PD,b2-9,weather,weather_query,place_name=Boston,exact
+541,nonshared,What's the weather like in Chicago?,PD,b2-9,weather,weather_query,place_name=Chicago,exact
+542,nonshared,What's the weather like in Florida?,PD,b2-9,weather,weather_query,place_name=Florida,exact
+543,nonshared,What's the weather like in New York?,PD,b2-9,weather,weather_query,place_name=New York,exact
+544,nonshared,What's the weather like in North Carolina?,PD,b2-9,weather,weather_query,place_name=North Carolina,exact
+545,nonshared,What's the weather like in Paris?,PD,b2-9,weather,weather_query,place_name=Paris,exact
+546,nonshared,What's the weather like in Spain?,PD,b2-9,weather,weather_query,place_name=Spain,exact
+547,nonshared,When are the Boston Red Sox playing next?,PD,b2-9,calendar,calendar_query,sport_type=Boston Red Sox,partial
+548,nonshared,When are the Braves playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Braves,partial
+549,nonshared,When are the Cavs playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Cavs,partial
+550,nonshared,When are the Cleveland Cavaliers playing next?,PD,b2-9,calendar,calendar_query,sport_type=Cleveland Cavaliers,partial
+551,nonshared,When are the Detroit Red Wings playing next?,PD,b2-9,calendar,calendar_query,sport_type=Detroit Red Wings,partial
+552,nonshared,When are the Ducks playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Ducks,partial
+553,nonshared,When are the Giants playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Giants,partial
+554,nonshared,When are the LA Galaxy playing next?,PD,b2-9,calendar,calendar_query,sport_type=LA Galaxy,partial
+555,nonshared,When are the Lakers playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Lakers,partial
+556,nonshared,When are the Nashville Predators playing next?,PD,b2-9,calendar,calendar_query,sport_type=Nashville Predators,partial
+557,nonshared,When are the Philadelphia Phillies playing next?,PD,b2-9,calendar,calendar_query,sport_type=Philadelphia Phillies,partial
+558,nonshared,When are the Pittsburgh Steelers playing next?,PD,b2-9,calendar,calendar_query,sport_type=Pittsburgh Steelers,partial
+559,nonshared,When are the Red Sox playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Red Sox,partial
+560,nonshared,When are the Red Wings playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Red Wings,partial
+561,nonshared,When are the San Franscisco Giants playing next?,PD,b2-9,calendar,calendar_query,sport_type=San Franscisco Giants,partial
+562,nonshared,When are the Steelers playing?,DS;CP;Stroke,b2-9,calendar,calendar_query,sport_type=Steelers,partial
+563,nonshared,When is AMC Theater open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=AMC Theater,partial
+564,nonshared,"When is Bed, Bath and Beyond open until?",PD,b2-9,recommendation,recommendation_locations,"business_name=Bed, Bath and Beyond",partial
+565,nonshared,When is Buffalo Wild Wings open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Buffalo Wild Wings,partial
+566,nonshared,When is DSW open until?,DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=DSW,partial
+567,nonshared,When is Macy's open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Macy's,partial
+568,nonshared,When is Shake Shack open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Shake Shack,partial
+569,nonshared,When is Shell open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Shell,partial
+570,nonshared,When is Trader Joe's open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Trader Joe's,partial
+571,nonshared,When is Walmart open until?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_name=Walmart,partial
+572,nonshared,Who won the Chicago Bears game yesterday?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Chicago Bears game;date=yesterday,partial
+574,nonshared,Who won the baseball game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=baseball game;date=yesterday,partial
+575,nonshared,Who won the basketball game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=basketball game;date=yesterday,partial
+577,nonshared,Who won the Blue Jays game yesterday?,CP;DS;Stroke,b2-9,qa,qa_factoid,event_name=Blue Jays game;date=yesterday,partial
+578,nonshared,Who won the Dolphins game yesterday?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Dolphins game;date=yesterday,partial
+579,nonshared,Who won the football game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=football game;date=yesterday,partial
+580,nonshared,Who won the hockey game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=hockey game;date=yesterday,partial
+581,nonshared,Who won the NBA game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=NBA game;date=yesterday,partial
+582,nonshared,Who won the NFL game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=NFL game;date=yesterday,partial
+583,nonshared,Who won the NHL game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=NHL game;date=yesterday,partial
+584,nonshared,Who won the Nuggets game yesterday?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Nuggets game;date=yesterday,partial
+585,nonshared,Who won the Patriots game yesterday?,DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=Patriots game;date=yesterday,partial
+587,nonshared,Who won the Pirates game yesterday?,CP;DS;Stroke,b2-9,qa,qa_factoid,event_name=Pirates game;date=yesterday,partial
+588,nonshared,Who won the Portland game yesterday?,CP;DS;Stroke,b2-9,qa,qa_factoid,event_name=Portland game;date=yesterday,partial
+589,nonshared,Who won the soccer game yesterday?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,event_name=soccer game;date=yesterday,partial
+591,nonshared,Who won the Sundevils game yesterday?,CP;DS;Stroke,b2-9,qa,qa_factoid,event_name=Sundevils game;date=yesterday,partial
+592,nonshared,Who's winning between Duke and North Carolina?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+593,nonshared,Who's winning between Ohio State and Michigan?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+594,nonshared,Who's winning between Texas and Oklahoma?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+595,nonshared,Who's winning between the Bruins and the Canadiens?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+596,nonshared,Who's winning between the Giants and the Dodgers?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+597,nonshared,Who's winning between the Lakers and the Celtics?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+598,nonshared,Who's winning between the Packers and the Bears?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+599,nonshared,Who's winning between the Packers and the Chicago Bears?,PD,b2-9,qa,qa_factoid,,partial
+600,nonshared,Who's winning between the Red Sox and the Yankees?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+601,nonshared,Buy tickets at 11 AM.,PD;DS;CP;Stroke,b2-9,none,none,,none
+602,nonshared,Buy tickets at 2:45 PM.,PD;DS;CP;Stroke,b2-9,none,none,,none
+603,nonshared,Buy tickets at 5:30 PM.,PD;DS;CP;Stroke,b2-9,none,none,,none
+604,nonshared,Buy tickets at 6:15 PM.,PD;DS;CP;Stroke,b2-9,none,none,,none
+605,nonshared,Buy tickets at 7:00 PM.,PD;DS;CP;Stroke,b2-9,none,none,,none
+606,nonshared,Buy tickets at 8 PM.,PD;DS;CP;Stroke,b2-9,none,none,,none
+607,nonshared,Buy tickets at half-past noon.,PD;DS;CP;Stroke,b2-9,none,none,,none
+608,nonshared,Buy tickets at Noon.,PD;DS;CP;Stroke,b2-9,none,none,,none
+609,nonshared,Define 'albeit'.,PD,b2-9,qa,qa_definition,definition_word=albeit,exact
+610,nonshared,Define 'although'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=although,exact
+611,nonshared,Define 'ambiguous'.,PD,b2-9,qa,qa_definition,definition_word=ambiguous,exact
+612,nonshared,Define 'apathetic'.,PD,b2-9,qa,qa_definition,definition_word=apathetic,exact
+613,nonshared,Define 'apply'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=apply,exact
+614,nonshared,Define 'conclude'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=conclude,exact
+615,nonshared,Define 'conundrum'.,PD,b2-9,qa,qa_definition,definition_word=conundrum,exact
+616,nonshared,Define 'cynical'.,PD,b2-9,qa,qa_definition,definition_word=cynical,exact
+617,nonshared,Define 'infer'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=infer,exact
+618,nonshared,Define 'integrity'.,PD,b2-9,qa,qa_definition,definition_word=integrity,exact
+619,nonshared,Define 'ironic'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=ironic,exact
+620,nonshared,Define 'pretend'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=pretend,exact
+621,nonshared,Define 'pretentious'.,PD,b2-9,qa,qa_definition,definition_word=pretentious,exact
+622,nonshared,Define 'ubiquitous'.,PD,b2-9,qa,qa_definition,definition_word=ubiquitous,exact
+623,nonshared,Define 'unusual'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=unusual,exact
+624,nonshared,Define 'vague'.,DS;CP;Stroke,b2-9,qa,qa_definition,definition_word=vague,exact
+625,nonshared,How do you say 'dinner' in Spanish?,PD;DS;CP;Stroke,b2-9,none,none,,none
+626,nonshared,How do you say 'good morning' in Polish?,PD;DS;CP;Stroke,b2-9,none,none,,none
+627,nonshared,How do you say 'help me' in Mandarin Chinese?,PD;DS;CP;Stroke,b2-9,none,none,,none
+628,nonshared,How do you say 'How far is the hotel?' in Portuguese?,PD,b2-9,none,none,,none
+629,nonshared,How do you say 'I want a small coffee' in Korean?,PD,b2-9,none,none,,none
+630,nonshared,How do you say 'I want coffee' in Korean?,DS;CP;Stroke,b2-9,none,none,,none
+631,nonshared,How do you say 'please' in Icelandic?,PD;DS;CP;Stroke,b2-9,none,none,,none
+632,nonshared,How do you say 'restroom' in French?,PD;DS;CP;Stroke,b2-9,none,none,,none
+633,nonshared,How do you say 'thank you' in Japanese?,PD;DS;CP;Stroke,b2-9,none,none,,none
+634,nonshared,How do you say 'Where is the hotel?' in Portuguese?,DS;CP;Stroke,b2-9,none,none,,none
+635,nonshared,How do you spell 'confident'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+636,nonshared,How do you spell 'corona virus'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+637,nonshared,How do you spell 'definitely'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+638,nonshared,How do you spell 'government'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+639,nonshared,How do you spell 'multiplication'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+640,nonshared,How do you spell 'paraoh'?,PD;DS;CP,b2-9,qa,qa_definition,,partial
+641,nonshared,How do you spell 'pharaoh'?,Stroke,b2-9,qa,qa_definition,,partial
+642,nonshared,How do you spell 'quarantine'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+643,nonshared,How do you spell 'separate'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+644,nonshared,How do you spell 'succeed'?,PD;DS;CP;Stroke,b2-9,qa,qa_definition,,partial
+645,nonshared,How many languages are spoken in Europe?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+646,nonshared,How many languages are spoken in India?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+647,nonshared,"How many people live in Beijing, China?",DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+648,nonshared,"How many people live in Lorton, Virginia?",DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+649,nonshared,How many people live in Maryland?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+650,nonshared,How many calories does 15 baby carrots and a scoop of hummus have?,PD,b2-9,qa,qa_factoid,,partial
+651,nonshared,How many calories does 15 baby carrots have?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+652,nonshared,How many calories does 3 teaspoons of brown sugar have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+653,nonshared,How many calories does a Big Mac have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+654,nonshared,How many calories does a boiled egg have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+655,nonshared,How many calories does a cup of blueberries have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+656,nonshared,How many calories does a piece of grilled salmon have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+658,nonshared,How many calories does a pint of Ben and Jerry's ice cream have?,PD,b2-9,qa,qa_factoid,,partial
+660,nonshared,How many calories does a pint of ice cream have?,CP;DS;Stroke,b2-9,qa,qa_factoid,,partial
+661,nonshared,How many calories does a slice of sausage pizza have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+662,nonshared,How many calories does a Snickers bar have?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+663,nonshared,How much is $1 in euros?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=euros,exact
+664,nonshared,How much is $10 in euros?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=euros,exact
+665,nonshared,How much is $100 in euros?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=euros,exact
+666,nonshared,How much is $150 in euros?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=euros,exact
+667,nonshared,How much is $5 in euros?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=euros,exact
+668,nonshared,How tall is Mount Everest?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+669,nonshared,How tall is Mount Rushmore?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+671,nonshared,How tall is Peppa Pig?,CP;DS;PD;Stroke,b2-9,qa,qa_factoid,,exact
+673,nonshared,How tall is the Eiffel Tower?,CP;DS;PD;Stroke,b2-9,qa,qa_factoid,,exact
+674,nonshared,How tall is the Statue of Liberty?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+675,nonshared,How tall is the tallest basketball player?,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+676,nonshared,How tall is the tallest building in the world?,PD,b2-9,qa,qa_factoid,,exact
+677,nonshared,How tall is the tallest building?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+678,nonshared,How tall is the tallest person who ever lived?,PD,b2-9,qa,qa_factoid,,exact
+679,nonshared,How tall is the tallest person?,DS;CP;Stroke,b2-9,qa,qa_factoid,,exact
+680,nonshared,Is Alaska Center for the Performing Arts ADA compliant?,PD;DS;CP;Stroke,b2-9,none,none,,none
+681,nonshared,Is Comerica Park ADA compliant?,PD,b2-9,none,none,,none
+682,nonshared,Is Glacier National Park wheelchair accessible?,PD;DS;CP;Stroke,b2-9,none,none,,none
+683,nonshared,Is Grand Canyon wheelchair accessible?,DS;CP;Stroke,b2-9,none,none,,none
+684,nonshared,Is Panama City Beach Conservation Park wheelchair accessible?,PD,b2-9,none,none,,none
+685,nonshared,Is Panama City Beach wheelchair accessible?,DS;CP;Stroke,b2-9,none,none,,none
+686,nonshared,Is Six Flags White Water wheelchair accessible?,DS;CP;Stroke,b2-9,none,none,,none
+687,nonshared,Is Smithsonian Air and Space Museum ADA compliant?,PD,b2-9,none,none,,none
+688,nonshared,Is Smithsonian Museum ADA compliant?,DS;CP;Stroke,b2-9,none,none,,none
+689,nonshared,Is South Rim Trail of the Grand Canyon wheelchair accessible?,PD,b2-9,none,none,,none
+690,nonshared,Is the bakery at Second and Elm wheelchair accessible?,DS;CP;Stroke,b2-9,none,none,,none
+691,nonshared,Is the bakery on the corner of Second and Elm wheelchair accessible?,PD,b2-9,none,none,,none
+692,nonshared,Is the closest library ADA compliant?,PD;DS;CP;Stroke,b2-9,none,none,,none
+693,nonshared,Is the dentist's office on Park St. wheelchair accessible?,PD;DS;CP;Stroke,b2-9,none,none,,none
+694,nonshared,Is the dentist's office on Park Street wheelchair accessible?,PD;DS;CP;Stroke,b2-9,none,none,,none
+695,nonshared,Is the Guggenheim ADA compliant?,PD,b2-9,none,none,,none
+696,nonshared,Is the MOMA ADA compliant?,DS;CP;Stroke,b2-9,none,none,,none
+697,nonshared,Is the nearest bank wheelchair accessible?,PD;DS;CP;Stroke,b2-9,none,none,,none
+698,nonshared,Is the nearest movie theater ADA compliant?,PD;DS;CP;Stroke,b2-9,none,none,,none
+699,nonshared,Is the nearest subway station ADA compliant?,PD;DS;CP;Stroke,b2-9,none,none,,none
+700,nonshared,Is the observatory at the Willis Tower wheelchair accessible?,PD,b2-9,none,none,,none
+701,nonshared,Is the Space Needle in Seattle wheelchair accessible?,PD,b2-9,none,none,,none
+702,nonshared,Is the Space Needle wheelchair accessible?,DS;CP;Stroke,b2-9,none,none,,none
+703,nonshared,Is the St. Louis Arch ADA compliant?,PD;DS;CP;Stroke,b2-9,none,none,,none
+704,nonshared,Is the waterpark at Six Flags White Water wheelchair accessible?,PD,b2-9,none,none,,none
+705,nonshared,Is Willis Tower wheelchair accessible?,DS;CP;Stroke,b2-9,none,none,,none
+706,nonshared,Is Yankee Stadium ADA compliant?,DS;CP;Stroke,b2-9,none,none,,none
+707,nonshared,Is Yellowstone National Park ADA compliant?,PD;DS;CP;Stroke,b2-9,none,none,,none
+708,nonshared,Show me a photo of baby animals.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+709,nonshared,Show me a photo of business meetings.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+710,nonshared,Show me a photo of deciduous trees.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+711,nonshared,Show me a photo of fluffy dogs.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+712,nonshared,Show me a photo of house plants.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+713,nonshared,Show me a photo of man's first steps on the moon in 1969.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+714,nonshared,Show me a photo of spring flowers.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+715,nonshared,Show me a photo of the Earth.,DS;CP;Stroke,b2-9,social,social_query,media_type=photo,partial
+716,nonshared,Show me an image of baby animals.,PD,b2-9,social,social_query,media_type=image,partial
+717,nonshared,Show me an image of business meetings.,PD,b2-9,social,social_query,media_type=image,partial
+718,nonshared,Show me an image of deciduous trees.,PD,b2-9,social,social_query,media_type=image,partial
+719,nonshared,Show me an image of fluffy dogs.,PD,b2-9,social,social_query,media_type=image,partial
+720,nonshared,Show me an image of house plants.,PD,b2-9,social,social_query,media_type=image,partial
+721,nonshared,Show me an image of man's first steps on the moon in 1969.,PD,b2-9,social,social_query,media_type=image,partial
+722,nonshared,Show me an image of spring flowers.,PD,b2-9,social,social_query,media_type=image,partial
+723,nonshared,Show me an image of the Earth.,PD,b2-9,social,social_query,media_type=image,partial
+724,nonshared,Show me movies with Benicio Del Toro.,PD,b2-9,recommendation,recommendation_movies,movie_type=Benicio Del Toro,partial
+725,nonshared,Show me movies with Blake Lively.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Blake Lively,partial
+726,nonshared,Show me movies with Catherine Zeta-Jones.,PD,b2-9,recommendation,recommendation_movies,movie_type=Catherine Zeta-Jones,partial
+727,nonshared,Show me movies with Daniel Day-Lewis.,PD,b2-9,recommendation,recommendation_movies,movie_type=Daniel Day-Lewis,partial
+728,nonshared,Show me movies with Denzel Washington.,PD,b2-9,recommendation,recommendation_movies,movie_type=Denzel Washington,partial
+729,nonshared,Show me movies with Emily Blunt.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Emily Blunt,partial
+730,nonshared,Show me movies with Jack Nicholson.,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Jack Nicholson,partial
+731,nonshared,Show me movies with Julianne Moore.,PD,b2-9,recommendation,recommendation_movies,movie_type=Julianne Moore,partial
+732,nonshared,Show me movies with Miley Cyrus.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Miley Cyrus,partial
+733,nonshared,Show me movies with Ryan Gosling.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Ryan Gosling,partial
+734,nonshared,Show me movies with Ryan Reynolds.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Ryan Reynolds,partial
+735,nonshared,Show me movies with Tom Cruise.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Tom Cruise,partial
+736,nonshared,Show me movies with Troy Kotsur.,PD,b2-9,recommendation,recommendation_movies,movie_type=Troy Kotsur,partial
+737,nonshared,Show me movies with Viola Davis.,PD,b2-9,recommendation,recommendation_movies,movie_type=Viola Davis,partial
+738,nonshared,Show me movies with Will Ferrell.,DS;CP;Stroke,b2-9,recommendation,recommendation_movies,movie_type=Will Ferrell,partial
+739,nonshared,What are the side effects of atorvastatin?,PD,b2-9,qa,qa_factoid,,partial
+740,nonshared,What are the side effects of fluoxetine?,PD,b2-9,qa,qa_factoid,,partial
+741,nonshared,What are the side effects of gabapentin?,PD,b2-9,qa,qa_factoid,,partial
+742,nonshared,What are the side effects of levothyroxine?,PD,b2-9,qa,qa_factoid,,partial
+743,nonshared,What are the side effects of lisinopril?,PD,b2-9,qa,qa_factoid,,partial
+744,nonshared,What are the side effects of losartan?,PD,b2-9,qa,qa_factoid,,partial
+745,nonshared,What are the side effects of metformin?,PD,b2-9,qa,qa_factoid,,partial
+746,nonshared,What are the side effects of omeprazole?,PD,b2-9,qa,qa_factoid,,partial
+747,nonshared,What are the side effects of Qvar?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+748,nonshared,What are the side effects of ranitidine?,CP;DS;Stroke,b2-9,qa,qa_factoid,,partial
+750,nonshared,What are the side effects of ritalin?,CP;DS;Stroke,b2-9,qa,qa_factoid,,partial
+752,nonshared,What are the side effects of sertraline?,CP;DS;PD;Stroke,b2-9,qa,qa_factoid,,partial
+754,nonshared,What are the side effects of Singulair?,Stroke,b2-9,qa,qa_factoid,,partial
+755,nonshared,What are the side effects of singular?,DS;CP,b2-9,qa,qa_factoid,,partial
+756,nonshared,What are the side effects of Strattera?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+757,nonshared,What are the side effects of Synthroid?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+758,nonshared,What are the side effects of Vitamin D?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+759,nonshared,What are the side effects of Xopanex?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+760,nonshared,What celebrities are from New Mexico?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=New Mexico,partial
+761,nonshared,What famous actors are from Portugal?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Portugal,partial
+762,nonshared,"What is the population of Cedar Rapids, Iowa?",DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Cedar Rapids, Iowa",exact
+763,nonshared,"What libraries are in Grand Junction, Colorado?",DS;CP;Stroke,b2-9,recommendation,recommendation_locations,"business_type=libraries;place_name=Grand Junction, Colorado",partial
+764,nonshared,"What libraries are in Hanover, Pennsylvania?",DS;CP;Stroke,b2-9,recommendation,recommendation_locations,"business_type=libraries;place_name=Hanover, Pennsylvania",partial
+765,nonshared,What libraries are in New York City?,DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=libraries;place_name=New York City,partial
+766,nonshared,What museums are in Baltimore?,DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=museums;place_name=Baltimore,partial
+767,nonshared,"What museums are in Cincinnati, Ohio?",DS;CP;Stroke,b2-9,recommendation,recommendation_locations,"business_type=museums;place_name=Cincinnati, Ohio",partial
+768,nonshared,"What museums are in Sydney, Australia?",DS;CP;Stroke,b2-9,recommendation,recommendation_locations,"business_type=museums;place_name=Sydney, Australia",partial
+769,nonshared,What national parks are in Colorado?,DS;CP;Stroke,b2-9,recommendation,recommendation_locations,business_type=national parks;place_name=Colorado,partial
+770,nonshared,What's $1 in British Pounds?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=British Pounds,exact
+771,nonshared,What's $1 million in British Pounds?,PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=British Pounds,exact
+772,nonshared,"What's $1,000 in British Pounds?",PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=British Pounds,exact
+773,nonshared,"What's $10,000 in British Pounds?",PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=British Pounds,exact
+774,nonshared,"What's $100,000 in British Pounds?",PD;DS;CP;Stroke,b2-9,qa,qa_currency,currency_name=British Pounds,exact
+775,nonshared,What's 16 ounces to liters?,DS;CP;Stroke,b2-9,qa,qa_maths,,partial
+776,nonshared,What's 24 ounces to grams?,DS;CP;Stroke,b2-9,qa,qa_maths,,partial
+777,nonshared,What's 32 ounces to cups?,DS;CP;Stroke,b2-9,qa,qa_maths,,partial
+778,nonshared,What's 48 ounces to pounds?,DS;CP;Stroke,b2-9,qa,qa_maths,,partial
+779,nonshared,What's 60 ounces to quarts?,DS;CP;Stroke,b2-9,qa,qa_maths,,partial
+780,nonshared,What's the conversion of 16 ounces to liters?,PD,b2-9,qa,qa_maths,,partial
+781,nonshared,What's the conversion of 24 ounces to grams?,PD,b2-9,qa,qa_maths,,partial
+782,nonshared,What's the conversion of 32 ounces to cups?,PD,b2-9,qa,qa_maths,,partial
+783,nonshared,What's the conversion of 48 ounces to pounds?,PD,b2-9,qa,qa_maths,,partial
+784,nonshared,What's the conversion of 60 ounces to quarts?,PD,b2-9,qa,qa_maths,,partial
+785,nonshared,When did Florida become a state?,DS;CP;Stroke,b2-9,qa,qa_factoid,place_name=Florida,partial
+786,nonshared,Who is the lead character in '2001: A Space Odyssey'?,PD,b2-9,qa,qa_factoid,,partial
+787,nonshared,Who is the lead character in 'Citizen Kane'?,PD,b2-9,qa,qa_factoid,,partial
+788,nonshared,Who is the lead character in 'Harry Potter'?,PD,b2-9,qa,qa_factoid,,partial
+789,nonshared,Who is the lead character in 'Les Miserables'?,PD,b2-9,qa,qa_factoid,,partial
+790,nonshared,Who is the lead character in 'Mamma Mia'?,PD,b2-9,qa,qa_factoid,,partial
+791,nonshared,Who is the lead character in 'Star Wars'?,PD,b2-9,qa,qa_factoid,,partial
+792,nonshared,Who is the lead character in 'West Side Story'?,PD,b2-9,qa,qa_factoid,,partial
+793,nonshared,Who is the lead character in the 'Nutcracker'?,PD,b2-9,qa,qa_factoid,,partial
+794,nonshared,Who is the main character in Barbie?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+795,nonshared,Who is the main character in Harry Potter?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+796,nonshared,Who is the main character in Little Mermaid?,Stroke,b2-9,qa,qa_factoid,,partial
+797,nonshared,Who is the main character in Mamma Mia?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+798,nonshared,Who is the main character in Peter Pan?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+799,nonshared,Who is the main character in Spider Man?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+800,nonshared,Who is the main character in Star Wars?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+801,nonshared,Who is the main character in the Nutcracker?,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+802,nonshared,Who is the main charcter in Little Mermaid?,DS;CP,b2-9,qa,qa_factoid,,partial
+803,nonshared,Email Hilton Hotels.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Hilton Hotels,partial
+804,nonshared,Email Jasmine Windsor.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Jasmine Windsor,partial
+805,nonshared,Email Maria.Sarah@help.org.,DS;CP;Stroke,b2-9,email,email_sendemail,email_address=Maria.Sarah@help.org,partial
+806,nonshared,Email Mel Laska.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Mel Laska,partial
+807,nonshared,Email reservations@CozyCottage.com.,DS;CP;Stroke,b2-9,email,email_sendemail,email_address=reservations@CozyCottage.com,partial
+808,nonshared,Email Ruben Ruiz.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Ruben Ruiz,partial
+809,nonshared,Email SabrinaK@west.edu.,DS;CP;Stroke,b2-9,email,email_sendemail,email_address=SabrinaK@west.edu,partial
+810,nonshared,Email UPS Customer Service.,DS;CP;Stroke,b2-9,email,email_sendemail,person=UPS Customer Service,partial
+811,nonshared,Message Elle Shu.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Elle Shu,partial
+812,nonshared,Message Frank Smith.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Frank Smith,partial
+813,nonshared,Message Harry & Amanda Turner.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Harry & Amanda Turner,partial
+814,nonshared,Message Kramer Gray.,DS;CP;Stroke,b2-9,email,email_sendemail,person=Kramer Gray,partial
+815,nonshared,Message The Miller Family.,DS;CP;Stroke,b2-9,email,email_sendemail,person=The Miller Family,partial
+816,nonshared,Message The Zen Family.,DS;CP;Stroke,b2-9,email,email_sendemail,person=The Zen Family,partial
+817,nonshared,Open Atlas Obscura.,PD;DS;CP;Stroke,b2-9,none,none,,none
+818,nonshared,Open Candy Crush Saga.,PD;DS;CP;Stroke,b2-9,none,none,,none
+819,nonshared,Open Duolingo.,PD;DS;CP;Stroke,b2-9,none,none,,none
+820,nonshared,Open Facebook Messenger to send a message to Dyson Bunker.,PD,b2-9,email,email_sendemail,person=Dyson Bunker,partial
+821,nonshared,Open Facebook Messenger.,PD;DS;CP;Stroke,b2-9,none,none,,none
+822,nonshared,Open Gmail to send a message to Layne Banks.,PD,b2-9,email,email_sendemail,person=Layne Banks,partial
+823,nonshared,Open Gmail.,DS;CP;Stroke,b2-9,none,none,,none
+824,nonshared,Open Grammarly.,PD;DS;CP;Stroke,b2-9,none,none,,none
+825,nonshared,Open Microsoft Word.,PD;DS;CP;Stroke,b2-9,none,none,,none
+826,nonshared,Open What's App.,PD;DS;CP;Stroke,b2-9,none,none,,none
+827,nonshared,Open Yelp.,PD;DS;CP;Stroke,b2-9,none,none,,none
+828,nonshared,Please call 555-244-2922.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,personal_info=555-244-2922,exact
+829,nonshared,Please call Amalia Adamson.,PD,b2-9,email,email_querycontact,person=Amalia Adamson,exact
+830,nonshared,Please call Amelia Adamson.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Amelia Adamson,exact
+831,nonshared,Please call area code 555-333-1000.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,personal_info=555-333-1000,partial
+832,nonshared,Please call Carol Fulton.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Carol Fulton,exact
+833,nonshared,Please call Carola Fulton.,PD,b2-9,email,email_querycontact,person=Carola Fulton,exact
+834,nonshared,Please call CVS Pharmacy.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,business_name=CVS Pharmacy,partial
+835,nonshared,Please call Kathy Bianco.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,person=Kathy Bianco,exact
+836,nonshared,Please call Park Bank.,DS;CP;Stroke,b2-9,email,email_querycontact,business_name=Park Bank,partial
+837,nonshared,Please call Penn Reiter.,PD,b2-9,email,email_querycontact,person=Penn Reiter,exact
+838,nonshared,Please call Penn Ritter.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Penn Ritter,exact
+839,nonshared,Please call Santander Bank.,PD,b2-9,email,email_querycontact,business_name=Santander Bank,partial
+840,nonshared,Please call Vik Salva.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Vik Salva,exact
+841,nonshared,Please call Vikram Salva.,PD,b2-9,email,email_querycontact,person=Vikram Salva,exact
+842,nonshared,Send a message to Ellinor Shehu.,PD,b2-9,email,email_sendemail,person=Ellinor Shehu,partial
+843,nonshared,Send a message to Felicitas Sinagra.,PD,b2-9,email,email_sendemail,person=Felicitas Sinagra,partial
+844,nonshared,Send a message to Hayri & Amador Teague.,PD,b2-9,email,email_sendemail,person=Hayri & Amador Teague,partial
+845,nonshared,Send a message to Krasimir Gregory.,PD,b2-9,email,email_sendemail,person=Krasimir Gregory,partial
+846,nonshared,Send a message to The Mounce Family.,PD,b2-9,email,email_sendemail,person=The Mounce Family,partial
+847,nonshared,Send a message to The Zaman Family.,PD,b2-9,email,email_sendemail,person=The Zaman Family,partial
+848,nonshared,Send an email to Hilton Hotels.,PD,b2-9,email,email_sendemail,person=Hilton Hotels,partial
+849,nonshared,Send an email to Jasmine Witherspoon.,PD,b2-9,email,email_sendemail,person=Jasmine Witherspoon,partial
+850,nonshared,Send an email to Malachi Janowski.,PD,b2-9,email,email_sendemail,person=Malachi Janowski,partial
+851,nonshared,Send an email to Maria.Sari@wildernessnet.org.,PD,b2-9,email,email_sendemail,email_address=Maria.Sari@wildernessnet.org,partial
+852,nonshared,Send an email to reservations@QuaintCozyCottages.com.,PD,b2-9,email,email_sendemail,email_address=reservations@QuaintCozyCottages.com,partial
+853,nonshared,Send an email to Ruben Ruiz.,PD,b2-9,email,email_sendemail,person=Ruben Ruiz,partial
+854,nonshared,Send an email to SabinaK@westerly.edu.,PD,b2-9,email,email_sendemail,email_address=SabinaK@westerly.edu,partial
+855,nonshared,Send an email to UPS Customer Service.,PD,b2-9,email,email_sendemail,person=UPS Customer Service,partial
+856,nonshared,Show me photos from 4-30-2022.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;date=4-30-2022,partial
+857,nonshared,Show me photos from Jory's Graduation.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;event_name=Jory's Graduation,partial
+858,nonshared,Show me photos from my last vacation.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;event_name=my last vacation,partial
+859,nonshared,Show me photos from New Year's Eve 2019.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;date=New Year's Eve 2019,partial
+860,nonshared,"Show me photos from November 29th, 2018.",PD;DS;CP;Stroke,b2-9,social,social_query,"media_type=photos;date=November 29th, 2018",partial
+861,nonshared,Show me photos from October 22nd.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;date=October 22nd,partial
+862,nonshared,Show me photos from Thanksgiving.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;event_name=Thanksgiving,partial
+863,nonshared,Show me photos from the 18th of September.,PD;DS;CP;Stroke,b2-9,social,social_query,media_type=photos;date=the 18th of September,partial
+864,nonshared,Video call 1-800-642-7676.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,personal_info=1-800-642-7676,partial
+865,nonshared,Video call 1-800-692-7753.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,personal_info=1-800-692-7753,partial
+866,nonshared,Video call 217-244-1176.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,personal_info=217-244-1176,partial
+867,nonshared,Video call area code 650-253-0000.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,personal_info=650-253-0000,partial
+868,nonshared,Video call Lennart Vass.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,person=Lennart Vass,partial
+869,nonshared,Video call Leo Rodrigues.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,person=Leo Rodrigues,partial
+870,nonshared,Video call Martin Star.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Martin Star,partial
+871,nonshared,Video call Martin Starosta.,PD,b2-9,email,email_querycontact,person=Martin Starosta,partial
+872,nonshared,Video call Mike Castelo.,PD;DS;CP;Stroke,b2-9,email,email_querycontact,person=Mike Castelo,partial
+873,nonshared,Video call Pat Eaton.,DS;CP;Stroke,b2-9,email,email_querycontact,person=Pat Eaton,partial
+874,nonshared,Video call Pat Etienne.,PD,b2-9,email,email_querycontact,person=Pat Etienne,partial
+875,nonshared,Wikipedia COVID-19 pandemic.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+876,nonshared,Wikipedia Cristiano Ronaldo.,PD,b2-9,qa,qa_factoid,,partial
+877,nonshared,Wikipedia David Beckham.,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+878,nonshared,Wikipedia Game of Thrones.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+879,nonshared,Wikipedia list of highest-grossing films.,PD,b2-9,qa,qa_factoid,,partial
+880,nonshared,Wikipedia list of most popular movies.,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+881,nonshared,Wikipedia list of presidents of the United States.,PD,b2-9,qa,qa_factoid,,partial
+882,nonshared,Wikipedia list of presidents.,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+883,nonshared,Wikipedia Meghan Markle.,DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+884,nonshared,"Wikipedia Meghan, Duchess of Sussex.",PD,b2-9,qa,qa_factoid,,partial
+885,nonshared,Wikipedia Muhammad Ali.,PD;DS;CP;Stroke,b2-9,qa,qa_factoid,,partial
+886,nonshared,Wikipedia Random Page.,PD;DS;CP;Stroke,b2-9,none,none,,none
+887,nonshared,Brighten the closet light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=closet;device_type=light,partial
+888,nonshared,Brighten the den light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=den;device_type=light,partial
+889,nonshared,Brighten the dining room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=dining room;device_type=light,partial
+890,nonshared,Brighten the family room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=family room;device_type=light,partial
+891,nonshared,Brighten the living room light.,Stroke,b2-9,iot,iot_hue_lightup,house_place=living room;device_type=light,partial
+892,nonshared,Brighten the office light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=office;device_type=light,partial
+893,nonshared,Brighten the outdoor lights.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=outdoor;device_type=lights,partial
+894,nonshared,Brighten the porch light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightup,house_place=porch;device_type=light,partial
+895,nonshared,Brighten the the living room light.,PD;DS;CP,b2-9,iot,iot_hue_lightup,house_place=living room;device_type=light,partial
+896,nonshared,Dim the dining room lights to 10%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=dining room;device_type=lights;change_amount=10%,partial
+897,nonshared,Dim the family room lights to 20%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=family room;device_type=lights;change_amount=20%,partial
+898,nonshared,Dim the hallway lights to 10%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=hallway;device_type=lights;change_amount=10%,partial
+899,nonshared,Dim the home theater lights to 40%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=home theater;device_type=lights;change_amount=40%,partial
+900,nonshared,Dim the kitchen lights to 10%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=kitchen;device_type=lights;change_amount=10%,partial
+901,nonshared,Dim the living room lights to 50%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=living room;device_type=lights;change_amount=50%,partial
+902,nonshared,Dim the nightlight to 80%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,device_type=nightlight;change_amount=80%,partial
+903,nonshared,Dim the playroom lights to 20%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=playroom;device_type=lights;change_amount=20%,partial
+904,nonshared,Dim the porch lights to 70%.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightdim,house_place=porch;device_type=lights;change_amount=70%,partial
+905,nonshared,Lower the temperature 1 degree.,PD;DS;CP;Stroke,b2-9,none,none,,none
+906,nonshared,Lower the temperature 2 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+907,nonshared,Lower the temperature 3 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+908,nonshared,Lower the temperature 4 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+909,nonshared,Lower the temperature 5 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+910,nonshared,Preheat the oven to 200 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+911,nonshared,Preheat the oven to 225 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+912,nonshared,Preheat the oven to 250 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+913,nonshared,Preheat the oven to 275 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+914,nonshared,Preheat the oven to 300 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+915,nonshared,Preheat the oven to 350 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+916,nonshared,Preheat the oven to 375 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+917,nonshared,Preheat the oven to 400 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+918,nonshared,Raise the temperature 1 degree.,PD;DS;CP;Stroke,b2-9,none,none,,none
+919,nonshared,Raise the temperature 2 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+920,nonshared,Raise the temperature 3 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+921,nonshared,Raise the temperature 4 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+922,nonshared,Raise the temperature 5 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+923,nonshared,Set the air conditioning to 70.,PD;DS;CP;Stroke,b2-9,none,none,,none
+924,nonshared,Set the air conditioning to 72.,PD;DS;CP;Stroke,b2-9,none,none,,none
+925,nonshared,Set the air conditioning to 74.,PD;DS;CP;Stroke,b2-9,none,none,,none
+926,nonshared,Set the air conditioning to 76.,PD;DS;CP;Stroke,b2-9,none,none,,none
+927,nonshared,Set the air conditioning to 78.,PD;DS;CP;Stroke,b2-9,none,none,,none
+928,nonshared,Set the heat to 62.,PD;DS;CP;Stroke,b2-9,none,none,,none
+929,nonshared,Set the heat to 66.,PD;DS;CP;Stroke,b2-9,none,none,,none
+930,nonshared,Set the heat to 68.,PD;DS;CP;Stroke,b2-9,none,none,,none
+931,nonshared,Set the heat to 70.,PD;DS;CP;Stroke,b2-9,none,none,,none
+932,nonshared,Set the heat to 72.,PD;DS;CP;Stroke,b2-9,none,none,,none
+933,nonshared,Turn down the temperature 1 degree.,PD;DS;CP;Stroke,b2-9,none,none,,none
+934,nonshared,Turn down the temperature 2 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+935,nonshared,Turn down the temperature 3 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+936,nonshared,Turn down the temperature 4 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+937,nonshared,Turn down the temperature 5 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+938,nonshared,Turn off the basement light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=basement;device_type=light,partial
+939,nonshared,Turn off the closet light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=closet;device_type=light,partial
+940,nonshared,Turn off the den light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=den;device_type=light,partial
+941,nonshared,Turn off the dining room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=dining room;device_type=light,partial
+942,nonshared,Turn off the family room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=family room;device_type=light,partial
+943,nonshared,Turn off the lights in the den.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=den;device_type=lights,partial
+944,nonshared,Turn off the lights in the dining room.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=dining room;device_type=lights,partial
+945,nonshared,Turn off the lights in the family room.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=family room;device_type=lights,partial
+946,nonshared,Turn off the lights in the guestroom.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=guestroom;device_type=lights,partial
+947,nonshared,Turn off the lights in the hall closet.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=hall closet;device_type=lights,partial
+948,nonshared,Turn off the lights in the kids' room.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=kids' room;device_type=lights,partial
+949,nonshared,Turn off the lights in the kitchen.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=kitchen;device_type=lights,partial
+950,nonshared,Turn off the lights in the living room.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=living room;device_type=lights,partial
+951,nonshared,Turn off the living room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=living room;device_type=light,partial
+952,nonshared,Turn off the office light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=office;device_type=light,partial
+953,nonshared,Turn off the porch light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lightoff,house_place=porch;device_type=light,partial
+954,nonshared,Turn on the basement light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=basement;device_type=light,partial
+955,nonshared,Turn on the closet light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=closet;device_type=light,partial
+956,nonshared,Turn on the den light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=den;device_type=light,partial
+957,nonshared,Turn on the dining room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=dining room;device_type=light,partial
+958,nonshared,Turn on the family room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=family room;device_type=light,partial
+959,nonshared,Turn on the kitchen light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=kitchen;device_type=light,partial
+960,nonshared,Turn on the living room light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=living room;device_type=light,partial
+961,nonshared,Turn on the porch light.,PD;DS;CP;Stroke,b2-9,iot,iot_hue_lighton,house_place=porch;device_type=light,partial
+962,nonshared,Turn up the temperature 1 degree.,PD;DS;CP;Stroke,b2-9,none,none,,none
+963,nonshared,Turn up the temperature 2 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+964,nonshared,Turn up the temperature 3 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+965,nonshared,Turn up the temperature 4 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+966,nonshared,Turn up the temperature 5 degrees.,PD;DS;CP;Stroke,b2-9,none,none,,none
+967,nonshared,"Add 3 pairs of socks, pears, apples, and carrots to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+968,nonshared,"Add a 1,500 piece jigsaw puzzle for Janella to my gift list.",PD,b2-9,lists,lists_createoradd,list_name=gift list,exact
+969,nonshared,Add a compact air fryer for Sara to my gift list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+970,nonshared,Add a fidget toy for Gary to my gift list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+972,nonshared,Add a fidget toy pen for Gowri to my gift list.,PD,b2-9,lists,lists_createoradd,list_name=gift list,exact
+973,nonshared,Add a hair dryer brush for Nessa to my gift list.,PD,b2-9,lists,lists_createoradd,list_name=gift list,exact
+974,nonshared,Add a hair dryer brush for Vanessa to my gift list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+975,nonshared,Add a mini pocket projector for Kanti to my gift list.,PD,b2-9,lists,lists_createoradd,list_name=gift list,exact
+976,nonshared,Add a pocket projector for Katie to my gift list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+977,nonshared,Add a puzzle for Tom to my gift list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+978,nonshared,Add a t-shirt for Joe to my gift list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+979,nonshared,Add a weighted blanket for Abigail to my gift list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+980,nonshared,Add eye drops and triple A batteries to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+981,nonshared,"Add frozen strawberries, blueberries, a case of paper towels, and cereal to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+982,nonshared,Add gold hoop earrings for mom to my gift list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+983,nonshared,Add ingredients for chili to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+984,nonshared,"Add ingredients for chili, pizza dough, shredded mozzarella, and heel balm to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+985,nonshared,Add laundry detergent and toothpaste to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+986,nonshared,"Add laundry detergent, toothpaste, aluminum foil, and cranberry juice to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+987,nonshared,Add meat and vegetables for grilling to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+988,nonshared,"Add meat for grilling, pre-cut vegetables, teriyaki sauce, and bamboo skewers to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+989,nonshared,Add non-fat greek yogurt and pecan to shopping list.,DS;CP,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+990,nonshared,Add non-fat Greek yogurt and pecans to shopping list.,Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+991,nonshared,Add paper towels and cereal to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+992,nonshared,Add pears and carrots to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+993,nonshared,Add rechargeable hand warmers for Robert to my gift list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=gift list,exact
+994,nonshared,Add spagehtti and bananas to shopping list.,DS;CP,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+995,nonshared,Add spaghetti and bananas to shopping list.,Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+996,nonshared,"Add spaghetti, frozen cauliflower, bananas, and 3 jars of salsa to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+997,nonshared,Add sugar and flour to shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+998,nonshared,"Add sugar, flour, flower seeds, and fertilizer to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+999,nonshared,"Add vanilla mousse, mussels, non-fat Greek yogurt, and triple A batteries to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1000,nonshared,"Add whole pecans, eye drops, leeks, and 2 cartons of half-and-half to the shopping list.",PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1001,nonshared,"Benny Seef, Friday at 6:30",DS;CP;Stroke,b2-9,calendar,calendar_set,person=Benny Seef;date=Friday;time=6:30,partial
+1002,nonshared,Cancel alarm for 10.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=10,exact
+1003,nonshared,Cancel alarm for 11.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=11,exact
+1004,nonshared,Cancel alarm for 4:30.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=4:30,exact
+1005,nonshared,Cancel alarm for 5:15.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=5:15,exact
+1006,nonshared,Cancel alarm for 6:00 PM.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=6:00 PM,exact
+1007,nonshared,Cancel alarm for 7:30.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=7:30,exact
+1008,nonshared,Cancel alarm for 8.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=8,exact
+1009,nonshared,Cancel alarm for 9 PM.,PD;DS;CP;Stroke,b2-9,alarm,alarm_remove,time=9 PM,exact
+1010,nonshared,Cancel alarm for noon.,CP;DS;PD;Stroke,b2-9,alarm,alarm_remove,time=noon,exact
+1013,nonshared,Cancel my meeting with Jim Thomas.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Jim Thomas,exact
+1014,nonshared,"Cancel my meeting with Jiro Thomas at 9 PM, Saturday.",PD,b2-9,calendar,calendar_remove,person=Jiro Thomas;time=9 PM;date=Saturday,exact
+1015,nonshared,Cancel my meeting with Kelley Jenkins.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Kelley Jenkins,exact
+1016,nonshared,"Cancel my meeting with Kiley Jokin at 9 AM on July 14th, 2023.",PD,b2-9,calendar,calendar_remove,"person=Kiley Jokin;time=9 AM;date=July 14th, 2023",exact
+1018,nonshared,"Cancel my meeting with Nelida Ausra on Monday morning, September first.",PD,b2-9,calendar,calendar_remove,"person=Nelida Ausra;date=Monday morning, September first",exact
+1019,nonshared,Cancel my meeting with Nelly Ash.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Nelly Ash,exact
+1020,nonshared,Cancel my meeting with Nova Rawda at 12:30.,PD,b2-9,calendar,calendar_remove,person=Nova Rawda;time=12:30,exact
+1021,nonshared,Cancel my meeting with Nova Ray.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Nova Ray,exact
+1022,nonshared,"Cancel my meeting with Sanjiv Lynne at 2:30 PM, Tuesday the 9th.",PD,b2-9,calendar,calendar_remove,person=Sanjiv Lynne;time=2:30 PM;date=Tuesday the 9th,exact
+1023,nonshared,"Cancel my meeting with Sib and Gertrud at 9:30 AM, Sunday.",PD,b2-9,calendar,calendar_remove,person=Sib and Gertrud;time=9:30 AM;date=Sunday,exact
+1024,nonshared,Cancel my meeting with Sib and Gil.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Sib and Gil,exact
+1025,nonshared,Cancel my meeting with Sonya Lee.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Sonya Lee,exact
+1026,nonshared,"Cancel my meeting with Soren Ignaz at 8:15 AM, Thursday the 30th.",PD,b2-9,calendar,calendar_remove,person=Soren Ignaz;time=8:15 AM;date=Thursday the 30th,exact
+1027,nonshared,Cancel my meeting with Sunny Inaz.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Sunny Inaz,exact
+1028,nonshared,Cancel my meeting with Val Sylvia.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Val Sylvia,exact
+1029,nonshared,"Cancel my meeting with Valli Sylvia at 1:15, 8/15/2023.",PD,b2-9,calendar,calendar_remove,person=Valli Sylvia;time=1:15;date=8/15/2023,exact
+1030,nonshared,Cancel my meeting with Vincent & Lin.,DS;CP;Stroke,b2-9,calendar,calendar_remove,person=Vincent & Lin,exact
+1031,nonshared,"Cancel my meeting with Vincente & Lin at 1:45 PM, Tuesday.",PD,b2-9,calendar,calendar_remove,person=Vincente & Lin;time=1:45 PM;date=Tuesday,exact
+1032,nonshared,"Cathy Izzo, Monday at 8:30.",DS;CP;Stroke,b2-9,calendar,calendar_set,person=Cathy Izzo;date=Monday;time=8:30,partial
+1033,nonshared,"Chanelle Key, Friday at noon.",DS;CP;Stroke,b2-9,calendar,calendar_set,person=Chanelle Key;date=Friday;time=noon,partial
+1034,nonshared,Create a Costco shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1035,nonshared,Create a Dollar General shopping list.,DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1036,nonshared,Create a grocery shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=grocery shopping list,exact
+1037,nonshared,Create a Kroger shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1038,nonshared,Create a Meijer shopping list.,PD,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1039,nonshared,Create a Sam's Club shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1040,nonshared,Create a Target shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1041,nonshared,Create a Walmart shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1042,nonshared,Create a Whole Foods shopping list.,PD;DS;CP;Stroke,b2-9,lists,lists_createoradd,list_name=shopping list,exact
+1043,nonshared,"Demetri Lin, Friday at 9AM.",DS;CP;Stroke,b2-9,calendar,calendar_set,person=Demetri Lin;date=Friday;time=9AM,partial
+1044,nonshared,Do I have anything scheduled for Friday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Friday,exact
+1045,nonshared,Do I have anything scheduled for Monday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Monday,exact
+1046,nonshared,Do I have anything scheduled for Saturday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Saturday,exact
+1047,nonshared,Do I have anything scheduled for Sunday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Sunday,exact
+1048,nonshared,Do I have anything scheduled for Thursday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Thursday,exact
+1049,nonshared,Do I have anything scheduled for today?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=today,exact
+1050,nonshared,Do I have anything scheduled for Tuesday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Tuesday,exact
+1051,nonshared,Do I have anything scheduled for Wednesday?,PD;DS;CP;Stroke,b2-9,calendar,calendar_query,date=Wednesday,exact
+1052,nonshared,Find a soup recipie.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=soup,exact
+1055,nonshared,"Find me a Bon Appetit recipe with cilantro, parsley, chicken, and fresh garlic.",PD,b2-9,cooking,cooking_recipe,ingredient=cilantro;ingredient=parsley;ingredient=chicken;ingredient=fresh garlic,exact
+1057,nonshared,"Find me a chicken and dumplings recipe with onions, carrots, turnips, and potatoes.",PD,b2-9,cooking,cooking_recipe,food_type=chicken and dumplings;ingredient=onions;ingredient=carrots;ingredient=turnips;ingredient=potatoes,exact
+1058,nonshared,Find me a chicken and dumplings recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=chicken and dumplings,exact
+1059,nonshared,"Find me a Cook's Illustrated recipe with sriracha, noodles, and cabbage.",PD,b2-9,cooking,cooking_recipe,ingredient=sriracha;ingredient=noodles;ingredient=cabbage,exact
+1060,nonshared,Find me a drink recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,drink_type=drink,partial
+1061,nonshared,Find me a drink recipie.,DS;CP,b2-9,cooking,cooking_recipe,drink_type=drink,partial
+1062,nonshared,"Find me a gluten-free pancake recipe with buttermilk, coconut, and cinnamon.",PD,b2-9,cooking,cooking_recipe,food_type=pancake;ingredient=buttermilk;ingredient=coconut;ingredient=cinnamon,exact
+1063,nonshared,Find me a gluten-free pancake recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=pancake,exact
+1064,nonshared,Find me a gluten-free pancake recipie.,DS;CP,b2-9,cooking,cooking_recipe,food_type=pancake,exact
+1065,nonshared,Find me a holiday cocktail recipe with cranberry juice and gin.,PD,b2-9,cooking,cooking_recipe,drink_type=cocktail;ingredient=cranberry juice;ingredient=gin,exact
+1066,nonshared,Find me a homemade yogurt recipe with 2% milk.,PD,b2-9,cooking,cooking_recipe,food_type=yogurt;ingredient=2% milk,exact
+1067,nonshared,Find me a homemade yogurt recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=yogurt,exact
+1068,nonshared,Find me a pasta recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=pasta,exact
+1069,nonshared,Find me a rice recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=rice,exact
+1070,nonshared,"Find me a smoothie recipe with pineapple, blueberries, bananas, and orange juice.",PD,b2-9,cooking,cooking_recipe,drink_type=smoothie;ingredient=pineapple;ingredient=blueberries;ingredient=bananas;ingredient=orange juice,exact
+1071,nonshared,Find me a smoothie recipie.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,drink_type=smoothie,exact
+1072,nonshared,"Find me a soup recipe with canned tomatoes, leftover rice, and celery.",PD,b2-9,cooking,cooking_recipe,food_type=soup;ingredient=canned tomatoes;ingredient=leftover rice;ingredient=celery,exact
+1073,nonshared,Find me a soup recipe.,CP;DS;Stroke,b2-9,cooking,cooking_recipe,food_type=soup,exact
+1074,nonshared,"Find me a vegetarian stew recipe with smoked paprika, fresh garlic, and lentils.",PD,b2-9,cooking,cooking_recipe,food_type=stew;ingredient=smoked paprika;ingredient=fresh garlic;ingredient=lentils,exact
+1075,nonshared,Find me a vegetarian stew recipe.,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=stew,exact
+1076,nonshared,Find me a vegetarian stew recipie.,DS;CP,b2-9,cooking,cooking_recipe,food_type=stew,exact
+1077,nonshared,Fred Peters at 11:30 Thursday.,DS;CP;Stroke,b2-9,calendar,calendar_set,person=Fred Peters;time=11:30;date=Thursday,partial
+1078,nonshared,"Ginny Daniel at 7PM, Saturday.",DS;CP;Stroke,b2-9,calendar,calendar_set,person=Ginny Daniel;time=7PM;date=Saturday,partial
+1079,nonshared,How do I make a 13 pound turkey?,PD;DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=turkey,partial
+1080,nonshared,How do I make a 3 course dinner for 24 people?,PD;DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=3 course dinner,partial
+1081,nonshared,How do I make a crocheted scarf?,PD,b2-9,none,none,,none
+1082,nonshared,How do I make a paper swan?,DS;CP;Stroke,b2-9,none,none,,none
+1083,nonshared,How do I make a tie-dyed sweatshirt?,PD;DS;CP;Stroke,b2-9,none,none,,none
+1084,nonshared,How do I make a Tiktok video?,DS;CP;Stroke,b2-9,none,none,,none
+1085,nonshared,How do I make an origami swan?,PD,b2-9,none,none,,none
+1086,nonshared,How do I make brisket on the smoker?,PD,b2-9,cooking,cooking_recipe,food_type=brisket;cooking_type=smoker,partial
+1087,nonshared,How do I make brisket?,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=brisket,exact
+1088,nonshared,How do I make chicken soup?,PD;DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=chicken soup,exact
+1089,nonshared,How do I make chocolate pudding?,DS;CP;Stroke,b2-9,cooking,cooking_recipe,food_type=chocolate pudding,exact
+1090,nonshared,How do I make chocolate souffle?,PD,b2-9,cooking,cooking_recipe,food_type=chocolate souffle,exact
+1091,nonshared,I parked on level 1.,PD,b2-9,none,none,,none
+1092,nonshared,I parked on level 2.,PD,b2-9,none,none,,none
+1093,nonshared,I parked on level 3.,PD,b2-9,none,none,,none
+1094,nonshared,I parked on level 4.,PD,b2-9,none,none,,none
+1095,nonshared,I parked on level 5.,PD,b2-9,none,none,,none
+1096,nonshared,Irene at 4:15 Tuesday.,DS;CP;Stroke,b2-9,calendar,calendar_set,person=Irene;time=4:15;date=Tuesday,partial
+1097,nonshared,My parking space is blue.,PD,b2-9,none,none,,none
+1098,nonshared,My parking space is green.,PD,b2-9,none,none,,none
+1099,nonshared,My parking space is orange.,PD,b2-9,none,none,,none
+1100,nonshared,My parking space is purple.,PD,b2-9,none,none,,none
+1101,nonshared,My parking space is red.,PD,b2-9,none,none,,none
+1102,nonshared,Our parking space is blue.,DS;CP;Stroke,b2-9,none,none,,none
+1103,nonshared,Our parking space is green.,DS;CP;Stroke,b2-9,none,none,,none
+1104,nonshared,Our parking space is orange.,DS;CP;Stroke,b2-9,none,none,,none
+1105,nonshared,Our parking space is purple.,DS;CP;Stroke,b2-9,none,none,,none
+1106,nonshared,Our parking space is red.,DS;CP;Stroke,b2-9,none,none,,none
+1107,nonshared,Remember that I left my wallet and car keys on the counter.,PD,b2-9,calendar,calendar_set,,partial
+1108,nonshared,Remember that I left my wallet and keys on the counter.,DS;CP;Stroke,b2-9,calendar,calendar_set,,partial
+1110,nonshared,Remember that I need to charge my AirPods.,CP;DS;Stroke,b2-9,calendar,calendar_set,,partial
+1111,nonshared,Remember that I need to fuel the car before we head north.,PD,b2-9,calendar,calendar_set,,partial
+1112,nonshared,Remember that I need to refill my prescription.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,,partial
+1113,nonshared,Remember that I put my passport in the filing cabinet.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,,partial
+1114,nonshared,Remember that it's Angelo's birthday tomorrow.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,person=Angelo;date=tomorrow,partial
+1115,nonshared,Remember that Max needs his heartworm medication.,DS;CP;Stroke,b2-9,calendar,calendar_set,person=Max,partial
+1116,nonshared,Remember that my PIN is 9374.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,personal_info=9374,partial
+1117,nonshared,Remember that Oliver needs his heartworm medication refilled.,PD,b2-9,calendar,calendar_set,person=Oliver,partial
+1118,nonshared,Remember that we're out of batteries.,DS;CP;Stroke,b2-9,calendar,calendar_set,,partial
+1119,nonshared,Remember that we're out of stamps.,PD,b2-9,calendar,calendar_set,,partial
+1120,nonshared,Remind me to take a break in 15 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=take a break;time=15 minutes,partial
+1121,nonshared,Remind me to take a break in 25 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=take a break;time=25 minutes,partial
+1122,nonshared,Remind me to take a break in 30 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=take a break;time=30 minutes,partial
+1123,nonshared,Remind me to take a break in 45 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=take a break;time=45 minutes,partial
+1124,nonshared,Remind me to take a break in 50 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=take a break;time=50 minutes,partial
+1125,nonshared,"Reschedule my meeting with Barrett Sipho at 6:30 PM, April 4th, 2023.",PD,b2-9,calendar,calendar_set,"person=Barrett Sipho;time=6:30 PM;date=April 4th, 2023",partial
+1126,nonshared,"Reschedule my meeting with Catherine Isabella at 8:30 AM, Monday.",PD,b2-9,calendar,calendar_set,person=Catherine Isabella;time=8:30 AM;date=Monday,partial
+1127,nonshared,"Reschedule my meeting with Chanelle Kellen at noon, May 1st, Friday.",PD,b2-9,calendar,calendar_set,"person=Chanelle Kellen;time=noon;date=May 1st, Friday",partial
+1128,nonshared,"Reschedule my meeting with Demetri Lucien at 9, Friday.",PD,b2-9,calendar,calendar_set,person=Demetri Lucien;time=9;date=Friday,partial
+1129,nonshared,"Reschedule my meeting with Fred Placid at 11:30, September 18th.",PD,b2-9,calendar,calendar_set,person=Fred Placid;time=11:30;date=September 18th,partial
+1130,nonshared,"Reschedule my meeting with Irene Anand at 4:15, Tuesday.",PD,b2-9,calendar,calendar_set,person=Irene Anand;time=4:15;date=Tuesday,partial
+1131,nonshared,"Reschedule my meeting with Valeria Berengere at 11 O'clock, Sunday.",PD,b2-9,calendar,calendar_set,person=Valeria Berengere;time=11 O'clock;date=Sunday,partial
+1132,nonshared,"Reschedule my meeting with Virginia Daniel at 7, Saturday.",PD,b2-9,calendar,calendar_set,person=Virginia Daniel;time=7;date=Saturday,partial
+1133,nonshared,Schedule a refill for my amantadine prescription.,PD,b2-9,none,none,,none
+1134,nonshared,Schedule a refill for my clonazepam prescription.,PD,b2-9,none,none,,none
+1135,nonshared,Schedule a refill for my furosemide prescription.,PD,b2-9,none,none,,none
+1136,nonshared,Schedule a refill for my levathroxine prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1138,nonshared,Schedule a refill for my levodopa prescription.,PD,b2-9,none,none,,none
+1139,nonshared,Schedule a refill for my levoxyl prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1141,nonshared,Schedule a refill for my lexapro prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1143,nonshared,Schedule a refill for my loratadine prescription.,PD,b2-9,none,none,,none
+1144,nonshared,Schedule a refill for my multivitamin prescription.,DS;CP;Stroke,b2-9,none,none,,none
+1145,nonshared,Schedule a refill for my nasonex prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1147,nonshared,Schedule a refill for my omeprazole prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1149,nonshared,Schedule a refill for my pantoprazole prescription.,PD,b2-9,none,none,,none
+1150,nonshared,Schedule a refill for my pravastatin prescription.,PD,b2-9,none,none,,none
+1151,nonshared,Schedule a refill for my Prilosec prescription.,DS;CP;Stroke,b2-9,none,none,,none
+1152,nonshared,Schedule a refill for my prozac prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1154,nonshared,Schedule a refill for my pulmacort prescription.,CP;DS;Stroke,b2-9,none,none,,none
+1156,nonshared,Schedule a refill for my tramadol prescription.,PD,b2-9,none,none,,none
+1157,nonshared,Schedule a refill for my zolpidem prescription.,PD,b2-9,none,none,,none
+1158,nonshared,Set a reminder for Kerstin's recital.,PD,b2-9,calendar,calendar_set,event_name=Kerstin's recital,partial
+1159,nonshared,Set a reminder for Kristin's recital.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=Kristin's recital,partial
+1160,nonshared,Set a reminder for Molly's vet appointment.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=Molly's vet appointment,partial
+1161,nonshared,Set a reminder for my dentist appointment.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=dentist appointment,partial
+1162,nonshared,Set a reminder for my wedding anniversary.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=wedding anniversary,partial
+1163,nonshared,Set a reminder for our dinner reservation on Friday.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=dinner reservation;date=Friday,partial
+1164,nonshared,Set a reminder for Shak's holiday party.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=Shak's holiday party,partial
+1165,nonshared,Set a reminder for Shakir's holiday party.,PD,b2-9,calendar,calendar_set,event_name=Shakir's holiday party,partial
+1166,nonshared,Set a reminder for the day spring training starts.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=spring training,partial
+1167,nonshared,Set a reminder for the next partial lunar eclipse.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=partial lunar eclipse,partial
+1168,nonshared,Set a reminder for the twins' birthday party.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=twins' birthday party,partial
+1169,nonshared,Set a timer for 1 hour minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=1 hour,partial
+1170,nonshared,Set a timer for 10 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=10 minutes,exact
+1171,nonshared,Set a timer for 15 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=15 minutes,exact
+1172,nonshared,Set a timer for 40 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=40 minutes,exact
+1173,nonshared,Set a timer for 45 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=45 minutes,exact
+1174,nonshared,Set a timer for 5 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=5 minutes,exact
+1175,nonshared,Set a timer for 60 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=60 minutes,exact
+1176,nonshared,Set a timer for 90 minutes.,PD;DS;CP;Stroke,b2-9,calendar,calendar_set,time=90 minutes,exact
+1177,nonshared,Set a timer for baked chicken for 2 and a half hours.,PD,b2-9,calendar,calendar_set,event_name=baked chicken;time=2 and a half hours,partial
+1178,nonshared,Set a timer for bread for 50 minutes.,PD,b2-9,calendar,calendar_set,event_name=bread;time=50 minutes,partial
+1179,nonshared,Set a timer for chili for one hour.,PD,b2-9,calendar,calendar_set,event_name=chili;time=one hour,partial
+1180,nonshared,Set a timer for chocolate chip and walnut cookies for 12 minutes.,PD,b2-9,calendar,calendar_set,event_name=chocolate chip and walnut cookies;time=12 minutes,partial
+1181,nonshared,Set a timer for COVID-19 test for 15 minutes.,PD,b2-9,calendar,calendar_set,event_name=COVID-19 test;time=15 minutes,partial
+1182,nonshared,Set a timer for Marina's timeout for 10 minutes.,PD,b2-9,calendar,calendar_set,event_name=Marina's timeout;time=10 minutes,partial
+1183,nonshared,Set a timer for osteoporosis pill for 60 minutes.,PD,b2-9,calendar,calendar_set,event_name=osteoporosis pill;time=60 minutes,partial
+1184,nonshared,Set a timer for yogurt maker for 24 hours.,PD,b2-9,calendar,calendar_set,event_name=yogurt maker;time=24 hours,partial
+1185,nonshared,Set an alarm for 11:45 AM.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=11:45 AM,exact
+1186,nonshared,Set an alarm for 3:45 PM on Thursday and Friday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=3:45 PM;date=Thursday and Friday,exact
+1187,nonshared,Set an alarm for 5:30 AM on Thursday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=5:30 AM;date=Thursday,exact
+1188,nonshared,Set an alarm for 6:30 PM Daily.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6:30 PM;date=Daily,exact
+1189,nonshared,Set an alarm for 7 AM on Thanksgiving.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=7 AM;date=Thanksgiving,exact
+1190,nonshared,Set an alarm for 7:00 AM.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=7:00 AM,exact
+1191,nonshared,Set an alarm for every Sunday at 8 PM.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=8 PM;date=every Sunday,exact
+1192,nonshared,Set an alarm for quarter to 10 AM.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=quarter to 10 AM,exact
+1193,nonshared,Set an alarm in 10 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=10 minutes,exact
+1194,nonshared,Set an alarm in 15 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=15 minutes,exact
+1195,nonshared,Set an alarm in 20 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=20 minutes,exact
+1196,nonshared,Set an alarm in 30 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=30 minutes,exact
+1197,nonshared,Set an alarm in 40 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=40 minutes,exact
+1198,nonshared,Set an alarm in 45 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=45 minutes,exact
+1199,nonshared,Set an alarm in 5 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=5 minutes,exact
+1200,nonshared,Set an alarm in 60 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=60 minutes,exact
+1201,nonshared,Set an alarm in 90 minutes.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=90 minutes,exact
+1202,nonshared,Timer for bread.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=bread,partial
+1203,nonshared,Timer for chicken.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=chicken,partial
+1204,nonshared,Timer for chili.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=chili,partial
+1205,nonshared,Timer for cookies.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=cookies,partial
+1206,nonshared,Timer for covid test.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=covid test,partial
+1207,nonshared,Timer for diabetes pill.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=diabetes pill,partial
+1208,nonshared,Timer for meditation.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=meditation,partial
+1209,nonshared,Timer for yogurt maker.,DS;CP;Stroke,b2-9,calendar,calendar_set,event_name=yogurt maker,partial
+1210,nonshared,Val Berger at 11 o'clock.,DS;CP;Stroke,b2-9,calendar,calendar_set,person=Val Berger;time=11 o'clock,partial
+1211,nonshared,Wake me up at 2:45 PM Saturday and Sunday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=2:45 PM;date=Saturday and Sunday,partial
+1212,nonshared,Wake me up at 5:15 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=5:15 AM;date=every day,exact
+1213,nonshared,Wake me up at 5:30 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=5:30 AM;date=every day,exact
+1214,nonshared,Wake me up at 6 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6 AM;date=every day,exact
+1215,nonshared,Wake me up at 6:00 AM Monday through Friday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6:00 AM;date=Monday through Friday,exact
+1216,nonshared,Wake me up at 6:15 PM Friday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6:15 PM;date=Friday,exact
+1217,nonshared,Wake me up at 6:30 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6:30 AM;date=every day,exact
+1218,nonshared,Wake me up at 6:30 AM Tuesday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6:30 AM;date=Tuesday,exact
+1219,nonshared,Wake me up at 6:45 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=6:45 AM;date=every day,exact
+1220,nonshared,Wake me up at 7 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=7 AM;date=every day,exact
+1221,nonshared,Wake me up at 7 AM Monday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=7 AM;date=Monday,exact
+1222,nonshared,Wake me up at 7:15 AM Sunday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=7:15 AM;date=Sunday,exact
+1223,nonshared,Wake me up at 8 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=8 AM;date=every day,exact
+1224,nonshared,Wake me up at 8 AM Wednesday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=8 AM;date=Wednesday,exact
+1225,nonshared,Wake me up at 8:20 AM every day.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=8:20 AM;date=every day,exact
+1226,nonshared,Wake me up at 9 o'clock Thursday.,PD;DS;CP;Stroke,b2-9,alarm,alarm_set,time=9 o'clock;date=Thursday,exact
+1227,nonshared,We parked on level 1.,DS;CP;Stroke,b2-9,none,none,,none
+1228,nonshared,We parked on level 2.,DS;CP;Stroke,b2-9,none,none,,none
+1229,nonshared,We parked on level 3.,DS;CP;Stroke,b2-9,none,none,,none
+1230,nonshared,We parked on level 4.,DS;CP;Stroke,b2-9,none,none,,none
+1231,nonshared,We parked on level 5.,DS;CP;Stroke,b2-9,none,none,,none
+1232,nonshared,What time is it in Alaska?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=Alaska,partial
+1233,nonshared,"What time is it in Boulder City, Nevada?",PD,b2-9,datetime,datetime_query,"place_name=Boulder City, Nevada",partial
+1234,nonshared,"What time is it in Bridgeport, California?",PD,b2-9,datetime,datetime_query,"place_name=Bridgeport, California",partial
+1235,nonshared,What time is it in California?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=California,partial
+1236,nonshared,"What time is it in Emmaus, Pennsylvania?",PD,b2-9,datetime,datetime_query,"place_name=Emmaus, Pennsylvania",partial
+1237,nonshared,"What time is it in Fairbanks, Alaska?",PD,b2-9,datetime,datetime_query,"place_name=Fairbanks, Alaska",partial
+1238,nonshared,What time is it in Japan?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=Japan,partial
+1239,nonshared,"What time is it in Kittery, Maine?",PD,b2-9,datetime,datetime_query,"place_name=Kittery, Maine",partial
+1240,nonshared,What time is it in Maine?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=Maine,partial
+1241,nonshared,"What time is it in Manhattan, New York City?",PD,b2-9,datetime,datetime_query,"place_name=Manhattan, New York City",partial
+1242,nonshared,"What time is it in Musk, Australia?",PD;DS;CP;Stroke,b2-9,datetime,datetime_query,"place_name=Musk, Australia",partial
+1243,nonshared,What time is it in Nevada?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=Nevada,partial
+1244,nonshared,What time is it in New York City?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=New York City,partial
+1245,nonshared,What time is it in Pennsylvania?,DS;CP;Stroke,b2-9,datetime,datetime_query,place_name=Pennsylvania,partial
+1246,nonshared,"What time is it in Toyko, Japan?",PD,b2-9,datetime,datetime_query,"place_name=Toyko, Japan",partial
+1247,nonshared,Book a table for 2 at 3 Arts Club Café at RH Chicago.,PD,b2-9,none,none,,none
+1248,nonshared,Book a table for 2 at Campiello.,PD,b2-9,none,none,,none
+1249,nonshared,Book a table for 2 at Chili's.,DS;CP;Stroke,b2-9,none,none,,none
+1250,nonshared,Book a table for 2 at the Arts Club Café.,DS;CP;Stroke,b2-9,none,none,,none
+1251,nonshared,Book a table for 3 at Atlantic Fish.,PD;DS;CP;Stroke,b2-9,none,none,,none
+1252,nonshared,Book a table for 4 at Al Biernat's Oak Lawn.,PD,b2-9,none,none,,none
+1253,nonshared,Book a table for 4 at Al's Pizza Chicago.,DS;CP;Stroke,b2-9,none,none,,none
+1254,nonshared,Book a table for 5 at Dry Dock Grill.,DS;CP;Stroke,b2-9,none,none,,none
+1255,nonshared,Book a table for 5 at Dry Dock Waterfront Grill.,PD,b2-9,none,none,,none
+1256,nonshared,Book a table for 6 at Bacari Silverlake.,PD,b2-9,none,none,,none
+1257,nonshared,Book a table for 6 at Baldamar.,PD,b2-9,none,none,,none
+1258,nonshared,Book a table for 6 at Belle Vista.,DS;CP;Stroke,b2-9,none,none,,none
+1259,nonshared,Book a table for 6 at Silverlake.,DS;CP;Stroke,b2-9,none,none,,none
+1260,nonshared,Book a table for 8 at Coastal Fish Company.,PD;DS;CP;Stroke,b2-9,none,none,,none
+1261,nonshared,"Book me a room at Best Western in Rocky Ridge, Maryland on July 13th and 14th.",PD,b2-9,none,none,,none
+1262,nonshared,"Book me a room at Holiday Inn Express in Hanover, Pennsylvania on August 5th and 6th.",PD,b2-9,none,none,,none
+1263,nonshared,"Book me a room at Crowe Plaza Hotel in Grand Junction, Colorado on June 9th through June 19th.",PD,b2-9,none,none,,none
+1264,nonshared,"Book me a room at Embassy Suites in Lorton, Virginia on February 1st and 2nd.",PD,b2-9,none,none,,none
+1265,nonshared,Book me a room at Fairfield Inn & Suites in New Mexico on March 21st through 27th.,PD,b2-9,none,none,,none
+1266,nonshared,"Book me a room at Hampton Inn in Aztec, New Mexico on September 22nd through 25th.",PD,b2-9,none,none,,none
+1267,nonshared,"Book me a room at Hilton Garden Inn in Cedar Rapids, Iowa on April 30th through May 2nd.",PD,b2-9,none,none,,none
+1268,nonshared,"Book me a room at Marriott in Cincinnati, Ohio on January 18th through 23rd.",PD,b2-9,none,none,,none
+1269,nonshared,"Find me flights to Barcelona, Spain.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Barcelona, Spain",partial
+1270,nonshared,Find me flights to Boston Logan.,PD,b2-9,transport,transport_ticket,transport_type=flights;place_name=Boston Logan,partial
+1271,nonshared,"Find me flights to Detroit, Michigan.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Detroit, Michigan",partial
+1272,nonshared,"Find me flights to Kansas City, Kansas.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Kansas City, Kansas",partial
+1273,nonshared,"Find me flights to Kathmandu, Nepal.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Kathmandu, Nepal",partial
+1274,nonshared,"Find me flights to Munich, Germany.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Munich, Germany",partial
+1275,nonshared,"Find me flights to Newport News, Virginia.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Newport News, Virginia",partial
+1276,nonshared,Find me flights to San Francisco.,PD,b2-9,transport,transport_ticket,transport_type=flights;place_name=San Francisco,partial
+1277,nonshared,"Find me flights to Tampa, Florida.",PD,b2-9,transport,transport_ticket,"transport_type=flights;place_name=Tampa, Florida",partial
+1278,nonshared,Find me things to do in Berlin.,DS;CP;Stroke,b2-9,recommendation,recommendation_events,place_name=Berlin,partial
+1279,nonshared,Find me things to do in Boston.,DS;CP;Stroke,b2-9,recommendation,recommendation_events,place_name=Boston,partial
+1280,nonshared,"Find me things to do in Detroit, Michigan.",DS;CP;Stroke,b2-9,recommendation,recommendation_events,"place_name=Detroit, Michigan",partial
+1281,nonshared,"Find me things to do in Kansas City, Kansas.",DS;CP;Stroke,b2-9,recommendation,recommendation_events,"place_name=Kansas City, Kansas",partial
+1282,nonshared,"Find me things to do in Madrid, Spain.",DS;CP;Stroke,b2-9,recommendation,recommendation_events,"place_name=Madrid, Spain",partial
+1283,nonshared,Find me things to do in Nepal.,DS;CP;Stroke,b2-9,recommendation,recommendation_events,place_name=Nepal,partial
+1284,nonshared,"Find me things to do in Newport News, Virginia.",DS;CP;Stroke,b2-9,recommendation,recommendation_events,"place_name=Newport News, Virginia",partial
+1285,nonshared,Find me things to do in San Francisco.,DS;CP;Stroke,b2-9,recommendation,recommendation_events,place_name=San Francisco,partial
+1286,nonshared,"Find me things to do in Tampa, Florida.",DS;CP;Stroke,b2-9,recommendation,recommendation_events,"place_name=Tampa, Florida",partial
+1287,nonshared,"Find non-stop flights to Dublin, Ireland on Air Canada.",PD,b2-9,transport,transport_ticket,"transport_type=non-stop flights;place_name=Dublin, Ireland;transport_name=Air Canada",partial
+1288,nonshared,Find non-stop flights to Estonia on Lufthansa.,PD,b2-9,transport,transport_ticket,transport_type=non-stop flights;place_name=Estonia;transport_name=Lufthansa,partial
+1289,nonshared,"Find non-stop flights to Lisbon, Portugal on TAP.",PD,b2-9,transport,transport_ticket,"transport_type=non-stop flights;place_name=Lisbon, Portugal;transport_name=TAP",partial
+1290,nonshared,"Find non-stop flights to Melbourne, Australia on Qantas.",PD,b2-9,transport,transport_ticket,"transport_type=non-stop flights;place_name=Melbourne, Australia;transport_name=Qantas",partial
+1291,nonshared,"Find non-stop flights to Memphis, Tennessee on Southwest Airlines.",PD,b2-9,transport,transport_ticket,"transport_type=non-stop flights;place_name=Memphis, Tennessee;transport_name=Southwest Airlines",partial
+1292,nonshared,Find non-stop flights to New York on American Airlines.,PD,b2-9,transport,transport_ticket,transport_type=non-stop flights;place_name=New York;transport_name=American Airlines,partial
+1293,nonshared,"Find non-stop flights to New York, New York on Jet Blue.",PD,b2-9,transport,transport_ticket,"transport_type=non-stop flights;place_name=New York, New York;transport_name=Jet Blue",partial
+1294,nonshared,"Find non-stop flights to Shanghai, China on Air China.",PD,b2-9,transport,transport_ticket,"transport_type=non-stop flights;place_name=Shanghai, China;transport_name=Air China",partial
+1295,nonshared,"How far is Boulder City, Nevada from here?",PD;DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Boulder City, Nevada",partial
+1296,nonshared,"How far is Bridgeport, California from here?",PD;DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Bridgeport, California",partial
+1297,nonshared,"How far is Emmaus, Pennsylvania from here?",PD,b2-9,qa,qa_factoid,"place_name=Emmaus, Pennsylvania",partial
+1298,nonshared,"How far is Fairbanks, Alaska from here?",PD;DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Fairbanks, Alaska",partial
+1299,nonshared,"How far is Manhattan, NYC from here?",PD;DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Manhattan, NYC",partial
+1300,nonshared,"How far is Musk, Australia from here?",PD;DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Musk, Australia",partial
+1301,nonshared,"How far is Pittsburgh, Pennsylvania from here?",DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=Pittsburgh, Pennsylvania",partial
+1302,nonshared,"How far is Tokyo, Japan from here?",Stroke,b2-9,qa,qa_factoid,"place_name=Tokyo, Japan",partial
+1303,nonshared,"How far is Toyko, Japan from here?",PD;DS;CP,b2-9,qa,qa_factoid,"place_name=Toyko, Japan",partial
+1304,nonshared,"How far is West Orange, New Jersey from here?",PD;DS;CP;Stroke,b2-9,qa,qa_factoid,"place_name=West Orange, New Jersey",partial
+1305,nonshared,"How much is a round-trip flight to Ljubljana, Slovenia?",PD,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=Ljubljana, Slovenia",partial
+1306,nonshared,"How much is a round-trip flight to London, England?",PD,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=London, England",partial
+1307,nonshared,How much is a round-trip flight to London?,DS;CP;Stroke,b2-9,transport,transport_ticket,transport_type=round-trip flight;place_name=London,partial
+1308,nonshared,"How much is a round-trip flight to Manchester, New Hampshire?",PD;DS;CP;Stroke,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=Manchester, New Hampshire",partial
+1309,nonshared,"How much is a round-trip flight to Paris, France?",PD,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=Paris, France",partial
+1310,nonshared,How much is a round-trip flight to Paris?,DS;CP;Stroke,b2-9,transport,transport_ticket,transport_type=round-trip flight;place_name=Paris,partial
+1311,nonshared,"How much is a round-trip flight to Portland, Maine?",PD;DS;CP;Stroke,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=Portland, Maine",partial
+1312,nonshared,"How much is a round-trip flight to Sedona, Arizona?",PD;DS;CP;Stroke,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=Sedona, Arizona",partial
+1313,nonshared,How much is a round-trip flight to Slovenia?,DS;CP;Stroke,b2-9,transport,transport_ticket,transport_type=round-trip flight;place_name=Slovenia,partial
+1314,nonshared,How much is a round-trip flight to Toronto?,PD;DS;CP;Stroke,b2-9,transport,transport_ticket,transport_type=round-trip flight;place_name=Toronto,partial
+1315,nonshared,"How much is a round-trip flight to Warsaw, Poland?",PD;DS;CP;Stroke,b2-9,transport,transport_ticket,"transport_type=round-trip flight;place_name=Warsaw, Poland",partial
+1316,nonshared,Make me a reservation at 801 Chophouse.,PD;DS;CP;Stroke,b2-9,none,none,,none
+1317,nonshared,Make me a reservation at Arch's.,DS;CP;Stroke,b2-9,none,none,,none
+1318,nonshared,Make me a reservation at Archibald's.,PD,b2-9,none,none,,none
+1319,nonshared,Make me a reservation at Bayern Brewery.,PD,b2-9,none,none,,none
+1320,nonshared,Make me a reservation at Baytown Brewery.,DS;CP;Stroke,b2-9,none,none,,none
+1321,nonshared,Make me a reservation at Cantler's Riverside Inn.,PD,b2-9,none,none,,none
+1322,nonshared,Make me a reservation at Carter's Riverside Inn.,DS;CP;Stroke,b2-9,none,none,,none
+1323,nonshared,Make me a reservation at Dia Café.,DS;CP;Stroke,b2-9,none,none,,none
+1324,nonshared,Make me a reservation at Diaz Café.,PD,b2-9,none,none,,none
+1325,nonshared,Make me a reservation at Global Lobster House.,DS;CP;Stroke,b2-9,none,none,,none
+1326,nonshared,Make me a reservation at Guilford Lobster Pound.,PD,b2-9,none,none,,none
+1327,nonshared,Make me a reservation at Kevin's Diner.,DS;CP;Stroke,b2-9,none,none,,none
+1328,nonshared,Make me a reservation at Kroll's Diner.,PD,b2-9,none,none,,none
+1329,nonshared,Make me a reservation at Polly's Pancake Parlor.,PD;DS;CP;Stroke,b2-9,none,none,,none
+1330,nonshared,What are the best places for vacation in April?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=April,partial
+1331,nonshared,What are the best places for vacation in August?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=August,partial
+1332,nonshared,What are the best places for vacation in February?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=February,partial
+1333,nonshared,What are the best places for vacation in January?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=January,partial
+1334,nonshared,What are the best places for vacation in July?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=July,partial
+1335,nonshared,What are the best places for vacation in June?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=June,partial
+1336,nonshared,What are the best places for vacation in March?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=March,partial
+1337,nonshared,What are the best places for vacation in September?,PD;DS;CP;Stroke,b2-9,recommendation,recommendation_locations,date=September,partial

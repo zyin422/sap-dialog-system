@@ -1,29 +1,11 @@
 # Beyond WER: Quantifying ASR Error Propagation in Spoken Language Understanding for Dysarthric Speech
 
-[![Poster PDF](https://img.shields.io/badge/Poster-PDF%20(48%22%C3%9736%22)-B93A1C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](poster/Beyond_WER_Poster_48x36.pdf)
-[![Interactive HTML](https://img.shields.io/badge/Interactive-HTML%20Poster-13294B?style=for-the-badge&logo=html5&logoColor=white)](poster/poster.html)
 [![Corpus](https://img.shields.io/badge/Speech%20Corpus-SAP%20(124%20Speakers)-E84A27?style=for-the-badge)](benchmark_curation/)
 [![Schema](https://img.shields.io/badge/Schema-29%20Tools%20%7C%2010%20Domains-3F4F69?style=for-the-badge)](schema_freeze/)
 
 **Zixuan Yin (Presenter)¹**, **Xiuwen Zheng¹**, **Haolong Zheng¹**, **Kush Bhardwaj¹**, **Mark Hasegawa-Johnson¹**  
 *¹University of Illinois Urbana-Champaign · Speech Accessibility Project (SAP), Statistical Speech Technology Lab (SSTL)*  
 *Beckman Institute for Advanced Science and Technology & Thomas M. Siebel Center for Computer Science*
-
----
-
-## Research Poster (Trick or Research / CS STARS 2026)
-
-<p align="center">
-  <a href="poster/Beyond_WER_Poster_48x36.pdf">
-    <img src="poster/poster_preview.png" alt="Beyond WER: Research Poster 48x36 inches" width="100%" />
-  </a>
-</p>
-
-<p align="center">
-  📄 <b><a href="poster/Beyond_WER_Poster_48x36.pdf">Download Poster PDF (Print-Ready 48" × 36")</a></b> &nbsp;•&nbsp; 
-  🌐 <b><a href="poster/poster.html">Interactive Vector HTML</a></b> &nbsp;•&nbsp; 
-  🖼️ <b><a href="poster/pipeline_architecture.png">Pipeline Architecture Diagram (PNG)</a></b>
-</p>
 
 ---
 
@@ -44,8 +26,8 @@ However, **WER alone does not measure downstream task utility**:
 We evaluate a strictly decoupled cascaded system isolating acoustic transcription errors from LLM reasoning and slot extraction:
 
 <p align="center">
-  <a href="poster/pipeline_architecture.png">
-    <img src="poster/pipeline_architecture.png" alt="Decoupled Pipeline Architecture" width="85%" />
+  <a href="pipeline_architecture.png">
+    <img src="pipeline_architecture.png" alt="Decoupled Pipeline Architecture" width="85%" />
   </a>
 </p>
 
@@ -122,13 +104,6 @@ Evaluates semantic recall and precision across all 1,897 gold slots and 2,133 pr
 
 ```
 sap-dialog-system/
-├── poster/                                  # Research poster & presentation deliverables
-│   ├── Beyond_WER_Poster_48x36.pdf         # Print-ready 48" × 36" poster PDF
-│   ├── poster_preview.png                  # High-resolution (2000px) poster preview image
-│   ├── poster.html                         # Zero-dependency interactive HTML poster
-│   ├── pipeline_architecture.png           # Standalone high-res architecture diagram
-│   └── poster.md                           # Architectural design specification & copy
-│
 ├── schema_freeze/                           # Canonical SLU schema & annotation package
 │   ├── canonical_tool_catalog.md           # Authoritative 29-tool schema definitions
 │   ├── SLU_schema_v1.0.json                # Authoritative 29-tool, 10-domain JSON schema

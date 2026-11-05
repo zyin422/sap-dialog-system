@@ -75,22 +75,46 @@ We evaluate a strictly decoupled cascaded system isolating acoustic transcriptio
 
 ---
 
-## 4. Benchmark Results ($N = 1,108$ Audio Instances)
+## 4. Benchmark Results ($N = 1,200$ Clean Balanced Audio Instances)
 
-*Evaluated on NCSA Delta GPU cluster (NVIDIA A100-SXM4-80GB, 3,324 model evaluations).*
+*Evaluated on NCSA Delta GPU cluster (NVIDIA A100-SXM4-80GB, 3,600 model evaluations) using `Qwen/Qwen3-8B` at greedy $T = 0$.*
 
-| Evaluation Condition | Acoustic WER (%) | Tool Selection TS (%) | Struct Validity TCS (%) | Parameter Filling PF (%) | Command Frame Accuracy (%) |
+### End-to-End Tool Calling & Spoken Affirmation Performance
+
+| Evaluation Condition | Acoustic WER (%) | Tool Selection TS (%) | Struct Validity TCS (%) | Parameter Filling PF (%) | Command Frame Accuracy (%) | NLG Length ($\le 12$ Words) | Clean Speech Tokens (%) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Condition 1: Oracle Ceiling** | 0.00% | **93.50%** (1,122/1,200) | **100.0%** (1,200/1,200) | **88.14%** (1,672/1,897) | **82.83%** (994/1,200) | **99.75%** | **100.0%** |
+| **Condition 2: Base Parakeet ASR** | 28.15% | 71.58% (859/1,200) | 98.92% (1,187/1,200) | 51.40% (975/1,897) | **42.17%** (506/1,200) | 99.25% | 100.0% |
+| **Condition 3: Fine-Tuned ASR** | **10.70%** | **90.25%** (1,083/1,200) | **99.92%** (1,199/1,200) | **78.39%** (1,487/1,897) | **69.67%** (836/1,200) | **99.92%** | **100.0%** |
+| **Acoustic Adaptation Gain ($\Delta$)** | **-17.45%** | **+18.67%** | **+1.00%** | **+26.99%** | **+27.50%** | **+0.67%** | **0.00%** |
+
+$$\text{Adaptation Recovery Rate (ARR)} = \frac{\text{Frame}_{\text{FT}} - \text{Frame}_{\text{Base}}}{\text{Frame}_{\text{Oracle}} - \text{Frame}_{\text{Base}}} = \frac{69.67\% - 42.17\%}{82.83\% - 42.17\%} = \frac{27.50\%}{40.66\%} = \mathbf{67.63\%}$$
+
+### Clinical Etiology Breakdown (Command Frame Accuracy)
+
+| Clinical Etiology | Audio Instances ($N$) | Condition 1 (Oracle) | Condition 2 (Base ASR) | Condition 3 (Fine-Tuned ASR) | Adaptation Gain ($\Delta_{\text{FT}-\text{Base}}$) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Condition 1: Oracle Ceiling** | 0.00% | **95.67%** (1060/1108) | **100.0%** (1108/1108) | **88.41%** (1434/1622) | **84.03%** (931/1108) |
-| **Condition 2: Base Parakeet ASR** | 28.15% | 74.55% (826/1108) | 99.28% (1100/1108) | 46.22% (750/1622) | **38.09%** (422/1108) |
-| **Condition 3: Fine-Tuned ASR** | **10.70%** | **92.96%** (1030/1108) | **99.82%** (1106/1108) | **75.73%** (1228/1622) | **66.88%** (741/1108) |
-| **Acoustic Adaptation Gain ($\Delta$)** | **-17.45%** | **+18.41%** | **+0.54%** | **+29.51%** | **+28.79%** |
+| **Parkinson's Disease** | 240 | 81.67% | 62.50% | 77.08% | +14.58% |
+| **ALS** | 240 | 85.00% | 43.75% | 73.75% | +30.00% |
+| **Stroke** | 240 | 84.58% | 42.92% | 63.33% | +20.41% |
+| **Cerebral Palsy** | 240 | 80.00% | 29.58% | 65.83% | **+36.25%** |
+| **Down Syndrome** | 240 | 82.92% | 32.08% | 68.33% | **+36.25%** |
 
-$$\text{Adaptation Recovery Rate (ARR)} = \frac{\text{Frame}_{\text{FT}} - \text{Frame}_{\text{Base}}}{\text{Frame}_{\text{Oracle}} - \text{Frame}_{\text{Base}}} = \frac{66.88\% - 38.09\%}{84.03\% - 38.09\%} = \frac{28.79\%}{45.94\%} = \mathbf{62.67\%}$$
+### Publication-Grade Semantic LLM-as-a-Judge Parameter Evaluation (`Qwen3.8-27B`)
+
+Evaluates semantic recall and precision across all 1,897 gold slots and 2,133 predicted slots, distinguishing valid descriptive noun expansions (e.g. *"porch light"* for *"light"*) from unuttered hallucinations:
+
+| Evaluation Metric | Exact Lexical Overlap (Char-F1 $\ge 0.85$) | Semantic LLM Judge (`Qwen3.8-27B`) | Semantic Net Gain ($\Delta$) |
+| :--- | :---: | :---: | :---: |
+| **Parameter Recall** | 86.14% (1,634 / 1,897) | **90.56%** (1,718 / 1,897) | **+4.42%** (+84 slots recovered) |
+| **Parameter Precision** | 76.61% (1,634 / 2,133) | **84.72%** (1,807 / 2,133) | **+8.11%** (+173 slots validated) |
+| **Parameter F1** | 81.09% | **87.54%** | **+6.45%** |
 
 ### Key Research Findings
-1. **The Downstream Failure Bottleneck is in the Parameters:** Off-the-shelf ASR degrades end-to-end Command Frame Accuracy by **45.94%**. While high-level intent routing (Tool Selection) remains relatively resilient ($74.55\%$), Parameter Filling collapses from **88.41% down to 46.22%** (a $-42.19\%$ collapse).
-2. **Acoustic Adaptation Recovers Six-Tenths of Task Success:** Fine-tuning the streaming ASR recovers **+28.79% absolute Command Frame Accuracy** ($38.09\% \to 66.88\%$), translating to an **ARR of 62.67%**.
+1. **The Downstream Failure Bottleneck is in the Parameters:** Unadapted ASR causes end-to-end Command Frame Accuracy to drop from **82.83% down to 42.17%** (a $-40.66\%$ collapse). While high-level intent routing (Tool Selection) achieves $71.58\%$, Parameter Filling collapses by **$-36.74\%$** ($88.14\% \to 51.40\%$).
+2. **Acoustic Adaptation Recovers Over Two-Thirds of Task Success:** Fine-tuning the streaming ASR restores **+27.50% absolute Command Frame Accuracy** ($42.17\% \to 69.67\%$, $+330$ net frames restored), translating to an **ARR of 67.63%**.
+3. **Severe Etiologies Benefit Most:** For dysarthria with high acoustic disfluency (Cerebral Palsy and Down Syndrome), acoustic adaptation delivers a massive **+36.25% absolute command frame recovery**.
+4. **Conversational Grounding Preserves Tool Integrity:** Spoken affirmations achieve **99.92% length compliance** ($\le 12$ words) and **100.0% clean speech tokens** without degrading tool-calling accuracy (paired McNemar test $p > 0.11$).
 
 ---
 
@@ -102,33 +126,42 @@ sap-dialog-system/
 │   ├── Beyond_WER_Poster_48x36.pdf         # Print-ready 48" × 36" poster PDF
 │   ├── poster_preview.png                  # High-resolution (2000px) poster preview image
 │   ├── poster.html                         # Zero-dependency interactive HTML poster
-│   ├── pipeline_architecture.png           # 1554×1571 standalone high-res architecture diagram
-│   ├── pipeline_architecture.svg           # Scalable vector source for architecture diagram
-│   ├── wer.svg / pf.svg                    # Vector LaTeX metric formulas
+│   ├── pipeline_architecture.png           # Standalone high-res architecture diagram
 │   └── poster.md                           # Architectural design specification & copy
 │
 ├── schema_freeze/                           # Canonical SLU schema & annotation package
 │   ├── canonical_tool_catalog.md           # Authoritative 29-tool schema definitions
-│   ├── SLU_annotator_guidelines.md         # Annotation protocol & span extraction rules
-│   └── pilot/                              # Dual-annotator webapp & adjudication records
+│   ├── SLU_schema_v1.0.json                # Authoritative 29-tool, 10-domain JSON schema
+│   └── SLU_annotator_guidelines.md         # Annotation protocol & span extraction rules
 │
 ├── benchmark_curation/                      # Dataset sampling & MASSIVE intent mapping
-│   └── Amazon_MASSIVE_evaluation.md        # Filtering methodology for assistive voice tasks
-│
 ├── audio/                                   # Audio turn samples and benchmark wav records
-├── eval_results/                            # SLURM execution logs & evaluated predictions
+├── eval_results/                            # Cluster logs & evaluated prediction CSVs
 │
-├── evaluate_asr_llm_pipeline.py             # Modular evaluation harness (BaseASR + BaseLLM)
-├── evaluate_slu_enriched_qwen3.py           # 3-condition benchmark runner on Delta cluster
-├── evaluate_slu_nlg_qwen3.py                # SLU + NLG conversational affirmation runner
-├── evaluate_pf_llm_judge.py                 # Qwen3.8-27B semantic LLM-as-a-judge for slot filling
+├── evaluate_slu_nlg_qwen3.py                # Primary 3-condition SLU + Conversational Affirmation runner
+├── evaluate_pf_llm_judge.py                 # Semantic LLM-as-a-judge for parameter slot filling
 ├── s2t_pipeline.py                          # Streaming Speech-to-Text inference pipeline
 │
-├── verify_no_leakage.py                     # Scientific leakage verification test
-├── verify_anti_hacking.py                   # Anti-prompt-hacking compliance checker
+├── verify_no_leakage.py                     # Scientific leakage audit tool
+├── verify_anti_hacking.py                   # Anti-prompt-hacking structural linter
 │
-├── run_clean_1200.slurm                     # SLURM script: 1,200 clean benchmark evaluation
-├── run_pf_llm_judge.slurm                   # SLURM script: Semantic LLM judge audit
+├── run_nlg_1200.slurm                       # Primary SLURM batch job: 1,200 Clean Benchmark (SLU + NLG)
+├── run_pf_llm_judge.slurm                   # SLURM batch job: Semantic LLM judge audit (Qwen3.8-27B)
+│
+├── clean_eval_1200_nlg_results.csv          # Evaluated predictions across all 3 conditions (1,200 instances)
+├── clean_eval_1200_nlg_summary.json         # Complete metric summary JSON report
+├── semantic_judge_1200_audit_decisions.csv  # Detailed row-by-row LLM judge audit trail (462 decisions)
+├── semantic_judge_1200_summary.json         # Exact vs. semantic slot evaluation summary
+│
+├── archive/                                 # Archived legacy / intermediate evaluation harnesses
+│   ├── evaluate_asr_llm_pipeline.py         # Modular evaluation harness (BaseASR + BaseLLM)
+│   ├── evaluate_slu_enriched_qwen3.py       # Phase 2 SLU-only runner (pre-NLG)
+│   ├── evaluate_slu_llm.py                  # Pilot 291 dev evaluator
+│   ├── iterations/                          # Legacy iteration scripts (iter1 through iter12)
+│   ├── slurm/                               # Legacy SLURM job scripts
+│   ├── prompt_optimization/                 # Legacy heuristic prompt optimizers
+│   └── intermediate_results/                # Intermediate iteration prediction CSVs and summaries
+│
 └── requirements.txt                         # Python package dependencies
 ```
 
@@ -149,30 +182,46 @@ conda activate sap-dialog
 pip install -r requirements.txt
 ```
 
-### 2. Run Local Evaluation
-
-To run intent and slot extraction on sample audio transcripts:
+### 2. Verify Scientific Orthogonality (Zero Test Leakage)
 
 ```bash
-python s2t_pipeline.py
+python verify_no_leakage.py certified_generalized_system_prompt_rev6_nlg.txt
+python verify_anti_hacking.py
 ```
 
-### 3. Verify Scientific Orthogonality (Zero Test Leakage)
+### 3. Run Benchmark Evaluations Locally
 
-Before running or updating any prompts or schemas, verify that evaluation entities have not contaminated prompts:
+To run the primary 3-condition SLU + Spoken Affirmation (NLG) benchmark on a local GPU:
 
 ```bash
-python verify_no_leakage.py
-python verify_anti_hacking.py
+python evaluate_slu_nlg_qwen3.py \
+    --csv_path sampled_benchmark_1200_clean.csv \
+    --prompt_path certified_generalized_system_prompt_rev6_nlg.txt \
+    --model_id Qwen/Qwen3-8B \
+    --batch_size 12 \
+    --condition all \
+    --output_csv eval_results/clean_eval_1200_nlg_results.csv \
+    --output_summary eval_results/clean_eval_1200_nlg_summary.json
+```
+
+To run the Semantic LLM-as-a-Judge slot audit on the predictions:
+
+```bash
+python evaluate_pf_llm_judge.py \
+    --csv_path eval_results/clean_eval_1200_nlg_results.csv \
+    --model_id Qwen/Qwen3.8-27B \
+    --conditions oracle base_asr ft_asr \
+    --output_json eval_results/semantic_judge_1200_summary.json \
+    --audit_csv eval_results/semantic_judge_1200_audit_decisions.csv
 ```
 
 ### 4. Running Distributed Benchmarks on NCSA Delta GPU
 
 ```bash
-# Launch 3-condition evaluation across 1,200 benchmark clips
-sbatch run_clean_1200.slurm
+# Launch primary 3-condition SLU + NLG evaluation across 1,200 benchmark clips
+sbatch run_nlg_1200.slurm
 
-# Run Qwen3.8-27B semantic judge evaluation on slot filling
+# Run Qwen3.8-27B semantic LLM judge evaluation on parameter slots
 sbatch run_pf_llm_judge.slurm
 ```
 

@@ -11,13 +11,20 @@ Enforces:
    Runs verify_no_leakage.py checks for benchmark entity and n-gram contamination.
 """
 
+import os
 import sys
 import re
 import json
 import importlib.util
 
-def check_prompt_integrity(script_path: str = "sap-dialog-system/evaluate_slu_enriched_qwen3.py",
+def check_prompt_integrity(script_path: str = "sap-dialog-system/archive/evaluate_slu_enriched_qwen3.py",
                            schema_path: str = "sap-dialog-system/schema_freeze/SLU_schema_v1.0.json"):
+    # Resolve script path if moved to archive
+    if not os.path.exists(script_path):
+        alt_path = os.path.join(os.path.dirname(script_path), "archive", os.path.basename(script_path))
+        if os.path.exists(alt_path):
+            script_path = alt_path
+
     # Load schema tools
     with open(schema_path, "r", encoding="utf-8") as f:
         schema = json.load(f)
@@ -71,6 +78,6 @@ def check_prompt_integrity(script_path: str = "sap-dialog-system/evaluate_slu_en
         sys.exit(0)
 
 if __name__ == "__main__":
-    script = sys.argv[1] if len(sys.argv) > 1 else "sap-dialog-system/evaluate_slu_enriched_qwen3.py"
+    script = sys.argv[1] if len(sys.argv) > 1 else "sap-dialog-system/archive/evaluate_slu_enriched_qwen3.py"
     schema = sys.argv[2] if len(sys.argv) > 2 else "sap-dialog-system/schema_freeze/SLU_schema_v1.0.json"
     check_prompt_integrity(script, schema)

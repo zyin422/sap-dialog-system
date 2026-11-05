@@ -12,3 +12,5 @@ manifest/
 !benchmark_curation/*.json
 !schema_freeze/**/*.json
 !schema_freeze/*.json
+!clean_eval_1200_nlg_summary.json
+!semantic_judge_1200_summary.json

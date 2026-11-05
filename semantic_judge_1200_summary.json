@@ -1,0 +1,18 @@
+{
+  "oracle": {
+    "gold_total_slots": 1897,
+    "pred_total_slots": 2133,
+    "exact_rec_hits": 1634,
+    "exact_prec_hits": 1634,
+    "exact_recall": 86.13600421718502,
+    "exact_precision": 76.60571964369433,
+    "exact_f1": 81.09181141439205,
+    "semantic_rec_hits": 1718,
+    "semantic_prec_hits": 1807,
+    "semantic_recall": 90.56404849762784,
+    "semantic_precision": 84.7163619315518,
+    "semantic_f1": 87.54266026335614,
+    "judge_recall_calls": 105,
+    "judge_precision_calls": 273
+  }
+}

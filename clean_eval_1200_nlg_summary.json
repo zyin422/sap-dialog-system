@@ -1,0 +1,241 @@
+{
+  "oracle": {
+    "TS": 93.5,
+    "TCS": 100.0,
+    "PF": 88.14,
+    "Frame_Acc": 82.83,
+    "Total_Samples": 1200,
+    "Total_Slots": 1897,
+    "NLG": {
+      "Length_Compliance_Leq12": 99.75,
+      "Clean_Speech_Tokens": 100.0,
+      "Avg_Word_Count": 5.35
+    },
+    "Domains": {
+      "media": {
+        "Frame_Acc": 89.93,
+        "TS": 94.24
+      },
+      "calendar_alarm": {
+        "Frame_Acc": 72.26,
+        "TS": 87.1
+      },
+      "general_qa": {
+        "Frame_Acc": 75.77,
+        "TS": 92.64
+      },
+      "smart_home": {
+        "Frame_Acc": 81.6,
+        "TS": 93.25
+      },
+      "communication": {
+        "Frame_Acc": 93.13,
+        "TS": 100.0
+      },
+      "health": {
+        "Frame_Acc": 90.24,
+        "TS": 95.12
+      },
+      "maps_places": {
+        "Frame_Acc": 81.32,
+        "TS": 94.51
+      },
+      "notes_memory": {
+        "Frame_Acc": 87.76,
+        "TS": 87.76
+      },
+      "accessibility": {
+        "Frame_Acc": 100.0,
+        "TS": 100.0
+      },
+      "transport": {
+        "Frame_Acc": 100.0,
+        "TS": 100.0
+      }
+    },
+    "Etiologies": {
+      "Stroke": {
+        "Frame_Acc": 84.58,
+        "TS": 93.75
+      },
+      "Parkinson's Disease": {
+        "Frame_Acc": 81.67,
+        "TS": 91.25
+      },
+      "ALS": {
+        "Frame_Acc": 85.0,
+        "TS": 93.75
+      },
+      "Cerebral Palsy": {
+        "Frame_Acc": 80.0,
+        "TS": 95.0
+      },
+      "Down Syndrome": {
+        "Frame_Acc": 82.92,
+        "TS": 93.75
+      }
+    }
+  },
+  "base_asr": {
+    "TS": 71.58,
+    "TCS": 98.92,
+    "PF": 51.4,
+    "Frame_Acc": 42.17,
+    "Total_Samples": 1200,
+    "Total_Slots": 1897,
+    "NLG": {
+      "Length_Compliance_Leq12": 99.25,
+      "Clean_Speech_Tokens": 100.0,
+      "Avg_Word_Count": 6.05
+    },
+    "Domains": {
+      "media": {
+        "Frame_Acc": 58.99,
+        "TS": 79.14
+      },
+      "calendar_alarm": {
+        "Frame_Acc": 34.84,
+        "TS": 62.58
+      },
+      "general_qa": {
+        "Frame_Acc": 48.77,
+        "TS": 84.66
+      },
+      "smart_home": {
+        "Frame_Acc": 42.33,
+        "TS": 73.62
+      },
+      "communication": {
+        "Frame_Acc": 38.17,
+        "TS": 62.6
+      },
+      "health": {
+        "Frame_Acc": 8.54,
+        "TS": 59.76
+      },
+      "maps_places": {
+        "Frame_Acc": 32.97,
+        "TS": 57.14
+      },
+      "notes_memory": {
+        "Frame_Acc": 42.86,
+        "TS": 69.39
+      },
+      "accessibility": {
+        "Frame_Acc": 56.82,
+        "TS": 59.09
+      },
+      "transport": {
+        "Frame_Acc": 45.0,
+        "TS": 65.0
+      }
+    },
+    "Etiologies": {
+      "Stroke": {
+        "Frame_Acc": 42.92,
+        "TS": 72.08
+      },
+      "Parkinson's Disease": {
+        "Frame_Acc": 62.5,
+        "TS": 88.33
+      },
+      "ALS": {
+        "Frame_Acc": 43.75,
+        "TS": 77.92
+      },
+      "Cerebral Palsy": {
+        "Frame_Acc": 29.58,
+        "TS": 58.33
+      },
+      "Down Syndrome": {
+        "Frame_Acc": 32.08,
+        "TS": 61.25
+      }
+    }
+  },
+  "ft_asr": {
+    "TS": 90.25,
+    "TCS": 99.92,
+    "PF": 78.39,
+    "Frame_Acc": 69.67,
+    "Total_Samples": 1200,
+    "Total_Slots": 1897,
+    "NLG": {
+      "Length_Compliance_Leq12": 99.92,
+      "Clean_Speech_Tokens": 100.0,
+      "Avg_Word_Count": 5.69
+    },
+    "Domains": {
+      "media": {
+        "Frame_Acc": 67.63,
+        "TS": 85.61
+      },
+      "calendar_alarm": {
+        "Frame_Acc": 70.32,
+        "TS": 85.16
+      },
+      "general_qa": {
+        "Frame_Acc": 65.64,
+        "TS": 91.41
+      },
+      "smart_home": {
+        "Frame_Acc": 76.07,
+        "TS": 92.64
+      },
+      "communication": {
+        "Frame_Acc": 77.1,
+        "TS": 97.71
+      },
+      "health": {
+        "Frame_Acc": 63.41,
+        "TS": 90.24
+      },
+      "maps_places": {
+        "Frame_Acc": 57.14,
+        "TS": 87.91
+      },
+      "notes_memory": {
+        "Frame_Acc": 65.31,
+        "TS": 81.63
+      },
+      "accessibility": {
+        "Frame_Acc": 93.18,
+        "TS": 93.18
+      },
+      "transport": {
+        "Frame_Acc": 85.0,
+        "TS": 100.0
+      }
+    },
+    "Etiologies": {
+      "Stroke": {
+        "Frame_Acc": 63.33,
+        "TS": 87.92
+      },
+      "Parkinson's Disease": {
+        "Frame_Acc": 77.08,
+        "TS": 89.58
+      },
+      "ALS": {
+        "Frame_Acc": 73.75,
+        "TS": 91.25
+      },
+      "Cerebral Palsy": {
+        "Frame_Acc": 65.83,
+        "TS": 92.92
+      },
+      "Down Syndrome": {
+        "Frame_Acc": 68.33,
+        "TS": 89.58
+      }
+    }
+  },
+  "comparative_summary": {
+    "Net_Frame_Gain_FT_minus_Base": 27.5,
+    "Adaptation_Recovery_Rate_ARR": 67.63,
+    "Net_PF_Gain_FT_minus_Base": 26.99,
+    "Oracle_Frame_Acc": 82.83,
+    "Base_ASR_Frame_Acc": 42.17,
+    "FT_ASR_Frame_Acc": 69.67
+  }
+}

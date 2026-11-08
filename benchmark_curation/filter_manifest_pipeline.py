@@ -221,7 +221,7 @@ def parse_llm_decision(raw_output: str) -> Tuple[str, str]:
     return "RETAIN", "Parse fallback (conservative preservation)"
 
 
-def run_stage2_llm_judge(unresolved_rows: List[Dict[str, Any]], model_id: str, batch_size: int = 8) -> List[Dict[str, Any]]:
+def run_stage2_llm_judge(unresolved_rows: List[Dict[str, Any]], model_id: str, batch_size: int = 8, checkpoint_csv: str = None) -> List[Dict[str, Any]]:
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
     try:
@@ -229,6 +229,16 @@ def run_stage2_llm_judge(unresolved_rows: List[Dict[str, Any]], model_id: str, b
         model_cls = Qwen3_5ForConditionalGeneration
     except ImportError:
         model_cls = AutoModelForCausalLM
+
+    # Check if checkpoint already exists with all predictions
+    if checkpoint_csv and os.path.exists(checkpoint_csv):
+        cached_rows = []
+        with open(checkpoint_csv, 'r', encoding='utf-8') as f:
+            rdr = csv.DictReader(f)
+            cached_rows = list(rdr)
+        if len(cached_rows) == len(unresolved_rows):
+            print(f"\n[Stage 2] Found complete checkpoint with {len(cached_rows)} predictions at {checkpoint_csv}. Resuming without re-computing!")
+            return cached_rows
 
     print(f"\n[Stage 2] Loading LLM Judge checkpoint: {model_id}")
     tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
@@ -285,6 +295,14 @@ def run_stage2_llm_judge(unresolved_rows: List[Dict[str, Any]], model_id: str, b
             r_copy["pipeline_stage"] = "Stage 2: LLM Judge"
             r_copy["filter_rationale"] = rat
             judged_rows.append(r_copy)
+
+        # Save checkpoint incrementally
+        if checkpoint_csv:
+            chk_fields = list(dict.fromkeys(list(judged_rows[0].keys())))
+            with open(checkpoint_csv, 'w', encoding='utf-8', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=chk_fields, extrasaction='ignore')
+                w.writeheader()
+                w.writerows(judged_rows)
 
         elapsed = time.time() - t0
         done = min(start_idx + batch_size, len(unresolved_rows))
@@ -387,19 +405,20 @@ def main():
 
     # 3. Stage 2: LLM-as-a-Judge
     stage2_judged = []
+    checkpoint_csv = os.path.join(args.output_dir, f"{args.output_prefix}_stage2_checkpoint.csv")
     if unresolved_rows:
-        stage2_judged = run_stage2_llm_judge(unresolved_rows, args.model_id, args.batch_size)
+        stage2_judged = run_stage2_llm_judge(unresolved_rows, args.model_id, args.batch_size, checkpoint_csv=checkpoint_csv)
     
     # 4. Consolidate and Save Outputs
     all_curated = stage1_resolved_keep + stage1_resolved_purge + stage2_judged
-    out_fields = list(dict.fromkeys(orig_fieldnames + ["prompt", "spoken_text", "final_decision", "pipeline_stage", "filter_rationale"]))
+    out_fields = list(dict.fromkeys(orig_fieldnames + ["prompt", "spoken_text", "final_decision", "pipeline_stage", "filter_rationale", "quickfilter_rationale"]))
 
     full_csv = os.path.join(args.output_dir, f"{args.output_prefix}_audited_full.csv")
     clean_csv = os.path.join(args.output_dir, f"{args.output_prefix}_clean_retained.csv")
     purged_csv = os.path.join(args.output_dir, f"{args.output_prefix}_purged.csv")
 
     with open(full_csv, 'w', encoding='utf-8', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=out_fields)
+        w = csv.DictWriter(f, fieldnames=out_fields, extrasaction='ignore')
         w.writeheader()
         w.writerows(all_curated)
 
@@ -407,12 +426,12 @@ def main():
     purged_rows = [r for r in all_curated if r.get("final_decision") == "FILTER_OUT"]
 
     with open(clean_csv, 'w', encoding='utf-8', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=out_fields)
+        w = csv.DictWriter(f, fieldnames=out_fields, extrasaction='ignore')
         w.writeheader()
         w.writerows(retained_rows)
 
     with open(purged_csv, 'w', encoding='utf-8', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=out_fields)
+        w = csv.DictWriter(f, fieldnames=out_fields, extrasaction='ignore')
         w.writeheader()
         w.writerows(purged_rows)
 

@@ -14,3 +14,5 @@ manifest/
 !schema_freeze/*.json
 !clean_eval_1200_nlg_summary.json
 !semantic_judge_1200_summary.json
+benchmark_curation/audio_245/
+*.wav

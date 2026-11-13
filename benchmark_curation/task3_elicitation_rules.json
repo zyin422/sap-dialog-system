@@ -1,0 +1,285 @@
+{
+  "carrier_tokens": [
+    "what", "whats", "who", "whos", "when", "whens", "where", "wheres", "why",
+    "how", "hows", "did", "do", "is", "are", "can", "could", "would", "will",
+    "define", "defined", "defining",
+    "play", "played", "playing", "plays",
+    "make", "makes", "making",
+    "create", "creates", "creating",
+    "set", "sets", "setting",
+    "show", "shows", "showing",
+    "tell", "tells", "telling",
+    "turn", "turns", "turning", "shut",
+    "wake", "wakes", "waking",
+    "email", "emails", "emailing",
+    "send", "sends", "sending",
+    "book", "books", "booking",
+    "listen", "listens", "listening",
+    "preheat", "preheats", "preheating", "reheat",
+    "read", "reads", "reading",
+    "remember", "remembers", "remembering",
+    "reschedule", "reschedules", "rescheduling",
+    "open", "opens", "opening",
+    "find", "finds", "finding",
+    "message", "messages", "messaging", "massage",
+    "brighten", "brightens", "bright",
+    "timer", "timers",
+    "wikipedia"
+  ],
+  "telegraphic_focal_keywords": [
+    "conclude", "conundrum", "transformers", "9374", "movies", "films",
+    "seahawks", "mariners", "maryland", "covid", "sunday", "vacation",
+    "wheelchair", "guestroom", "oven", "audiobook", "arizona", "north carolina",
+    "alaska", "giants", "brisket", "bridgeport", "costco", "baytown", "baldamar",
+    "cbs", "msnbc", "nhl", "portland", "lsu", "apple", "microsoft", "sedona"
+  ],
+  "entity_substitutions": [
+    ["msnbc", ["nbc", "mbc", "m v two three c"]],
+    ["lsu", ["sslu", "lea"]],
+    ["nhl", ["hln", "als", "sja", "hockey"]],
+    ["cbs", ["cps"]],
+    ["naples", ["farm"]],
+    ["youtube", ["your face tube", "your tub"]],
+    ["tom cruise", ["tommy carrots"]],
+    ["transformers", ["tempest"]],
+    ["brisket", ["bracelet", "chicken"]],
+    ["billboard", ["bondingboard", "blatorian"]],
+    ["audiobook", ["facebook", "any book", "audible"]],
+    ["cincinnati", ["kadee"]],
+    ["dining room", ["dinner room"]],
+    ["conclude", ["corner", "clue"]],
+    ["duke", ["derek"]],
+    ["portland timbers", ["portland timers"]],
+    ["kramer gray", ["kramer may"]],
+    ["pandora", ["spotify"]],
+    ["minnesota", ["minnesotas"]],
+    ["baytown", ["bantown", "over the wine brewery barn"]],
+    ["sedona", ["seranona"]],
+    ["paramount", ["panera", "please"]],
+    ["closet light", ["turn on the closet light"]],
+    ["guestroom", ["turn on the lights in the guestroom", "restroom"]],
+    ["seahawks", ["seagulls"]],
+    ["giants", ["gladiators", "groceries"]]
+  ],
+  "slot_deficiency_rules": {
+    "Show me a photo of business meetings.": {
+      "slot": "query",
+      "required_tokens": ["business", "meetings", "meeting"],
+      "cr": "What would you like an image of?",
+      "response": "Business meetings"
+    },
+    "Show me an image of business meetings.": {
+      "slot": "query",
+      "required_tokens": ["business", "meetings", "meeting"],
+      "cr": "What would you like an image of?",
+      "response": "Business meetings"
+    },
+    "Show me photos from the 18th of September.": {
+      "slot": "date",
+      "required_tokens": ["18th", "eighteenth", "september"],
+      "cr": "From which date would you like to see photos?",
+      "response": "The 18th of September"
+    },
+    "Define 'conclude'.": {
+      "slot": "query",
+      "required_tokens": ["conclude", "clude", "cluded"],
+      "cr": "What word would you like me to define?",
+      "response": "Conclude"
+    },
+    "Define 'conundrum'.": {
+      "slot": "query",
+      "required_tokens": ["conundrum"],
+      "cr": "What word would you like me to define?",
+      "response": "Conundrum"
+    },
+    "Make me a reservation at Baytown Brewery.": {
+      "slot": "business_name",
+      "required_tokens": ["baytown"],
+      "cr": "Which brewery would you like to make a reservation at?",
+      "response": "Baytown Brewery"
+    },
+    "How far is Bridgeport, California from here?": {
+      "slot": "destination",
+      "required_tokens": ["bridgeport"],
+      "cr": "Which city in California would you like distance to?",
+      "response": "Bridgeport"
+    },
+    "How much is a round-trip flight to Sedona, Arizona?": {
+      "slot": "destination",
+      "required_tokens": ["sedona"],
+      "cr": "Which city in Arizona would you like a flight to?",
+      "response": "Sedona"
+    },
+    "How far is Costco from here?": {
+      "slot": "destination",
+      "required_tokens": ["costco"],
+      "cr": "Where would you like distance directions to?",
+      "response": "Costco"
+    },
+    "Wake me up at 9 o'clock Thursday.": {
+      "slot": "time",
+      "required_tokens": ["9", "nine"],
+      "cr": "For what time would you like me to set the alarm on Thursday?",
+      "response": "9 o'clock"
+    },
+    "Wake me up at 6:45 AM every day.": {
+      "slot": "time",
+      "required_tokens": ["6 45", "645"],
+      "cr": "What time would you like to wake up every day?",
+      "response": "6:45 AM"
+    },
+    "Who's winning between Duke and North Carolina?": {
+      "slot": "query",
+      "required_tokens": ["duke", "north carolina", "carolina"],
+      "cr": "Who is the other team playing against Duke?",
+      "response": "North Carolina"
+    },
+    "Remember that my PIN is 9374.": {
+      "slot": "value",
+      "required_tokens": ["9374", "9 3 7 4", "nine three seven four", "934"],
+      "cr": "What is the PIN you would like me to remember?",
+      "response": "9374"
+    },
+    "Turn off the lights in the guestroom.": {
+      "slot": "house_place",
+      "required_tokens": ["guestroom", "guest room"],
+      "cr": "Which room's lights would you like to turn off?",
+      "response": "The guestroom"
+    },
+    "Brighten the dining room light.": {
+      "slot": "house_place",
+      "required_tokens": ["dining", "dining room"],
+      "cr": "Which room's light would you like to brighten?",
+      "response": "The dining room"
+    },
+    "Turn off the closet light.": {
+      "slot": "house_place",
+      "required_tokens": ["closet"],
+      "cr": "Which light would you like me to turn off?",
+      "response": "The closet light"
+    },
+    "When is Shell open until?": {
+      "slot": "business_name",
+      "required_tokens": ["shell"],
+      "cr": "Which station or business would you like hours for?",
+      "response": "Shell"
+    },
+    "Tell me news from MSNBC.": {
+      "slot": "query",
+      "required_tokens": ["msnbc"],
+      "cr": "Which news network or source would you like news from?",
+      "response": "MSNBC"
+    },
+    "Who won the NHL game yesterday?": {
+      "slot": "query",
+      "required_tokens": ["nhl"],
+      "cr": "Which sports league game are you asking about?",
+      "response": "The NHL game"
+    },
+    "Who won the  Portland game yesterday?": {
+      "slot": "query",
+      "required_tokens": ["portland"],
+      "cr": "Which team's game are you asking about?",
+      "response": "The Portland game"
+    },
+    "Who won the Portland game  yesterday?": {
+      "slot": "query",
+      "required_tokens": ["portland"],
+      "cr": "Which team's game are you asking about?",
+      "response": "The Portland game"
+    },
+    "What was the score for the LSU game?": {
+      "slot": "query",
+      "required_tokens": ["lsu", "l s u"],
+      "cr": "Which team or game's score would you like?",
+      "response": "The LSU game"
+    },
+    "How's the traffic to Mount Washington,  New Hampshire?": {
+      "slot": "destination",
+      "required_tokens": ["mount washington", "washington"],
+      "cr": "Where would you like traffic information for?",
+      "response": "Mount Washington, New Hampshire"
+    },
+    "How's the traffic to Mount Washington, New Hampshire?": {
+      "slot": "destination",
+      "required_tokens": ["mount washington", "washington"],
+      "cr": "Where would you like traffic information for?",
+      "response": "Mount Washington, New Hampshire"
+    },
+    "Is the dentist's office on Park St. wheelchair accessible?": {
+      "slot": "business_name",
+      "required_tokens": ["park", "park street"],
+      "cr": "Which specific clinic or dentist's office on Park St. are you inquiring about?",
+      "response": "The dentist's office on Park St."
+    },
+    "Create a Sam's Club shopping list.": {
+      "slot": "list_name",
+      "required_tokens": ["club"],
+      "cr": "Which store or club is this shopping list for?",
+      "response": "Sam's Club"
+    },
+    "Email SabrinaK@west.edu.": {
+      "slot": "recipient",
+      "required_tokens": ["west", "wes", "edu"],
+      "cr": "What is the full email address you would like to send to?",
+      "response": "SabrinaK@west.edu"
+    },
+    "Preheat the oven to 300 degrees.": {
+      "slot": "value",
+      "required_tokens": ["300", "three hundred"],
+      "cr": "To what temperature would you like to preheat the oven?",
+      "response": "300 degrees"
+    },
+    "Play Billboard's Top 40 on Pandora.": {
+      "slot": "title",
+      "required_tokens": ["billboard"],
+      "cr": "Which music chart would you like to play?",
+      "response": "Billboard's Top 40"
+    },
+    "Read 'A Series of Unfortunate Events' on Audiobook.": {
+      "slot": "title",
+      "required_tokens": ["unfortunate", "events"],
+      "cr": "Which book title would you like to read?",
+      "response": "A Series of Unfortunate Events"
+    },
+    "What are the best places for vacation in June?": {
+      "slot": "query",
+      "required_tokens": ["vacation", "june"],
+      "cr": "For which month or destination would you like vacation recommendations?",
+      "response": "In June"
+    },
+    "How do you say 'help me' in Mandarin Chinese?": {
+      "slot": "query",
+      "required_tokens": ["help me"],
+      "cr": "Which phrase would you like translated into Mandarin Chinese?",
+      "response": "'help me'"
+    }
+  },
+  "predicate_deficient_cr_map": {
+    "conclude": ["Would you like me to define conclude?", "Yes, please"],
+    "conundrum": ["Would you like me to define conundrum?", "Yes, please"],
+    "transformers": ["Would you like me to play Transformers on Paramount Plus?", "Yes, please"],
+    "9374": ["Would you like me to store this PIN as 9374?", "Yes"],
+    "most popular movies": ["Would you like me to look up the Wikipedia list of most popular movies?", "Yes, please"],
+    "highest-grossing": ["Would you like me to look up the Wikipedia list of highest-grossing films?", "Yes, please"],
+    "seahawks": ["Would you like to know if the Seattle Seahawks won?", "Yes"],
+    "maryland": ["Would you like to know how many people live in Maryland?", "Yes"],
+    "covid": ["Would you like me to set a timer for your covid test?", "Yes"],
+    "sunday": ["Would you like me to set an alarm for every Sunday at 8 PM?", "Yes, please"],
+    "vacation": ["Would you like recommendations for vacation places in June?", "Yes, please"],
+    "mandarin": ["Would you like to know how to say 'help me' in Mandarin Chinese?", "Yes"],
+    "guestroom": ["Would you like me to turn off the lights in the guestroom?", "Yes, please"],
+    "oven": ["Would you like me to preheat the oven to 300 degrees?", "Yes"],
+    "audiobook": ["Would you like to listen to A Series of Unfortunate Events on Audiobook?", "Yes, please"],
+    "sabrina": ["Would you like me to send an email to SabrinaK@west.edu?", "Yes"],
+    "giants": ["Would you like to check when the Giants are playing?", "Yes"],
+    "wheelchair": ["Would you like to check if the dentist's office on Park St. is wheelchair accessible?", "Yes"]
+  },
+  "optional_provider_cr_map": {
+    "paramount": ["Which streaming service would you like to watch this on?", "Paramount Plus"],
+    "audiobook": ["Would you like to listen to this on audiobook or another format?", "On audiobook"],
+    "tap": ["Do you have a preferred airline for flights to Lisbon?", "On TAP"],
+    "pandora": ["Which music service would you like to stream Billboard's Top 40 on?", "Pandora"],
+    "time_constraint": ["Would you like to know closing hours for today?", "Yes, until when it is open"]
+  }
+}

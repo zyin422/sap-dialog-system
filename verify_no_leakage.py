@@ -6,11 +6,28 @@ Fails with exit code 1 if ANY benchmark quotes, benchmark n-grams (len >= 2),
 or benchmark-specific named entities are detected.
 """
 
+import os
 import sys
 import re
 import pandas as pd
 
+def resolve_path(p: str) -> str:
+    if os.path.exists(p):
+        return p
+    alt = os.path.join(os.path.dirname(__file__), p)
+    if os.path.exists(alt):
+        return alt
+    alt2 = os.path.join(os.path.dirname(__file__), "..", p)
+    if os.path.exists(alt2):
+        return alt2
+    base = os.path.basename(p)
+    alt3 = os.path.join(os.path.dirname(__file__), base)
+    if os.path.exists(alt3):
+        return alt3
+    return p
+
 def audit_prompt(prompt_text: str, benchmark_csv: str = "sap-dialog-system/unique_benchmark_dev_291.csv") -> list:
+    benchmark_csv = resolve_path(benchmark_csv)
     df = pd.read_csv(benchmark_csv)
     prompts = [p.strip() for p in df['prompt'].tolist()]
     text_lower = prompt_text.lower()

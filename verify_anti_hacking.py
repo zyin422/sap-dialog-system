@@ -17,8 +17,26 @@ import re
 import json
 import importlib.util
 
+def resolve_path(p: str) -> str:
+    if os.path.exists(p):
+        return p
+    alt = os.path.join(os.path.dirname(__file__), p)
+    if os.path.exists(alt):
+        return alt
+    alt2 = os.path.join(os.path.dirname(__file__), "..", p)
+    if os.path.exists(alt2):
+        return alt2
+    base = os.path.basename(p)
+    alt3 = os.path.join(os.path.dirname(__file__), base)
+    if os.path.exists(alt3):
+        return alt3
+    return p
+
 def check_prompt_integrity(script_path: str = "sap-dialog-system/archive/evaluate_slu_enriched_qwen3.py",
                            schema_path: str = "sap-dialog-system/schema_freeze/SLU_schema_v1.0.json"):
+    script_path = resolve_path(script_path)
+    schema_path = resolve_path(schema_path)
+
     # Resolve script path if moved to archive
     if not os.path.exists(script_path):
         alt_path = os.path.join(os.path.dirname(script_path), "archive", os.path.basename(script_path))
@@ -30,12 +48,15 @@ def check_prompt_integrity(script_path: str = "sap-dialog-system/archive/evaluat
         schema = json.load(f)
     tool_names = [t["name"] for t in schema["tools"]]
 
-    # Load the module dynamically
-    spec = importlib.util.spec_from_file_location("eval_mod", script_path)
-    eval_mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(eval_mod)
-
-    sys_prompt = eval_mod.build_enriched_system_prompt(schema_path)
+    # Load the module or prompt text
+    if script_path.endswith(".txt"):
+        with open(script_path, "r", encoding="utf-8") as f:
+            sys_prompt = f.read()
+    else:
+        spec = importlib.util.spec_from_file_location("eval_mod", script_path)
+        eval_mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(eval_mod)
+        sys_prompt = eval_mod.build_enriched_system_prompt(schema_path)
 
     violations = []
 

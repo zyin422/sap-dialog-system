@@ -109,7 +109,7 @@ def evaluate_condition_metrics(df: pd.DataFrame, preds: list, col_name: str):
         gold_domain = str(row["domain"]).strip().lower()
         etiology = str(row.get("etiology", "all")).strip()
 
-        raw_slots = row.get("slots", "{}")
+        raw_slots = row.get("slots_json") if ("slots_json" in row and pd.notna(row.get("slots_json"))) else row.get("slots", "{}")
         gold_slots = json.loads(raw_slots) if isinstance(raw_slots, str) and raw_slots.strip() else {}
 
         pred_intent = p["intent"]
@@ -136,8 +136,8 @@ def evaluate_condition_metrics(df: pd.DataFrame, preds: list, col_name: str):
             else:
                 slots_all_ok = False
                 failures.append({
-                    "gold_id": row.get("gold_id", f"item_{idx}"),
-                    "wav": row.get("wav", ""),
+                    "gold_id": row.get("gold_id", row.get("id", f"item_{idx}")),
+                    "wav": row.get("wav", row.get("audio_filepath", "")),
                     "speaker": row.get("speaker", "unknown"),
                     "etiology": etiology,
                     "prompt": row.get("prompt", ""),
@@ -211,18 +211,20 @@ def main():
     parser.add_argument("--model_id", type=str, default="Qwen/Qwen3-8B")
     parser.add_argument("--batch_size", type=int, default=12)
     parser.add_argument("--max_new_tokens", type=int, default=130)
-    parser.add_argument("--condition", type=str, default="all", choices=["all", "oracle", "base_asr", "ft_asr"], help="Condition to evaluate: all, oracle, base_asr, or ft_asr")
+    parser.add_argument("--condition", type=str, default="all", choices=["all", "oracle", "oracle_transcript", "base_asr", "ft_asr"], help="Condition to evaluate: all, oracle, oracle_transcript, base_asr, or ft_asr")
+    parser.add_argument("--oracle_col", type=str, default="prompt", choices=["prompt", "oracle_transcript"], help="Column for oracle condition")
     parser.add_argument("--output_csv", type=str, default="/work/hdd/bedl/zyin2/benchmark_phase2/clean_eval_1200_nlg_results.csv")
     parser.add_argument("--output_summary", type=str, default="/work/hdd/bedl/zyin2/benchmark_phase2/clean_eval_1200_nlg_summary.json")
     args = parser.parse_args()
 
-    print("=== Starting Phase 2 Qwen3-8B Enriched Prompt SLU + NLG Benchmark on Delta (1200 Clean Benchmark) ===")
+    print("=== Starting Phase 2 Qwen3-8B Enriched Prompt SLU + NLG Benchmark on Delta ===")
     print(f"Dataset:     {args.csv_path}")
     print(f"Prompt Path: {args.prompt_path}")
     print(f"Model ID:    {args.model_id}")
     print(f"Batch Size:  {args.batch_size}")
     print(f"Max New Tok: {args.max_new_tokens}")
     print(f"Condition:   {args.condition}")
+    print(f"Oracle Col:  {args.oracle_col}")
 
     csv_to_load = args.output_csv if (os.path.exists(args.output_csv) and args.condition != "all") else args.csv_path
     df = pd.read_csv(csv_to_load)
@@ -251,15 +253,19 @@ def main():
     model.eval()
     print(f"Model loaded in {time.time() - t0:.2f}s.")
 
+    oracle_input_col = args.oracle_col if args.oracle_col in df.columns else "prompt"
     all_conditions = [
-        ("oracle", "prompt"),
+        ("oracle", oracle_input_col),
         ("base_asr", "base_parakeet_hypo"),
         ("ft_asr", "ft_parakeet_hypo")
     ]
+    if "oracle_transcript" in df.columns:
+        all_conditions.append(("oracle_transcript", "oracle_transcript"))
+
     if args.condition != "all":
         conditions = [c for c in all_conditions if c[0] == args.condition]
     else:
-        conditions = [c for c in all_conditions if c[1] in df.columns]
+        conditions = [c for c in [("oracle", oracle_input_col), ("base_asr", "base_parakeet_hypo"), ("ft_asr", "ft_parakeet_hypo")] if c[1] in df.columns]
 
     summary_results = {}
     detailed_failures = {}

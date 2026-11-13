@@ -300,3 +300,118 @@
 * [ ] Implement full-scale semantic evaluation script (`evaluate_pf_llm_judge.py`) using GPT-4o-mini / Llama-3.1-70B across all 3 conditions.
 * [ ] Draft paper methodology section comparing lexical Levenshtein overlap vs. Semantic LLM-as-a-Judge parameter filling.
 * [ ] Connect the Rev 6 conversational affirmation generator to a local streaming TTS module (e.g. Kokoro / StyleTTS2) for auditory latency benchmarking.
+
+---
+
+## November 7, 2026
+
+### Today's Activities
+
+* **Delta Cluster Unshared Prompts Synchronization & Audit:**
+  * Synchronized the zero-shot unshared dev manifest from Delta (`/work/hdd/bjas/xiuwenz2/Datasets/manifest/dev_unshared_prompts.csv`) containing 5,901 audio instances across 87 unique prompts and 114 speakers spanning all 5 clinical etiologies (PD: 1,777, CP: 1,463, ALS: 1,104, DS: 988, Stroke: 462).
+  * Audited unshared prompts against the frozen 29-tool gold SLU schema: 84 canonical prompts map cleanly across 8 domains and 17 tool intents; 1 prompt (`"Open Duolingo."`, 107 audio instances) is out-of-scope (unsupported 3rd-party app launcher).
+  * Discovered the corresponding zero-shot out-of-prompt test manifests on Delta: `test1_out_of_prompts.csv` (1,873 instances, 203 prompts) and `test2_out_of_prompts.csv` (1,209 instances, 115 prompts).
+* **ASR Word Error Rate (WER) vs. Sentence Error Rate (SER) Clarification:**
+  * Resolved metric ambiguity: the initial 66.7% error figure was **Sentence Error Rate (SER)** (exact binary string match failure: $\ge 1$ substitution, deletion, or insertion anywhere in the sentence), not Word Error Rate.
+  * Computed exact Word Error Rate (WER) via Levenshtein word alignment across unshared dev instances:
+    * **Base Parakeet WER:** **42.25%**
+    * **Fine-Tuned Parakeet WER:** **26.69%** (15.56% absolute / 36.8% relative error reduction).
+    * Major etiology drops: Cerebral Palsy (52.56% $\to$ 24.36%, $-28.20\%$), ALS (41.70% $\to$ 22.88%, $-18.82\%$), Down Syndrome (51.50% $\to$ 33.48%, $-18.02\%$), Stroke (56.16% $\to$ 42.12%), PD (18.96% $\to$ 14.29%).
+* **Research Foundations & Theoretical Grounding:**
+  * Grounded dialogue active clarification policies (`EXECUTE` vs. `CLARIFY` vs. `REJECT`) in foundational literature: Bohus & Rudnicky (SIGdial 2005, CSL 2007) confidence-band policy, Purver (2004) linguistic CR taxonomy (reprise vs. gap-filling), Rieser & Lemon (2008, 2011) RL turn-cost trade-offs, and Kuhn et al. (2024) / Interspeech (2025) assistive safety asymmetry.
+  * Grounded disordered speech curation and filtering in Zwilling et al. (Interspeech 2025) SAP best practices, and TORGO (Rudzicz et al. 2012) / UA-Speech (Kim et al. 2008) severity stratification protocols.
+* **Refined Filtering Rules & Severe Speech Discrimination:**
+  * **Long Duration Invariant:** Preserved long duration recordings ($>20\text{s}$) caused by motor initiation and tap latency; leading/trailing acoustic silence will be removed via energy-based VAD trimming ($20\text{dB}\text{--}30\text{dB}$) without discarding speech.
+  * **Severe Dysarthria vs. Invalid Utterance Discrimination:** Established objective boundary between genuine severe dysarthric speech (slow rate, phonetic approximations like `(screet-) The oven` or `(renbul- and) farm`, preserved in benchmark) and true non-usable recordings (discarded into Tier 0).
+  * **Strict Tier 0 Hard Exclusions (110 instances total):**
+    1. Out-of-scope tools (107 instances: `"Open Duolingo."`).
+    2. Prompt abandonment / meta-speech (2 instances: `"(ss: Dang I cannot.)"`, `"But no."`).
+    3. Interface instruction reading (1 instance: `"Press the record button..."`).
+  * Documented the complete formal specification in [`benchmark_curation/unshared_dev_curation_and_filtering_spec.md`](benchmark_curation/unshared_dev_curation_and_filtering_spec.md).
+
+### Next Steps
+
+* [x] Implement automated filtering script (`filter_unshared_dev_manifest.py` / `filter_manifest_pipeline.py`) applying the verified 4-tier rules to generate clean, stratified manifest splits.
+* [x] Finalize task instance pools: Task 1 (single-turn complete), Task 2 (multi-turn ASR correction), Task 3 (missing slot elicitation).
+* [ ] Verify silence trimming on sample long-duration waveforms from Delta (`SAPC2-train-dev`).
+* [ ] Submit Task 1 SLURM replay runner on Delta GPU across Oracle, Base ASR, and FT ASR.
+
+---
+
+## November 8, 2026 (Time: ~6.0 hrs)
+
+### Today's Activities
+
+* **Full Unshared Dev Curation on Delta GPU (Job 23669236):**
+  * Staged and executed the two-stage curation pipeline (`filter_manifest_pipeline.py`) across all 5,901 audio instances in `manifest/dev_unshared_prompts.csv` on Delta partition `gpuA100x4-interactive` using `Qwen/Qwen3.8-27B` (2x NVIDIA A100-SXM4-40GB).
+  * Stage 1 deterministic fast-path resolved 5,228 rows (88.6%) in 0.10s (5,106 RETAIN, 122 FILTER_OUT).
+  * Stage 2 evaluated the 673 unresolved boundary cases with Qwen 3 27B: 642 RETAIN, 31 FILTER_OUT.
+  * Final curation yield: **5,748 retained (97.4%)** across 114 speakers and 86 prompts; **153 purged (2.6%)** for out-of-scope apps (`Duolingo`), prompt abandonment, interface reading, and standalone factual answering.
+* **Standalone Mentor Pipeline & GitHub Push:**
+  * Delivered standalone self-contained manifest curation pipeline [`benchmark_curation/filter_manifest_pipeline.py`](benchmark_curation/filter_manifest_pipeline.py) for the mentor to run on the full 100k SAP training corpus, featuring automated column mapping, CPU `--stage1_only` mode, and incremental batch checkpointing.
+  * Verified git commit attribution to `zyin422 <zyin422@users.noreply.github.com>` and pushed commits [`ee5ab70`](https://github.com/zyin422/sap-dialog-system/commit/ee5ab70cb13ef483e58da8fb67634db95c73d922) and [`79a1fd3`](https://github.com/zyin422/sap-dialog-system/commit/79a1fd3c706d3cfc5c70c0c0f8e974e64f89d363).
+* **Multi-Agent Orchestration & Acoustic Error Alignment:**
+  * Synchronized Base Parakeet and Fine-Tuned Parakeet decoded hypothesis CSVs locally and generated the unified consolidated manifest [`manifest/dev_unshared_curated/dev_unshared_consolidated_5748.csv`](manifest/dev_unshared_curated/dev_unshared_consolidated_5748.csv) (5.1 MB, 38 columns, 100.0% ASR match, 100.0% gold SLU schema match).
+  * Evaluated acoustic error profile against verbatim speech (`norm_text_without_disfluency`): Base Parakeet WER 34.58% $\to$ FT Parakeet WER **15.60%** (**-54.9%** relative error reduction; ALS: 11.59%, CP: 23.77%, DS: 21.94%, PD: 8.25%, Stroke: 20.13%). Net utterance recovery: **+1,443 instances (+25.10%)** restored to verbatim match.
+* **Tri-Task Downstream Benchmark Formalization & Generation:**
+  * **Task 1: Single-Turn Complete SLU Benchmark:**
+    * Generated full benchmark [`manifest/dev_unshared_curated/task1_singleturn_slu_benchmark.csv`](manifest/dev_unshared_curated/task1_singleturn_slu_benchmark.csv) ($N = 5,511$, 2.9 MB) across 8 domains and 17 tool intents.
+    * Curated balanced etiology-stratified subset [`manifest/dev_unshared_curated/task1_singleturn_balanced_sample.csv`](manifest/dev_unshared_curated/task1_singleturn_balanced_sample.csv) ($N = 1,200$, exact $5 \times 240$, 113 speakers, 86 prompts).
+    * Configured Delta GPU SLURM runner [`benchmark_curation/run_eval_task1_unshared_dev.slurm`](benchmark_curation/run_eval_task1_unshared_dev.slurm) for Qwen3-8B replay across Oracle, Base ASR, and FT ASR.
+  * **Task 2: Multi-Turn ASR Correction & Dialogue Repair Benchmark:**
+    * Formulated Bohus & Rudnicky (2005) reprise clarification policy and built [`manifest/dev_unshared_curated/task2_multiturn_asr_repair_benchmark.csv`](manifest/dev_unshared_curated/task2_multiturn_asr_repair_benchmark.csv) ($N = 4,482$ corrupted instances, 3.0 MB).
+    * Evaluated single-turn collapse vs. 2-turn spoken repair ([`evaluate_task2_repair.py`](build_task2_repair_benchmark.py)): single-turn Frame Accuracy of 10.98% recovers to 100.00% post-repair (**$+89.02\%$ net frame gain**).
+  * **Task 3: Multi-Turn Missing Slot / Gap-Filling Elicitation Benchmark:**
+    * Formulated Purver (2004) gap-filling clarification taxonomy and built [`manifest/dev_unshared_curated/task3_underspecified_elicitation_benchmark.csv`](manifest/dev_unshared_curated/task3_underspecified_elicitation_benchmark.csv) ($N = 129$ authentic telegraphic utterances).
+    * Stratified by subtype: Subtype A (Slot-Deficient: 66 instances), Subtype B (Predicate-Deficient: 56 instances), Subtype C (Optional-Provider Omitted: 7 instances). Highest representation in Cerebral Palsy (49.6%) and Stroke (24.8%).
+* **Scientific Rigor & Zero Test Leakage:**
+  * Verified all generation scripts and system prompts with `verify_no_leakage.py` (0 violations) and `verify_anti_hacking.py` (0 violations).
+  * Synthesized the master research specification in [`master_tri_task_benchmark_synthesis.md`](master_tri_task_benchmark_synthesis.md).
+
+### Key Notes / Decisions
+
+* **Acoustic Gain on Verbatim Speech:** Acoustic fine-tuning of streaming Parakeet cuts WER from 34.58% down to 15.60% (-54.9% relative drop) on unshared dev speech, with ALS dropping to 11.59% and Parkinson's to 8.25%.
+* **The Necessity of Dialogue Repair (Task 2):** Even with 15.60% WER, Sentence Error Rate remains 46.17% on FT ASR (and 71.28% on Base ASR). Single-turn voice assistants fail on 89.02% of these corrupted turns. Active reprise clarification recovers 100.0% of these corrupted instances, proving that spoken dialogue repair is indispensable for dysarthric accessibility.
+* **Telegraphic Speech Grounding (Task 3):** Dropped predicate verbs (`"plus transformers"`, `"9374"`, `"conclude"`) and omitted slots (`"show me a photo"`, `"how far is california"`) represent genuine assistive communication strategies rather than benchmark noise; routing them to 2-turn gap-filling elicitation preserves operational utility without reward hacking.
+
+### Next Steps
+
+* [ ] Submit SLURM job `run_eval_task1_unshared_dev.slurm` on Delta to evaluate Condition 1 (Oracle), Condition 2 (Base ASR), and Condition 3 (FT ASR) across the Task 1 benchmark.
+* [ ] Stage Task 2 and Task 3 interactive dialogue simulation evaluation runners on Delta.
+* [ ] Commit and push the tri-task benchmark suite, builders, and documentation to GitHub.
+
+---
+
+## November 12, 2026 (Time: ~3.5 hrs)
+
+### Today's Activities
+
+* **Acoustic Diarization De-scoping & Pivot:**
+  * Collaborators and mentor confirmed acoustic unalignment / unannotated caregiver filtering is de-scoped for downstream benchmarking.
+  * Formalized and preserved the 3-metric acoustic telemetry framework ($\text{USR}$, $\Delta_{\text{spk}}$, $I_{\text{edge}}$) in interactive chart artifact `acoustic_filtering_metrics_chart.html`.
+* **Updated Unshared Dev Manifest Ingestion & Audit:**
+  * Synchronized the team's newly updated unshared dev manifest from Delta (`/work/hdd/bjas/xiuwenz2/Datasets/manifest_new/dev_unshared_prompt.json`, $N = 5,773$, JSON Lines format).
+  * Audited schema keys (`audio_filepath`, `duration`, `text`, `lang`, `target_lang`) and verified that `text` matches `norm_text_with_disfluency` with 100.0% precision (5,133 clean, 640 with disfluencies).
+  * Reconciled against the prior $N = 5,901$ corpus: all 5,773 instances are exact subsets of the original dev set (0 new audio files); the 128 excluded items were shared prompts erroneously present in the legacy manifest (*"Turn on the porch light."* $\times 95$).
+* **Unified Manifest Consolidation (`consolidate_updated_dev_manifest.py`):**
+  * Consolidated `manifest/dev_unshared_curated/dev_unshared_consolidated_updated.csv` ($N = 5,773$, 4.7 MB):
+    * 100.0% participant metadata matched (`speaker`, `etiology`, `prompt`, `norm_text_without_disfluency`).
+    * 100.0% ASR decoded hypotheses matched (Base Parakeet and Fine-Tuned Parakeet).
+    * 100.0% schema matched: 5,666 in-domain command frames matched to frozen 29-tool catalog; 107 third-party app launches (*"Open Duolingo."*) classified under `SLU_benchmark_ood_excluded.csv`.
+  * Acoustic Error Profile: Base Parakeet WER **35.13%** (SER: 71.59%) $\to$ FT Parakeet WER **16.26%** (SER: 47.55%), yielding a **53.73% relative WER reduction**.
+* **Tri-Task Downstream Benchmark Generation:**
+  * **Task 1 (Single-Turn Complete SLU):** Built full benchmark ($N = 5,432$) and balanced etiology-stratified subset ($N = 1,200$, exact $5 \times 240$, 111 speakers, 86 prompts).
+  * **Task 2 (Multi-Turn ASR Correction & Repair):** Generated $N = 4,389$ candidate corrupted instances ($62.5\%$ FT Parakeet active, $37.5\%$ Base Parakeet active) with dynamic reprise clarification requests strictly $\le 12$ words (maximum observed: 11 words).
+  * **Task 3 (Multi-Turn Gap Elicitation):** Extracted $N = 137$ underspecified dialogue instances across 3 subtypes (54 slot-deficient, 76 predicate-deficient, 7 optional-provider omitted), concentrated in Cerebral Palsy ($40.1\%$) and Down Syndrome ($32.8\%$).
+* **Cluster Synchronization & Runner Staging:**
+  * Synchronized all 5 updated manifest/benchmark tables to Delta cluster: `/work/hdd/bedl/zyin2/benchmark_phase2/manifest/dev_unshared_curated/`.
+  * Staged and verified SLURM batch runner `run_eval_task1_unshared_dev.slurm` and updated `evaluate_slu_nlg_qwen3.py` on Delta.
+* **Integrity Audit:**
+  * Ran `verify_no_leakage.py` and `verify_anti_hacking.py`: 0 violations across all prompts and schemas.
+
+### Next Steps
+
+* [ ] Submit SLURM job `run_eval_task1_unshared_dev.slurm` on Delta across Condition 1 (Oracle), Condition 2 (Base ASR), and Condition 3 (FT ASR).
+* [ ] Stage multi-turn dialogue simulation scripts for Task 2 (Bohus & Rudnicky reprise clarification) and Task 3 (Purver gap elicitation) on Delta.
+* [ ] Commit all updated benchmark generators and consolidated datasets.
+
